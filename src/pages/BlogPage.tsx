@@ -241,9 +241,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             )}
           </div>
 
-          {/* In-Article AdSense Placement */}
-          <AdSensePlacement currentLang={currentLang} format="in-article" />
-
           {/* Article Main Text Content */}
           <div className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base space-y-4">
             <div className="whitespace-pre-wrap">

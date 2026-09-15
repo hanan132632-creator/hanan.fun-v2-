@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { ArabicWordleGame } from './ArabicWordleGame';
-import { AdSensePlacement } from './AdSensePlacement';
 
 interface InteractiveGamesSectionProps {
   currentLang: Language;
@@ -339,11 +338,6 @@ export const InteractiveGamesSection: React.FC<InteractiveGamesSectionProps> = (
             )}
           </div>
         )}
-
-        {/* AdSense Placement underneath games to monetize high engagement */}
-        <div className="mt-12">
-          <AdSensePlacement currentLang={currentLang} format="rectangle" />
-        </div>
       </div>
     </section>
   );

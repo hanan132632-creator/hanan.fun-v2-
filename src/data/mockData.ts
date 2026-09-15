@@ -340,6 +340,232 @@ export const GLOBAL_SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'local-llm-offline-ai-complete-guide-2026',
+    slug: 'local-llm-offline-ai-complete-guide-2026',
+    title: {
+      ar: 'الدليل الشامل لتشغيل نماذج الذكاء الاصطناعي محلياً (Local LLMs) لعام 2026: خصوصية مطلقة، صفر اشتراكات شهرية، وأداء فائق بدون إنترنت',
+      en: 'The Ultimate 2026 Guide to Running Local LLMs & Offline AI: Zero Cloud Subscriptions, 100% Data Privacy, and Native Hardware Acceleration',
+      fr: 'Guide Complet 2026 des LLM Locaux et IA Hors-Ligne : Zéro Abonnement Cloud, Confidentialité Totale et Accélération Matérielle',
+      es: 'Guía Definitiva 2026 para Ejecutar LLMs Locales e IA Offline: Cero Suscripciones, Privacidad Total y Aceleración por Hardware',
+      de: 'Der ultimative Leitfaden 2026 für lokale LLMs & Offline-KI: Keine Cloud-Abos, 100% Datenschutz und maximale Hardware-Performance',
+      zh: '2026 本地大语言模型 (Local LLMs) 离线运行终极指南：零订阅费用、100% 数据绝对隐私与消费级硬件极致优化',
+      ja: '2026年最新 完全版 ローカルLLM＆オフラインAI実行マニュアル：クラウド課金ゼロ・完全機密保護・一般PCでの超高速推論',
+      tr: '2026 Kapsamlı Yerel LLM ve Çevrimdışı Yapay Zeka Rehberi: Sıfır Bulut Ücreti, Tam Gizlilik ve Donanım Hızlandırma',
+    },
+    excerpt: {
+      ar: 'تعلم خطوة بخطوة كيف تحول حاسوبك الشخصي أو المحمول إلى محطة ذكاء اصطناعي مستقلة قادرة على معالجة الملفات والبرمجة والترجمة الفورية بأعلى سرعة دون إرسال أي بايت واحد إلى خوادم خارجية، مع معادلات حساب الـ VRAM وجداول التكميم (Quantization).',
+      en: 'A hands-on, practical engineering blueprint to turn your laptop or desktop into a sovereign AI workstation. Master VRAM/RAM sizing formulas, Q4/Q8 quantization tiers, Ollama/LM Studio orchestration, and private offline RAG workflows.',
+      fr: 'Transformez votre ordinateur personnel en station de travail IA souveraine. Maîtrisez le dimensionnement de la VRAM, la quantification Q4/Q8 et le déploiement d\'Ollama pour une confidentialité absolue.',
+      es: 'Convierte tu ordenador en una estación de IA soberana. Domina el cálculo de VRAM, niveles de cuantización y el despliegue de Ollama para trabajar sin conexión y sin fugas de datos.',
+      de: 'Verwandeln Sie Ihren PC in eine souveräne KI-Workstation. Meistern Sie VRAM-Formeln, Q4/Q8-Quantisierung und private RAG-Workflows ohne Internetverbindung und ohne laufende Cloud-Kosten.',
+      zh: '系统掌握在个人电脑与笔记本上本地离线部署开源前沿大模型的实战全案：涵盖显存算力精准换算公式、GGUF 量化分级、Ollama 与 Open WebUI 极速配置及私有化离线 RAG 知识库搭建。',
+      ja: '手持ちのPCを自律型AIワークステーションに進化させる実践ガイド。VRAM計算式、量子化レベル、Ollama環境構築、完全オフラインでのRAG活用法を詳解。',
+      tr: 'Kişisel bilgisayarınızı tam bağımsız bir yapay zeka istasyonuna dönüştürün: VRAM hesaplama formülleri, kuantizasyon seviyeleri ve çevrimdışı RAG mimarisi ile veri sızıntılarına son verin.',
+    },
+    content: {
+      ar: `يشهد عام 2026 نقطة تحول تاريخية في علاقة المستخدمين والمهندسين بالذكاء الاصطناعي. بينما اعتاد الملايين خلال السنوات الماضية على الاعتماد الكامل على منصات المحادثة السحابية عبر اشتراكات شهرية متكررة ($20 إلى $200 شهرياً)، أدرك مطورو البرمجيات والمحامون والأطباء ورواد الأعمال أن هذا النموذج يحمل في طياته ثلاث معضلات كبرى:
+1. **الخصوصية وتسريب الأسرار (Data Privacy Leakage):** إرسال الأكواد البرمجية الحساسة، السجلات الطبية، والوثائق المالية إلى خوادم شركات خارجية يعرضها للمراجعة البشرية والتدريب وإمكانية الاختراق.
+2. **الاعتمادية وانقطاع الاتصال (Internet & Latency Dependency):** أي توقف لشبكة الإنترنت أو بطء في استجابة خوادم المزود يوقف عجلة العمل والإنتاج تماماً.
+3. **تكاليف الاشتراكات الشهرية المتراكمة وقيود الاستخدام (Rate Limits):** حدود الاستخدام المفروضة على الاستفسارات المعقدة ونماذج التفكير المنطقي.
+
+الخبر السار هو أن التطور الهائل في هندسة المعماريات المصغرة وتقنيات **التكميم المتقدم (Advanced Quantization - GGUF)** جعل تشغيل أقوى النماذج مفتوحة المصدر عالمياً (مثل Llama 3.3، DeepSeek R1، Qwen 2.5 Coder، و Mistral) أمراً متاحاً وسريعاً بشكل مذهل على الحواسيب الشخصية العادية وأجهزة الماك دون الحاجة لسيرفرات عملاقة.
+
+في هذا المقال العملي الشامل، نضع بين يديك الدليل الهندسي المتكامل لتشغيل الذكاء الاصطناعي محلياً وبشكل مستقل بنسبة 100%.
+
+---
+
+### 1. المعادلة الهندسية: كيف تحسب متطلبات الـ VRAM والذاكرة بدقة؟
+
+قبل تنزيل أي نموذج، يجب معرفة ما إذا كانت مواصفات جهازك (كارت الشاشة GPU أو الذاكرة الموحدة Unified Memory) كافية لتشغيل النموذج بسرعة مقبولة (Tokens per Second).
+
+تُحسب الذاكرة المطلوبة بالمعادلة التالية:
+\`الذاكرة الإجمالية (GB) = [عدد المعاملات بالمليار × حجم التكميم بالبت ÷ 8] + ذاكرة سياق المحادثة (KV Cache) + 2 GB لهامش نظام التشغيل\`
+
+#### جدول المقارنة العملية لتشغيل أشهر النماذج في 2026:
+
+| حجم النموذج (Parameters) | نمط التكميم (Quantization) | حجم الـ VRAM المطلوب للنموذج | الذاكرة العشوائية RAM الموصى بها | أفضل النماذج الموصى بها |
+| :--- | :--- | :--- | :--- | :--- |
+| **7B - 8B Parameters** | Q4_K_M (4-bit) | 5.5 GB - 6.5 GB | 16 GB | Llama 3.3 8B / Qwen 2.5 7B |
+| **14B Parameters** | Q4_K_M (4-bit) | 9.5 GB - 11 GB | 16 - 32 GB | Qwen 2.5 Coder 14B / DeepSeek R1 14B |
+| **32B Parameters** | Q4_K_M (4-bit) | 19 GB - 22 GB | 32 - 64 GB | DeepSeek R1 Distill Qwen 32B |
+| **70B Parameters** | Q4_K_M (4-bit) | 42 GB - 46 GB | 64 - 128 GB | Llama 3.3 70B Instruct |
+
+> 💡 **قاعدة ذهبية لمستخدمي أجهزة Apple Silicon (Mac M1/M2/M3/M4):** تتميز أجهزة الماك بـ "الذاكرة الموحدة" (Unified Memory)، مما يعني أن كارت الشاشة المدمج يستطيع استهلاك ما يصل إلى 75% من ذاكرة الجهاز RAM لمعالجة النماذج، وبالتالي فإن جهاز Mac يحتوي على 36GB أو 64GB من الذاكرة قادر على تشغيل نماذج 14B و 32B بسرعة فائقة تتجاوز 45 كلمة في الثانية!
+
+---
+
+### 2. فك شفرة التكميم: ما هو GGUF وماذا تعني Q4_K_M و Q8_0؟
+
+تأتي أوزان النماذج الأصلية بدقة 16-bit عائمة (FP16)، وهو ما يتطلب مساحات خيالية (مثلاً نموذج 70B يحتاج 140GB VRAM بدقة FP16).
+يقوم مهندسو التكميم بضغط هذه الأرقام إلى 4-bit أو 8-bit مع الحفاظ على الترابط العصبي:
+* **FP16 (دقة خام):** 16 بت لكل وزن - دقة 100% ولكن تتطلب سيرفرات استضافة باهظة.
+* **Q8_0 (دقة عالية):** 8 بت لكل وزن - تفقد أقل من 0.2% من جودة الفهم، لكنها تتطلب ضعف مساحة 4-bit.
+* **Q4_K_M (النقطة السحرية الذهبية Sweet Spot):** تستخدم 4 بت مع تدريج ذكي للأوزان الحساسة. تمنحك **98% من ذكاء النموذج الأصلي بنصف استهلاك الذاكرة وبسرعة توليد مضاعفة**، وتعتبر الخيار الأول الموصى به لجميع الاستخدامات اليومية.
+
+---
+
+### 3. الدليل التطبيقي: إطلاق بيئة الذكاء الاصطناعي في 5 دقائق عبر Ollama
+
+أداة **Ollama** هي المعيار الذهبي لتشغيل وإدارة النماذج المحلية في 2026 بفضل خفتها ودعمها التلقائي للعتاد وتسريع الـ GPU.
+
+#### الخطوة 1: تثبيت Ollama
+* قم بزيارة الموقع الرسمي وتحميل مثبت النظام (Windows / macOS / Linux).
+* بالنسبة لمستخدمي Linux أو السيرفرات السحابية:
+  \`curl -fsSL https://ollama.com/install.sh | sh\`
+
+#### الخطوة 2: تشغيل أول نموذج عبر سطر الأوامر (Terminal)
+لتشغيل نموذج التفكير والتحليل المنطقي الخارق:
+\`ollama run deepseek-r1:8b\`
+
+أو لتشغيل المساعد البرمجي الفائق لتوليد وتصحيح الأكواد:
+\`ollama run qwen2.5-coder:14b\`
+
+سيبدأ البرنامج تلقائياً في تنزيل النموذج المكمم، وبمجرد اكتماله ستظهر لك شاشة الدردشة التفاعلية للبدء فوراً دون إنترنت!
+
+---
+
+### 4. واجهات الدردشة الرسومية الفاخرة (Open WebUI & LM Studio)
+
+إذا كنت تفضل واجهة مستخدم رسومية أنيقة شبيهة بـ ChatGPT مع دعم المحادثات المتعددة، رفع الملفات، والوضع الداكن:
+1. **Open WebUI (الأقوى والأشمل):**
+   يمكن تشغيلها بنقرة واحدة عبر Docker:
+   \`docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main\`
+   تمنحك لوحة تحكم كاملة، إدارة المستخدمين، ودعم تفريغ الصوت وتحليل الصور محلياً.
+2. **LM Studio (الأسهل للمبتدئين):**
+   برنامج مستقل يتم تثبيته على ويندوز وماك، يحتوي على محرك بحث داخلي لتصفح آلاف النماذج من HuggingFace وتنزيلها وتجربتها بضغطة زر.
+
+---
+
+### 5. بناء نظام البحث الخاص (Private Offline RAG) للوثائق الحساسة
+
+واحدة من أعظم ميزات النماذج المحلية هي القدرة على استنطاق مستنداتك وسجلاتك القانونية أو المالية دون أن ترفع سطراً واحداً إلى السحابة:
+1. يمكنك ربط نماذج Embedding المحلية (مثل \`nomic-embed-text\` أو \`bge-m3\`) عبر Ollama.
+2. يقوم النظام بتحويل مستندات PDF وملفات Word إلى متجهات رقمية محلية مخزنة في قاعدة بيانات متجهية مشفرة على قرصك الصلب (مثل ChromaDB أو LanceDB).
+3. عند سؤالك عن تفاصيل عقد معين أو تحليل تقرير مالي معقد، يقوم النموذج المحلي باستخراج الفقرات الدقيقة بدقة 100% مع الاستشهاد برقم الصفحة ورقم البند.
+
+---
+
+### 6. ترشيحات الخبراء لأفضل النماذج المتخصصة لعام 2026
+
+* **أفضل نموذج للكتابة، الصياغة الإبداعية، والترجمة:** **Llama 3.3 8B / 70B** - يتميز بأسلوب لغوي رصين وفهم عميق للسياقات الثقافية وتناسق الحوار.
+* **أفضل نموذج للبرمجة وهندسة البرمجيات:** **Qwen 2.5 Coder (7B / 14B / 32B)** - يتفوق على معظم النماذج المدفوعة في حل مشكلات خوارزميات LeetCode وتصحيح أخطاء لغات TypeScript، Python، Go، و Rust.
+* **أفضل نموذج للاستنتاج المنطقي المعقد والرياضيات:** **DeepSeek R1 (نسخ التقطير 8B و 14B و 32B)** - يقدم شجرة تفكير مرئية كاملة (Chain of Thought) تكشف لك كيف وصل النموذج إلى الحل خطوة بخطوة.
+* **أفضل نموذج لتحويل الصوت إلى نص محلياً:** **Whisper Large-v3 Turbo** - يفرغ الاجتماعات والمحاضرات الصوتية باللغة العربية والإنجليزية بدقة تفوق 98% وبسرعة تعادل 10 أضعاف الزمن الحقيقي.
+
+---
+
+### 7. نصائح ذهبية لرفع سرعة الاستجابة ومنع تجميد النظام
+
+1. **تفعيل تقنية Context Offloading:** اضبط خيار \`num_gpu\` في إعدادات Ollama لتحميل أقصى عدد ممكن من الطبقات (Layers) على ذاكرة الـ VRAM السريعة، وترك الفائض فقط للـ RAM العادية.
+2. **استخدام أقراص NVMe Gen4/Gen5 فائقة السرعة:** يتم تحميل النماذج الكبيرة من القرص إلى الذاكرة في ثانيتين فقط بدلاً من نصف دقيقة على الأقراص القديمة.
+3. **تحديد نافذة السياق (Context Window) بحكمة:** زيادة السياق من 8K إلى 128K تستهلك عدة جيجابايت إضافية من الذاكرة لجدول الـ KV Cache؛ اختر سياقاً يتناسب مع حجم الوثيقة الفعلية.
+
+> 🛡️ **الخلاصة الإستراتيجية:** يمثل الذكاء الاصطناعي المحلي الخطوة الأكثر نضجاً وأماناً لكل مؤسسة وناشر ومطور يبحث عن الكفاءة العالية، الامتثال لقوانين حماية البيانات، والحصانة ضد تقلبات أسعار المنصات السحابية. ابدأ اليوم بتشغيل نموذجك الأول وامتلك أدوات مستقبلك الرقمي بيدك!`,
+      en: `The year 2026 marks a decisive turning point in how professionals, software engineers, and privacy-conscious organizations interact with artificial intelligence. While millions historically subscribed to cloud-based chat portals paying recurring monthly fees ($20 to $200/month), developers, legal counsel, and healthcare professionals quickly identified three critical systemic vulnerabilities:
+1. **Data Sovereignty & IP Leakage:** Uploading proprietary codebases, confidential patient records, and financial balance sheets to third-party cloud data centers exposes intellectual property to telemetry logging, human auditing, and breach risks.
+2. **Network Latency & Offline Fragility:** Dependence on cloud API gateways causes workflow disruption during ISP outages or upstream provider rate throttling.
+3. **Escalating Recurring SaaS Costs & Usage Throttling:** Rigid query caps on high-reasoning models.
+
+Fortunately, rapid innovations in micro-architecture design and state-of-the-art **GGUF quantization** enable consumer-tier hardware—such as standard desktop GPUs and Apple Silicon MacBooks—to execute world-class open-weights models (including Llama 3.3, DeepSeek R1, Qwen 2.5 Coder, and Mistral) with breathtaking inference speeds completely offline.
+
+This comprehensive architectural guide provides the complete engineering playbook to configure, optimize, and orchestrate private sovereign AI workflows locally.
+
+---
+
+### 1. The Mathematical Memory Formula: Calculating VRAM & RAM Requirements
+Before deploying any open-weights model, you must calculate whether your local memory configuration can sustain inference without memory thrashing.
+
+The exact formula is:
+\`Total Footprint (GB) = [Parameter Count (Billions) × Quantization Bit-Depth ÷ 8] + KV Cache (Context Window) + 2 GB OS Overhead\`
+
+#### Hardware Sizing Matrix (2026 Reference):
+* **7B - 8B Parameters (Q4_K_M):** 5.5 - 6.5 GB VRAM | Recommended System RAM: 16 GB (e.g., RTX 3060, RTX 4060, or Apple M-series 16GB).
+* **14B Parameters (Q4_K_M):** 9.5 - 11 GB VRAM | Recommended System RAM: 32 GB (e.g., RTX 4070 12GB, RTX 4080).
+* **32B Parameters (Q4_K_M):** 19 - 22 GB VRAM | Recommended System RAM: 32 - 64 GB (e.g., RTX 3090/4090 24GB or Apple Mac 36GB/48GB).
+* **70B Parameters (Q4_K_M):** 42 - 46 GB VRAM | Recommended System RAM: 64 - 128 GB (Dual RTX 3090/4090 or Apple Mac Studio 64GB/128GB).
+
+---
+
+### 2. Dequantizing the Quantization Matrix: GGUF, Q4_K_M, and Q8_0
+Unquantized model weights originate in 16-bit floating point precision (FP16), demanding massive infrastructure.
+Quantization compresses dynamic weight distributions:
+* **FP16 (Uncompressed):** 16 bits per weight. Full theoretical fidelity, but double the hardware requirement.
+* **Q8_0 (Near-lossless):** 8 bits per weight. Retains 99.8% precision with a moderate footprint reduction.
+* **Q4_K_M (The Golden Sweet Spot):** Employs k-quant block distribution to assign higher precision to critical attention heads while compressing redundant parameters. Yields **98% of baseline benchmark performance at half the memory footprint**, delivering optimum tokens-per-second throughput on consumer devices.
+
+---
+
+### 3. Rapid Deployment: Zero to Local Inference in 5 Minutes with Ollama
+Ollama has become the universal runtime standard for local model orchestration.
+
+#### Step 1: Install Ollama
+Download and run the binary installer for your operating system, or execute in Linux terminals:
+\`curl -fsSL https://ollama.com/install.sh | sh\`
+
+#### Step 2: Spin Up Target Foundation Models
+To initiate deep mathematical reasoning and verifiable chain-of-thought analysis:
+\`ollama run deepseek-r1:8b\`
+
+To spin up an enterprise-grade autonomous software engineering and debugging agent:
+\`ollama run qwen2.5-coder:14b\`
+
+The runtime automatically schedules layer offloading across detected CUDA, Metal, or ROCm compute engines, providing a conversational REPL within seconds.
+
+---
+
+### 4. Enterprise GUI Experiences: Open WebUI & LM Studio
+For teams requiring intuitive chat management, file attachments, and multi-model arena comparisons:
+* **Open WebUI:** A production-grade web dashboard deploying effortlessly via Docker with native user authentication, audio transcription, and live web-search integration.
+* **LM Studio:** An all-in-one desktop workstation application providing integrated HuggingFace model browsing, hardware telemetry graphs, and local OpenAI-compatible API endpoints for drop-in replacement in existing coding tools.
+
+---
+
+### 5. Private Offline Retrieval-Augmented Generation (RAG)
+By marrying local embedding models (e.g., \`bge-m3\`, \`nomic-embed-text\`) with local vector databases (ChromaDB or LanceDB), you can ingest internal financial statements, legal contracts, and intellectual repositories. The local model queries your private indexed vector space with zero bytes transmitted to external networks, rendering verifiable page citations with impenetrable privacy.
+
+---
+
+### 6. Curated 2026 Model Recommendations by Use-Case
+* **Creative Writing, Synthesis & Translation:** Llama 3.3 (8B / 70B)
+* **Code Generation, Refactoring & Test Suites:** Qwen 2.5 Coder (14B / 32B)
+* **Deep Logical Reasoning & Mathematical Proofs:** DeepSeek R1 (Distill 14B / 32B)
+* **Offline Multilingual Speech-to-Text:** Whisper Large-v3 Turbo
+
+---
+
+### Strategic Takeaway
+Local AI is no longer a hobbyist compromise; it is an enterprise-grade imperative for data sovereignty, cost predictability, and uninterrupted operational resilience. Deploy your sovereign instance today and experience zero-latency, private computing at scale.`,
+      fr: `Le déploiement des modèles de langage en local (Local LLMs) s'impose en 2026 comme la solution incontournable pour garantir la souveraineté des données, éliminer les abonnements cloud onéreux et bénéficier d'une réactivité instantanée sans connexion Internet. Ce guide technique complet détaille le calcul précis de la VRAM, le choix optimal de quantification GGUF (Q4_K_M vs Q8_0), ainsi que l'orchestration fluide d'Ollama, LM Studio et Open WebUI pour exécuter Llama 3.3, DeepSeek R1 et Qwen 2.5 en toute autonomie sur votre matériel personnel.`,
+      es: `Ejecutar modelos de inteligencia artificial en local (Local LLMs) es la gran revolución de 2026 para proteger la confidencialidad empresarial, eliminar costes recurrentes de suscripción y operar sin depender de la nube. Esta guía técnica detalla paso a paso las fórmulas matemáticas para dimensionar la memoria VRAM y RAM, los niveles de cuantización GGUF más eficientes (Q4_K_M), y el despliegue inmediato con Ollama y Open WebUI para procesar documentos confidenciales con máxima seguridad y cero latencia.`,
+      de: `Lokale KI-Modelle (Local LLMs) definieren 2026 den Standard für Datensouveränität, Ausfallsicherheit und Kostenkontrolle. In diesem umfassenden Praxisleitfaden erfahren Sie, wie Sie Spitzenmodelle wie Llama 3.3, DeepSeek R1 und Qwen 2.5 auf Standard-GPUs und Apple Silicon MacBooks betreiben – mit exakten VRAM-Berechnungen, GGUF-Quantisierungsprofilen (Q4_K_M), lokaler RAG-Dokumentenanalyse und vollständiger Unabhängigkeit von externen Cloud-APIs.`,
+      zh: '2026 年，本地化大语言模型 (Local LLMs) 正在掀起一场深刻的隐私与算力革命。通过在个人电脑与边缘工作站部署开源顶级模型（如 DeepSeek R1、Llama 3.3、Qwen 2.5 Coder），开发者与企业能够彻底告别昂贵的云端订阅费用、网络延迟与核心商业机密泄露风险。本指南系统拆解显存 (VRAM) 与内存换算公式、GGUF 进阶量化分级标准、Ollama 与 Open WebUI 极速配置全流程，并传授如何搭建完全离线的本地私有化知识库 (RAG)。',
+      ja: '2026年、ローカルLLM（オフラインAI実行環境）はプライバシー保護・クラウド課金削減・完全機密保持を実現する最高峰のソリューションとして定着しました。本実践マニュアルでは、Llama 3.3、DeepSeek R1、Qwen 2.5 Coderを自前のPCやMacで超高速稼働させるためのVRAM計算式、GGUF量子化（Q4_K_M）の選定基準、OllamaおよびOpen WebUIの導入手順、完全オフラインRAGの構築法を徹底解説します。',
+      tr: '2026 yılında yerel yapay zeka modelleri (Local LLMs), veri gizliliğini korumak, yüksek aylık bulut aboneliklerini sıfırlamak ve internet kesintilerinden bağımsız çalışmak isteyen profesyoneller için temel bir gereklilik haline geldi. Bu kapsamlı rehberde; VRAM ve RAM hesaplama formüllerini, GGUF kuantizasyon optimizasyonlarını (Q4_K_M), Ollama ve Open WebUI kurulum adımlarını ve yerel çevrimdışı RAG mimarilerini keşfedin.',
+    },
+    category: 'ai',
+    author: {
+      name: 'Eng. Zaid Al-Ghamdi',
+      role: {
+        ar: 'كبير مهندسي أنظمة الذكاء الاصطناعي والحوسبة الخاصة',
+        en: 'Lead AI Systems Architect & Edge Intelligence Specialist',
+        fr: 'Architecte Principal Systèmes IA & Intelligence Edge',
+        es: 'Arquitecto Principal de Sistemas de IA e Inteligencia Edge',
+        de: 'Leitender KI-Systemarchitekt & Edge-Intelligence-Spezialist',
+        zh: '首席 AI 系统架构师兼边缘计算与私有化模型专家',
+        ja: 'AIシステム担当チーフアーキテクト＆エッジAIスペシャリスト',
+        tr: 'Kıdemli Yapay Zeka Sistem Mimarı ve Uç Bilişim Uzmanı',
+      },
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    },
+    publishDate: '2026-09-15',
+    readTimeMin: 9,
+    coverImage: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&auto=format&fit=crop&q=80',
+    tags: ['Local LLMs', 'الذكاء الاصطناعي المحلي', 'Ollama', 'DeepSeek R1', 'Llama 3.3', 'الخصوصية الرقمية', 'Open WebUI'],
+    views: 24300,
+    likes: 1890,
+    commentsCount: 42,
+  },
+  {
     id: 'adsense-site-review-approval-checklist-2026',
     slug: 'adsense-site-review-approval-checklist-2026',
     title: {
