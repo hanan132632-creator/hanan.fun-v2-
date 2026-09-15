@@ -1,11 +1,41 @@
-<div align="center">
+# موقع حنان الشامل | Hanan Fun
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+منصة رقمية عربية متكاملة تقدم مقالات ثرية في مجالات التقنية، الذكاء الاصطناعي، ريادة الأعمال، المال والاستثمار، وتطوير الذات، مصممة بأحدث تقنيات الويب السريعة والمتجاوبة.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 التقنيات المستخدمة
+- **React 18 + TypeScript**
+- **Vite** للبناء السريع الفائق
+- **Tailwind CSS** للتصميم العصري والمتجاوب
+- **Lucide Icons** للأيقونات التفاعلية
+- **Google Analytics 4 & Google AdSense** للتتبع وتحقيق الدخل
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🛠️ التشغيل والتطوير المحلي
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### 1. تثبيت الحزم:
+```bash
+npm install
+```
 
-</div>
+### 2. التشغيل في بيئة التطوير:
+```bash
+npm run dev
+```
+
+### 3. بناء المشروع للإنتاج (Production Build):
+```bash
+npm run build
+```
+
+مجلد المخرجات للإنتاج هو: `dist`
+
+## 📄 الصفحات والسياسات
+- الصفحة الرئيسية واستعراض المقالات
+- قراءة المقالات التفاعلية مع شريط التقدم
+- صفحة من نحن (About Us)
+- صفحة اتصل بنا (Contact Us)
+- سياسة الخصوصية (Privacy Policy)
+- الشروط والأحكام (Terms of Service)
+- ملف `robots.txt` وخريطة الموقع `sitemap.xml` للأرشفة في محركات البحث
+
+---
+© 2026 Hanan Fun. جميع الحقوق محفوظة.

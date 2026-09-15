@@ -1,0 +1,8 @@
+{
+  "name": "خدمات الإنترنت العالمية - Global Internet Services",
+  "description": "منصة رقمية عالمية متكاملة لخدمات وحلول الإنترنت، تضم مدونة تقنية ثرية، متجر خدمات سحابية، استشارات الذكاء الاصطناعي، وجميع صفحات الامتثال لمعايير جوجل أدسنس بعدة لغات.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
