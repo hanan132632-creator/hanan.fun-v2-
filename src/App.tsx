@@ -44,14 +44,18 @@ export default function App() {
   // URL Path to ActivePage resolver
   const getInitialPage = (): ActivePage => {
     if (typeof window === 'undefined') return 'home';
-    const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+    const rawPath = window.location.pathname.toLowerCase().replace(/\/$/, '');
+    let path = rawPath;
+    try {
+      path = decodeURIComponent(rawPath);
+    } catch {}
     if (path.includes('ads.txt')) {
       window.location.replace('/ads.txt');
       return 'home';
     }
     if (path === '/about' || path.endsWith('/about')) return 'about';
     if (path === '/store' || path.endsWith('/store')) return 'store';
-    if (path === '/blog' || path.endsWith('/blog')) return 'blog';
+    if (path === '/blog' || path.endsWith('/blog') || path === '/مدونة' || path.endsWith('/مدونة')) return 'blog';
     if (path === '/contact' || path.endsWith('/contact')) return 'contact';
     if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy')) return 'privacy';
     if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms')) return 'terms';

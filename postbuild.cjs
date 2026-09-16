@@ -44,10 +44,12 @@ const routes = [
   'privacy',
   'store',
   'blog',
+  'مدونة',
   'contact',
   'cookies',
   'adsense-standards',
-  'diagnostics'
+  'diagnostics',
+  'audio-to-video'
 ];
 
 const indexHtmlPath = path.join(distDir, 'index.html');
