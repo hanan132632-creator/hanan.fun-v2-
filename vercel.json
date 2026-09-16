@@ -1,13 +1,13 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/(sitemap\\.xml|sitemap|sitemap_index\\.xml)",
+      "source": "/sitemap.xml",
       "headers": [
         {
           "key": "Content-Type",
