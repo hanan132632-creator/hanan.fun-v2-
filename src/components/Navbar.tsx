@@ -14,7 +14,8 @@ import {
   Gamepad2,
   KeyRound,
   Smartphone,
-  Award
+  Award,
+  BookOpen
 } from 'lucide-react';
 import { Language, Currency, ActivePage, CartItem } from '../types';
 import { LANGUAGES, CURRENCIES, TRANSLATIONS } from '../locales/translations';
@@ -91,9 +92,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { page: ActivePage; label: string }[] = [
     { page: 'home', label: t.nav_home },
+    { page: 'blog', label: currentLang === 'ar' ? 'المكتبة التحريرية 📚' : t.nav_blog },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الصوت لفيديو 🎬' : 'Audio to Video 🎬' },
     { page: 'store', label: t.nav_store },
-    { page: 'blog', label: t.nav_blog },
     { page: 'diagnostics', label: t.nav_diagnostics },
     { page: 'about', label: t.nav_about },
     { page: 'contact', label: t.nav_contact },
@@ -152,14 +153,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => onNavigate(link.page)}
                   className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all inline-flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400' 
-                      : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                      ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold' 
+                      : link.page === 'blog'
+                        ? 'text-blue-700 dark:text-blue-300 bg-blue-50/80 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/60 font-bold border border-blue-200 dark:border-blue-800/80 shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
                   }`}
                 >
+                  {link.page === 'blog' && <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
                   <span>{link.label}</span>
                   {link.page === 'blog' && (
-                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">
-                      {BLOG_POSTS.length}
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-blue-600 text-white shadow-xs">
+                      {BLOG_POSTS.length} مقال موثق
                     </span>
                   )}
                 </button>
@@ -359,14 +363,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }}
                   className={`w-full text-start px-4 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-between ${
                     isActive 
-                      ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400' 
-                      : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                      ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold' 
+                      : link.page === 'blog'
+                        ? 'text-blue-700 dark:text-blue-300 bg-blue-50/70 dark:bg-blue-950/40 font-bold border border-blue-200 dark:border-blue-800/80'
+                        : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
-                  <span>{link.label}</span>
+                  <div className="flex items-center gap-2">
+                    {link.page === 'blog' && <BookOpen className="w-4 h-4 text-blue-600" />}
+                    <span>{link.label}</span>
+                  </div>
                   {link.page === 'blog' && (
-                    <span className="px-2 py-0.5 rounded-full text-xs font-black bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">
-                      {BLOG_POSTS.length} مقالاً
+                    <span className="px-2 py-0.5 rounded-full text-xs font-black bg-blue-600 text-white">
+                      {BLOG_POSTS.length} مقال موثق EEAT
                     </span>
                   )}
                 </button>
