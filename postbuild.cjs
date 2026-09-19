@@ -17,6 +17,9 @@ const staticFiles = [
   'sitemap.xml',
   'favicon.ico',
   'favicon.png',
+  'favicon-48x48.png',
+  'favicon-96x96.png',
+  'favicon-192x192.png',
   'favicon.svg',
   'apple-touch-icon.png'
 ];

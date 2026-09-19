@@ -65,6 +65,21 @@ async function startServer() {
     res.sendFile(robotsPath);
   });
 
+  // Favicon endpoint for search engine crawlers and browsers
+  app.get(["/favicon.ico", "/favicon.png"], (req, res) => {
+    const filename = req.path.includes("ico") ? "favicon.ico" : "favicon.png";
+    const contentType = req.path.includes("ico") ? "image/x-icon" : "image/png";
+    res.setHeader("Content-Type", contentType);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    const filePath = path.join(process.cwd(), "public", filename);
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.status(404).end();
+    }
+  });
+
   // Contact Form Submission API
   app.post("/api/contact", (req, res) => {
     try {

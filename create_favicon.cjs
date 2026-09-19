@@ -36,7 +36,7 @@ function makeChunk(type, data) {
 // Universal PNG generator supporting any dimension and maskable styling
 function createIconPNG(width, height, options = {}) {
   const isMaskable = options.maskable || false;
-  const bgPadding = isMaskable ? 0.70 : 0.82; // Safe zone for Android icons
+  const bgPadding = isMaskable ? 0.70 : 0.84; // Safe zone
 
   const signature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
 
@@ -68,42 +68,44 @@ function createIconPNG(width, height, options = {}) {
       if (isMaskable) {
         // Full bleed background for Android maskable icon (#0f172a)
         if (dist <= innerR) {
-          // Central globe
           const normDist = dist / innerR;
           const isMeridian = Math.abs(dx) <= width * 0.02 || Math.abs(dy) <= height * 0.02;
           const isBorder = Math.abs(dist - innerR) <= width * 0.035;
 
           if (isBorder || isMeridian) {
-            // Bright electric cyan (#38bdf8)
-            rawData.push(56, 189, 248, 255);
-          } else if (normDist <= 0.25) {
-            // Radiant center core (#60a5fa)
-            rawData.push(96, 165, 250, 255);
-          } else {
-            // Tech royal blue (#1d4ed8)
-            rawData.push(29, 78, 216, 255);
-          }
-        } else {
-          // Sleek dark navy container (#0f172a)
-          rawData.push(15, 23, 42, 255);
-        }
-      } else {
-        // Standard Icon with transparent background
-        if (dist <= r) {
-          const isOuterBorder = Math.abs(dist - r) <= width * 0.035;
-          const isMeridian = Math.abs(dx) <= width * 0.02 || Math.abs(dy) <= height * 0.02;
-
-          if (isOuterBorder || isMeridian) {
             rawData.push(56, 189, 248, 255); // #38bdf8
-          } else if (dist <= r * 0.25) {
+          } else if (normDist <= 0.25) {
             rawData.push(96, 165, 250, 255); // #60a5fa
           } else {
-            // Sleek translucent navy circle (#0f172a)
-            rawData.push(15, 23, 42, 250);
+            rawData.push(29, 78, 216, 255); // #1d4ed8
           }
         } else {
-          // Transparent
-          rawData.push(0, 0, 0, 0);
+          rawData.push(15, 23, 42, 255); // #0f172a
+        }
+      } else {
+        // Sleek icon with modern rounded background (#0f172a)
+        const cornerRadius = width * 0.22;
+        const inRoundedRect = 
+          x >= cx - r && x <= cx + r && y >= cy - r && y <= cy + r &&
+          (Math.abs(dx) <= r - cornerRadius || Math.abs(dy) <= r - cornerRadius ||
+           Math.pow(Math.abs(dx) - (r - cornerRadius), 2) + Math.pow(Math.abs(dy) - (r - cornerRadius), 2) <= cornerRadius * cornerRadius);
+
+        if (inRoundedRect) {
+          const isOuterBorder = Math.abs(dist - (r * 0.8)) <= width * 0.03;
+          const isMeridian = (Math.abs(dx) <= width * 0.025 || Math.abs(dy) <= height * 0.025) && dist <= r * 0.8;
+          const isCore = dist <= r * 0.28;
+
+          if (isCore) {
+            rawData.push(56, 189, 248, 255); // Electric cyan #38bdf8
+          } else if (isOuterBorder || isMeridian) {
+            rawData.push(96, 165, 250, 255); // Soft blue #60a5fa
+          } else if (dist <= r * 0.8) {
+            rawData.push(30, 58, 138, 255); // Royal blue #1e3a8a
+          } else {
+            rawData.push(15, 23, 42, 255); // Dark navy base #0f172a
+          }
+        } else {
+          rawData.push(0, 0, 0, 0); // Transparent
         }
       }
     }
@@ -118,32 +120,55 @@ function createIconPNG(width, height, options = {}) {
 
 const publicDir = path.join(__dirname, 'public');
 
-// 1. Generate 32x32 Favicon PNG
+// 1. Generate PNGs in all required standard sizes
+const png16 = createIconPNG(16, 16);
 const png32 = createIconPNG(32, 32);
-fs.writeFileSync(path.join(publicDir, 'favicon.png'), png32);
+const png48 = createIconPNG(48, 48);   // Official Google Search minimum multiple of 48
+const png96 = createIconPNG(96, 96);   // Retina Google Search multiple of 48
+const png180 = createIconPNG(180, 180); // Apple touch icon
+const png192 = createIconPNG(192, 192); // Android web app multiple of 48
+const png512 = createIconPNG(512, 512, { maskable: true }); // PWA Splash icon
 
-// 2. Generate Apple Touch Icon (180x180)
-const appleIcon = createIconPNG(180, 180);
-fs.writeFileSync(path.join(publicDir, 'apple-touch-icon.png'), appleIcon);
+fs.writeFileSync(path.join(publicDir, 'favicon.png'), png48);
+fs.writeFileSync(path.join(publicDir, 'favicon-48x48.png'), png48);
+fs.writeFileSync(path.join(publicDir, 'favicon-96x96.png'), png96);
+fs.writeFileSync(path.join(publicDir, 'favicon-192x192.png'), png192);
+fs.writeFileSync(path.join(publicDir, 'apple-touch-icon.png'), png180);
 
-// 3. Generate standard .ICO container with 32x32 image
+// 2. Build multi-image standard ICO container with 48x48 (Google standard) and 32x32
+// ICO Header: 6 bytes
+const numImages = 2;
 const icoHeader = Buffer.alloc(6);
 icoHeader.writeUInt16LE(0, 0); // Reserved
 icoHeader.writeUInt16LE(1, 2); // Type 1 = Icon
-icoHeader.writeUInt16LE(1, 4); // 1 Image
+icoHeader.writeUInt16LE(numImages, 4); // Number of images
 
-const icoDirEntry = Buffer.alloc(16);
-icoDirEntry.writeUInt8(32, 0); // Width 32
-icoDirEntry.writeUInt8(32, 1); // Height 32
-icoDirEntry.writeUInt8(0, 2);  // Colors
-icoDirEntry.writeUInt8(0, 3);  // Reserved
-icoDirEntry.writeUInt16LE(1, 4); // Color planes
-icoDirEntry.writeUInt16LE(32, 6); // Bits per pixel
-icoDirEntry.writeUInt32LE(png32.length, 8); // Image size in bytes
-icoDirEntry.writeUInt32LE(22, 12); // Offset (6 + 16 = 22)
+// Directory entry 1: 48x48
+const dirEntry48 = Buffer.alloc(16);
+dirEntry48.writeUInt8(48, 0); // Width
+dirEntry48.writeUInt8(48, 1); // Height
+dirEntry48.writeUInt8(0, 2);  // Colors
+dirEntry48.writeUInt8(0, 3);  // Reserved
+dirEntry48.writeUInt16LE(1, 4); // Color planes
+dirEntry48.writeUInt16LE(32, 6); // Bits per pixel
+dirEntry48.writeUInt32LE(png48.length, 8); // Size
+const offset48 = 6 + (16 * numImages);
+dirEntry48.writeUInt32LE(offset48, 12); // Offset
 
-const icoFile = Buffer.concat([icoHeader, icoDirEntry, png32]);
+// Directory entry 2: 32x32
+const dirEntry32 = Buffer.alloc(16);
+dirEntry32.writeUInt8(32, 0); // Width
+dirEntry32.writeUInt8(32, 1); // Height
+dirEntry32.writeUInt8(0, 2);  // Colors
+dirEntry32.writeUInt8(0, 3);  // Reserved
+dirEntry32.writeUInt16LE(1, 4); // Color planes
+dirEntry32.writeUInt16LE(32, 6); // Bits per pixel
+dirEntry32.writeUInt32LE(png32.length, 8); // Size
+const offset32 = offset48 + png48.length;
+dirEntry32.writeUInt32LE(offset32, 12); // Offset
+
+const icoFile = Buffer.concat([icoHeader, dirEntry48, dirEntry32, png48, png32]);
 fs.writeFileSync(path.join(publicDir, 'favicon.ico'), icoFile);
 
-console.log('Successfully generated public/favicon.ico, favicon.png, and apple-touch-icon.png');
+console.log('Successfully generated Google-compliant 48x48, 96x96, 192x192 PNGs and multi-resolution favicon.ico!');
 
