@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
       "source": "/((?!api/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|xml|txt|json|css|js|map)).*)",
       "destination": "/index.html"
     }

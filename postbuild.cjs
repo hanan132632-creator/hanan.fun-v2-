@@ -31,6 +31,13 @@ for (const file of staticFiles) {
   }
 }
 
+// Copy sitemap.xml to dist/sitemap and dist/sitemap_index.xml as fallback
+const sitemapSrc = path.join(publicDir, 'sitemap.xml');
+if (fs.existsSync(sitemapSrc)) {
+  fs.copyFileSync(sitemapSrc, path.join(distDir, 'sitemap'));
+  fs.copyFileSync(sitemapSrc, path.join(distDir, 'sitemap_index.xml'));
+}
+
 // Also ensure public_html in dist
 const distPublicHtml = path.join(distDir, 'public_html');
 if (!fs.existsSync(distPublicHtml)) {
