@@ -51,12 +51,18 @@ if (fs.existsSync(path.join(publicHtmlDir, 'ads.txt'))) {
 // 3. Create static HTML entry points for every route to prevent 404
 const routes = [
   'about',
+  'عن',
+  'من-نحن',
   'terms',
+  'الشروط',
   'privacy',
+  'سياسة-الخصوصية',
   'store',
+  'متجر',
   'blog',
   'مدونة',
   'contact',
+  'اتصل-بنا',
   'cookies',
   'adsense-standards',
   'diagnostics',

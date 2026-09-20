@@ -53,12 +53,12 @@ export default function App() {
       window.location.replace('/ads.txt');
       return 'home';
     }
-    if (path === '/about' || path.endsWith('/about')) return 'about';
-    if (path === '/store' || path.endsWith('/store')) return 'store';
+    if (path === '/about' || path.endsWith('/about') || path === '/عن' || path.endsWith('/عن') || path === '/من-نحن' || path.endsWith('/من-نحن')) return 'about';
+    if (path === '/store' || path.endsWith('/store') || path === '/متجر' || path.endsWith('/متجر')) return 'store';
     if (path === '/blog' || path.endsWith('/blog') || path === '/مدونة' || path.endsWith('/مدونة')) return 'blog';
-    if (path === '/contact' || path.endsWith('/contact')) return 'contact';
-    if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy')) return 'privacy';
-    if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms')) return 'terms';
+    if (path === '/contact' || path.endsWith('/contact') || path === '/اتصل-بنا' || path.endsWith('/اتصل-بنا')) return 'contact';
+    if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy') || path === '/سياسة-الخصوصية') return 'privacy';
+    if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms') || path === '/الشروط') return 'terms';
     if (path === '/cookies' || path === '/cookie-policy' || path.endsWith('/cookies')) return 'cookies';
     if (path === '/adsense-standards' || path.endsWith('/adsense-standards')) return 'adsense-standards';
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
