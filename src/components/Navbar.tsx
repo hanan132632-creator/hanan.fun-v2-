@@ -15,7 +15,9 @@ import {
   KeyRound,
   Smartphone,
   Award,
-  BookOpen
+  BookOpen,
+  FileText,
+  Lock
 } from 'lucide-react';
 import { Language, Currency, ActivePage, CartItem } from '../types';
 import { LANGUAGES, CURRENCIES, TRANSLATIONS } from '../locales/translations';
@@ -110,13 +112,23 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-medium">{t.hero_badge}</span>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-blue-100">
-            <span className="flex items-center gap-1">
+            <button 
+              onClick={() => onNavigate('privacy')}
+              className="hover:text-white transition-colors flex items-center gap-1 hover:underline underline-offset-2 cursor-pointer"
+            >
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-              <span>SOC2 & ISO 27001</span>
-            </span>
-            <span className="flex items-center gap-1">
+              <span>{t.nav_privacy}</span>
+            </button>
+            <button 
+              onClick={() => onNavigate('terms')}
+              className="hover:text-white transition-colors flex items-center gap-1 hover:underline underline-offset-2 cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5 text-indigo-200" />
+              <span>{t.nav_terms}</span>
+            </button>
+            <span className="flex items-center gap-1 opacity-80">
               <Activity className="w-3.5 h-3.5 text-emerald-300" />
-              <span>99.99% Uptime SLA</span>
+              <span>99.99% SLA</span>
             </span>
           </div>
         </div>
@@ -352,6 +364,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-3">
           <div className="flex flex-col gap-1">
+            {/* Mobile primary links */}
             {navLinks.map(link => {
               const isActive = activePage === link.page;
               return (
@@ -381,6 +394,71 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               );
             })}
+
+            {/* سياسة الخصوصية وشروط الاستخدام في قائمة الثلاث شرط */}
+            <button
+              onClick={() => {
+                onNavigate('privacy');
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full text-start px-4 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2.5 transition-all ${
+                activePage === 'privacy'
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border border-blue-200 dark:border-blue-800'
+                  : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>{t.nav_privacy}</span>
+              <span className="ms-auto text-[10px] px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">GDPR & CCPA</span>
+            </button>
+
+            <button
+              onClick={() => {
+                onNavigate('terms');
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full text-start px-4 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2.5 transition-all ${
+                activePage === 'terms'
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border border-blue-200 dark:border-blue-800'
+                  : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <span>{t.nav_terms}</span>
+              <span className="ms-auto text-[10px] px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">قانوني</span>
+            </button>
+
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                onClick={() => {
+                  onNavigate('cookies');
+                  setMobileMenuOpen(false);
+                }}
+                className={`text-start px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all border ${
+                  activePage === 'cookies'
+                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border-blue-300 dark:border-blue-800'
+                    : 'bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                <span>🍪</span>
+                <span className="truncate">{t.nav_cookies}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  onNavigate('adsense-standards');
+                  setMobileMenuOpen(false);
+                }}
+                className={`text-start px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all border ${
+                  activePage === 'adsense-standards'
+                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold border-blue-300 dark:border-blue-800'
+                    : 'bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                <span>📜</span>
+                <span className="truncate">{t.nav_adsense_standards}</span>
+              </button>
+            </div>
           </div>
 
           <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
