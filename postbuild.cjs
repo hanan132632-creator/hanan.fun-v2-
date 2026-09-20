@@ -15,6 +15,7 @@ const staticFiles = [
   'ads.txt',
   'robots.txt',
   'sitemap.xml',
+  'sitemap.txt',
   'favicon.ico',
   'favicon.png',
   'favicon-48x48.png',

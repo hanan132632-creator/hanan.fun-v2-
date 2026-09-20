@@ -56,6 +56,15 @@ async function startServer() {
     res.sendFile(sitemapPath);
   });
 
+  // Sitemap.txt endpoint (plain text sitemap officially supported by Google)
+  app.get("/sitemap.txt", (_req, res) => {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Cache-Control", "public, max-age=3600");
+    const sitemapTextPath = path.join(process.cwd(), "public", "sitemap.txt");
+    res.sendFile(sitemapTextPath);
+  });
+
   // Robots.txt endpoint
   app.get("/robots.txt", (_req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
