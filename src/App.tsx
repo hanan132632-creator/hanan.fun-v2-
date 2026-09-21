@@ -57,9 +57,9 @@ export default function App() {
     if (path === '/store' || path.endsWith('/store') || path === '/متجر' || path.endsWith('/متجر')) return 'store';
     if (path === '/blog' || path.endsWith('/blog') || path === '/مدونة' || path.endsWith('/مدونة')) return 'blog';
     if (path === '/contact' || path.endsWith('/contact') || path === '/اتصل-بنا' || path.endsWith('/اتصل-بنا')) return 'contact';
-    if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy') || path === '/سياسة-الخصوصية') return 'privacy';
-    if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms') || path === '/الشروط') return 'terms';
-    if (path === '/cookies' || path === '/cookie-policy' || path.endsWith('/cookies')) return 'cookies';
+    if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy') || path === '/سياسة-الخصوصية' || path.endsWith('/سياسة-الخصوصية') || path === '/خصوصية' || path.endsWith('/خصوصية')) return 'privacy';
+    if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms') || path === '/الشروط' || path.endsWith('/الشروط') || path === '/شروط' || path.endsWith('/شروط') || path === '/شروط-الاستخدام' || path.endsWith('/شروط-الاستخدام')) return 'terms';
+    if (path === '/cookies' || path === '/cookie-policy' || path.endsWith('/cookies') || path === '/كوكيز' || path === '/ملفات-تعريف-الارتباط') return 'cookies';
     if (path === '/adsense-standards' || path.endsWith('/adsense-standards')) return 'adsense-standards';
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
