@@ -9,7 +9,51 @@
       "destination": "/sitemap.xml"
     },
     {
-      "source": "/((?!api/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|xml|txt|json|css|js|map)).*)",
+      "source": "/ads.txt",
+      "destination": "/ads.txt"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.txt",
+      "destination": "/sitemap.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/favicon-192x192.png",
+      "destination": "/favicon-192x192.png"
+    },
+    {
+      "source": "/favicon-96x96.png",
+      "destination": "/favicon-96x96.png"
+    },
+    {
+      "source": "/favicon-48x48.png",
+      "destination": "/favicon-48x48.png"
+    },
+    {
+      "source": "/favicon.png",
+      "destination": "/favicon.png"
+    },
+    {
+      "source": "/favicon.svg",
+      "destination": "/favicon.svg"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/apple-touch-icon.png"
+    },
+    {
+      "source": "/((?!api/|assets/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|xml|txt|json|css|js|map)).*)",
       "destination": "/index.html"
     }
   ],
