@@ -53,13 +53,53 @@ export default function App() {
       window.location.replace('/ads.txt');
       return 'home';
     }
-    if (path === '/about' || path.endsWith('/about') || path === '/عن' || path.endsWith('/عن') || path === '/من-نحن' || path.endsWith('/من-نحن')) return 'about';
-    if (path === '/store' || path.endsWith('/store') || path === '/متجر' || path.endsWith('/متجر')) return 'store';
-    if (path === '/blog' || path.endsWith('/blog') || path === '/مدونة' || path.endsWith('/مدونة')) return 'blog';
-    if (path === '/contact' || path.endsWith('/contact') || path === '/اتصل-بنا' || path.endsWith('/اتصل-بنا')) return 'contact';
-    if (path === '/privacy' || path === '/privacy-policy' || path.endsWith('/privacy') || path === '/سياسة-الخصوصية' || path.endsWith('/سياسة-الخصوصية') || path === '/خصوصية' || path.endsWith('/خصوصية')) return 'privacy';
-    if (path === '/terms' || path === '/terms-of-service' || path.endsWith('/terms') || path === '/الشروط' || path.endsWith('/الشروط') || path === '/شروط' || path.endsWith('/شروط') || path === '/شروط-الاستخدام' || path.endsWith('/شروط-الاستخدام')) return 'terms';
-    if (path === '/cookies' || path === '/cookie-policy' || path.endsWith('/cookies') || path === '/كوكيز' || path === '/ملفات-تعريف-الارتباط') return 'cookies';
+    // Normalize path by removing spaces and multi-slashes
+    const normalizedPath = path.replace(/\s+/g, '-').replace(/\/+/g, '/');
+
+    if (
+      normalizedPath === '/about' || normalizedPath.endsWith('/about') || 
+      normalizedPath === '/عن' || normalizedPath.endsWith('/عن') || 
+      normalizedPath === '/من-نحن' || normalizedPath.endsWith('/من-نحن')
+    ) return 'about';
+
+    if (
+      normalizedPath === '/store' || normalizedPath.endsWith('/store') || 
+      normalizedPath === '/متجر' || normalizedPath.endsWith('/متجر') || 
+      normalizedPath === '/محل' || normalizedPath.endsWith('/محل') ||
+      path.includes('محل') || path.includes('متجر') || path.includes('store') || path.includes('shop')
+    ) return 'store';
+
+    if (
+      normalizedPath === '/blog' || normalizedPath.endsWith('/blog') || 
+      normalizedPath === '/مدونة' || normalizedPath.endsWith('/مدونة')
+    ) return 'blog';
+
+    if (
+      normalizedPath === '/contact' || normalizedPath.endsWith('/contact') || 
+      normalizedPath === '/اتصل-بنا' || normalizedPath.endsWith('/اتصل-بنا') ||
+      path.includes('اتصل') || path.includes('تواصل')
+    ) return 'contact';
+
+    if (
+      normalizedPath === '/privacy' || normalizedPath === '/privacy-policy' || normalizedPath.endsWith('/privacy') || 
+      normalizedPath === '/سياسة-الخصوصية' || normalizedPath.endsWith('/سياسة-الخصوصية') || 
+      normalizedPath === '/خصوصية' || normalizedPath.endsWith('/خصوصية') ||
+      path.includes('خصوصية') || path.includes('privacy')
+    ) return 'privacy';
+
+    if (
+      normalizedPath === '/terms' || normalizedPath === '/terms-of-service' || normalizedPath.endsWith('/terms') || 
+      normalizedPath === '/الشروط' || normalizedPath.endsWith('/الشروط') || 
+      normalizedPath === '/شروط' || normalizedPath.endsWith('/شروط') || 
+      normalizedPath === '/شروط-الاستخدام' || normalizedPath.endsWith('/شروط-الاستخدام') ||
+      path.includes('شروط') || path.includes('terms')
+    ) return 'terms';
+
+    if (
+      normalizedPath === '/cookies' || normalizedPath === '/cookie-policy' || normalizedPath.endsWith('/cookies') || 
+      normalizedPath === '/كوكيز' || normalizedPath === '/ملفات-تعريف-الارتباط' ||
+      path.includes('كوكيز') || path.includes('cookie')
+    ) return 'cookies';
     if (path === '/adsense-standards' || path.endsWith('/adsense-standards')) return 'adsense-standards';
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
