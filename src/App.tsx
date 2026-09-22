@@ -71,7 +71,9 @@ export default function App() {
 
     if (
       normalizedPath === '/blog' || normalizedPath.endsWith('/blog') || 
-      normalizedPath === '/مدونة' || normalizedPath.endsWith('/مدونة')
+      normalizedPath === '/مدونة' || normalizedPath.endsWith('/مدونة') ||
+      normalizedPath.startsWith('/blog/') || normalizedPath.startsWith('/مدونة/') ||
+      path.includes('مدونة') || path.includes('blog')
     ) return 'blog';
 
     if (
