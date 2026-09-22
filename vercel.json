@@ -53,6 +53,14 @@
       "destination": "/apple-touch-icon.png"
     },
     {
+      "source": "/404.html",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/404",
+      "destination": "/404.html"
+    },
+    {
       "source": "/((?!api/|assets/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|xml|txt|json|css|js|map)).*)",
       "destination": "/index.html"
     }

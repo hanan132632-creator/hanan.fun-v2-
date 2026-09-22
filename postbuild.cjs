@@ -22,7 +22,8 @@ const staticFiles = [
   'favicon-96x96.png',
   'favicon-192x192.png',
   'favicon.svg',
-  'apple-touch-icon.png'
+  'apple-touch-icon.png',
+  '404.html'
 ];
 
 for (const file of staticFiles) {
