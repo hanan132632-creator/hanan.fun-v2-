@@ -60,6 +60,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
   const categories = [
     { id: 'all', label: 'جميع المقالات (All Articles)' },
+    { id: 'spirituality', label: 'السكينة والطب النبوي (Mindfulness & Dhikr)' },
     { id: 'security', label: 'الأمان وشهادات SSL (Security & SSL)' },
     { id: 'performance', label: 'السيو وسرعة المواقع (SEO & Performance)' },
     { id: 'ai', label: 'الذكاء الاصطناعي والبرمجيات (AI & Software)' },

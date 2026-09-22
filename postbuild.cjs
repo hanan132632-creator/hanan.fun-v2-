@@ -78,7 +78,8 @@ const routes = [
   'ملفات-تعريف-الارتباط',
   'adsense-standards',
   'diagnostics',
-  'audio-to-video'
+  'audio-to-video',
+  'blog/neuroscience-dhikr-mindfulness-digital-calm-2026'
 ];
 
 const indexHtmlPath = path.join(distDir, 'index.html');
