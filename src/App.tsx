@@ -110,7 +110,33 @@ export default function App() {
 
   // Navigation State
   const [activePage, setActivePage] = useState<ActivePage>(getInitialPage);
-  const [selectedBlogSlug, setSelectedBlogSlug] = useState<string | null>(null);
+  const [selectedBlogSlug, setSelectedBlogSlug] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const path = window.location.pathname;
+    if (path.startsWith('/blog/')) {
+      return path.replace('/blog/', '').replace(/\/$/, '');
+    }
+    return null;
+  });
+
+  const handleSelectBlog = (slug: string | null) => {
+    setSelectedBlogSlug(slug);
+    if (slug) {
+      setActivePage('blog');
+      if (typeof window !== 'undefined') {
+        try {
+          window.history.pushState({ page: 'blog', slug }, '', `/blog/${slug}`);
+        } catch {}
+      }
+    } else {
+      if (typeof window !== 'undefined') {
+        try {
+          window.history.pushState({ page: 'blog' }, '', '/blog');
+        } catch {}
+      }
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Dark Mode State
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -183,6 +209,14 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       setActivePage(getInitialPage());
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname;
+        if (path.startsWith('/blog/')) {
+          setSelectedBlogSlug(path.replace('/blog/', '').replace(/\/$/, ''));
+        } else if (path === '/blog') {
+          setSelectedBlogSlug(null);
+        }
+      }
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -274,7 +308,7 @@ export default function App() {
           <BlogPage
             currentLang={currentLang}
             selectedPostSlug={selectedBlogSlug}
-            onSelectPost={setSelectedBlogSlug}
+            onSelectPost={handleSelectBlog}
           />
         )}
 

@@ -41,7 +41,7 @@ export interface BlogPost {
   title: Record<Language, string>;
   excerpt: Record<Language, string>;
   content: Record<Language, string>;
-  category: 'cloud' | 'security' | 'performance' | 'ai' | 'monetization' | 'networking' | 'culture' | 'education';
+  category: 'cloud' | 'security' | 'performance' | 'ai' | 'monetization' | 'networking' | 'culture' | 'education' | 'science' | 'spirituality';
   author: {
     name: string;
     role: Record<Language, string>;

@@ -438,7 +438,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {BLOG_POSTS.map(post => (
+          {BLOG_POSTS.slice(0, 6).map(post => (
             <article
               key={post.id}
               onClick={() => {

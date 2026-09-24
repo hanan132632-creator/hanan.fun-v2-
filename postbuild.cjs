@@ -79,6 +79,7 @@ const routes = [
   'adsense-standards',
   'diagnostics',
   'audio-to-video',
+  'blog/quantum-biology-mysteries-entanglement-photosynthesis-2026',
   'blog/neuroscience-dhikr-mindfulness-digital-calm-2026'
 ];
 
