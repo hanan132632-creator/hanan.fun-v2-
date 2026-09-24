@@ -343,14 +343,14 @@ export const BLOG_POSTS: BlogPost[] = [
     id: 'quantum-biology-mysteries-entanglement-photosynthesis-2026',
     slug: 'quantum-biology-mysteries-entanglement-photosynthesis-2026',
     title: {
-      ar: 'أسرار البيولوجيا الكمومية 2026: كيف تُسخّر الخلايا الحية والطيور والنباتات غرائب فيزياء الكم (التشابك والنفق الكمومي) لصنع المعجزات الحيوية؟',
-      en: 'The Secrets of Quantum Biology 2026: How Living Cells, Avian Navigation, and Plants Harness Quantum Physics (Entanglement & Tunneling)',
-      fr: 'Les Secrets de la Biologie Quantique 2026 : Comment le Vivant Exploite l\'Intrication et l\'Effet Tunnel Quantique',
-      es: 'Misterios de la Biología Cuántica 2026: Cómo las Células Vivas, las Aves y las Plantas Dominan la Física Cuántica',
-      de: 'Geheimnisse der Quantenbiologie 2026: Wie lebende Zellen, Vögel und Pflanzen Quantenmechanik nutzen',
-      zh: '2026 量子生物学终极奥秘：活体细胞、候鸟迁徙与绿色植物如何驾驭量子纠缠与量子隧穿效应？',
-      ja: '2026年 量子生物学の驚異：生体細胞、渡り鳥、植物がいかに量子もつれとトンネル効果を操るのか',
-      tr: '2026 Kuantum Biyolojisinin Sırları: Canlı Hücreler, Göçmen Kuşlar ve Bitkiler Kuantum Fiziğini Nasıl Kullanıyor?',
+      ar: 'أسرار البيولوجيا الكمومية: كيف تُسخّر الخلايا الحية والطيور والنباتات غرائب فيزياء الكم (التشابك والنفق الكمومي) لصنع المعجزات الحيوية؟',
+      en: 'The Secrets of Quantum Biology: How Living Cells, Avian Navigation, and Plants Harness Quantum Physics (Entanglement & Tunneling)',
+      fr: 'Les Secrets de la Biologie Quantique : Comment le Vivant Exploite l\'Intrication et l\'Effet Tunnel Quantique',
+      es: 'Misterios de la Biología Cuántica: Cómo las Células Vivas, las Aves y las Plantas Dominan la Física Cuántica',
+      de: 'Geheimnisse der Quantenbiologie: Wie lebende Zellen, Vögel und Pflanzen Quantenmechanik nutzen',
+      zh: '量子生物学终极奥秘：活体细胞、候鸟迁徙与绿色植物如何驾驭量子纠缠与量子隧穿效应？',
+      ja: '量子生物学の驚異：生体細胞、渡り鳥、植物がいかに量子もつれとトンネル効果を操るのか',
+      tr: 'Kuantum Biyolojisinin Sırları: Canlı Hücreler, Göçmen Kuşlar ve Bitkiler Kuantum Fiziğini Nasıl Kullanıyor?',
     },
     excerpt: {
       ar: 'كشف علمي ثوري يجمع بين فيزياء الكم الدقيقة والبيولوجيا الجزيئية: كيف أثبتت أحدث التجارب المخبرية أن كفاءة نقل الطاقة في البناء الضوئي تقترب من 100% بفضل التماسك الكمومي، وكيف تسترشد الطيور المهاجرة بالمجال المغناطيسي للأرض عبر التشابك الكمي في بروتين الكريبتوكروم، وما هو دور النفق الكمومي في عمل الإنزيمات وحاسة الشم البشرية.',
@@ -367,7 +367,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 كانت الحجة السائدة تقول: *«الخلية الحية بيئة دافئة، رطبة، وفوضوية، وأي أثر كمومي رقيق سوف ينهار ويتلاشى فوراً بفعل الاصطدامات الجزيئية الحرارية (Decoherence)»*.
 
-لكن مع مطلع عام 2026، أحدثت أبحاث **"البيولوجيا الكمومية" (Quantum Biology)** ثورة علمية غير مسبوقة؛ إذ أثبتت أحدث أجهزة الليزر الفيمتو-ثانية (Femtosecond Spectroscopy) والرنين المغناطيسي الجزيئي أن الطبيعة الحية ليست عاجزة عن حماية الحالات الكمومية، بل طوّرت على مدى مليارات السنين آليات جزيئية عبقرية **تستغل فوضى الخلية لحماية وتضخيم الظواهر الكمومية**!
+لكن مع أحدث أبحاث **"البيولوجيا الكمومية" (Quantum Biology)**، حدثت ثورة علمية غير مسبوقة؛ إذ أثبتت أحدث أجهزة الليزر الفيمتو-ثانية (Femtosecond Spectroscopy) والرنين المغناطيسي الجزيئي أن الطبيعة الحية ليست عاجزة عن حماية الحالات الكمومية، بل طوّرت على مدى مليارات السنين آليات جزيئية عبقرية **تستغل فوضى الخلية لحماية وتضخيم الظواهر الكمومية**!
 
 في هذا المقال العلمي الموسوعي والفريد، نغوص في أعماق الخلية لنكشف كيف تصنع فيزياء الكم المعجزات في عالم الأحياء.
 
@@ -434,13 +434,13 @@ export const BLOG_POSTS: BlogPost[] = [
 
 ### المحور الرابع: هل عقولنا حواسيب كمومية؟ (فرضية الوعي الكمومي)
 
-من أكثر الموضوعات إثارة للجدل والبحث العلمي المكثف في عام 2026 هي فرضية **"الوعي الكمومي" (Quantum Consciousness)** التي طرحها عالم الفيزياء الفلكية السير روجر بنروز (الحائز على جائزة نوبل) وطبيب التخدير ستيوارت هاميروف، وتُعرف بفرضية **Orch-OR**:
+من أكثر الموضوعات إثارة للجدل والبحث العلمي المكثف هي فرضية **"الوعي الكمومي" (Quantum Consciousness)** التي طرحها عالم الفيزياء الفلكية السير روجر بنروز (الحائز على جائزة نوبل) وطبيب التخدير ستيوارت هاميروف، وتُعرف بفرضية **Orch-OR**:
 * تفترض النظرية أن المعالجة العصبية في الدماغ البشري لا تعتمد فقط على النبضات الكهربائية الكلاسيكية عبر المشابك العصبية (Synapses)، بل تحدث معالجة كمومية فائقة داخل شبكات **الأنيبيبات الدقيقة (Microtubules)** داخل الهيكل الخلوي للخلايا العصبية.
 * اكتشاف جزيئات مثل "مجموعات بوزنر" (Posner Molecules) الحاوية على ذرات الفوسفور، والتي يمكنها الحفاظ على تماسكها الكمي المغزلي (Nuclear Spin Coherence) لساعات داخل بيئة الدماغ، فتح آفاقاً علمية مذهلة لدراسة كيفية توليد الوعي، الذاكرة العميقة، والإلهام البشري الفائق.
 
 ---
 
-### كيف تُغيّر البيولوجيا الكمومية مستقبل الطب والتكنولوجيا؟ (2026 وما بعدها)
+### كيف تُغيّر البيولوجيا الكمومية مستقبل الطب والتكنولوجيا؟
 
 إن فهم الآليات الكمومية للطبيعة الحية لا يمثل مجرد إشباع للفضول العلمي، بل يمهد الطريق لابتكارات هندسية وطبية تغير وجه الحضارة:
 
@@ -465,13 +465,13 @@ export const BLOG_POSTS: BlogPost[] = [
 
 > 🧬 **رسالة وخاتمة تأملية:**  
 > كلما تعمق العلم الحديث في سبر أغوار المادة، تلاشت الحدود المصطنعة بين الفيزياء والبيولوجيا، وتجلت عظمة الإتقان في كل خلية تنبض بالحياة، مصداقاً لقوله تعالى: **﴿صُنْعَ اللَّهِ الَّذِي أَتْقَنَ كُلَّ شَيْءٍ﴾** [النمل: 88]. إن واحتنا العلمية الرقمية ستواصل إمدادكم بأحدث الأبحاث والاكتشافات الرائدة التي تثري العقل وترتقي بالمعرفة.`,
-      en: `For decades, classical physicists believed quantum mechanics—superposition, entanglement, and tunneling—could only exist in ultra-cold, vacuum laboratories. Yet, 2026 groundbreaking discoveries in Quantum Biology prove that living cells harness quantum mechanics for near-100% efficient photosynthesis, avian radical-pair geomagnetic navigation (Cryptochrome-4), and enzymatic quantum proton tunneling.`,
-      fr: `Pendant des décennies, la physique classique affirmait que la mécanique quantique ne pouvait opérer que dans des laboratoires sous vide absolu. En 2026, la biologie quantique démontre comment les cellules vivantes utilisent la cohérence quantique pour une photosynthèse efficace à 100% et la navigation des oiseaux via l'intrication.`,
-      es: `Durante décadas se creyó que la mecánica cuántica solo existía a temperaturas cercanas al cero absoluto. Los descubrimientos de 2026 en Biología Cuántica demuestran que las células vivas aprovechan la coherencia cuántica en la fotosíntesis y el entrelazamiento en la navegación de las aves.`,
-      de: `Entgegen der alten Annahme, Quanteneffekte könnten nur im Vakuum bei absolutem Nullpunkt überleben, beweist die Quantenbiologie 2026: Lebende Zellen nutzen Quantenkohärenz für 100% Photosynthese-Effizienz und Quantenverschränkung zur geomagnetischen Navigation.`,
-      zh: '长期以来，经典物理学认为量子效应只能存在于超低温与极度真空的环境中。然而2026年量子生物学的前沿研究证实：活体细胞与绿色植物利用量子相干性实现了接近100%的光合作用能量传递，候鸟通过隐花色素蛋白中的自由基对量子纠缠进行跨洋导航。',
-      ja: '古典物理学の常識を覆す2026年の「量子生物学」。植物が量子コヒーレンスによって光合成のエネルギー伝達効率をほぼ100%に保つ仕組みや、渡り鳥が量子もつれを利用して地球磁場を可視化する驚異の生体メカニズムを解説。',
-      tr: 'Uzun yıllar kuantum mekaniğinin sadece mutlak sıfıra yakın laboratuvarlarda var olabileceği düşünülüyordu. 2026 Kuantum Biyolojisi keşifleri, canlı hücrelerin fotosentezde %100 kuantum uyumu ve göçmen kuşların kriptokrom ile kuantum dolanıklık kullandığını kanıtlıyor.',
+      en: `For decades, classical physicists believed quantum mechanics—superposition, entanglement, and tunneling—could only exist in ultra-cold, vacuum laboratories. Yet, groundbreaking discoveries in Quantum Biology prove that living cells harness quantum mechanics for near-100% efficient photosynthesis, avian radical-pair geomagnetic navigation (Cryptochrome-4), and enzymatic quantum proton tunneling.`,
+      fr: `Pendant des décennies, la physique classique affirmait que la mécanique quantique ne pouvait opérer que dans des laboratoires sous vide absolu. La biologie quantique démontre comment les cellules vivantes utilisent la cohérence quantique pour une photosynthèse efficace à 100% et la navigation des oiseaux via l'intrication.`,
+      es: `Durante décadas se creyó que la mecánica cuántica solo existía a temperaturas cercanas al cero absoluto. Los descubrimientos en Biología Cuántica demuestran que las células vivas aprovechan la coherencia cuántica en la fotosíntesis y el entrelazamiento en la navegación de las aves.`,
+      de: `Entgegen der alten Annahme, Quanteneffekte könnten nur im Vakuum bei absolutem Nullpunkt überleben, beweist die Quantenbiologie: Lebende Zellen nutzen Quantenkohärenz für 100% Photosynthese-Effizienz und Quantenverschränkung zur geomagnetischen Navigation.`,
+      zh: '长期以来，经典物理学认为量子效应只能存在于超低温与极度真空的环境中。然而量子生物学的前沿研究证实：活体细胞与绿色植物利用量子相干性实现了接近100%的光合作用能量传递，候鸟通过隐花色素蛋白中的自由基对量子纠缠进行跨洋导航。',
+      ja: '古典物理学の常識を覆す「量子生物学」。植物が量子コヒーレンスによって光合成のエネルギー伝達効率をほぼ100%に保つ仕組みや、渡り鳥が量子もつれを利用して地球磁場を可視化する驚異の生体メカニズムを解説。',
+      tr: 'Uzun yıllar kuantum mekaniğinin sadece mutlak sıfıra yakın laboratuvarlarda var olabileceği düşünülüyordu. Kuantum Biyolojisi keşifleri, canlı hücrelerin fotosentezde %100 kuantum uyumu ve göçmen kuşların kriptokrom ile kuantum dolanıklık kullandığını kanıtlıyor.',
     },
     category: 'science',
     author: {
@@ -488,7 +488,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80',
     },
-    publishDate: '2026-09-24',
+    publishDate: '2024-09-25',
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
     tags: [
