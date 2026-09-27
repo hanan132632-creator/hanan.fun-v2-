@@ -5,20 +5,15 @@ import {
   Clock, 
   Eye, 
   ThumbsUp, 
-  Share2, 
   MessageSquare, 
-  Sparkles, 
   ArrowLeft, 
+  ArrowRight,
   Send, 
-  User, 
   CheckCircle2,
-  Bookmark,
-  ChevronRight,
-  ShieldCheck,
-  Zap,
-  Loader2
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
-import { Language, BlogPost } from '../types';
+import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS } from '../data/mockData';
 import { AdSensePlacement } from '../components/AdSensePlacement';
@@ -35,6 +30,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   onSelectPost,
 }) => {
   const t = TRANSLATIONS[currentLang];
+  const isRtl = currentLang === 'ar';
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [likes, setLikes] = useState<Record<string, number>>({
@@ -54,24 +50,34 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [newCommentName, setNewCommentName] = useState('');
   const [newCommentText, setNewCommentText] = useState('');
 
-  // AI Summary generator state
-  const [aiSummary, setAiSummary] = useState<string | null>(null);
-  const [loadingAiSummary, setLoadingAiSummary] = useState(false);
-
   const categories = [
     { id: 'all', label: 'جميع المقالات (All Articles)' },
     { id: 'science', label: 'العلوم الطبيعية والكم (Science & Quantum Physics)' },
     { id: 'spirituality', label: 'السكينة والطب النبوي (Mindfulness & Dhikr)' },
     { id: 'security', label: 'الأمان وشهادات SSL (Security & SSL)' },
     { id: 'performance', label: 'السيو وسرعة المواقع (SEO & Performance)' },
-    { id: 'ai', label: 'الذكاء الاصطناعي والبرمجيات (AI & Software)' },
-    { id: 'culture', label: 'الذكاء والألعاب الذهنية (Brain & Culture)' },
+    { id: 'ai', label: 'البرمجيات المتقدمة وهندسة النظم (Advanced Software & Systems)' },
+    { id: 'culture', label: 'الألعاب الذهنية والمعرفة (Brain & Culture)' },
     { id: 'networking', label: 'الشبكات وسرعة النت (Networking & Wi-Fi)' },
     { id: 'monetization', label: 'الربح من جوجل أدسنس (AdSense)' },
     { id: 'cloud', label: 'البنية السحابية (Cloud)' },
   ];
 
   const activeArticle = BLOG_POSTS.find(p => p.slug === selectedPostSlug);
+  const currentIndex = activeArticle ? BLOG_POSTS.findIndex(p => p.slug === activeArticle.slug) : -1;
+  const prevArticle = currentIndex > 0 
+    ? BLOG_POSTS[currentIndex - 1] 
+    : (BLOG_POSTS.length > 1 ? BLOG_POSTS[BLOG_POSTS.length - 1] : null);
+  const nextArticle = currentIndex >= 0 && currentIndex < BLOG_POSTS.length - 1
+    ? BLOG_POSTS[currentIndex + 1]
+    : (BLOG_POSTS.length > 1 ? BLOG_POSTS[0] : null);
+
+  const handleNavigatePost = (slug: string) => {
+    onSelectPost(slug);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const filteredPosts = BLOG_POSTS.filter(post => {
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
@@ -107,28 +113,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     setNewCommentText('');
   };
 
-  const handleGenerateAiSummary = async (content: string) => {
-    setLoadingAiSummary(true);
-    setAiSummary(null);
-
-    try {
-      const res = await fetch('/api/gemini/assistant', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: `يرجى تلخيص هذا المقال التقني في 3 نقاط رئيسية مركزة باللغة (${currentLang}):\n\n${content}`,
-          language: currentLang,
-        }),
-      });
-      const data = await res.json();
-      setAiSummary(data.reply);
-    } catch {
-      setAiSummary('يقدم هذا المقال دليلاً استراتيجياً لتحسين سرعة وأمان المواقع الإلكترونية ومطابقتها لمعايير Google AdSense لتعزيز تجربة التصفح وزيادة العوائد الرقمية.');
-    } finally {
-      setLoadingAiSummary(false);
-    }
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* If an article is open in detailed view */}
@@ -136,10 +120,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in">
           {/* Back button */}
           <button
-            onClick={() => {
-              onSelectPost(null);
-              setAiSummary(null);
-            }}
+            onClick={() => onSelectPost(null)}
             className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/60 px-3 py-1.5 rounded-lg transition-colors"
           >
             <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
@@ -211,38 +192,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             />
           </div>
 
-          {/* AI Quick Summary Generator Tool */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/30 dark:to-indigo-950/30 border border-purple-200 dark:border-purple-800/50 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-purple-700 dark:text-purple-300 font-bold text-sm">
-                <Sparkles className="w-4 h-4 text-purple-600" />
-                <span>ملخص الذكاء الاصطناعي (Gemini 3.7 AI Summary)</span>
-              </div>
-              {!aiSummary && (
-                <button
-                  onClick={() => handleGenerateAiSummary(activeArticle.content[currentLang] || activeArticle.content.en)}
-                  disabled={loadingAiSummary}
-                  className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold transition-colors flex items-center gap-1 shadow-sm disabled:opacity-50"
-                >
-                  {loadingAiSummary ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                      <span>جاري التلخيص...</span>
-                    </>
-                  ) : (
-                    <span>توليد ملخص فوري</span>
-                  )}
-                </button>
-              )}
-            </div>
-
-            {aiSummary && (
-              <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed animate-in fade-in">
-                {aiSummary}
-              </div>
-            )}
-          </div>
-
           {/* Article Main Text Content */}
           <div className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base space-y-4">
             <div className="whitespace-pre-wrap">
@@ -262,6 +211,141 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
           {/* Bottom AdSense Unit */}
           <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+
+          {/* Featured Next Article Section */}
+          {nextArticle && (
+            <section className="pt-6 border-t-2 border-dashed border-slate-200 dark:border-slate-800 space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
+                  <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">
+                    {isRtl ? 'المقال التالي المقترح لك' : 'Next Recommended Article'}
+                  </h3>
+                </div>
+                <span className="text-xs text-slate-400 font-medium">
+                  {isRtl ? 'اضغط على السهم للمتابعة فوراً' : 'Click the arrow to read now'}
+                </span>
+              </div>
+
+              {/* Main Next Article Card */}
+              <div
+                onClick={() => handleNavigatePost(nextArticle.slug)}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-slate-50 dark:from-slate-800/90 dark:via-blue-950/40 dark:to-slate-900 border-2 border-blue-200 dark:border-blue-900/60 hover:border-blue-500 dark:hover:border-blue-400 p-5 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                  <div className="space-y-3 flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-blue-600 text-white shadow-sm">
+                        <span>{isRtl ? 'المقال التالي' : 'Next Article'}</span>
+                        {isRtl ? (
+                          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
+                        ) : (
+                          <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        )}
+                      </span>
+                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-white/80 dark:bg-slate-700/80 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-slate-700">
+                        {nextArticle.category}
+                      </span>
+                      <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {nextArticle.readTimeMin} {t.blog_read_time}
+                      </span>
+                    </div>
+
+                    <h4 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                      {nextArticle.title[currentLang] || nextArticle.title.en}
+                    </h4>
+
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+                      {nextArticle.excerpt[currentLang] || nextArticle.excerpt.en}
+                    </p>
+                  </div>
+
+                  {/* Thumbnail & Arrow Button */}
+                  <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-200 dark:border-slate-700">
+                    {nextArticle.coverImage && (
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-100 shadow-xs">
+                        <img 
+                          src={nextArticle.coverImage} 
+                          alt={nextArticle.title[currentLang] || nextArticle.title.en}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    )}
+
+                    {/* Direct Arrow Action Button */}
+                    <button
+                      type="button"
+                      aria-label={isRtl ? 'الانتقال إلى المقال التالي' : 'Go to next article'}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNavigatePost(nextArticle.slug);
+                      }}
+                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-600/30 group-hover:scale-110 group-hover:bg-blue-700 transition-all shrink-0 cursor-pointer"
+                    >
+                      {isRtl ? (
+                        <ArrowLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" />
+                      ) : (
+                        <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Prev & Next Quick Pagination Links */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {prevArticle && (
+                  <button
+                    type="button"
+                    onClick={() => handleNavigatePost(prevArticle.slug)}
+                    className="group flex items-center gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-right transition-all text-start"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 shrink-0 shadow-xs group-hover:text-blue-600 group-hover:border-blue-300">
+                      {isRtl ? (
+                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                      ) : (
+                        <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[11px] font-bold text-slate-400">
+                        {isRtl ? 'المقال السابق' : 'Previous Article'}
+                      </span>
+                      <span className="block text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                        {prevArticle.title[currentLang] || prevArticle.title.en}
+                      </span>
+                    </div>
+                  </button>
+                )}
+
+                {nextArticle && (
+                  <button
+                    type="button"
+                    onClick={() => handleNavigatePost(nextArticle.slug)}
+                    className="group flex items-center justify-between gap-3 p-3.5 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-blue-200 dark:border-blue-900/50 transition-all text-start"
+                  >
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[11px] font-bold text-blue-600 dark:text-blue-400">
+                        {isRtl ? 'المقال التالي' : 'Next Article'}
+                      </span>
+                      <span className="block text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                        {nextArticle.title[currentLang] || nextArticle.title.en}
+                      </span>
+                    </div>
+                    <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                      {isRtl ? (
+                        <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
+                      ) : (
+                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                      )}
+                    </div>
+                  </button>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* Comments Section */}
           <section className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
@@ -329,6 +413,32 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <span>إرسال التعليق</span>
               </button>
             </form>
+
+            {/* Bottom Direct Next Article Navigation */}
+            {nextArticle && (
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 to-indigo-50/60 dark:from-slate-800/90 dark:to-slate-800/60 border border-blue-200/80 dark:border-slate-700 shadow-sm">
+                <div className="min-w-0 flex-1 w-full sm:w-auto text-start">
+                  <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400 block mb-0.5">
+                    {isRtl ? 'متابعة القراءة • المقال التالي في السلسلة:' : 'Next article in this series:'}
+                  </span>
+                  <span className="text-sm font-extrabold text-slate-900 dark:text-white truncate block">
+                    {nextArticle.title[currentLang] || nextArticle.title.en}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleNavigatePost(nextArticle.slug)}
+                  className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-xl text-xs font-black flex items-center justify-center gap-2 shadow-md transition-all shrink-0 cursor-pointer"
+                >
+                  <span>{isRtl ? 'المقال التالي' : 'Next Article'}</span>
+                  {isRtl ? (
+                    <ArrowLeft className="w-4 h-4" />
+                  ) : (
+                    <ArrowRight className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+            )}
           </section>
         </article>
       ) : (

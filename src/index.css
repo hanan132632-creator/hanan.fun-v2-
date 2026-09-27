@@ -39,3 +39,13 @@
   0%, 100% { opacity: 1; }
   50% { opacity: .5; }
 }
+
+/* Google AdSense policy: Collapse unfilled ad units completely to prevent unutilized empty spaces */
+ins.adsbygoogle[data-ad-status="unfilled"],
+ins.adsbygoogle[data-ad-status="unfilled"] ~ * {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+

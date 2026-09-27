@@ -46,7 +46,7 @@ export const StorePage: React.FC<StorePageProps> = ({
     { id: 'security', label: 'الأمان السيبراني (Zero Trust)' },
     { id: 'cdn', label: 'تسريع المحتوى (Global CDN)' },
     { id: 'domain', label: 'النطاقات و DNS (Anycast DNS)' },
-    { id: 'ai', label: 'الذكاء الاصطناعي (AI Gateway)' },
+    { id: 'ai', label: 'البرمجيات المتقدمة (Advanced Software)' },
   ];
 
   const filteredServices = GLOBAL_SERVICES.filter(service => {

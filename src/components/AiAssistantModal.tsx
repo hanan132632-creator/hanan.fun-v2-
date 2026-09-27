@@ -127,8 +127,8 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
             </div>
             <div>
               <div className="font-bold text-base flex items-center gap-2">
-                <span>مستشار الذكاء الاصطناعي التقني (GIS AI)</span>
-                <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-medium">Gemini 3.7 Flash</span>
+                <span>المساعد التقني المباشر للدعم والاستفسارات</span>
+                <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-medium">Live Assist</span>
               </div>
               <div className="text-xs text-blue-100 flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />

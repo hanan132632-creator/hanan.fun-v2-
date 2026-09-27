@@ -278,7 +278,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
           <div className="p-6 rounded-2xl bg-blue-600 text-white shadow-lg space-y-3">
             <h3 className="font-bold text-base">هل تحتاج لاستشارة فنية فورية؟</h3>
             <p className="text-xs text-blue-100 leading-relaxed">
-              استخدم مستشار الذكاء الاصطناعي التقني المتاح على مدار الساعة للحصول على إجابات فورية وتوصيات هندسية دقيقة حول البنية التحتية المناسبة لمشروعك.
+              استخدم مستشار الدعم البرمجي والتقني المتاح على مدار الساعة للحصول على إجابات فورية وتوصيات هندسية دقيقة حول البنية التحتية المناسبة لمشروعك.
             </p>
           </div>
         </div>

@@ -377,10 +377,10 @@ export default function App() {
         <button
           onClick={() => setAiAssistantOpen(true)}
           className="px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-xs shadow-xl shadow-indigo-500/30 flex items-center gap-2 hover:scale-105 transition-all"
-          title="AI Technical Consultant"
+          title="Technical Consultant"
         >
           <Sparkles className="w-4 h-4 animate-spin-slow" />
-          <span className="hidden sm:inline">استشارة الذكاء الاصطناعي</span>
+          <span className="hidden sm:inline">استشارة الدعم الفني السحابي</span>
         </button>
       </div>
 

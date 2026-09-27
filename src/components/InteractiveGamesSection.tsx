@@ -143,11 +143,11 @@ export const InteractiveGamesSection: React.FC<InteractiveGamesSectionProps> = (
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            ألعاب ذكاء وألغاز يومية متجددة
+            ألعاب ذهنية وألغاز يومية متجددة
           </h2>
 
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base font-normal">
-            اختبر ذكاءك اللغوي مع لعبة <strong className="text-emerald-600 dark:text-emerald-400 font-black">خمّن الكلمة العربية</strong>، فوازير الذكاء، وبنك المعلومات الثقافي!
+            اختبر معلوماتك وقوة تركيزك مع لعبة <strong className="text-emerald-600 dark:text-emerald-400 font-black">خمّن الكلمة العربية</strong>، الفوازير الذهنية، وبنك المعلومات الثقافي!
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export const InteractiveGamesSection: React.FC<InteractiveGamesSectionProps> = (
             }`}
           >
             <Lightbulb className="w-4 h-4" />
-            <span>فوازير ذكاء 💡</span>
+            <span>فوازير ذهنية 💡</span>
           </button>
 
           <button
