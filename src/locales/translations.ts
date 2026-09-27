@@ -12,12 +12,16 @@ export const LANGUAGES: { code: Language; name: string; nativeName: string; flag
 ];
 
 export const CURRENCIES = [
-  { code: 'USD', symbol: '$', rate: 1, name: 'US Dollar' },
-  { code: 'SAR', symbol: 'ر.س', rate: 3.75, name: 'Saudi Riyal' },
-  { code: 'EUR', symbol: '€', rate: 0.92, name: 'Euro' },
-  { code: 'AED', symbol: 'د.إ', rate: 3.67, name: 'UAE Dirham' },
-  { code: 'GBP', symbol: '£', rate: 0.79, name: 'British Pound' },
-  { code: 'JPY', symbol: '¥', rate: 155.0, name: 'Japanese Yen' },
+  { code: 'USD', symbol: '$', rate: 1, name: 'US Dollar', nativeName: 'الدولار الأمريكي', flag: '🇺🇸' },
+  { code: 'SAR', symbol: 'ر.س', rate: 3.75, name: 'Saudi Riyal', nativeName: 'الريال السعودي', flag: '🇸🇦' },
+  { code: 'EGP', symbol: 'ج.م', rate: 48.5, name: 'Egyptian Pound', nativeName: 'الجنيه المصري', flag: '🇪🇬' },
+  { code: 'AED', symbol: 'د.إ', rate: 3.67, name: 'UAE Dirham', nativeName: 'الدرهم الإماراتي', flag: '🇦🇪' },
+  { code: 'KWD', symbol: 'د.ك', rate: 0.31, name: 'Kuwaiti Dinar', nativeName: 'الدينار الكويتي', flag: '🇰🇼' },
+  { code: 'EUR', symbol: '€', rate: 0.92, name: 'Euro', nativeName: 'اليورو الأوروبي', flag: '🇪🇺' },
+  { code: 'TRY', symbol: '₺', rate: 34.2, name: 'Turkish Lira', nativeName: 'الليرة التركية (TL)', flag: '🇹🇷' },
+  { code: 'CNY', symbol: '¥', rate: 7.25, name: 'Chinese Yuan', nativeName: 'اليوان الصيني (元)', flag: '🇨🇳' },
+  { code: 'GBP', symbol: '£', rate: 0.79, name: 'British Pound', nativeName: 'الجنيه الإسترليني', flag: '🇬🇧' },
+  { code: 'JPY', symbol: '¥', rate: 155.0, name: 'Japanese Yen', nativeName: 'الين الياباني (円)', flag: '🇯🇵' },
 ];
 
 export const TRANSLATIONS: Record<Language, Record<string, string>> = {

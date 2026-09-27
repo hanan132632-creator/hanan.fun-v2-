@@ -3480,6 +3480,7 @@ Ensure your \`robots.txt\` explicitly grants crawling permissions to legitimate 
 
 export const SERVER_NODES: ServerLocationNode[] = [
   { id: 'fra', city: 'Frankfurt', country: 'Germany', flag: '🇩🇪', lat: 50.1109, lng: 8.6821, status: 'operational', pingMs: 14, bandwidthTbps: 45 },
+  { id: 'cai', city: 'Cairo', country: 'Egypt', flag: '🇪🇬', lat: 30.0444, lng: 31.2357, status: 'operational', pingMs: 16, bandwidthTbps: 32 },
   { id: 'ruh', city: 'Riyadh', country: 'Saudi Arabia', flag: '🇸🇦', lat: 24.7136, lng: 46.6753, status: 'operational', pingMs: 18, bandwidthTbps: 30 },
   { id: 'dxb', city: 'Dubai', country: 'United Arab Emirates', flag: '🇦🇪', lat: 25.2048, lng: 55.2708, status: 'operational', pingMs: 19, bandwidthTbps: 28 },
   { id: 'nyc', city: 'New York', country: 'United States', flag: '🇺🇸', lat: 40.7128, lng: -74.0060, status: 'operational', pingMs: 22, bandwidthTbps: 55 },

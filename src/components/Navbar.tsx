@@ -282,16 +282,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setCurrencyDropdownOpen(!currencyDropdownOpen);
                   setLangDropdownOpen(false);
                 }}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                 aria-label="Currency Selector"
               >
+                <span>{'flag' in currentCurrencyObj ? (currentCurrencyObj as any).flag : '💱'}</span>
                 <span>{currentCurrencyObj.symbol}</span>
-                <span>{currentCurrencyObj.code}</span>
+                <span className="font-mono text-[10px] text-slate-500">{currentCurrencyObj.code}</span>
                 <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {currencyDropdownOpen && (
-                <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-40 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1 z-50 animate-in fade-in slide-in-from-top-2">
+                <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 z-50 animate-in fade-in slide-in-from-top-2 max-h-80 overflow-y-auto">
                   {CURRENCIES.map(curr => (
                     <button
                       key={curr.code}
@@ -299,12 +300,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                         onCurrencyChange(curr.code as Currency);
                         setCurrencyDropdownOpen(false);
                       }}
-                      className={`w-full flex items-center justify-between px-3.5 py-2 text-xs text-start hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
-                        currentCurrency === curr.code ? 'font-bold text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-950/30' : 'text-slate-700 dark:text-slate-200'
+                      className={`w-full flex items-center justify-between px-3 py-2 text-xs text-start hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
+                        currentCurrency === curr.code ? 'font-bold text-blue-600 dark:text-blue-400 bg-blue-50/70 dark:bg-blue-950/40' : 'text-slate-700 dark:text-slate-200'
                       }`}
                     >
-                      <span>{curr.name} ({curr.symbol})</span>
-                      {currentCurrency === curr.code && <Check className="w-3.5 h-3.5 text-blue-600" />}
+                      <div className="flex items-center gap-2">
+                        <span className="text-base">{(curr as any).flag || '💱'}</span>
+                        <div className="flex flex-col">
+                          <span className="font-semibold">{currentLang === 'ar' ? ((curr as any).nativeName || curr.name) : curr.name}</span>
+                          <span className="text-[10px] text-slate-400">{curr.code} ({curr.symbol})</span>
+                        </div>
+                      </div>
+                      {currentCurrency === curr.code && <Check className="w-4 h-4 text-blue-600 shrink-0" />}
                     </button>
                   ))}
                 </div>
@@ -542,6 +549,33 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <span>{lang.flag}</span>
                   <span className="truncate">{lang.nativeName}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Currencies list */}
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+              Select Currency (اختيار العملة):
+            </div>
+            <div className="grid grid-cols-2 gap-1.5">
+              {CURRENCIES.map(curr => (
+                <button
+                  key={curr.code}
+                  onClick={() => {
+                    onCurrencyChange(curr.code as Currency);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs border ${
+                    currentCurrency === curr.code 
+                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-950 text-blue-600 font-bold' 
+                      : 'border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200'
+                  }`}
+                >
+                  <span>{(curr as any).flag || '💱'}</span>
+                  <span className="truncate font-medium">{currentLang === 'ar' ? ((curr as any).nativeName || curr.name) : curr.name}</span>
+                  <span className="text-[10px] opacity-75 font-mono">({curr.symbol})</span>
                 </button>
               ))}
             </div>

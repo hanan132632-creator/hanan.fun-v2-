@@ -1,6 +1,6 @@
 export type Language = 'ar' | 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ja' | 'tr';
 
-export type Currency = 'USD' | 'SAR' | 'EUR' | 'AED' | 'GBP' | 'JPY';
+export type Currency = 'USD' | 'SAR' | 'EUR' | 'AED' | 'GBP' | 'JPY' | 'TRY' | 'CNY' | 'CAD' | 'EGP' | 'KWD';
 
 export type ActivePage = 
   | 'home' 
