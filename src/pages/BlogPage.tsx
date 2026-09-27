@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   Search, 
@@ -33,19 +33,49 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const isRtl = currentLang === 'ar';
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [likes, setLikes] = useState<Record<string, number>>({
-    'cloud-hosting-speed-optimization': 142,
-    'google-adsense-monetization-2026': 218,
-    'ddos-mitigation-zero-trust-architecture': 95,
-  });
-  const [hasLiked, setHasLiked] = useState<Record<string, boolean>>({});
 
-  // Comments state
-  const [comments, setComments] = useState<Record<string, { id: string; name: string; text: string; date: string }[]>>({
-    'google-adsense-monetization-2026': [
-      { id: '1', name: 'م. أحمد خالد', text: 'مقال قيم جداً! تطبيق معايير Core Web Vitals ضاعف نسبة النقر إلى الظهور (CTR) في موقعي الإخباري.', date: 'منذ يومين' },
-      { id: '2', name: 'Sara Miller', text: 'Excellent breakdown of DART cookies and GDPR transparency for AdSense publishers.', date: '3 days ago' },
-    ],
+  // Dynamic extra views tracked per visitor/reading session
+  const [extraViews, setExtraViews] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_extra_views');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Dynamic extra likes
+  const [extraLikes, setExtraLikes] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_extra_likes');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Has user liked this post
+  const [hasLiked, setHasLiked] = useState<Record<string, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_user_liked');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Comments state with localStorage persistence
+  const [comments, setComments] = useState<Record<string, { id: string; name: string; text: string; date: string }[]>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_comments');
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return {
+      'google-adsense-monetization-2026': [
+        { id: '1', name: 'م. أحمد خالد', text: 'مقال قيم جداً! تطبيق معايير Core Web Vitals ضاعف نسبة النقر إلى الظهور (CTR) في موقعي الإخباري.', date: 'منذ يومين' },
+        { id: '2', name: 'Sara Miller', text: 'Excellent breakdown of DART cookies and GDPR transparency for AdSense publishers.', date: '3 days ago' },
+      ],
+    };
   });
   const [newCommentName, setNewCommentName] = useState('');
   const [newCommentText, setNewCommentText] = useState('');
@@ -72,6 +102,19 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     ? BLOG_POSTS[currentIndex + 1]
     : (BLOG_POSTS.length > 1 ? BLOG_POSTS[0] : null);
 
+  // Auto increment real views when article is opened
+  useEffect(() => {
+    if (!activeArticle) return;
+    setExtraViews(prev => {
+      const nextCount = (prev[activeArticle.id] || 0) + 1;
+      const updated = { ...prev, [activeArticle.id]: nextCount };
+      try {
+        localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  }, [activeArticle?.id]);
+
   const handleNavigatePost = (slug: string) => {
     onSelectPost(slug);
     if (typeof window !== 'undefined') {
@@ -88,9 +131,26 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   });
 
   const handleLike = (id: string) => {
-    if (hasLiked[id]) return;
-    setLikes(prev => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
-    setHasLiked(prev => ({ ...prev, [id]: true }));
+    const isCurrentlyLiked = !!hasLiked[id];
+    const nextState = !isCurrentlyLiked;
+
+    setHasLiked(prev => {
+      const updated = { ...prev, [id]: nextState };
+      try {
+        localStorage.setItem('almahdi_blog_user_liked', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    setExtraLikes(prev => {
+      const currentDelta = prev[id] || 0;
+      const nextDelta = nextState ? currentDelta + 1 : Math.max(0, currentDelta - 1);
+      const updated = { ...prev, [id]: nextDelta };
+      try {
+        localStorage.setItem('almahdi_blog_extra_likes', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
   };
 
   const handleAddComment = (e: React.FormEvent, slug: string) => {
@@ -101,13 +161,19 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       id: String(Date.now()),
       name: newCommentName,
       text: newCommentText,
-      date: 'الآن (مباشر)',
+      date: isRtl ? 'الآن (مباشر)' : 'Just now',
     };
 
-    setComments(prev => ({
-      ...prev,
-      [slug]: [...(prev[slug] || []), newComment],
-    }));
+    setComments(prev => {
+      const updated = {
+        ...prev,
+        [slug]: [...(prev[slug] || []), newComment],
+      };
+      try {
+        localStorage.setItem('almahdi_blog_comments', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
 
     setNewCommentName('');
     setNewCommentText('');
@@ -137,9 +203,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <Clock className="w-3.5 h-3.5" />
                 {activeArticle.readTimeMin} {t.blog_read_time}
               </span>
-              <span className="text-slate-400 flex items-center gap-1">
-                <Eye className="w-3.5 h-3.5" />
-                {activeArticle.views.toLocaleString()} {t.blog_views}
+              <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-medium">
+                <Eye className="w-3.5 h-3.5 text-blue-500" />
+                <span>{((activeArticle.views || 1000) + (extraViews[activeArticle.id] || 0)).toLocaleString()} {t.blog_views}</span>
               </span>
             </div>
 
@@ -169,14 +235,18 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => handleLike(activeArticle.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                  title={hasLiked[activeArticle.id] ? 'إلغاء الإعجاب' : 'تسجيل إعجابك بالمقال'}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer ${
                     hasLiked[activeArticle.id]
-                      ? 'bg-red-50 dark:bg-red-950 text-red-600 border border-red-200 dark:border-red-800'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200'
+                      ? 'bg-rose-50 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800 shadow-rose-100 dark:shadow-none'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-transparent'
                   }`}
                 >
-                  <ThumbsUp className="w-3.5 h-3.5" />
-                  <span>{likes[activeArticle.id] || activeArticle.likes}</span>
+                  <ThumbsUp className={`w-3.5 h-3.5 ${hasLiked[activeArticle.id] ? 'fill-current text-rose-600 dark:text-rose-400' : ''}`} />
+                  <span>{((activeArticle.likes || 100) + (extraLikes[activeArticle.id] || 0)).toLocaleString()}</span>
+                  <span className="text-[11px] opacity-80">
+                    {hasLiked[activeArticle.id] ? (isRtl ? 'تم الإعجاب' : 'Liked') : (isRtl ? 'أعجبني' : 'Like')}
+                  </span>
                 </button>
               </div>
             </div>
@@ -543,7 +613,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     />
                     <span className="text-slate-700 dark:text-slate-300 font-semibold">{post.author.name}</span>
                   </div>
-                  <span className="pt-3">{post.publishDate}</span>
+                  <div className="flex items-center gap-3 pt-3 text-[11px]">
+                    <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                      <Eye className="w-3 h-3 text-blue-500" />
+                      <span>{((post.views || 1000) + (extraViews[post.id] || 0)).toLocaleString()}</span>
+                    </span>
+                    <span>{post.publishDate}</span>
+                  </div>
                 </div>
               </article>
             ))}
