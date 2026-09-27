@@ -11,19 +11,11 @@ import {
   Check,
   MessageSquare, 
   ArrowLeft, 
-  ArrowRight,
+  ArrowRight, 
   Send, 
   CheckCircle2,
   ChevronLeft,
-  ChevronRight,
-  Users,
-  Radio,
-  Globe,
-  Smartphone,
-  Laptop,
-  Tablet,
-  Activity,
-  X
+  ChevronRight
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
@@ -76,13 +68,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     }
   });
 
-  // Live active readers state & interactive modal
-  const [liveReadersCount, setLiveReadersCount] = useState(14);
-  const [showLiveModal, setShowLiveModal] = useState(false);
+  // Engagement states
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [likedArticleAnimation, setLikedArticleAnimation] = useState<string | null>(null);
-  const [liveLikePing, setLiveLikePing] = useState(false);
-  const [viewPulse, setViewPulse] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Comments state with localStorage persistence
@@ -123,7 +111,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     ? BLOG_POSTS[currentIndex + 1]
     : (BLOG_POSTS.length > 1 ? BLOG_POSTS[0] : null);
 
-  // Auto increment real views when article is opened & dynamic live readers count
+  // Track real single view per session when article is opened
   useEffect(() => {
     if (!activeArticle) return;
     setExtraViews(prev => {
@@ -134,74 +122,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       } catch {}
       return updated;
     });
-
-    // Base live count calculated dynamically per article
-    const baseCount = 11 + (activeArticle.slug.length % 9);
-    setLiveReadersCount(baseCount);
-
-    const interval = setInterval(() => {
-      setLiveReadersCount(prev => {
-        const delta = Math.floor(Math.random() * 3) - 1; // -1, 0, or +1
-        const next = prev + delta;
-        return next < 8 ? 9 : next > 26 ? 24 : next;
-      });
-    }, 5000);
-
-    // Periodic live organic views increment from readers landing on this article
-    const viewsInterval = setInterval(() => {
-      setExtraViews(prev => {
-        const increment = Math.floor(Math.random() * 2) + 1; // +1 or +2
-        const nextCount = (prev[activeArticle.id] || 0) + increment;
-        const updated = { ...prev, [activeArticle.id]: nextCount };
-        try {
-          localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
-        } catch {}
-        return updated;
-      });
-      setViewPulse(true);
-      setTimeout(() => setViewPulse(false), 1500);
-    }, 6000);
-
-    // Periodic live organic likes from concurrent readers on this active article
-    const likeInterval = setInterval(() => {
-      if (Math.random() > 0.4) {
-        setExtraLikes(prev => {
-          const current = prev[activeArticle.id] || 0;
-          const updated = { ...prev, [activeArticle.id]: current + 1 };
-          try {
-            localStorage.setItem('almahdi_blog_extra_likes', JSON.stringify(updated));
-          } catch {}
-          return updated;
-        });
-        setLiveLikePing(true);
-        setTimeout(() => setLiveLikePing(false), 3000);
-      }
-    }, 12000);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(viewsInterval);
-      clearInterval(likeInterval);
-    };
-  }, [activeArticle?.id, activeArticle?.slug]);
-
-  // Periodic background views increment across articles on blog index
-  useEffect(() => {
-    if (activeArticle) return;
-    const interval = setInterval(() => {
-      const randomPost = BLOG_POSTS[Math.floor(Math.random() * BLOG_POSTS.length)];
-      if (randomPost) {
-        setExtraViews(prev => {
-          const updated = { ...prev, [randomPost.id]: (prev[randomPost.id] || 0) + 1 };
-          try {
-            localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
-          } catch {}
-          return updated;
-        });
-      }
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [activeArticle]);
+  }, [activeArticle?.id]);
 
   const handleNavigatePost = (slug: string) => {
     onSelectPost(slug);
@@ -347,33 +268,10 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <Clock className="w-3.5 h-3.5" />
                 {activeArticle.readTimeMin} {t.blog_read_time}
               </span>
-              <span className={`flex items-center gap-1.5 font-bold px-2.5 py-1 rounded-full border transition-all duration-300 ${
-                viewPulse
-                  ? 'bg-blue-100 dark:bg-blue-900/70 border-blue-400 dark:border-blue-600 text-blue-800 dark:text-blue-200 scale-105 shadow-xs'
-                  : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300'
-              }`}>
-                <Eye className={`w-3.5 h-3.5 ${viewPulse ? 'text-blue-600 dark:text-blue-400 animate-bounce' : 'text-blue-500'}`} />
+              <span className="flex items-center gap-1.5 font-bold px-2.5 py-1 rounded-full border bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300">
+                <Eye className="w-3.5 h-3.5 text-blue-500" />
                 <span>{((activeArticle.views || 1000) + (extraViews[activeArticle.id] || 0)).toLocaleString()} {t.blog_views}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
               </span>
-
-              {/* Live Active Readers Interactive Button */}
-              <button
-                type="button"
-                onClick={() => setShowLiveModal(true)}
-                title={isRtl ? 'اضغط لعرض تفاصيل القراء المتواجدين الآن مباشر' : 'Click to view active live readers'}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/80 transition-all shadow-xs cursor-pointer group"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>{isRtl ? 'يقرأ الآن مباشر:' : 'Live readers:'} <strong className="font-extrabold text-emerald-800 dark:text-emerald-200">{liveReadersCount}</strong></span>
-                <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span className="hidden sm:inline text-[10px] bg-emerald-600 text-white px-1.5 py-0.5 rounded-md font-semibold">
-                  {isRtl ? 'عرض الأشخاص' : 'View live'}
-                </span>
-              </button>
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
@@ -404,12 +302,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                   {likedArticleAnimation === activeArticle.id && (
                     <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-black text-rose-600 dark:text-rose-400 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full shadow-md animate-bounce border border-rose-200 whitespace-nowrap">
                       +1 ❤️
-                    </span>
-                  )}
-                  {liveLikePing && (
-                    <span className="absolute -top-2 -right-1 flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
                     </span>
                   )}
                   <button
@@ -667,146 +559,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               )}
             </div>
           </section>
-
-          {/* Live Active Readers Interactive Modal Dialog */}
-          {showLiveModal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in">
-              <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 max-w-lg w-full shadow-2xl overflow-hidden p-6 space-y-5 animate-in zoom-in-95">
-                {/* Modal Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-xs">
-                      <Radio className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                      <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
-                        {isRtl ? 'المتواجدون الآن في هذا المقال' : 'Active Live Readers on this Article'}
-                      </h3>
-                      <p className="text-xs text-slate-400">
-                        {isRtl ? 'تحديث حي ومباشر للمتصفحين النشطين' : 'Real-time live traffic update'}
-                      </p>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => setShowLiveModal(false)}
-                    className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors cursor-pointer"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Total Count Banner */}
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50/50 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                    </span>
-                    <div>
-                      <div className="text-xs text-emerald-800 dark:text-emerald-300 font-bold">
-                        {isRtl ? 'إجمالي القراء النشطين حالياً:' : 'Total Active Readers Now:'}
-                      </div>
-                      <div className="text-2xl font-black text-emerald-900 dark:text-emerald-100">
-                        {liveReadersCount} {isRtl ? 'قارئ متصل الآن' : 'Readers Online'}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-end">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-600 text-white shadow-xs">
-                      <Activity className="w-3 h-3 animate-spin" />
-                      {isRtl ? 'بث حي' : 'Live Stream'}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Live Readers Activity List */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
-                    <span>{isRtl ? 'عينة من القراء المتواجدين حالياً:' : 'Sample of Current Readers:'}</span>
-                    <span>{isRtl ? 'الجهاز / الحالة' : 'Device / Status'}</span>
-                  </div>
-
-                  <div className="max-h-56 overflow-y-auto space-y-2 pr-1 rtl:pr-0 rtl:pl-1">
-                    {[
-                      { id: '1', country: 'السعودية', countryEn: 'Saudi Arabia', flag: '🇸🇦', city: 'الرياض', device: 'mobile', time: 'منذ دقيقة', activity: isRtl ? 'يقرأ الفقرات الرئيسية' : 'Reading main content' },
-                      { id: '2', country: 'مصر', countryEn: 'Egypt', flag: '🇪🇬', city: 'القاهرة', device: 'desktop', time: 'منذ 3 دقائق', activity: isRtl ? 'وصل إلى منتصف المقال' : 'Reached mid-article' },
-                      { id: '3', country: 'الإمارات', countryEn: 'UAE', flag: '🇦🇪', city: 'دبي', device: 'mobile', time: 'منذ دقيقتين', activity: isRtl ? 'يتصفح التوصيات الفنية' : 'Reviewing recommendations' },
-                      { id: '4', country: 'المغرب', countryEn: 'Morocco', flag: '🇲🇦', city: 'الدار البيضاء', device: 'desktop', time: 'منذ 5 دقائق', activity: isRtl ? 'يقرأ المعايير والحلول' : 'Reading standards & solutions' },
-                      { id: '5', country: 'الجزائر', countryEn: 'Algeria', flag: '🇩🇿', city: 'الجزائر', device: 'mobile', time: 'منذ لحظات', activity: isRtl ? 'انضم للقراءة الآن' : 'Joined reading now' },
-                      { id: '6', country: 'ألمانيا', countryEn: 'Germany', flag: '🇩🇪', city: 'فرانكفورت', device: 'tablet', time: 'منذ 4 دقائق', activity: isRtl ? 'يقرأ بالترجمة الفورية' : 'Reading translated text' },
-                      { id: '7', country: 'الولايات المتحدة', countryEn: 'USA', flag: '🇺🇸', city: 'نيويورك', device: 'desktop', time: 'منذ 6 دقائق', activity: isRtl ? 'مستمر في التصفح النشط' : 'Actively reading' },
-                      { id: '8', country: 'الكويت', countryEn: 'Kuwait', flag: '🇰🇼', city: 'مدينة الكويت', device: 'mobile', time: 'الآن', activity: isRtl ? 'فتح المقال للتو' : 'Just opened article' },
-                    ].map((reader) => (
-                      <div
-                        key={reader.id}
-                        className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs"
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <span className="text-base">{reader.flag}</span>
-                          <div>
-                            <div className="font-bold text-slate-900 dark:text-white">
-                              {isRtl ? reader.country : reader.countryEn} - {reader.city}
-                            </div>
-                            <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                              {reader.activity}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2 text-slate-400 text-[11px]">
-                          {reader.device === 'mobile' ? (
-                            <Smartphone className="w-3.5 h-3.5 text-slate-500" />
-                          ) : reader.device === 'tablet' ? (
-                            <Tablet className="w-3.5 h-3.5 text-slate-500" />
-                          ) : (
-                            <Laptop className="w-3.5 h-3.5 text-slate-500" />
-                          )}
-                          <span>{reader.time}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Device Distribution Stats */}
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 flex items-center justify-around text-center text-xs">
-                  <div>
-                    <div className="font-extrabold text-slate-900 dark:text-white">68%</div>
-                    <div className="text-[10px] text-slate-400 flex items-center justify-center gap-1 mt-0.5">
-                      <Smartphone className="w-3 h-3 text-blue-500" />
-                      <span>{isRtl ? 'هاتف ذكي' : 'Mobile'}</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-7 bg-slate-200 dark:bg-slate-700" />
-                  <div>
-                    <div className="font-extrabold text-slate-900 dark:text-white">28%</div>
-                    <div className="text-[10px] text-slate-400 flex items-center justify-center gap-1 mt-0.5">
-                      <Laptop className="w-3 h-3 text-indigo-500" />
-                      <span>{isRtl ? 'حاسوب' : 'Desktop'}</span>
-                    </div>
-                  </div>
-                  <div className="w-px h-7 bg-slate-200 dark:bg-slate-700" />
-                  <div>
-                    <div className="font-extrabold text-slate-900 dark:text-white">4%</div>
-                    <div className="text-[10px] text-slate-400 flex items-center justify-center gap-1 mt-0.5">
-                      <Tablet className="w-3 h-3 text-purple-500" />
-                      <span>{isRtl ? 'أجهزة لوحية' : 'Tablet'}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Close Button */}
-                <button
-                  onClick={() => setShowLiveModal(false)}
-                  className="w-full py-2.5 bg-slate-900 dark:bg-slate-700 hover:bg-slate-800 dark:hover:bg-slate-600 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
-                >
-                  {isRtl ? 'إغلاق نافذة البث المباشر' : 'Close Live Window'}
-                </button>
-              </div>
-            </div>
-          )}
 
           {/* Comments Section */}
           <section className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">

@@ -36,7 +36,6 @@ interface NavbarProps {
   onOpenCart: () => void;
   onOpenAiAssistant: () => void;
   onOpenMobileOptimizer: () => void;
-  onOpenAdSenseReport: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -52,7 +51,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCart,
   onOpenAiAssistant,
   onOpenMobileOptimizer,
-  onOpenAdSenseReport,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -185,17 +183,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Action Tools & Switchers */}
           <div className="hidden sm:flex items-center gap-2.5">
-            {/* Google AdSense Site Report Button */}
-            <button
-              id="navbar-adsense-report-btn"
-              onClick={onOpenAdSenseReport}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-black bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-sm shadow-amber-500/25 transition-all hover:scale-105 active:scale-95"
-              title="تقرير جوجل أدسنس للموقع والتحقق من حالة المراجعة"
-            >
-              <Award className="w-3.5 h-3.5 text-amber-100" />
-              <span>تقرير أدسنس 📊</span>
-            </button>
-
             {/* Password Generator Button */}
             <button
               onClick={scrollToPasswordGenerator}
@@ -469,18 +456,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
-            <button
-              id="mobile-drawer-adsense-report-btn"
-              onClick={() => {
-                onOpenAdSenseReport();
-                setMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg text-xs font-black bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white shadow-sm w-full justify-center"
-            >
-              <Award className="w-4 h-4 text-amber-100" />
-              <span>تقرير جوجل أدسنس للموقع 📊</span>
-            </button>
-
             <button
               onClick={scrollToPasswordGenerator}
               className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-black bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm"
