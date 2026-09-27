@@ -249,8 +249,41 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
           </div>
         </div>
 
+        {/* Payment Methods Trust Bar */}
+        <div className="mt-8 pt-6 border-t border-slate-800/80 space-y-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div className="text-xs font-bold text-slate-400 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>طرق الدفع المعتمدة والآمنة في مصر والعالم:</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-purple-300 text-xs font-bold">
+                ⚡ إنستا باي (InstaPay)
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-amber-300 text-xs font-bold">
+                🟡 فوري (Fawry Pay)
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-blue-300 text-xs font-bold">
+                🔵 أمان (Aman)
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 text-xs font-bold">
+                💳 كارت ميزة (Meeza)
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-indigo-300 text-xs font-bold">
+                🏦 تحويل بنكي (الأهلي / CIB)
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-red-300 text-xs font-bold">
+                📱 فودافون كاش
+              </span>
+              <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-sky-300 text-xs font-bold">
+                💳 Visa & Mastercard
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-6 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
             {t.footer_copyright}
           </div>
