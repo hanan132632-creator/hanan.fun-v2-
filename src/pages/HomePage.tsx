@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Globe, 
   Zap, 
@@ -15,7 +15,9 @@ import {
   TrendingUp,
   Layers,
   Video,
-  Award
+  Award,
+  Eye,
+  Heart
 } from 'lucide-react';
 import { Language, Currency, ActivePage, ServiceItem, CartItem } from '../types';
 import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
@@ -46,6 +48,58 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   const t = TRANSLATIONS[currentLang];
   const currentCurrObj = CURRENCIES.find(c => c.code === currentCurrency) || CURRENCIES[0];
+
+  // Dynamic extra views and likes synced with localStorage
+  const [extraViews] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_extra_views');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const [extraLikes, setExtraLikes] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_extra_likes');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const [hasLiked, setHasLiked] = useState<Record<string, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('almahdi_blog_user_liked');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const handleCardLike = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const isCurrentlyLiked = !!hasLiked[id];
+    const nextState = !isCurrentlyLiked;
+
+    setHasLiked(prev => {
+      const updated = { ...prev, [id]: nextState };
+      try {
+        localStorage.setItem('almahdi_blog_user_liked', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    setExtraLikes(prev => {
+      const currentDelta = prev[id] || 0;
+      const nextDelta = nextState ? currentDelta + 1 : Math.max(0, currentDelta - 1);
+      const updated = { ...prev, [id]: nextDelta };
+      try {
+        localStorage.setItem('almahdi_blog_extra_likes', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
 
   const formatPrice = (usd: number) => {
     const converted = usd * currentCurrObj.rate;
@@ -481,9 +535,28 @@ export const HomePage: React.FC<HomePageProps> = ({
                     className="w-6 h-6 rounded-full object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-slate-700 dark:text-slate-300 font-semibold">{post.author.name}</span>
+                  <span className="text-slate-700 dark:text-slate-300 font-semibold truncate max-w-[90px] sm:max-w-none">{post.author.name}</span>
                 </div>
-                <span className="pt-3">{post.publishDate}</span>
+                <div className="flex items-center gap-2.5 pt-3 text-[11px]">
+                  <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                    <Eye className="w-3 h-3 text-blue-500" />
+                    <span>{((post.views || 1000) + (extraViews[post.id] || 0)).toLocaleString()}</span>
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={(e) => handleCardLike(post.id, e)}
+                    title={hasLiked[post.id] ? 'إلغاء الإعجاب' : 'إعجاب'}
+                    className={`flex items-center gap-1 px-2 py-0.5 rounded-md font-bold transition-all cursor-pointer ${
+                      hasLiked[post.id]
+                        ? 'bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900'
+                        : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400'
+                    }`}
+                  >
+                    <Heart className={`w-3 h-3 ${hasLiked[post.id] ? 'fill-current text-rose-600 dark:text-rose-400' : 'text-slate-400'}`} />
+                    <span>{((post.likes || 100) + (extraLikes[post.id] || 0)).toLocaleString()}</span>
+                  </button>
+                </div>
               </div>
             </article>
           ))}

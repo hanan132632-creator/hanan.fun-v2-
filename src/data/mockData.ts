@@ -488,7 +488,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80',
     },
-    publishDate: '2024-09-25',
+    publishDate: '2026-09-25',
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80',
     tags: [
