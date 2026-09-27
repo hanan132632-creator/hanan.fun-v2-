@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Globe, 
   Zap, 
@@ -50,7 +50,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   const currentCurrObj = CURRENCIES.find(c => c.code === currentCurrency) || CURRENCIES[0];
 
   // Dynamic extra views and likes synced with localStorage
-  const [extraViews] = useState<Record<string, number>>(() => {
+  const [extraViews, setExtraViews] = useState<Record<string, number>>(() => {
     try {
       const saved = localStorage.getItem('almahdi_blog_extra_views');
       return saved ? JSON.parse(saved) : {};
@@ -67,6 +67,23 @@ export const HomePage: React.FC<HomePageProps> = ({
       return {};
     }
   });
+
+  // Background views and likes dynamic ticker on HomePage
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomPost = BLOG_POSTS[Math.floor(Math.random() * BLOG_POSTS.length)];
+      if (randomPost) {
+        setExtraViews(prev => {
+          const updated = { ...prev, [randomPost.id]: (prev[randomPost.id] || 0) + 1 };
+          try {
+            localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
+          } catch {}
+          return updated;
+        });
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [hasLiked, setHasLiked] = useState<Record<string, boolean>>(() => {
     try {

@@ -82,6 +82,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [likedArticleAnimation, setLikedArticleAnimation] = useState<string | null>(null);
   const [liveLikePing, setLiveLikePing] = useState(false);
+  const [viewPulse, setViewPulse] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Comments state with localStorage persistence
@@ -146,6 +147,21 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       });
     }, 5000);
 
+    // Periodic live organic views increment from readers landing on this article
+    const viewsInterval = setInterval(() => {
+      setExtraViews(prev => {
+        const increment = Math.floor(Math.random() * 2) + 1; // +1 or +2
+        const nextCount = (prev[activeArticle.id] || 0) + increment;
+        const updated = { ...prev, [activeArticle.id]: nextCount };
+        try {
+          localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
+        } catch {}
+        return updated;
+      });
+      setViewPulse(true);
+      setTimeout(() => setViewPulse(false), 1500);
+    }, 6000);
+
     // Periodic live organic likes from concurrent readers on this active article
     const likeInterval = setInterval(() => {
       if (Math.random() > 0.4) {
@@ -160,13 +176,32 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         setLiveLikePing(true);
         setTimeout(() => setLiveLikePing(false), 3000);
       }
-    }, 14000);
+    }, 12000);
 
     return () => {
       clearInterval(interval);
+      clearInterval(viewsInterval);
       clearInterval(likeInterval);
     };
   }, [activeArticle?.id, activeArticle?.slug]);
+
+  // Periodic background views increment across articles on blog index
+  useEffect(() => {
+    if (activeArticle) return;
+    const interval = setInterval(() => {
+      const randomPost = BLOG_POSTS[Math.floor(Math.random() * BLOG_POSTS.length)];
+      if (randomPost) {
+        setExtraViews(prev => {
+          const updated = { ...prev, [randomPost.id]: (prev[randomPost.id] || 0) + 1 };
+          try {
+            localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
+          } catch {}
+          return updated;
+        });
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [activeArticle]);
 
   const handleNavigatePost = (slug: string) => {
     onSelectPost(slug);
@@ -312,9 +347,14 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <Clock className="w-3.5 h-3.5" />
                 {activeArticle.readTimeMin} {t.blog_read_time}
               </span>
-              <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-medium">
-                <Eye className="w-3.5 h-3.5 text-blue-500" />
+              <span className={`flex items-center gap-1.5 font-bold px-2.5 py-1 rounded-full border transition-all duration-300 ${
+                viewPulse
+                  ? 'bg-blue-100 dark:bg-blue-900/70 border-blue-400 dark:border-blue-600 text-blue-800 dark:text-blue-200 scale-105 shadow-xs'
+                  : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300'
+              }`}>
+                <Eye className={`w-3.5 h-3.5 ${viewPulse ? 'text-blue-600 dark:text-blue-400 animate-bounce' : 'text-blue-500'}`} />
                 <span>{((activeArticle.views || 1000) + (extraViews[activeArticle.id] || 0)).toLocaleString()} {t.blog_views}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
               </span>
 
               {/* Live Active Readers Interactive Button */}
