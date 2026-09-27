@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   BookOpen, 
   Search, 
   Clock, 
-  Eye, 
-  ThumbsUp, 
-  Heart,
   Share2,
-  Sparkles,
   Check,
   MessageSquare, 
   ArrowLeft, 
@@ -38,39 +34,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Dynamic extra views tracked per visitor/reading session
-  const [extraViews, setExtraViews] = useState<Record<string, number>>(() => {
-    try {
-      const saved = localStorage.getItem('almahdi_blog_extra_views');
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
-
-  // Dynamic extra likes
-  const [extraLikes, setExtraLikes] = useState<Record<string, number>>(() => {
-    try {
-      const saved = localStorage.getItem('almahdi_blog_extra_likes');
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
-
-  // Has user liked this post
-  const [hasLiked, setHasLiked] = useState<Record<string, boolean>>(() => {
-    try {
-      const saved = localStorage.getItem('almahdi_blog_user_liked');
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
-
   // Engagement states
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [likedArticleAnimation, setLikedArticleAnimation] = useState<string | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Comments state with localStorage persistence
@@ -111,19 +76,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     ? BLOG_POSTS[currentIndex + 1]
     : (BLOG_POSTS.length > 1 ? BLOG_POSTS[0] : null);
 
-  // Track real single view per session when article is opened
-  useEffect(() => {
-    if (!activeArticle) return;
-    setExtraViews(prev => {
-      const nextCount = (prev[activeArticle.id] || 0) + 1;
-      const updated = { ...prev, [activeArticle.id]: nextCount };
-      try {
-        localStorage.setItem('almahdi_blog_extra_views', JSON.stringify(updated));
-      } catch {}
-      return updated;
-    });
-  }, [activeArticle?.id]);
-
   const handleNavigatePost = (slug: string) => {
     onSelectPost(slug);
     if (typeof window !== 'undefined') {
@@ -139,44 +91,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     return matchesCategory && (title.includes(q) || excerpt.includes(q));
   });
 
-  const handleLike = (id: string, e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    const isCurrentlyLiked = !!hasLiked[id];
-    const nextState = !isCurrentlyLiked;
-
-    setHasLiked(prev => {
-      const updated = { ...prev, [id]: nextState };
-      try {
-        localStorage.setItem('almahdi_blog_user_liked', JSON.stringify(updated));
-      } catch {}
-      return updated;
-    });
-
-    setExtraLikes(prev => {
-      const currentDelta = prev[id] || 0;
-      const nextDelta = nextState ? currentDelta + 1 : Math.max(0, currentDelta - 1);
-      const updated = { ...prev, [id]: nextDelta };
-      try {
-        localStorage.setItem('almahdi_blog_extra_likes', JSON.stringify(updated));
-      } catch {}
-      return updated;
-    });
-
-    // Pop animation on like
-    if (nextState) {
-      setLikedArticleAnimation(id);
-      setToastMessage(isRtl ? '❤️ شكراً لك! تم تسجيل إعجابك بالمقال بنجاح.' : '❤️ Thank you! Your like has been registered.');
-      setTimeout(() => setLikedArticleAnimation(null), 1500);
-      setTimeout(() => setToastMessage(null), 3500);
-    } else {
-      setToastMessage(isRtl ? 'تم إلغاء الإعجاب' : 'Like removed');
-      setTimeout(() => setToastMessage(null), 2500);
-    }
-  };
-
   const handleShare = (slug: string) => {
     if (typeof navigator !== 'undefined') {
-      const url = typeof window !== 'undefined' ? `${window.location.origin}?post=${slug}` : '';
+      const url = typeof window !== 'undefined' ? `${window.location.origin}/blog/${slug}` : '';
       if (navigator.clipboard) {
         navigator.clipboard.writeText(url).catch(() => {});
       }
@@ -185,7 +102,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       setTimeout(() => {
         setCopiedLink(false);
         setToastMessage(null);
-      }, 3500);
+      }, 3000);
     }
   };
 
@@ -268,17 +185,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 <Clock className="w-3.5 h-3.5" />
                 {activeArticle.readTimeMin} {t.blog_read_time}
               </span>
-              <span className="flex items-center gap-1.5 font-bold px-2.5 py-1 rounded-full border bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300">
-                <Eye className="w-3.5 h-3.5 text-blue-500" />
-                <span>{((activeArticle.views || 1000) + (extraViews[activeArticle.id] || 0)).toLocaleString()} {t.blog_views}</span>
-              </span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
               {activeArticle.title[currentLang] || activeArticle.title.en}
             </h1>
 
-            {/* Author Meta */}
+            {/* Author Meta & Share */}
             <div className="flex items-center justify-between py-4 border-y border-slate-200 dark:border-slate-800">
               <div className="flex items-center gap-3">
                 <img
@@ -297,31 +210,24 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  {likedArticleAnimation === activeArticle.id && (
-                    <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-black text-rose-600 dark:text-rose-400 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full shadow-md animate-bounce border border-rose-200 whitespace-nowrap">
-                      +1 ❤️
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={(e) => handleLike(activeArticle.id, e)}
-                    title={hasLiked[activeArticle.id] ? 'إلغاء الإعجاب' : 'تسجيل إعجابك بالمقال'}
-                    className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer ${
-                      hasLiked[activeArticle.id]
-                        ? 'bg-rose-50 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800 shadow-rose-100 dark:shadow-none'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-transparent'
-                    }`}
-                  >
-                    <Heart className={`w-3.5 h-3.5 transition-transform ${hasLiked[activeArticle.id] ? 'fill-current text-rose-600 dark:text-rose-400 scale-110' : 'text-rose-500'}`} />
-                    <span>{((activeArticle.likes || 100) + (extraLikes[activeArticle.id] || 0)).toLocaleString()}</span>
-                    <span className="text-[11px] opacity-80">
-                      {hasLiked[activeArticle.id] ? (isRtl ? 'تم الإعجاب' : 'Liked') : (isRtl ? 'أعجبني' : 'Like')}
-                    </span>
-                  </button>
-                </div>
-              </div>
+              <button
+                type="button"
+                onClick={() => handleShare(activeArticle.slug)}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer"
+                title={isRtl ? 'نسخ رابط المقال' : 'Copy article link'}
+              >
+                {copiedLink ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-500" />
+                    <span className="text-emerald-600 dark:text-emerald-400">{isRtl ? 'تم النسخ!' : 'Copied!'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Share2 className="w-4 h-4 text-blue-500" />
+                    <span>{isRtl ? 'مشاركة' : 'Share'}</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
@@ -350,69 +256,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 #{tag}
               </span>
             ))}
-          </div>
-
-          {/* Dedicated Live Interactive Reaction & Engagement Box */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-50/80 via-indigo-50/40 to-slate-50 dark:from-slate-800/80 dark:via-blue-950/30 dark:to-slate-900 border-2 border-blue-100 dark:border-blue-900/40 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 my-8">
-            <div className="space-y-1.5 text-center sm:text-start">
-              <div className="flex items-center justify-center sm:justify-start gap-2">
-                <Sparkles className="w-4 h-4 text-amber-500 animate-spin" />
-                <h4 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">
-                  {isRtl ? 'هل نال هذا المقال إعجابك وفائدتك؟' : 'Did you find this article helpful?'}
-                </h4>
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-300">
-                {isRtl ? 'اضغط على زر الإعجاب لتشجيع الكاتب أو شارك المقال مع أصدقائك ومهتمي التقنية.' : 'Click like to support the author or share with friends.'}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 shrink-0">
-              {/* Primary Interactive Like Button */}
-              <div className="relative">
-                {likedArticleAnimation === activeArticle.id && (
-                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 text-xs font-black text-rose-600 dark:text-rose-400 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full shadow-lg animate-bounce border border-rose-200 whitespace-nowrap z-10">
-                    +1 ❤️
-                  </span>
-                )}
-                <button
-                  type="button"
-                  onClick={(e) => handleLike(activeArticle.id, e)}
-                  className={`flex items-center gap-2.5 px-5 py-2.5 rounded-2xl text-xs font-extrabold transition-all shadow-md active:scale-95 cursor-pointer ${
-                    hasLiked[activeArticle.id]
-                      ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/30 scale-105'
-                      : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-slate-200 dark:border-slate-700 hover:border-rose-300'
-                  }`}
-                >
-                  <Heart className={`w-4 h-4 transition-transform ${hasLiked[activeArticle.id] ? 'fill-current text-white animate-pulse' : 'text-rose-500'}`} />
-                  <span>
-                    {hasLiked[activeArticle.id] ? (isRtl ? 'أعجبك المقال' : 'Liked!') : (isRtl ? 'إعجاب بالمقال' : 'Like Article')}
-                  </span>
-                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-black ${hasLiked[activeArticle.id] ? 'bg-white/20 text-white' : 'bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300'}`}>
-                    {((activeArticle.likes || 100) + (extraLikes[activeArticle.id] || 0)).toLocaleString()}
-                  </span>
-                </button>
-              </div>
-
-              {/* Share Button */}
-              <button
-                type="button"
-                onClick={() => handleShare(activeArticle.slug)}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer"
-                title={isRtl ? 'نسخ رابط المقال' : 'Copy article link'}
-              >
-                {copiedLink ? (
-                  <>
-                    <Check className="w-4 h-4 text-emerald-500" />
-                    <span className="text-emerald-600 dark:text-emerald-400">{isRtl ? 'تم النسخ!' : 'Copied!'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Share2 className="w-4 h-4 text-blue-500" />
-                    <span>{isRtl ? 'مشاركة' : 'Share'}</span>
-                  </>
-                )}
-              </button>
-            </div>
           </div>
 
           {/* Bottom AdSense Unit */}
@@ -754,28 +597,10 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                       className="w-6 h-6 rounded-full object-cover"
                       referrerPolicy="no-referrer"
                     />
-                    <span className="text-slate-700 dark:text-slate-300 font-semibold truncate max-w-[90px] sm:max-w-none">{post.author.name}</span>
+                    <span className="text-slate-700 dark:text-slate-300 font-semibold truncate max-w-[120px] sm:max-w-none">{post.author.name}</span>
                   </div>
-                  <div className="flex items-center gap-2.5 pt-3 text-[11px]">
-                    <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
-                      <Eye className="w-3 h-3 text-blue-500" />
-                      <span>{((post.views || 1000) + (extraViews[post.id] || 0)).toLocaleString()}</span>
-                    </span>
-
-                    {/* Direct Interactive Like Button on Cards */}
-                    <button
-                      type="button"
-                      onClick={(e) => handleLike(post.id, e)}
-                      title={hasLiked[post.id] ? 'إلغاء الإعجاب' : 'إعجاب'}
-                      className={`flex items-center gap-1 px-2 py-0.5 rounded-md font-bold transition-all cursor-pointer ${
-                        hasLiked[post.id]
-                          ? 'bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900'
-                          : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400'
-                      }`}
-                    >
-                      <Heart className={`w-3 h-3 ${hasLiked[post.id] ? 'fill-current text-rose-600 dark:text-rose-400' : 'text-slate-400'}`} />
-                      <span>{((post.likes || 100) + (extraLikes[post.id] || 0)).toLocaleString()}</span>
-                    </button>
+                  <div className="pt-3 text-[11px] text-slate-500 dark:text-slate-400">
+                    <span>{post.publishDate}</span>
                   </div>
                 </div>
               </article>
