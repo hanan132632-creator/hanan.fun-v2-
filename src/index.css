@@ -6,6 +6,20 @@
     --font-en: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   [dir="rtl"] {
     font-family: var(--font-ar);
   }
@@ -48,4 +62,3 @@ ins.adsbygoogle[data-ad-status="unfilled"] ~ * {
   margin: 0 !important;
   padding: 0 !important;
 }
-

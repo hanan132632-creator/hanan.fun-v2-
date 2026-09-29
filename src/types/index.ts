@@ -18,7 +18,7 @@ export type ActivePage =
 export interface ServiceItem {
   id: string;
   name: Record<Language, string>;
-  category: 'cloud' | 'security' | 'domains' | 'enterprise' | 'ai';
+  category: 'web-design' | 'cloud' | 'domains' | 'marketing' | 'security' | 'enterprise' | 'ai';
   shortDesc: Record<Language, string>;
   fullDesc: Record<Language, string>;
   basePriceUSD: number;

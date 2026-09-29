@@ -41,12 +41,13 @@ export const StorePage: React.FC<StorePageProps> = ({
   const currentCurrObj = CURRENCIES.find(c => c.code === currentCurrency) || CURRENCIES[0];
 
   const categories = [
-    { id: 'all', label: 'جميع الخدمات (All Services)' },
-    { id: 'hosting', label: 'استضافة وسيرفرات (Cloud VPS)' },
-    { id: 'security', label: 'الأمان السيبراني (Zero Trust)' },
-    { id: 'cdn', label: 'تسريع المحتوى (Global CDN)' },
-    { id: 'domain', label: 'النطاقات و DNS (Anycast DNS)' },
-    { id: 'ai', label: 'البرمجيات المتقدمة (Advanced Software)' },
+    { id: 'all', label: currentLang === 'ar' ? 'جميع الخدمات' : 'All Services' },
+    { id: 'web-design', label: currentLang === 'ar' ? 'تصميم المواقع والمتاجر' : 'Web & Store Design' },
+    { id: 'cloud', label: currentLang === 'ar' ? 'الاستضافة والسيرفرات' : 'Cloud & VPS' },
+    { id: 'domains', label: currentLang === 'ar' ? 'حجز وإدارة النطاقات' : 'Domain Management' },
+    { id: 'marketing', label: currentLang === 'ar' ? 'التسويق وتصدر السيو' : 'SEO & Marketing' },
+    { id: 'security', label: currentLang === 'ar' ? 'الأمن السيبراني والدعم' : 'Cyber Security' },
+    { id: 'ai', label: currentLang === 'ar' ? 'البرمجيات وهندسة النظم' : 'Advanced Systems' },
   ];
 
   const filteredServices = GLOBAL_SERVICES.filter(service => {

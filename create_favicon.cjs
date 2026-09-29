@@ -134,6 +134,7 @@ fs.writeFileSync(path.join(publicDir, 'favicon-48x48.png'), png48);
 fs.writeFileSync(path.join(publicDir, 'favicon-96x96.png'), png96);
 fs.writeFileSync(path.join(publicDir, 'favicon-192x192.png'), png192);
 fs.writeFileSync(path.join(publicDir, 'apple-touch-icon.png'), png180);
+fs.writeFileSync(path.join(publicDir, 'app-icon-512x512.png'), png512);
 
 // 2. Build multi-image standard ICO container with 48x48 (Google standard) and 32x32
 // ICO Header: 6 bytes
