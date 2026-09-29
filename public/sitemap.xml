@@ -14,8 +14,14 @@
   </url>
   <url>
     <loc>https://www.hanan.fun/blog</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hanan.fun/blog/publishing-professional-articles-seo-authority-2026</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>

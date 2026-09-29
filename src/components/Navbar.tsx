@@ -36,6 +36,7 @@ interface NavbarProps {
   onOpenCart: () => void;
   onOpenAiAssistant: () => void;
   onOpenMobileOptimizer: () => void;
+  onOpenKodular: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -51,6 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCart,
   onOpenAiAssistant,
   onOpenMobileOptimizer,
+  onOpenKodular,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
