@@ -26,10 +26,11 @@ import {
 import { Language, Currency, ActivePage, ServiceItem, CartItem } from '../types';
 import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
 import { GLOBAL_SERVICES, BLOG_POSTS, SERVER_NODES, TESTIMONIALS } from '../data/mockData';
-import { SpeedTestWidget } from '../components/SpeedTestWidget';
 import { AdSensePlacement } from '../components/AdSensePlacement';
-import { InteractiveGamesSection } from '../components/InteractiveGamesSection';
-import { PasswordGeneratorWidget } from '../components/PasswordGeneratorWidget';
+
+const SpeedTestWidget = React.lazy(() => import('../components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
+const InteractiveGamesSection = React.lazy(() => import('../components/InteractiveGamesSection').then(m => ({ default: m.InteractiveGamesSection })));
+const PasswordGeneratorWidget = React.lazy(() => import('../components/PasswordGeneratorWidget').then(m => ({ default: m.PasswordGeneratorWidget })));
 
 interface HomePageProps {
   currentLang: Language;
@@ -543,19 +544,25 @@ export const HomePage: React.FC<HomePageProps> = ({
           )}
 
           {activeToolTab === 'password' && (
-            <div id="password-generator-tool">
-              <PasswordGeneratorWidget currentLang={currentLang} />
-            </div>
+            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+              <div id="password-generator-tool">
+                <PasswordGeneratorWidget currentLang={currentLang} />
+              </div>
+            </React.Suspense>
           )}
 
           {activeToolTab === 'speed' && (
-            <SpeedTestWidget currentLang={currentLang} />
+            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+              <SpeedTestWidget currentLang={currentLang} />
+            </React.Suspense>
           )}
 
           {activeToolTab === 'wordle' && (
-            <div id="arabic-games-hub">
-              <InteractiveGamesSection currentLang={currentLang} />
-            </div>
+            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+              <div id="arabic-games-hub">
+                <InteractiveGamesSection currentLang={currentLang} />
+              </div>
+            </React.Suspense>
           )}
         </div>
       </section>
@@ -662,6 +669,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <img
                     src={post.coverImage}
                     alt={post.title[currentLang] || post.title.en}
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="192"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
@@ -688,6 +699,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <img
                     src={post.author.avatar}
                     alt={post.author.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="24"
+                    height="24"
                     className="w-6 h-6 rounded-full object-cover"
                     referrerPolicy="no-referrer"
                   />

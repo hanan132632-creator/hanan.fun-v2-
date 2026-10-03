@@ -62,3 +62,10 @@ ins.adsbygoogle[data-ad-status="unfilled"] ~ * {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* Core Web Vitals Optimization: Skip rendering of off-screen footer until scrolled */
+footer,
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 350px;
+}

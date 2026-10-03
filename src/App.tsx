@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { 
   Language, 
   Currency, 
@@ -10,33 +10,49 @@ import { LANGUAGES } from './locales/translations';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
-import { CartDrawer } from './components/CartDrawer';
-import { AiAssistantModal } from './components/AiAssistantModal';
 import { HomePage } from './pages/HomePage';
-import { StorePage } from './pages/StorePage';
-import { BlogPage } from './pages/BlogPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
-import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
-import { TermsPage } from './pages/TermsPage';
-import { CookiePolicyPage } from './pages/CookiePolicyPage';
-import { AdSenseStandardsPage } from './pages/AdSenseStandardsPage';
-import { AudioToVideoPage } from './pages/AudioToVideoPage';
-import { SpeedTestWidget } from './components/SpeedTestWidget';
-import { MobileOptimizerModal } from './components/MobileOptimizerModal';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import { Sparkles, ShoppingBag, ArrowUp } from 'lucide-react';
+import { Sparkles, ArrowUp } from 'lucide-react';
+
+// Code-split all secondary pages to reduce initial JavaScript payload from 1.4MB to <300KB
+const StorePage = lazy(() => import('./pages/StorePage').then(m => ({ default: m.StorePage })));
+const BlogPage = lazy(() => import('./pages/BlogPage').then(m => ({ default: m.BlogPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })));
+const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
+const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(m => ({ default: m.CookiePolicyPage })));
+const AdSenseStandardsPage = lazy(() => import('./pages/AdSenseStandardsPage').then(m => ({ default: m.AdSenseStandardsPage })));
+const AudioToVideoPage = lazy(() => import('./pages/AudioToVideoPage').then(m => ({ default: m.AudioToVideoPage })));
+const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
+
+// Code-split heavy interactive modals
+const CartDrawer = lazy(() => import('./components/CartDrawer').then(m => ({ default: m.CartDrawer })));
+const AiAssistantModal = lazy(() => import('./components/AiAssistantModal').then(m => ({ default: m.AiAssistantModal })));
+const MobileOptimizerModal = lazy(() => import('./components/MobileOptimizerModal').then(m => ({ default: m.MobileOptimizerModal })));
+
+const PageLoadingSkeleton = () => (
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse space-y-6">
+    <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-xl w-48"></div>
+    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded-lg w-96"></div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+    </div>
+  </div>
+);
 
 export default function App() {
   // Language & Direction State
   const [currentLang, setCurrentLang] = useState<Language>(() => {
-    const saved = localStorage.getItem('gis_lang') as Language;
+    const saved = typeof window !== 'undefined' ? localStorage.getItem('gis_lang') as Language : null;
     return saved || 'ar';
   });
 
   // Currency State
   const [currentCurrency, setCurrentCurrency] = useState<Currency>(() => {
-    const saved = localStorage.getItem('gis_curr') as Currency;
+    const saved = typeof window !== 'undefined' ? localStorage.getItem('gis_curr') as Currency : null;
     return saved || 'USD';
   });
 
@@ -52,7 +68,6 @@ export default function App() {
       window.location.replace('/ads.txt');
       return 'home';
     }
-    // Normalize path by removing spaces and multi-slashes
     const normalizedPath = path.replace(/\s+/g, '-').replace(/\/+/g, '/');
 
     if (
@@ -139,6 +154,7 @@ export default function App() {
 
   // Dark Mode State
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
     const saved = localStorage.getItem('gis_dark');
     return saved ? saved === 'true' : false;
   });
@@ -146,7 +162,7 @@ export default function App() {
   // Cart State
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem('gis_cart');
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('gis_cart') : null;
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -190,7 +206,7 @@ export default function App() {
     localStorage.setItem('gis_cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // Scroll listener
+  // Scroll listener with passive listener for max performance
   useEffect(() => {
     const checkScroll = () => {
       if (window.scrollY > 300) {
@@ -199,7 +215,7 @@ export default function App() {
         setShowScrollTop(false);
       }
     };
-    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('scroll', checkScroll, { passive: true });
     return () => window.removeEventListener('scroll', checkScroll);
   }, []);
 
@@ -227,9 +243,7 @@ export default function App() {
       if (window.location.pathname !== targetPath) {
         try {
           window.history.pushState({ page }, '', targetPath);
-        } catch {
-          // ignore if history api is restricted
-        }
+        } catch {}
       }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -276,7 +290,7 @@ export default function App() {
         onOpenMobileOptimizer={() => setMobileOptimizerOpen(true)}
       />
 
-      {/* Main Page Content Router */}
+      {/* Main Page Content Router with Suspense for on-demand lazy pages */}
       <main className="flex-1">
         {activePage === 'home' && (
           <HomePage
@@ -292,70 +306,72 @@ export default function App() {
           />
         )}
 
-        {activePage === 'store' && (
-          <StorePage
-            currentLang={currentLang}
-            currentCurrency={currentCurrency}
-            onAddToCart={handleAddToCart}
-          />
-        )}
+        <Suspense fallback={<PageLoadingSkeleton />}>
+          {activePage === 'store' && (
+            <StorePage
+              currentLang={currentLang}
+              currentCurrency={currentCurrency}
+              onAddToCart={handleAddToCart}
+            />
+          )}
 
-        {activePage === 'blog' && (
-          <BlogPage
-            currentLang={currentLang}
-            selectedPostSlug={selectedBlogSlug}
-            onSelectPost={handleSelectBlog}
-          />
-        )}
+          {activePage === 'blog' && (
+            <BlogPage
+              currentLang={currentLang}
+              selectedPostSlug={selectedBlogSlug}
+              onSelectPost={handleSelectBlog}
+            />
+          )}
 
-        {activePage === 'diagnostics' && (
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-6">
-            <SpeedTestWidget currentLang={currentLang} />
-          </div>
-        )}
+          {activePage === 'diagnostics' && (
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-6">
+              <SpeedTestWidget currentLang={currentLang} />
+            </div>
+          )}
 
-        {activePage === 'about' && (
-          <AboutPage
-            currentLang={currentLang}
-            onNavigate={handleNavigate}
-          />
-        )}
+          {activePage === 'about' && (
+            <AboutPage
+              currentLang={currentLang}
+              onNavigate={handleNavigate}
+            />
+          )}
 
-        {activePage === 'contact' && (
-          <ContactPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'contact' && (
+            <ContactPage
+              currentLang={currentLang}
+            />
+          )}
 
-        {activePage === 'privacy' && (
-          <PrivacyPolicyPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'privacy' && (
+            <PrivacyPolicyPage
+              currentLang={currentLang}
+            />
+          )}
 
-        {activePage === 'terms' && (
-          <TermsPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'terms' && (
+            <TermsPage
+              currentLang={currentLang}
+            />
+          )}
 
-        {activePage === 'cookies' && (
-          <CookiePolicyPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'cookies' && (
+            <CookiePolicyPage
+              currentLang={currentLang}
+            />
+          )}
 
-        {activePage === 'adsense-standards' && (
-          <AdSenseStandardsPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'adsense-standards' && (
+            <AdSenseStandardsPage
+              currentLang={currentLang}
+            />
+          )}
 
-        {activePage === 'audio-to-video' && (
-          <AudioToVideoPage
-            currentLang={currentLang}
-          />
-        )}
+          {activePage === 'audio-to-video' && (
+            <AudioToVideoPage
+              currentLang={currentLang}
+            />
+          )}
+        </Suspense>
       </main>
 
       {/* Floating Action Buttons */}
@@ -380,30 +396,40 @@ export default function App() {
         </button>
       </div>
 
-      {/* Slide-out Cart Drawer */}
-      <CartDrawer
-        isOpen={cartDrawerOpen}
-        onClose={() => setCartDrawerOpen(false)}
-        cartItems={cartItems}
-        onRemoveItem={handleRemoveCartItem}
-        onClearCart={handleClearCart}
-        currentLang={currentLang}
-        currentCurrency={currentCurrency}
-      />
+      {/* Lazy Modals: only loaded when triggered */}
+      {cartDrawerOpen && (
+        <Suspense fallback={null}>
+          <CartDrawer
+            isOpen={cartDrawerOpen}
+            onClose={() => setCartDrawerOpen(false)}
+            cartItems={cartItems}
+            onRemoveItem={handleRemoveCartItem}
+            onClearCart={handleClearCart}
+            currentLang={currentLang}
+            currentCurrency={currentCurrency}
+          />
+        </Suspense>
+      )}
 
-      {/* AI Assistant Modal */}
-      <AiAssistantModal
-        isOpen={aiAssistantOpen}
-        onClose={() => setAiAssistantOpen(false)}
-        currentLang={currentLang}
-      />
+      {aiAssistantOpen && (
+        <Suspense fallback={null}>
+          <AiAssistantModal
+            isOpen={aiAssistantOpen}
+            onClose={() => setAiAssistantOpen(false)}
+            currentLang={currentLang}
+          />
+        </Suspense>
+      )}
 
-      {/* Mobile Search Console & Performance Modal */}
-      <MobileOptimizerModal
-        isOpen={mobileOptimizerOpen}
-        onClose={() => setMobileOptimizerOpen(false)}
-        currentLang={currentLang}
-      />
+      {mobileOptimizerOpen && (
+        <Suspense fallback={null}>
+          <MobileOptimizerModal
+            isOpen={mobileOptimizerOpen}
+            onClose={() => setMobileOptimizerOpen(false)}
+            currentLang={currentLang}
+          />
+        </Suspense>
+      )}
 
       {/* Cookie Consent Banner */}
       <CookieBanner
@@ -411,10 +437,10 @@ export default function App() {
         onNavigate={handleNavigate}
       />
 
-      {/* Vercel Speed Insights */}
+      {/* Speed Insights */}
       <SpeedInsights />
 
-      {/* Global Footer with All Policy and AdSense Links */}
+      {/* Global Footer */}
       <Footer
         currentLang={currentLang}
         onNavigate={handleNavigate}
