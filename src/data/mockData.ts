@@ -454,6 +454,209 @@ export const GLOBAL_SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'google-eeat-guidelines-handbook-seo-adsense-2026',
+    slug: 'google-eeat-guidelines-handbook-seo-adsense-2026',
+    title: {
+      ar: 'دليل معايير E-E-A-T الشامل من جوجل (2026): كيف تبني التجربة، الخبرة، السلطة والموثوقية لتتصدر نتائج البحث وتضمن قبول أدسنس الفوري؟',
+      en: 'The Complete Google E-E-A-T Guidelines Handbook (2026): Engineering Experience, Expertise, Authoritativeness & Trust for Search Domination and Instant AdSense Approval',
+      fr: 'Manuel Complet E-E-A-T de Google (2026) : Expérience, Expertise, Autorité et Confiance pour le SEO et l\'Approbation AdSense',
+      es: 'Manual Definitivo de Google E-E-A-T (2026): Experiencia, Pericia, Autoridad y Confianza para Dominar el SEO y Aprobar AdSense',
+      de: 'Das umfassende Google E-E-A-T Handbuch (2026): Erfahrung, Fachwissen, Autorität und Vertrauen für SEO und AdSense-Zulassung',
+      zh: '2026 谷歌 E-E-A-T 权威白皮书指南：如何系统化构建经验、专业、权威与信任度，问鼎搜索前列并顺利通过 AdSense 审核',
+      ja: 'Google E-E-A-T 完全攻略ハンドブック (2026)：SEO上位表示とAdSense審査一発合格を実現する「経験・専門性・権威性・信頼性」構築法',
+      tr: 'Google E-E-A-T Kapsamlı Rehberi (2026): Arama Sıralamalarında Zirveye Çıkmak ve AdSense Onayı Almak İçin Deneyim, Uzmanlık, Otorite ve Güven',
+    },
+    excerpt: {
+      ar: 'دليل مرجعي وتحليلي معمق يفكك خوارزميات جودة البحث من جوجل (Helpful Content System) ودليل مقيّمي الجودة (QRG). ستتعلم بالخطوات العملية والأمثلة الملموسة كيف تثبت التجربة الميدانية (Experience)، وتبرهن الخبرة التخصصية (Expertise)، وتبني المكانة المرجعية (Authoritativeness)، وترسخ ركيزة الثقة المطلقة (Trustworthiness) لحماية موقعك من تحديثات جوجل الأساسية وضمان اعتماده في برنامج Google AdSense دون رفض.',
+      en: 'An in-depth technical and editorial roadmap breaking down Google\'s Search Quality Rater Guidelines (QRG) and Helpful Content System updates. Learn actionable strategies to showcase first-hand Experience, certify technical Expertise, cultivate Authoritativeness, and establish rock-solid Trustworthiness to future-proof your rankings and guarantee AdSense monetization.',
+      fr: 'Une feuille de route éditoriale et technique détaillant les directives d\'évaluation de la qualité de Google (QRG). Apprenez à prouver une expérience vécue, certifier une expertise, bâtir une autorité sectorielle et instaurer une confiance absolue pour votre monétisation AdSense.',
+      es: 'Una guía estratégica y técnica que desglosa las directrices de calidad de Google (QRG). Aprende a demostrar experiencia práctica, certificar pericia técnica, consolidar autoridad de marca y garantizar la aprobación de AdSense.',
+      de: 'Ein tiefgehender redaktioneller und technischer Leitfaden zu Googles Search Quality Rater Guidelines (QRG). Erfahren Sie, wie Sie praktische Erfahrung nachweisen, Fachwissen zertifizieren, Autorität aufbauen und AdSense-Konformität sichern.',
+      zh: '深度解析谷歌搜索质量评估指南（QRG）与最新有价值内容系统（Helpful Content System）。通过实战步骤全面构建真实经验（Experience）、技术专长（Expertise）、行业权威（Authoritativeness）以及最高权重的信任基石（Trustworthiness），彻底告别低质内容拒审。',
+      ja: 'Google品質評価ガイドライン（QRG）とヘルプフルコンテンツシステムを徹底解読。一次情報の経験（Experience）、専門知識（Expertise）、サイト権威性（Authoritativeness）、最重要の信頼性（Trustworthiness）の具体的な実装手順を解説。',
+      tr: 'Google\'ın Arama Kalitesi Değerlendirme Yönergeleri (QRG) ve Faydalı İçerik Sistemini ayrıntılarıyla inceleyen stratejik rehber. Birinci elden deneyimi kanıtlama, uzmanlığı belgeleme, otorite kurma ve AdSense onayını garanti altına alma yöntemleri.',
+    },
+    content: {
+      ar: `لم يعد التنافس في نتائج محركات البحث في عام 2026 لعبة خوارزمية تعتمد على تكرار الكلمات المفتاحية في وسوم H1 و H2 أو شراء روابط خلفية عشوائية. مع التحديثات المتتالية لنظام المحتوى المفيد (Helpful Content System) وإدماج نماذج الذكاء الاصطناعي الفائقة في تقييم صفحات الويب، وضعت شركة جوجل حجر الزاوية الصارم لتقييم أي موقع في 4 حروف محورية: **E-E-A-T** (التجربة، الخبرة، السلطة، والموثوقية).
+
+سواء كنت تدير مدونة تقنية، أو متجر خدمات سحابية، أو بوابة محتوى رقمي، فإن فهمك العميق لمعايير E-E-A-T ليس مجرد وسيلة لتحسين ترتيبك في محرك البحث (SEO)، بل هو **شرط النجاة والقبول الأساسي في Google AdSense** لتفادي رسائل الرفض الشهيرة مثل "محتوى منخفض القيمة" (Low Value Content) أو "الموقع قيد الإنشاء".
+
+---
+
+### المحور الأول: فك شفرة الأضلاع الأربعة لمعايير E-E-A-T
+
+جاءت إضافة حرف **E** الثاني (Experience) في تحديثات جوجل الرسمية لتمييز المحتوى البشري الأصيل الذي كُتب بناءً على تجربة واحتكاك حقيقي، عن المحتوى النظري المعاد صياغته أو المولد آلياً دون اختبار ميداني. دعنا نفكك كل ركن بدقة:
+
+#### 1. التجربة الحقيقية المباشرة (Experience)
+* **المفهوم:** هل الكاتب أو الناشر استخدم الأداة بنفسه؟ هل استأجر السيرفر؟ هل جرب كود البرمجة؟ هل أصلح العطل بيده؟
+* **كيف تقيسها خوارزميات جوجل ومقيّمو الجودة (Quality Raters)؟**
+  * تضمين صور ولقطات شاشة أصلية من بيئة العمل الواقعية، وليس مجرد صور عامة من بنوك الصور المجانية.
+  * ذكر تحديات حقيقية وعقبات ظهرت أثناء التجربة وكيف تم حلها (المحتوى الاصطناعي غالباً ما يقدم سيناريوهات مثالية خالية من التفاصيل الدقيقة).
+  * إدراج أرقام قياسية فعلية (بيانات سرعة، استهلاك ذاكرة، نتائج فحص Core Web Vitals) نابعة من اختبار حقيقي.
+
+#### 2. الخبرة التخصصية الأكاديمية والمهنية (Expertise)
+* **المفهوم:** المعرفة العميقة، والمهارة، والتدريب التخصصي الذي يمتلكه مبتكر المحتوى في مجاله.
+* **كيف تبرهنها في موقعك؟**
+  * تخصيص سيرة ذاتية واضحة للكاتب مع صورته المهنية وخبراته السابقة (Author Bio Box).
+  * ربط حسابات الكاتب الموثوقة على LinkedIn أو المنصات المهنية التخصصية (GitHub، منصات النشر العلمية).
+  * استخدام كود البيانات المنظمة **Schema.org** بنوع Person و author للتعريف بهوية الكاتب أمام روبوتات جوجل.
+  * تجنب الكتابة العشوائية في كل المجالات؛ جوجل تفضل المواقع ذات التخصص المركز (Topic Topical Authority).
+
+#### 3. المكانة المرجعية والسلطة المعرفية (Authoritativeness)
+* **المفهوم:** السمعة العامة التي تتمتع بها منصتك بين المتخصصين ورواد المجال. هل ينظر إليك الآخرون كمرجع أول عند حدوث مستجدات تقنية؟
+* **كيف تبني السلطة الرقمية؟**
+  * الاستشهاد ببحوث وتقارير موثوقة ومصادر رسمية (RFCs، وثائق W3C، تقارير جوجل الرسمية).
+  * الحصول على إشارات وروابط خلفية تحريرية طبيعية (Editorial Backlinks) من مواقع ذات وزن وثقة عالية.
+  * تغطية الموضوعات بتسلسل عنقودي متكامل (Topic Clusters) يغطي الموضوع من جذوره وحتى تطبيقاته المتقدمة.
+
+#### 4. المصداقية والموثوقية (Trustworthiness) - حجر الزاوية والقلب النابض
+* **الحقيقة الصادمة:** في وثائق جوجل الرسمية لمقيمي الجودة (Search Quality Rater Guidelines)، يُعتبر **عنصر الموثوقية (Trust) هو الأهم على الإطلاق** ومركز الدائرة؛ فإذا كان المحتوى يفتقر للثقة، تسقط باقي العناصر الثلاثة فوراً.
+* **عناصر الموثوقية الإلزامية في أي موقع:**
+  * **الشفافية التشغيلية:** من يملك الموقع؟ وما هو مقر الشركة؟ وكيف يمكن للعميل أو الزائر التواصل الفعلي معكم؟ (صفحة اتصل بنا مع نموذج وبريد رسمي).
+  * **الصفحات القانونية الصارمة:** سياسة خصوصية واضحة، شروط استخدام دقيقة، وسياسة ملفات تعريف الارتباط (Cookie Consent).
+  * **الأمان التقني:** تشفير HTTPS عبر شهادة SSL صالحة ومحدثة، سرعة استجابة السيرفر، وخلو الموقع من الروابط المعطلة (404) أو البرمجيات الخبيثة.
+  * **النزاهة الإعلانية:** التوافق التام مع سياسات Google AdSense، عدم خداع الزائر بنقرات غير مقصودة، ووضع إعلانات واضحة المعالم.
+
+---
+
+### المحور الثاني: معايير YMYL وحساسية المحتوى أمام جوجل
+
+تصنف جوجل فئات محددة من المواقع تحت مسمى **YMYL** (Your Money or Your Life - أموالك أو حياتك). هذه الفئات تشمل:
+1. **المواقع المالية والتجارية:** التجارة الإلكترونية، بوابات الدفع، الاستثمار، واستشارات المال.
+2. **المواقع الطبية والصحية:** النصائح الطبية، الأدوية، والصحة النفسية والجسدية.
+3. **المواقع القانونية والحكومية:** القوانين، الحقوق المدنية، ومعاملات الهجرة.
+4. **المواقع التقنية المتقدمة:** الأمن السيبراني، إدارة السيرفرات السحابية، وسلامة البيانات الرقمية.
+
+إذا كان موقعك ينتمي أو يلامس إحدى هذه الفئات، فإن تطبيق معايير E-E-A-T يكون بمستوى صرامة مضاعف؛ حيث لا تقبل جوجل أي معلومة مجهولة المصدر، بل تتطلب توقيع خبراء معتمدين وتوثيقاً للمعلومات لحماية المستخدم من أي ضرر مادي أو تقني أو صحي.
+
+---
+
+### المحور الثالث: لماذا ترفض Google AdSense المواقع التي تتجاهل E-E-A-T؟
+
+العديد من أصحاب المواقع الجدد يتفاجأون برفض مواقعهم في برنامج أدسنس بالرغم من نشرهم لـ 20 أو 30 مقالاً! السبب دائماً يتلخص في أحد العوامل التالية المرتبطة بمعايير الجودة:
+* **مقالات روبوتية بدون روح (AI-Generated without human touch):** نصوص عامة طويلة تفتقر لأي تجربة شخصية أو رأي نقدي أو بيانات معيارية حقيقية.
+* **غياب هوية الكاتب:** مقالات منشورة باسم "Admin" أو "المدير" بدون سيرة ذاتية أو خلفية تخصصية واضحة.
+* **نقص إشارات الثقة (Trust Signals):** عدم وجود صفحة "من نحن" تشرح أهداف المنصة وفريق العمل، أو غياب صفحة شروط الخدمة وسياسة الخصوصية.
+* **تصميم مربك أو بطيء:** صفحات تتأخر في التحميل على الجوال أو تعاني من انزياحات في التخطيط تؤثر على سهولة القراءة (انخفاض نتائج Core Web Vitals).
+
+---
+
+### المحور الرابع: خطة العمل الميدانية من 10 خطوات لبناء E-E-A-T لا يقهر
+
+لتأهيل موقعك لتصدر نتائج البحث والاعتماد الموثوق في أدسنس وشبكات الإعلانات العالمية، اتبع هذه الخطة التنفيذية بدقة:
+
+1. **أنشئ صندوق معلومات الكاتب (Author Box):** في نهاية كل مقال، ضع صورة الكاتب الحقيقية، ومسماه الوظيفي، ونبذة مختصرة عن مؤهلاته، مع رابط لصفحته الشخصية.
+2. **وثّق صفحة "من نحن" (About Us) بعمق:** اذكر هوية المنصة، تاريخ تأسيسها، قيمها التحريرية، ومعاييرها في تدقيق المعلومات.
+3. **أضف بيانات Schema.org المهيكلة (JSON-LD):** استخدم بيانات Article و Organization و Person لتعريف محركات البحث بمكونات الصفحة برمجياً.
+4. **عزز المحتوى بأدلة التجربة (Proof of Work):** التقط لقطات شاشة، وسجل فيديوهات توضيحية قصيرة، وأدرج مقارنات بيانية وجداول ملخصة.
+5. **اربط المحتوى بشبكة مصادر موثوقة:** أشر إلى دراسات وإحصاءات رسمية بروابط خارجية تفتح في نافذة جديدة ذات صلة حقيقية بالموضوع.
+6. **احرص على بناء التخصص الموضوعي (Topical Authority):** لا تنشر اليوم عن الطهي وغداً عن صيانة خوادم لينكس؛ اختر مجالاً محدداً وقم بتغطيته من الألف إلى الياء.
+7. **راجع وحدّث مقالاتك القديمة:** جوجل تكافئ المقالات التي يُعاد تنقيحها وإضافة أحدث التطورات إليها مع تحديث تاريخ التعديل (dateModified).
+8. **اجعل تجربة المستخدم على الجوال فائقة السلاسة:** تأكد من أن الموقع يحقق درجات 90+ في Google PageSpeed Insights وخالٍ من عناصر الحجب.
+9. **احترم خصوصية الزائر بشكل معلن:** ضع بنر موافقة الكوكيز (Cookie Banner) ووضح خيارات الامتثال للائحة GDPR وحماية المستهلك.
+10. **شجع التفاعل والتعليقات الحقيقية:** التعليقات البناءة من القراء والرد عليها من قِبل كاتب المقال تعطي إشارة قوية لجوجل بأن الموقع يمثل مجتمعاً تفاعلياً حياً.
+
+---
+
+### جدول مقارنة: المواقع التقليدية السطحية مقابل المواقع الملتزمة بمعايير E-E-A-T
+
+| معيار المقارنة | المواقع التقليدية السطحية (معرضة لعقوبات جوجل) | المواقع الملتزمة بـ E-E-A-T (مستقرة ومتصدرة) |
+| :--- | :--- | :--- |
+| **هوية الكاتب** | مجهول، "Admin"، أو اسم مستعار خيالي | خبير حقيقي مع سيرة ذاتية ومؤهلات موثقة وروابط مهنية |
+| **طبيعة المحتوى** | إعادة صياغة مكررة لمقالات ويكيبيديا والمواقع المنافسة | محتوى تحليلي أصيل، مبني على تجربة واختبارات حقيقية |
+| **الأدلة البصرية** | صور عامة مسروقة أو مستخرجة من محركات البحث | مخططات حصرية، رسوم بيانية توضيحية، ولقطات شاشة شخصية |
+| **موقف Google AdSense** | رفض متكرر بدعوى "محتوى منخفض القيمة" | قبول فوري ومعدل أرباح لكل ألف ظهور (RPM) مرتفع جداً |
+| **الاستقرار في التحديثات** | انهيار مفاجئ في الزيارات مع كل تحديث أساسي لـ Google | استقرار مستمر وزيادة مطردة في سلطة الدومين وحجم الزوار |
+
+---
+
+### خلاصة وتوصية منصة خدمات الإنترنت العالمية (GIS)
+
+في منصة **خدمات الإنترنت العالمية (GIS)**، نعتبر معايير E-E-A-T دستوراً تحريرياً وبرمجياً لا تنازل عنه؛ حيث نقوم بتطبيق بنية تحتية سريعة وخوادم مؤمنة عبر شبكات Anycast CDN وشهادات تشفير عالية لضمان ركيزة الموثوقية (Trust)، مع إشراف نخبة من مهندسي النظم وكبار المحررين التقنيين لترسيخ ركائز الخبرة والتجربة.
+
+إذا طبقت هذه المبادئ في موقعك اليوم، فلن تكتفي فقط باجتياز مراجعة Google AdSense بنجاح، بل ستبني منصة رقمية ذات وزن مرجعي يدوم لسنوات ويتصدر نتائج البحث بثبات.`,
+      en: `In 2026, ranking at the pinnacle of Google search results is no longer about keyword stuffing or mass backlink schemes. Following continuous rollouts of Google's Helpful Content System and advanced AI-assisted quality assessment models, Google has cemented a definitive 4-pillar foundation for evaluating web content: **E-E-A-T** (Experience, Expertise, Authoritativeness, and Trustworthiness).
+
+Whether you manage an enterprise cloud platform, a technical portal, or a digital business store, mastering E-E-A-T is not merely an SEO best practice—it is the **cardinal requirement for passing Google AdSense site reviews** and escaping frustrating rejection messages such as "Low Value Content" or "Site under construction".
+
+---
+
+### The Four Pillars of Google E-E-A-T Demystified
+
+The introduction of the first **E** (Experience) into Google's Quality Rater Guidelines was engineered to separate hands-on, human-tested craftsmanship from recycled, AI-spun generic summaries.
+
+#### 1. First-Hand Experience (Experience)
+* **The Core Requirement:** Has the author personally operated the hardware, executed the code, deployed the cloud instance, or resolved the configuration error?
+* **Actionable Indicators:** Custom high-res screenshots from real production environments, actual runtime benchmarks, candid discussions of edge cases, and genuine trial-and-error logs.
+
+#### 2. Specialized Expertise (Expertise)
+* **The Core Requirement:** Formal training, professional credentials, and deep domain knowledge in the topic at hand.
+* **Actionable Indicators:** Transparent author biographies with headshots and professional credentials (e.g., LinkedIn, GitHub, peer-reviewed publications), mapped directly via Person and Author Schema.org JSON-LD tags.
+
+#### 3. Domain Authoritativeness (Authoritativeness)
+* **The Core Requirement:** Recognition as an established industry benchmark that other leaders cite, link to, and reference.
+* **Actionable Indicators:** Editorial citations from reputable authorities (W3C, IEEE, official developer docs), comprehensive topic clusters, and natural high-tier editorial backlinks.
+
+#### 4. Absolute Trustworthiness (Trust) - The Sovereign Anchor
+* **Google's Explicit Verdict:** According to Google's Search Quality Rater Guidelines, **Trust is the most critical element** at the center of the E-E-A-T framework. Without trust, high experience or expertise cannot compensate.
+* **Actionable Indicators:** Robust SSL/TLS 1.3 encryption, enterprise hosting availability, verified ads.txt records, clear contact channels, transparent Terms of Service, and GDPR/CCPA-compliant privacy policies.
+
+---
+
+### 10-Step Implementation Blueprint for Guaranteed Compliance
+
+1. **Deploy Dedicated Author Bio Boxes:** Showcase genuine qualifications, credentials, and social verification.
+2. **Fortify Your 'About Us' & Editorial Charter:** Clarify your organization's mission, fact-checking processes, and staff oversight.
+3. **Embed Structured Schema.org Markup:** Implement Article, Organization, and Person JSON-LD nodes.
+4. **Supply Unmistakable Proof-of-Work:** Integrate proprietary benchmarks, original screenshots, and step-by-step telemetry.
+5. **Cite Reputable Primary Sources:** Link outward to verified industry authorities and peer-reviewed documentation.
+6. **Build Systematic Topic Clusters:** Cover your niche exhaustively from foundational fundamentals to cutting-edge nuances.
+7. **Schedule Regular Content Audits:** Continually refresh outdated guides with new metrics and updated dateModified metadata.
+8. **Excel in Core Web Vitals:** Ensure your LCP, INP, and CLS scores achieve pristine green status (+90).
+9. **Display Transparent Consent Policies:** Utilize compliant Cookie Banners and verifiable privacy disclaimers.
+10. **Foster Real Community Discussion:** Cultivate and moderate genuine reader discourse to signal an active, authentic audience.
+
+Adopting these E-E-A-T guidelines transforms your website from a generic blog into an authoritative digital enterprise that Google and AdSense trust unconditionally.`,
+      fr: `Le guide complet des normes E-E-A-T de Google en 2026 : comment développer l'expérience vécue, l'expertise certifiée, l'autorité de domaine et la confiance absolue pour dominer le SEO et garantir l'approbation immédiate de Google AdSense.`,
+      es: `Manual definitivo de Google E-E-A-T (2026): cómo estructurar experiencia práctica, pericia técnica, autoridad digital y máxima confiabilidad para superar las auditorías de calidad de Google y monetizar con AdSense sin rechazos.`,
+      de: `Das umfassende Google E-E-A-T Handbuch (2026): Wie Sie Praxiserfahrung, Fachkompetenz, Autorität und kompromisslose Vertrauenswürdigkeit aufbauen, um Google-Rankings zu dominieren und AdSense-Prüfungen sicher zu bestehen.`,
+      zh: `2026 谷歌 E-E-A-T 官方质量指南全景拆解：深度解析第一手实践经验（Experience）、专业技术背景（Expertise）、行业标杆权威（Authoritativeness）与绝对信任基石（Trustworthiness），彻底破解 AdSense 低价值内容拒审难题。`,
+      ja: `2026年最新 Google E-E-A-T 完全攻略：実体験（Experience）、専門性（Expertise）、権威性（Authoritativeness）、信頼性（Trustworthiness）を体系的に実装し、検索上位獲得とAdSense一発承認を達成するプロ向け実践マニュアル。`,
+      tr: `Google E-E-A-T 2026 Kapsamlı Rehberi: Deneyim, uzmanlık, otorite ve güvenilirlik sütunlarını eksiksiz kurarak Google sıralamalarında kalıcı liderlik ve hızlı AdSense onayı elde etme kılavuzu.`,
+    },
+    category: 'monetization',
+    author: {
+      name: 'د. تامر عبد العزيز',
+      role: {
+        ar: 'استشاري أول هندسة محركات البحث ومعايير جودة E-E-A-T',
+        en: 'Principal SEO Architect & Google Quality Guidelines Specialist',
+        fr: 'Architecte Principal SEO & Spécialiste Qualité E-E-A-T',
+        es: 'Arquitecto Principal de SEO y Especialista en Calidad E-E-A-T',
+        de: 'Leitender SEO-Architekt und E-E-A-T Qualitätsspezialist',
+        zh: '首席搜索引擎架构师与 E-E-A-T 质量标准总监',
+        ja: 'シニアSEOアーキテクト＆E-E-A-T品質ガイドライン責任者',
+        tr: 'Kıdemli SEO Mimarı ve E-E-A-T Kalite Standartları Danışmanı',
+      },
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80',
+    },
+    publishDate: '2026-10-04',
+    readTimeMin: 14,
+    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85',
+    tags: [
+      'E-E-A-T',
+      'Google SEO',
+      'Google AdSense',
+      'Helpful Content',
+      'Quality Rater Guidelines',
+      'Core Web Vitals',
+      'YMYL',
+      'Schema.org'
+    ],
+    views: 18450,
+    likes: 1240,
+    commentsCount: 38,
+  },
+  {
     id: 'publishing-professional-articles-seo-authority-2026',
     slug: 'publishing-professional-articles-seo-authority-2026',
     title: {

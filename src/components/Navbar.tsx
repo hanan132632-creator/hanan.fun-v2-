@@ -64,11 +64,25 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { page: ActivePage; label: string; isHot?: boolean }[] = [
     { page: 'home', label: t.nav_home },
-    { page: 'store', label: currentLang === 'ar' ? 'الخدمات السحابية والويب' : t.nav_store },
+    { page: 'store', label: currentLang === 'ar' ? 'متجر الخدمات والشراء' : t.nav_store },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio', isHot: true },
     { page: 'blog', label: currentLang === 'ar' ? 'المدونة التقنية' : t.nav_blog },
     { page: 'about', label: t.nav_about },
     { page: 'contact', label: t.nav_contact },
+  ];
+
+  const allSiteSections: { page: ActivePage; label: string; icon: string; badge?: string }[] = [
+    { page: 'home', label: t.nav_home, icon: '🏠' },
+    { page: 'store', label: currentLang === 'ar' ? 'متجر الخدمات والشراء' : t.nav_store, icon: '🛒', badge: currentLang === 'ar' ? 'سحابي' : 'Cloud' },
+    { page: 'blog', label: currentLang === 'ar' ? 'المدونة التقنية' : t.nav_blog, icon: '📝', badge: `${BLOG_POSTS.length} مقال` },
+    { page: 'about', label: t.nav_about, icon: '🏢' },
+    { page: 'contact', label: t.nav_contact, icon: '📞' },
+    { page: 'privacy', label: t.nav_privacy, icon: '🛡️' },
+    { page: 'terms', label: t.nav_terms, icon: '⚖️' },
+    { page: 'cookies', label: t.nav_cookies, icon: '🍪' },
+    { page: 'adsense-standards', label: t.nav_adsense_standards, icon: '📜' },
+    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio', icon: '🎬', badge: currentLang === 'ar' ? 'جديد' : 'New' },
+    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة وDNS' : t.nav_diagnostics, icon: '⚡' },
   ];
 
   const quickTools = [
@@ -350,18 +364,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
             </button>
 
-            {/* Cart Button */}
+            {/* Cart & Checkout Button */}
             <button
               onClick={onOpenCart}
-              className="relative p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950/50 transition-colors cursor-pointer"
+              className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/80 hover:bg-blue-100 dark:hover:bg-blue-900/60 transition-colors cursor-pointer"
               aria-label="Shopping Cart"
+              title={currentLang === 'ar' ? 'سلة الشراء وإتمام الطلب' : 'Shopping Cart'}
             >
-              <ShoppingBag className="w-4 h-4" />
-              {totalCartCount > 0 && (
-                <span className="absolute -top-1 -right-1 rtl:-right-auto rtl:-left-1 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <ShoppingBag className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="text-xs font-bold hidden md:inline">
+                {currentLang === 'ar' ? 'سلة الشراء' : 'Cart'}
+              </span>
+              {totalCartCount > 0 ? (
+                <span className="bg-blue-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-4 text-center">
                   {totalCartCount}
                 </span>
-              )}
+              ) : null}
             </button>
 
             {/* Primary Action Button */}
@@ -385,12 +403,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={onOpenCart}
-              className="relative p-2 rounded-lg bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400"
+              className="relative flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/80 dark:border-blue-800/80"
               aria-label="Shopping Cart"
+              title={currentLang === 'ar' ? 'سلة الشراء' : 'Cart'}
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-4 h-4" />
+              <span className="text-xs font-bold">
+                {currentLang === 'ar' ? 'السلة' : 'Cart'}
+              </span>
               {totalCartCount > 0 && (
-                <span className="absolute -top-1 -right-1 rtl:-right-auto rtl:-left-1 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="bg-blue-600 text-white text-[10px] font-bold px-1.5 rounded-full">
                   {totalCartCount}
                 </span>
               )}
@@ -407,9 +429,77 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
+      {/* Comprehensive Sections Bar (قائمة الشرائط بأقسام الموقع الشاملة بأول الموقع) */}
+      <div className="bg-slate-50/95 dark:bg-slate-900/95 border-t border-b border-slate-200/90 dark:border-slate-800/90 py-2 px-3 sm:px-6 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          {/* Label on large screens */}
+          <div className="hidden xl:flex items-center gap-1.5 text-xs font-black text-slate-500 dark:text-slate-400 shrink-0">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            <span>{currentLang === 'ar' ? 'أقسام وشرائط الموقع:' : 'Site Sections:'}</span>
+          </div>
+
+          {/* Horizontal scrollable strips bar */}
+          <nav 
+            className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth py-0.5 w-full xl:w-auto"
+            aria-label={currentLang === 'ar' ? 'أقسام الموقع الشاملة' : 'Site Sections Directory'}
+          >
+            {allSiteSections.map(section => {
+              const isActive = activePage === section.page;
+              return (
+                <button
+                  key={section.page}
+                  onClick={() => onNavigate(section.page)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all shrink-0 cursor-pointer ${
+                    isActive
+                      ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30'
+                      : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400 border border-slate-200/80 dark:border-slate-700/80'
+                  }`}
+                >
+                  <span className="text-sm shrink-0">{section.icon}</span>
+                  <span>{section.label}</span>
+                  {section.badge && (
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded font-black ${
+                      isActive 
+                        ? 'bg-white/20 text-white' 
+                        : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30'
+                    }`}>
+                      {section.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-8 space-y-4 max-h-[85vh] overflow-y-auto animate-in fade-in slide-in-from-top-4">
+          {/* Quick Cart & Store Action in Mobile Drawer */}
+          <div className="grid grid-cols-2 gap-2 pb-2">
+            <button
+              onClick={() => {
+                onOpenCart();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs shadow hover:bg-blue-700 transition-colors cursor-pointer"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              <span>{currentLang === 'ar' ? `سلة الشراء (${totalCartCount})` : `Cart (${totalCartCount})`}</span>
+            </button>
+            <button
+              onClick={() => {
+                onNavigate('store');
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-bold text-xs border border-slate-200 dark:border-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
+            >
+              <span>🛒</span>
+              <span>{currentLang === 'ar' ? 'متجر الخدمات' : 'Browse Store'}</span>
+            </button>
+          </div>
+
           <div className="space-y-1">
             {navLinks.map(link => {
               const isActive = activePage === link.page;

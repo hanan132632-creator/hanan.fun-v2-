@@ -79,6 +79,8 @@ const routes = [
   'adsense-standards',
   'diagnostics',
   'audio-to-video',
+  'blog/google-eeat-guidelines-handbook-seo-adsense-2026',
+  'blog/publishing-professional-articles-seo-authority-2026',
   'blog/quantum-biology-mysteries-entanglement-photosynthesis-2026',
   'blog/neuroscience-dhikr-mindfulness-digital-calm-2026'
 ];
