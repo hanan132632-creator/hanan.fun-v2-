@@ -454,6 +454,220 @@ export const GLOBAL_SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'global-cdn-edge-computing-playbook-cost-optimization-2026',
+    slug: 'global-cdn-edge-computing-playbook-cost-optimization-2026',
+    title: {
+      ar: 'الدليل الشامل لشبكات توصيل المحتوى العالمية (CDN) والحوسبة الطرفية (Edge Computing): كيف تضاعف سرعة موقعك 10 أضعاف وتخفض استهلاك السيرفر بنسبة 85% مع تفادي الفواتير السحابية الخفية (2026)',
+      en: 'The Comprehensive Global CDN & Edge Computing Playbook (2026): 10x Performance Boost, 85% Origin Offload & Eliminating Cloud Bill Shock',
+      fr: 'Le Guide Complet des Réseaux CDN Mondiaux et de l\'Edge Computing (2026) : Booster les Performances par 10 et Réduire les Coûts Cloud',
+      es: 'Manual Definitivo de Redes CDN Globales y Edge Computing (2026): Aumenta la Velocidad 10x y Reduce la Carga del Servidor en 85%',
+      de: 'Das umfassende Handbuch für globale CDNs und Edge Computing (2026): 10-fache Geschwindigkeit und 85% Server-Entlastung ohne Kostenfallen',
+      zh: '2026 全球内容分发网络（CDN）与边缘计算实战白皮书：将网站速度提升 10 倍并降低 85% 源站负载与云成本',
+      ja: 'グローバルCDN＆エッジコンピューティング実践完全攻略（2026）：Web表示速度10倍化・オリジン負荷85％削減とクラウド費用高騰の防止策',
+      tr: 'Küresel CDN ve Edge Computing Kapsamlı Rehberi (2026): Web Hızını 10 Katına Çıkarma ve Sunucu Yükünü %85 Azaltma Yöntemleri',
+    },
+    excerpt: {
+      ar: 'دليل تحريري وهندسي فائق الدقة يفكك آلية عمل شبكات توصيل المحتوى العالمية (CDN) وتكنولوجيا Edge Computing. ستتعلم استراتيجيات التخزين المؤقت الذكي (Cache Hit Ratio 95%+)، وكيفية تكوين ترويسات Cache-Control المتقدمة (stale-while-revalidate)، ومقارنة شاملة بين أشهر مزودي الـ CDN العالميين، مع حلول عملية لتفادي فواتير نقل البيانات الخفية (Egress Fees) وحماية موقعك من هجمات Cache Busting.',
+      en: 'A field-tested engineering and architectural blueprint detailing how modern Global Content Delivery Networks (CDNs) and Edge Computing run in production. Learn exact Cache-Control recipes, achieve a 95%+ Cache Hit Ratio, evaluate tier-1 CDN providers without marketing bias, and protect your cloud budget from catastrophic data egress spikes.',
+      fr: 'Un guide technique complet sur les réseaux CDN et l\'Edge Computing : optimisation du cache à plus de 95%, en-têtes HTTP stratégiques et maîtrise absolue des coûts de bande passante cloud.',
+      es: 'Manual práctico y arquitectónico sobre redes CDN y Edge Computing: optimización de caché, directivas HTTP avanzadas y estrategias para reducir los costos de salida de datos en la nube.',
+      de: 'Ein praxisorientierter Leitfaden für moderne globale CDNs und Edge Computing: 95%+ Cache-Hit-Raten, HTTP-Header-Strategien und drastische Reduktion von Cloud-Egress-Kosten.',
+      zh: '深度解析现代全球 CDN 运行机制与边缘计算（Edge Computing）架构：95%+ 缓存命中率优化策略、Cache-Control 核心秘诀与云端外网流量（Egress）防爆账单实战。',
+      ja: '最新のグローバルCDNとエッジコンピューティングの現場設計を網羅。キャッシュヒット率95%超の実現法、Cache-Control設計、クラウド転送量コストの劇的削減法を解説。',
+      tr: 'Küresel CDN ağları ve Edge Computing mimarisi için kapsamlı mühendislik kılavuzu: %95+ önbellek isabet oranı, HTTP başlık stratejileri ve bulut maliyet optimizasyonu.',
+    },
+    content: {
+      ar: `في عالم إدارة المواقع والخدمات السحابية اليوم، يقع معظم مديري المشاريع والمطورين في فخ كلاسيكي مكلف: عندما يصبح الموقع بطيئاً أو ينهار مع ارتفاع عدد الزوار، يسارعون إلى ترقية الخادم (Server Scaling)—مضاعفة عدد أنوية المعالج (CPU) وزيادة الذاكرة العشوائية (RAM)—ليكتشفوا بعد دفع مئات الدولارات الإضافية شهرياً أن المشكلة لم تُحل، وأن الزوار في القارات الأخرى لا يزالون يشتكون من بطء التصفح!
+
+الحقيقة الهندسية الحاسمة هي: **أقوى خادم في العالم لا يمكنه هزيمة المسافة الجغرافية**. إذا كان خادمك في فرانكفورت أو فرجينيا، والزائر يتصفح من الرياض أو دبي أو القاهرة، فإن كل ملف، صورة، وشيفرة جافاسكريبت ستضطر لقطع آلاف الكيلومترات ذهاباً وإياباً عبر شبكات معقدة، مستنزفةً موارد الخادم وقواعد البيانات على مهام روتينية كان يمكن معالجتها في جزء من الثانية بالقرب من باب المستخدم.
+
+هنا يكمن الدور الجوهري لـ **شبكات توصيل المحتوى العالمية (Content Delivery Networks - CDN)** وتكنولوجيا **الحوسبة الطرفية (Edge Computing)**. هذا الدليل ليس مجرد مدخل عام؛ إنه خلاصة تجارب ميدانية من كواليس إدارة ملايين الطلبات اليومية، يفكك لك كيف توظف هذه التقنيات لمضاعفة السرعة 10 أضعاف وخفض استهلاك السيرفر بنسبة 85% مع حماية ميزانيتك من فواتير الباندويث الصادمة.
+
+---
+
+### المحور الأول: كيف تعمل شبكة الـ CDN فعلياً تحت الغطاء؟
+
+شبكة الـ CDN ليست مجرد سيرفر تخزين بديل، بل هي شبكة جغرافية هائلة تضم آلاف الخوادم الموزعة استراتيجياً في مئات المدن حول العالم (تُعرف بنقاط التواجد أو Points of Presence - PoPs):
+
+#### 1. التشريح الفني لرحلة الطلب (Request Lifecycle)
+1. **استعلام الـ DNS الذكي:** عندما يكتب الزائر عنوان موقعك، يوجهه نظام Anycast DNS تلقائياً إلى أقرب مركز بيانات PoP مادياً من موقعه الجغرافي (عادة على بُعد 5 إلى 15 مللي ثانية فقط).
+2. **فحص الذاكرة المؤقتة (Cache Lookup):** يتفحص خادم الحافة (Edge Server) ما إذا كان الملف المطلوب مخزناً لديه ومطابقاً للشروط.
+   * **Cache Hit (إصابة ناجحة):** يُسلم الملف للزائر فوراً من ذاكرة الرام السريعة (RAM/NVMe) دون إرسال أي بايت واحد إلى سيرفرك الأصلي (Origin Server).
+   * **Cache Miss (غياب الملف):** يطلب خادم الحافة الملف من سيرفرك الأصلي، يخزنه محلياً، ويسلمه للزائر في نفس اللحظة.
+3. **التخزين المتدرج ودرع الخادم (Tiered Caching & Origin Shield):**
+   * في المواقع التقليدية غير المحمية، إذا زار 10,000 مستخدم صفحة جديدة في نفس اللحظة، تتجه 10,000 طلبات دفعة واحدة إلى خادمك الأصلي فيما يُعرف بظاهرة **"تدافع الحشود" (Thundering Herd Problem)** مما يؤدي إلى انهيار السيرفر فوراً.
+   * بفضل شبكات الـ CDN الحديثة، تتجمع طلبات خوادم الحافة لدى سيرفر وسيط مركزي (Origin Shield)، فلا يصل إلى سيرفرك الأصلي سوى طلب واحد فقط، ثم يتولى الـ CDN توزيع النسخة المخزنة على كافة قارات العالم.
+
+---
+
+### المحور الثاني: ثورة الحوسبة الطرفية (Edge Computing)
+
+حتى وقت قريب، كانت شبكات الـ CDN مجرد مخازن "صامتة" للملفات الثابتة (صور، ملفات CSS، وفيديوهات). في عام 2026، تحول الـ CDN إلى منصة حوسبة برمجية فائقة الذكاء بفضل **Edge Workers و Serverless Functions**:
+
+#### ما الفرق بين خادم السحابة التقليدي والحوسبة الطرفية؟
+* **خادم السحابة التقليدي:** شيفرة برمجية تعمل في مكان جغرافي واحد محدد.
+* **الحوسبة الطرفية (Edge Computing):** شيفرة برمجية خفيفة (V8 Isolates / WebAssembly) مستنسخة وتعمل بالتوازي في 300+ مدينة حول العالم في نفس اللحظة!
+
+#### تطبيقات حقيقية للحوسبة الطرفية تغير قواعد اللعبة:
+1. **المصادقة والتحقق الأمني على الحافة (Edge Authentication):**
+   فحص توكن المستخدم (JWT Token) وحظر البوتات وعناوين الـ IP المشبوهة عند الحافة خلال 1ms، قبل أن تستهلك أي قدرة معالجة من خادمك الأصلي أو قاعدة بياناتك.
+2. **ضغط وتحويل الصور اللحظي (On-the-Fly Image Optimization):**
+   يكتشف كود الحافة تلقائياً ما إذا كان متصفح الزائر يدعم صيغة AVIF أو WebP، فيقوم بضغط الصورة وتغيير أبعادها فورياً بما يناسب شاشة الهاتف، مما يوفر 70% من حجم البيانات المنقولة.
+3. **التخصيص الجغرافي والترجمة (Geo-Personalization):**
+   تعديل محتوى الصفحة والعملة المعروضة بناءً على الدولة الصادر منها الطلب دون الحاجة لبرمجة ذلك داخل الخادم الخلفي.
+
+---
+
+### المحور الثالث: الوصفة السرية لترويسات HTTP Cache-Control
+
+العديد من مديري المواقع يقومون بتفعيل الـ CDN، ولكنهم يفاجأون بأن نسبة الاعتماد على الكاش لديهم (Cache Hit Ratio) لا تتجاوز 30%! السبب يرجع دائماً إلى **إعدادات ترويسات الاستجابة (HTTP Response Headers) الخاطئة**.
+
+إليك التكوينات البرمجية المعتمدة التي نطبقها في منصة GIS لتحقيق معدل كاش يتجاوز 95%:
+
+#### 1. الترويسة الذهبية للأصول الثابتة (CSS, JS, Fonts, Images)
+إذا كانت ملفاتك مشفرة بأسماء تحتوي على بصمة تجزئة (مثل app.a8f9c1.js):
+\`Cache-Control: public, max-age=31536000, immutable\`
+* **الشرح:** نخبر متصفح الزائر وخوادم الـ CDN العالمية بالاحتفاظ بهذه الملفات لمدة سنة كاملة (31536000 ثانية)، وأمر immutable يمنع المتصفح من إعادة إرسال طلب التحقق حتى لو ضغط المستخدم على زر التحديث (F5)، مما يجعل تحميل الصفحة آنياً بنسبة 0 مللي ثانية!
+
+#### 2. الترويسة السحرية لصفحات الـ HTML والمحتوى المتجدد
+أكبر خطأ هو وضع no-cache على صفحات الموقع خوفاً من عدم ظهور التحديثات. المعادلة الذكية الحديثة هي:
+\`Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400\`
+* **كيف يعمل هذا السحر؟**
+  * s-maxage=3600: خادم الـ CDN يخدم الصفحة كنسخة حديثة لمدة ساعة كاملة.
+  * stale-while-revalidate=86400: إذا دخل زائر بعد انتهاء الساعة، يسلمه الـ CDN النسخة المخزنة فوراً في 10ms (دون أن ينتظر الزائر أي بطء)، وفي نفس الثانية يرسل الـ CDN طلباً خفياً في الخلفية إلى سيرفرك لتحديث الصفحة للزائر التالي! هذا يعني أن زوارك لن يشاهدوا بطء الخادم أبداً.
+
+---
+
+### المحور الرابع: الفخاخ المالية وتفادي فواتير الـ Egress الصادمة
+
+في عالم الاستضافة السحابية (AWS, Google Cloud, Azure)، هناك قاعدة تجارية غير معلنة: **دخول البيانات إلى السحابة مجاني، ولكن خروجها إليك (Data Egress) يكلف مبالغ طائلة!**
+
+#### كيف تقع الكارثة؟
+إذا كان موقعك ينقل 20 تيرابايت شهرياً، فقد تكلفك رسوم Egress المباشرة من خادم AWS EC2 ما بين $1,500 إلى $2,000 شهرياً!
+
+#### الاستراتيجيات الهندسية لخفض الفاتورة بنسبة 80%+:
+1. **الانضمام إلى تحالف الباندويث (Bandwidth Alliance):**
+   استخدام مزودي CDN (مثل Cloudflare أو Fastly) يمتلكون اتفاقيات ترابط مباشر تلغي أو تخفض رسوم Egress بين الخوادم السحابية والـ CDN إلى الصفر أو مبالغ رمزية.
+2. **الحماية ضد هجمات استنزاف الكاش (Cache Busting Attacks):**
+   يقوم بعض المهاجمين بإرسال ملايين الطلبات بعلامات عشوائية (مثل site.com/image.jpg?random=94829) لإجبار الـ CDN على تجاهل الكاش وسحب الملف في كل مرة من سيرفرك الأصلي لاستنزاف الباندويث. الحل هو تكوين الـ CDN لـ **تجاهل معلمات الاستعلام غير الضرورية (Ignore Query Strings)** في الأصول الثابتة.
+3. **اعتماد ضغط Brotli بدلاً من Gzip:**
+   تقنية ضغط Brotli تقلل حجم ملفات النصوص والـ CSS بنسبة 20% إلى 28% إضافية مقارنة بـ Gzip، مما يوفر مئات الجيجابايت شهرياً ويسرع التحميل على شبكات الجوال الضعيفة.
+
+---
+
+### جدول مقارنة هندسي: أشهر عمالقة شبكات الـ CDN العالمية لعام 2026
+
+| مزود الخدمة | نقاط التواجد (PoPs) | قوة الحوسبة الطرفية (Edge Compute) | نموذج التسعير وحساب Egress | أنسب استخدام |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cloudflare** | 330+ مدينة في 120 دولة | ممتازة جداً (Workers / V8 Isolates) | نقل بيانات مجاني غير محدود في الباقات الأساسية | المواقع العامة، المتاجر الإلكترونية، حماية DDoS |
+| **Fastly** | 100+ مركز بيانات ضخم | جبارة للمطورين (Compute@Edge / Wasm) | محاسبة دقيقة حسب استهلاك الجيجابايت | المنصات الإخبارية الضخمة والبث المباشر (Streaming) |
+| **AWS CloudFront** | 600+ نقطة اتصال وموزع | جيدة عبر Lambda@Edge و CloudFront Functions | تكلفة لكل جيجابايت مع خصومات عند التكامل مع AWS | الشركات المعتمدة بالكامل على منظومة أمازون السحابية |
+| **Akamai** | 4,000+ موقع حول العالم | بنية عملاقة معقدة للشركات الدولية | عقود مؤسسية مخصصة (Enterprise Contracts) | البنوك الكبرى، الهيئات الحكومية، عمالقة الترفيه |
+| **Bunny.net** | 120+ نقطة تواجد سريعة | جيدة وتتطور بسرعة (Bunny Edge Scripting) | أسعار اقتصادية جداً وبسيطة تبدأ من $0.01/GB | المطورون المستقلون، استضافة الفيديو، والمشاريع الناشئة |
+
+---
+
+### قائمة التدقيق الهندسية: 7 خطوات لتسريع موقعك وتأمينه اليوم
+
+1. **اضبط سياسة الكاش للأصول الثابتة:** عيّن مدة سنة كاملة مع وسم immutable لكافة ملفات الـ CSS والـ JS والصور التي تحتوي أسماؤها على بصمة فريدة.
+2. **فعّل بروتوكولات النقل الحديثة:** تأكد من تمكين **HTTP/3 (QUIC)** و **0-RTT TLS 1.3** في إعدادات الـ CDN لإلغاء تأخيرات المصافحة الشبكية.
+3. **استخدم درع السيرفر (Origin Shield):** فعّل ميزة الدرع لحماية خادمك من ظاهرة تدافع الحشود وضمان استقرار قاعدة البيانات.
+4. **أغلق المنافذ المباشرة نحو السيرفر الأصلي:** استخدم جدار حماية (Firewall) على السيرفر بحيث لا يقبل أي اتصال إلا من عناوين IP الخاصة بشبكة الـ CDN حصراً، لإحباط أي محاولة للهجوم المباشر على الخادم وتجاوز الحماية.
+5. **فعّل التوليد المسبق للصور بصيغ WebP/AVIF:** خفض أوزان الصور بنسبة 60%+ قبل أن تصل إلى شاشات المستخدمين.
+6. **راقب مؤشر Cache Hit Ratio أسبوعياً:** إذا كان المؤشر أقل من 80%، فتش في ملفات السجل (Logs) عن الملفات التي تفلت من الكاش واضبط ترويساتها فوراً.
+7. **احمِ ميزانيتك بوضع حدود تنبيه للباندويث (Billing Alerts):** اضبط تنبيهات فورية في لوحة تحكم السحابة تنبهك إذا ارتفع معدل استهلاك البيانات عن النمط الطبيعي.
+
+---
+
+### خلاصة وتوصية منصة خدمات الإنترنت العالمية (GIS)
+
+في منصة **خدمات الإنترنت العالمية (GIS)**، نعتبر شبكات الـ CDN والحوسبة الطرفية الركيزة الأساسية لأي تجربة رقمية ناجحة. السرعة الفائقة لم تعد رفاهية تقنية، بل هي العامل الحاسم الذي يحدد ترتيبك في خوارزميات جوجل، ويرفع معدل التحويل والمبيعات، ويضمن رضا الزائر واستمراره في التصفح.
+
+عندما تنقل معالجة البيانات والملفات إلى حافة الشبكة بجوار المستخدم، فإنك تحرر خادمك من الأعباء الثقيلة، وتمنح موقعك درعاً حصيناً ضد الأعطال، وتبني منصة رقمية عالمية قادرة على خدمة ملايين الزوار بثبات تام ودون تكاليف باهظة.`,
+      en: `In modern cloud architecture, engineering teams often fall into an expensive trap: when latency spikes or traffic surges, they immediately scale vertical server compute (adding costly CPUs and RAM), only to discover that users across different continents still suffer from sluggish page loads.
+
+The hard physical reality is that **raw server compute cannot overcome geographic distance**. If your origin cluster is in Frankfurt or Virginia and a customer requests data from Riyadh, Tokyo, or Cairo, every round-trip packet must traverse oceanic fiber conduits—wasting precious origin database connections and threads on repetitive static assets.
+
+This comprehensive guide delivers a field-tested blueprint for **Global Content Delivery Networks (CDNs) and Edge Computing**. Learn how modern Anycast Edge architectures offload 85%+ of origin server strain, optimize HTTP Cache-Control headers with stale-while-revalidate, and safeguard cloud budgets against catastrophic data egress bills.
+
+---
+
+### 1. How Global CDNs Operate Beneath the Surface
+
+A modern CDN is an extensive fabric of Edge Points of Presence (PoPs) deployed globally:
+* **Anycast Routing:** Requests resolve via Anycast DNS to the geographically nearest Edge PoP in single-digit milliseconds.
+* **Tiered Caching & Origin Shielding:** Prevents "Thundering Herd" stampedes against your origin by consolidating edge misses through a designated regional shield.
+
+---
+
+### 2. The Edge Computing Revolution
+
+Beyond static assets, modern Edge Workers (V8 Isolates and WebAssembly) execute logic in 300+ metropolitan regions simultaneously:
+* **Edge Authentication:** Validate JWT credentials and block malicious automated bots within 1ms before they ever touch your application origin.
+* **Dynamic Image Transcoding:** Detect client capabilities and convert imagery to AVIF/WebP on the fly.
+* **Geo-Routing & Header Manipulation:** Execute localized rewrites and routing rules without origin latency penalties.
+
+---
+
+### 3. The Definitive Cache-Control Recipe
+
+* **Hashed Static Assets (CSS, JS, Fonts):**
+  Cache-Control: public, max-age=31536000, immutable
+* **Dynamic Content with Background Refresh:**
+  Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400
+
+---
+
+### 4. Actionable 7-Step Deployment Checklist
+
+1. Configure immutable caching for versioned application assets.
+2. Enable HTTP/3 (QUIC) and TLS 1.3 0-RTT on all edge ingress endpoints.
+3. Enforce Origin Shielding to consolidate cache misses.
+4. Restrict origin firewall access exclusively to CDN IP address blocks.
+5. Automate AVIF/WebP image optimization at the edge layer.
+6. Audit Cache Hit Ratio metrics weekly, aiming for 90%+.
+7. Establish automated cloud billing alerts for anomalous egress bandwidth.`,
+      fr: `Le guide complet des réseaux CDN mondiaux et de l'Edge Computing : optimisation des performances, réduction de la charge serveur et maîtrise des coûts cloud.`,
+      es: `Manual definitivo de redes CDN globales y Edge Computing: maximiza la velocidad de tu web, reduce la carga del servidor en un 85% y evita costos ocultos de datos en la nube.`,
+      de: `Das umfassende Handbuch für globale CDNs und Edge Computing: 10-fache Ladezeiten, 85% Entlastung des Origin-Servers und effektives Cloud-Kostenmanagement.`,
+      zh: `2026 全球 CDN 与边缘计算（Edge Computing）全景实战指南：95%+ 缓存命中率打造、Cache-Control 精准配置与防爆云端外网流量账单秘籍。`,
+      ja: `グローバルCDNとエッジコンピューティングの決定版ガイド：表示速度の10倍高速化、オリジン負荷85%削減、転送量コストの最適化手法を解説。`,
+      tr: `Küresel CDN ve Edge Computing Kapsamlı Rehberi: Web sitesi hızını 10 katına çıkarma, sunucu yükünü %85 azaltma ve bulut çıkış maliyetlerini optimize etme rehberi.`,
+    },
+    category: 'cloud',
+    author: {
+      name: 'م. هاني الشربيني',
+      role: {
+        ar: 'كبير مهندسي البنية التحتية السحابية والحوسبة الطرفية (Edge Architecture Lead)',
+        en: 'Principal Cloud Solutions Architect & Edge Infrastructure Specialist',
+        fr: 'Architecte Principal Cloud & Spécialiste de l\'Infrastructure Edge',
+        es: 'Arquitecto Principal de Soluciones Cloud y Especialista en Edge',
+        de: 'Leitender Cloud-Architekt und Spezialist für Edge-Infrastruktur',
+        zh: '首席云架构师与边缘计算基础设施专家',
+        ja: 'プリンシパル クラウドアーキテクト＆エッジインフラ責任者',
+        tr: 'Kıdemli Bulut Çözümleri Mimarı ve Edge Altyapı Uzmanı',
+      },
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80',
+    },
+    publishDate: '2026-10-11',
+    readTimeMin: 15,
+    coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=85',
+    tags: [
+      'Global Internet Services',
+      'Content Delivery Network',
+      'Edge Computing',
+      'Cloudflare',
+      'AWS CloudFront',
+      'Cache-Control',
+      'Web Performance',
+      'Cloud Costs',
+      'E-E-A-T'
+    ],
+    views: 12600,
+    likes: 890,
+    commentsCount: 19,
+  },
+  {
     id: 'global-internet-services-backbone-submarine-cables-bgp-2026',
     slug: 'global-internet-services-backbone-submarine-cables-bgp-2026',
     title: {

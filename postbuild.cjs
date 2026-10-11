@@ -79,6 +79,7 @@ const routes = [
   'adsense-standards',
   'diagnostics',
   'audio-to-video',
+  'blog/global-cdn-edge-computing-playbook-cost-optimization-2026',
   'blog/global-internet-services-backbone-submarine-cables-bgp-2026',
   'blog/google-eeat-guidelines-handbook-seo-adsense-2026',
   'blog/publishing-professional-articles-seo-authority-2026',
