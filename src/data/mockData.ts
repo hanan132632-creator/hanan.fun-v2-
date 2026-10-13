@@ -454,6 +454,243 @@ export const GLOBAL_SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'global-dns-root-servers-anycast-dnssec-architecture-2026',
+    slug: 'global-dns-root-servers-anycast-dnssec-architecture-2026',
+    title: {
+      ar: 'تشريح نظام الـ DNS العالمي وخوادم الجذر الـ 13: كيف يعرف الإنترنت أين يذهب في 15 مللي ثانية؟ دليل هندسي متكامل لهيكلية خوادم الجذر، تشفير DNSSEC، وتوجيه Anycast',
+      en: 'Anatomy of Global DNS & The 13 Root Servers: How the Internet Finds Any Destination in 15ms – An Engineering Deep-Dive into Anycast, DNSSEC & Resilience',
+      fr: 'Anatomie du DNS Mondial et des 13 Serveurs Racines : Comment Internet trouve sa destination en 15 ms – Guide d\'ingénierie Anycast et DNSSEC',
+      es: 'Anatomía del DNS Global y los 13 Servidores Raíz: Cómo Internet encuentra su destino en 15 ms – Guía técnica de Anycast y DNSSEC',
+      de: 'Anatomie des globalen DNS und der 13 Root-Server: Wie das Internet in 15 ms Ziele findet – Ein technischer Leitfaden zu Anycast und DNSSEC',
+      zh: '全球 DNS 体系与 13 组根服务器深度解构：互联网如何在 15 毫秒内解析寻址？Anycast 架构、DNSSEC 密码学签名与高防容灾实战指南',
+      ja: 'グローバルDNSと13のルートサーバー完全解剖：インターネットが15ミリ秒で宛先を特定する仕組みとAnycast・DNSSEC暗号化の現場設計',
+      tr: 'Küresel DNS ve 13 Kök Sunucunun Anatomisi: İnternet 15 Milisaniyede Her Adresi Nasıl Bulur? Anycast ve DNSSEC Mühendislik Rehberi',
+    },
+    excerpt: {
+      ar: 'تحليل هندسي وتاريخي معمق يكشف سر دفتر عناوين الإنترنت العالمي: كيف تعمل خوادم الجذر الـ 13 (من A إلى M)؟ ولماذا هي 13 اسماً فقط بينما تديرها أكثر من 1,700 نقطة مادية حول كوكب الأرض عبر شبكات Anycast؟ دليل شامل يشرح رحلة استعلام الـ DNS في 4 مراحل، وكيف يحمي تشفير DNSSEC موقعك من التسميم والاختطاف، مع وصفات عملية لأصحاب المواقع لضبط سجلات الـ TTL وسرعة استجابة النطاق.',
+      en: 'A deep-dive technical investigation into the backbone of global internet addressing. Learn how the 13 Root Server clusters resolve billions of queries daily, how Anycast scales 13 IP identities into over 1,700 physical instances across every continent, and how cryptographic DNSSEC signatures prevent cache poisoning and domain hijacking in modern mission-critical web applications.',
+      fr: 'Une exploration technique approfondie des 13 serveurs racines du DNS mondial : architecture Anycast, sécurisation cryptographique DNSSEC, et optimisation des temps de résolution pour les applications web modernes.',
+      es: 'Investigación técnica exhaustiva sobre el sistema global de DNS y los 13 servidores raíz: arquitectura Anycast, prevención de envenenamiento de caché con DNSSEC y optimización de TTL.',
+      de: 'Ein tiefgehender technischer Einblick in das globale DNS und die 13 Root-Server: Anycast-Skalierung, kryptografisches DNSSEC und Strategien für sub-15ms DNS-Auflösungszeiten.',
+      zh: '深度解构全球互联网地址簿核心架构：13 组根服务器（Root Servers）的技术演进、Anycast 如何将 13 个 IP 拓展为全球 1,700 多个物理节点、DNSSEC 密码学防投毒机制以及站长 TTL 精准调优实战指南。',
+      ja: 'インターネットの住所録を支えるグローバルDNSの深層：13のルートサーバー群の真実、Anycastによる世界1,700拠点への分散、DNSSECによるキャッシュ汚染防止と低遅延設計を網羅。',
+      tr: 'Küresel DNS omurgasının ve 13 kök sunucunun derinlemesine mühendislik analizi: Anycast mimarisi, DNSSEC kriptografik doğrulaması ve alan adı çözümleme hızlandırma rehberi.',
+    },
+    content: {
+      ar: `في كل مرة تنقر فيها على رابط، أو ترسل بريداً إلكترونياً، أو تستدعي واجهة برمجة تطبيقات (API)، تبدأ خلف الشاشة واحدة من أعظم المعجزات الهندسية وأكثرها دقة في تاريخ البشرية: عملية تحويل الحروف المفهومة بشرياً (مثل \`hanan.fun\`) إلى عناوين رقمية تفهمها الآلات (مثل \`76.76.21.21\` أو \`2600:1f18::1\`).
+
+تستغرق هذه الرحلة عادة **أقل من 15 إلى 30 مللي ثانية**، وتمر عبر شبكة هرمية موزعة دولياً تتصدرها قمة الهرم الرقمي: **خوادم الجذر العالمية (The 13 DNS Root Servers)**.
+
+لكن ما هي خوادم الجذر فعلياً؟ من يتحكم بها؟ ولماذا هي "13 خادماً" فقط؟ وماذا يحدث لو تعرضت لهجوم سيبراني منسق؟ وكيف تستفيد أنت كصاحب موقع أو مهندس نظم من هذه المعرفة لبناء بنية استضافة فائقة السرعة لا تسقط أبداً؟
+
+هذا المقال يرفع الستار عن كواليس البنية التحتية لـ **خدمات الإنترنت العالمية (GIS)**، مقدماً تشريحاً هندسياً خالصاً يجمع بين الفيزياء الشبكية، التشفير الرقمي، والخبرة الميدانية.
+
+---
+
+### المحور الأول: لغز الرقم 13.. حقيقة خوادم الجذر العالمية
+
+أحد أكثر الأسئلة شيوعاً في هندسة الشبكات: *"إذا كان الإنترنت يخدم أكثر من 5.5 مليار إنسان، فكيف يعتمد الكوكب بأسره على 13 خادماً فقط؟"*
+
+#### 1. القيد التاريخي في حزمة UDP (512 Bytes Limit)
+السبب وراء وجود 13 خادماً ليس نقصاً في الموارد أو قراراً سياسياً، بل هو **قيد برمجي يعود إلى ثمانينيات القرن الماضي**:
+* صُمم بروتوكول DNS ليعمل فوق بروتوكول **UDP** لضمان أقصى سرعة ممكنة دون تأخير مصافحة الاتصال.
+* حدد معيار الإنترنت الأصلي (RFC 1035) أقصى حجم لحزمة UDP دون تجزئة (Fragmentation) بـ **512 بايت فقط**.
+* عندما يستعلم جهاز عن قائمة خوادم الجذر في استجابة واحدة، تتسع الـ 512 بايت لتضم بالضبط: أسماء الخوادم، عناوين IP الخاصة بها، وبيانات الترويسة لـ **13 خادماً فقط** (سُميت بحروف أبجدية من \`A\` إلى \`M\`: \`a.root-servers.net\` وحتى \`m.root-servers.net\`).
+
+#### 2. تحطيم الأسطورة: كيف تحول الـ 13 إلى أكثر من 1,700 خادم؟
+الـ 13 خادماً ليست حواسيب فردية قابعة في مكاتب مغلقة! بفضل تكنولوجيا التوجيه الذاتي **Anycast BGP**:
+* يتشارك مئات الخوادم المستقلة في نفس عنوان الـ IP حرفياً.
+* يوجد اليوم **أكثر من 1,700 موقع وخادم مادي (Root Server Instances)** منتشرة في جميع قارات العالم، داخل مراكز البيانات الكبرى ونقاط تبادل الإنترنت (IXPs).
+* عندما يرسل جهازك استعلاماً إلى الخادم \`K\` (الذي تديره منظمة RIPE NCC)، لا تسافر الإشارة إلى أمستردام، بل تلتقطها أقرب نسخة مادية من الخادم \`K\` الموجودة في مدينتك أو دولتك خلال 2 إلى 5 مللي ثانية فقط!
+
+#### 3. من يشرف على خوادم الجذر الـ 13؟
+لا تملك أي حكومة أو شركة مفردة مفاتيح الإنترنت. تُدار خوادم الجذر بواسطة **12 منظمة دولية وأكاديمية ومؤسسية مستقلة** تعمل بتعاون صارم:
+1. **A & J:** تشرف عليهما شركة Verisign (التي تدير أيضاً نطاق \`.com\`).
+2. **B:** معهد علوم المعلومات بجامعة جنوب كاليفورنيا (USC-ISI).
+3. **C:** شركة Cogent Communications (مشغل Tier-1 عالمي).
+4. **D:** جامعة ميريلاند (University of Maryland).
+5. **E:** وكالة الفضاء الأمريكية (NASA).
+6. **F:** اتحاد أنظمة الإنترنت (Internet Systems Consortium - ISC).
+7. **G:** وزارة الدفاع الأمريكية (US Department of Defense - DISA).
+8. **H:** مختبر أبحاث الجيش الأمريكي (US Army Research Lab).
+9. **I:** منظمة Netnod السويدية المستقلة.
+10. **K:** منظمة RIPE NCC (مركز تنسيق شبكات أوروبا والشرق الأوسط).
+11. **L:** منظمة ICANN العالمية.
+12. **M:** مشروع WIDE الأكاديمي الياباني (WIDE Project).
+
+---
+
+### المحور الثاني: المراحل الأربع لرحلة الاستعلام (DNS Query Lifecycle)
+
+عندما تطلب عنواناً جديداً لم يُحفظ في جهازك من قبل، يقوم نظام التشغيل باستدعاء **المحلل التكراري (Recursive Resolver)**، وتبدأ الرحلة عبر 4 محطات رئيسية:
+
+\`\`\`text
+المستخدم (Client) ➡️ المحلل التكراري (Recursive Resolver)
+                       ⬇️ 1. يسأل خادم الجذر (Root Server .)
+                       ⬅️ "لا أعرف النطاق، لكن هذا عنوان خادم .fun"
+                       ⬇️ 2. يسأل خادم الـ TLD (.fun Server)
+                       ⬅️ "هذا عنوان خوادم الأسماء الموثوقة لموقع hanan.fun"
+                       ⬇️ 3. يسأل خادم الأسماء الموثوق (Authoritative DNS)
+                       ⬅️ "عنوان IP الصحيح للموقع هو: 76.76.21.21"
+المستخدم ⬅️ الرد النهائي بالـ IP في 18 مللي ثانية!
+\`\`\`
+
+1. **المحطة الأولى: خادم الجذر (Root Server):**  
+   يعرف فقط أين توجد نطاقات المستوى الأعلى (TLDs مثل \`.com\`, \`.org\`, \`.fun\`, \`.sa\`).
+2. **المحطة الثانية: خادم نطاق المستوى الأعلى (TLD Name Server):**  
+   يعرف خوادم الأسماء المعتمدة الخاصة بكل نطاق مسجل داخل امتداده.
+3. **المحطة الثالثة: خادم الأسماء الموثوق (Authoritative Name Server):**  
+   هو الخادم الذي يحتوي على سجلاتك الفعلية (A, AAAA, CNAME, MX, TXT) ويملك الكلمة الفصل والنهائية.
+4. **التخزين المؤقت (Caching):**  
+   بمجرد حصول المحلل على الإجابة، يخزنها محلياً بحسب قيمة **TTL** (زمن البقاء)، بحيث لا يضطر لتكرار هذه الرحلة مع أي مستخدم آخر لنفس المدة!
+
+---
+
+### المحور الثالث: كوابيس أمن الـ DNS.. من تسميم الكاش إلى تشفير DNSSEC
+
+نظراً لأن بروتوكول DNS صُمم في البداية دون تشفير أو توثيق، فقد كان عُرضة لثغرات تاريخية شكلت تهديداً حقيقياً لشبكة الإنترنت العالمية:
+
+#### 1. ثغرة تسميم الكاش (DNS Cache Poisoning)
+في عام 2008، اكتشف مهندس الأمن الشهير **دان كامينسكي (Dan Kaminsky)** ثغرة كارثية: يستطيع المهاجم إرسال إجابات وهمية سريعة إلى خادم الـ DNS المحلي ليخدعه ويدفعه لتخزين عنوان IP خبيث لموقع بنك أو متجر شهير!  
+عندها، كان أي مستخدم عادي يكتب عنوان البنك الصحيح يُحوَّل سراً إلى خادم المهاجم دون أن يشك في أي شيء!
+
+#### 2. الحل الجذري: ملحقات أمان نظام أسماء النطاقات (DNSSEC)
+**DNSSEC** هو درع التشفير الرقمي للـ DNS:
+* يوقع كل سجل DNS بتوقيع رقمي تشفيري (Cryptographic Signature) باستخدام أزواج مفاتيح عامة وخاصة.
+* يُبنى نظام ثقة تسلسلي يبدأ من **مفتاح الجذر العالمي (Root KSK)**، مروراً بنطاق الـ TLD، وصولاً إلى سجلات نطاقك.
+* إذا حاول أي مخترق تزوير عنوان الـ IP، يفشل التحقق من التوقيع الرياضي ويسقط الرد فوراً قبل أن يصل للضحية.
+
+#### 3. تشفير الخصوصية: DoH و DoT
+* **DNS over HTTPS (DoH):** يشفر استعلامات الـ DNS عبر منفذ 443 بنفس بروتوكول الويب الآمن (HTTPS).
+* **DNS over TLS (DoT):** يشفر الاستعلامات مباشرة عبر منفذ 853.
+* **الفائدة:** منع مزودي خدمة الإنترنت المحليين والمتلصصين في شبكات الواي فاي العامة من معرفة المواقع التي تتصفحها أو التلاعب بمساراتها.
+
+---
+
+### المحور الرابع: كيف يحمي توجيه Anycast خوادم الـ DNS من الانهيار؟
+
+تتعرض خوادم الـ DNS العالمية يومياً لهجمات حرمان من الخدمة موزعة (DDoS) تزيد سعتها عن **3 إلى 5 تيرابت في الثانية (Tbps)**. كيف تصمد ولا تسقط؟
+
+* في هندسة **Unicast** التقليدية: يتجه الهجوم بالكامل نحو سيرفر واحد، فيختنق خط الاتصال وينهار السيرفر في دقائق.
+* في هندسة **Anycast**:
+  * يتوزع الهجوم الجغرافي تلقائياً عبر مئات مراكز البيانات حول العالم.
+  * إذا شن قراصنة في شرق آسيا هجوماً بقدرة 1 Tbps، تمتص مراكز بيانات طوكيو وسنغافورة وسيول الهجوم محلياً وتفلتره.
+  * في نفس اللحظة، يعمل الخادم في القاهرة ولندن وفرانكفورت بكفاءة 100% ودون أي تأخير لبقية المستخدمين!
+
+---
+
+### جدول مقارنة هندسي: أشهر خوادم الـ DNS الموثوقة (Authoritative Providers)
+
+| المزود السحابي | حجم شبكة Anycast | دعم DNSSEC التلقائي | متوسط سرعة الاستجابة العالمية | حماية DDoS المدمجة |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cloudflare DNS** | 330+ مدينة في 120 دولة | بنقرة زر واحدة (مجاناً) | 10ms إلى 13ms (الأسرع عالمياً) | غير محدودة ومجانية بالكامل |
+| **Amazon Route 53** | شبكة AWS العالمية العملاقة | مدعوم بالكامل مع شروط إعداد | 18ms إلى 25ms | مدعوم عبر AWS Shield |
+| **Google Cloud DNS** | شبكة جوجل Anycast الخاصة | مدعوم بتكامل ممتاز | 15ms إلى 22ms | متكامل مع Google Cloud Armor |
+| **NS1 (IBM)** | نقاط تواجد مخصصة للمؤسسات | متقدم ومعقد للمطورين | 14ms إلى 20ms | مدمجة ومخصصة للمرونة العالية |
+
+---
+
+### قائمة المراجعة الهندسية: 7 خطوات لضبط الـ DNS الخاص بموقعك
+
+1. **فعّل شبكة Anycast DNS متطورة:** تأكد أن خوادم الأسماء لنطاقك تدار عبر مزود يعتمد شبكة Anycast عالمية موثوقة.
+2. **اضبط قيم الـ TTL بذكاء:**
+   * في الأوقات العادية: عيّن \`TTL = 86400\` (24 ساعة) لسجلات الـ A والـ CNAME لتقليل استعلامات الـ DNS وتسريع التصفح.
+   * قبل نقل الموقع أو تغيير السيرفر بـ 48 ساعة: خفّض \`TTL = 300\` (5 دقائق) لتضمن أن التحديث يصل للجميع فور النقل دون انقطاع.
+3. **فعّل تشفير DNSSEC فوراً:** قم بربط سجل \`DS\` في لوحة تحكم مسجل النطاق (Registrar) لحماية زوارك من التسميم والاختطاف.
+4. **أزل سجلات الـ DNS اليتيمة (Dangling Records):** افحص سجلاتك وتأكد من حذف أي سجل يشير إلى خدمات سحابية ملغاة أو خوادم قديمة لمنع هجمات Subdomain Takeover.
+5. **وفّر خادمي أسماء مستقلين جغرافياً على الأقل:** لا تعتمد أبداً على سيرفر DNS واحد لنطاقك.
+6. **فعّل سجلات CAA (Certificate Authority Authorization):** حدد حصراً الشركات المسموح لها بإصدار شهادات SSL لنطاقك (مثل Let's Encrypt أو Google Trust Services) لمنع إصدار شهادات مزيفة.
+7. **راقب زمن استجابة الـ DNS عبر أدوات الفحص الدورية:** تأكد أن زمن حل النطاق (DNS Lookup Time) لا يتجاوز 25ms لزوارك في كل قارة.
+
+---
+
+### كلمة ختامية: رؤية منصة خدمات الإنترنت العالمية (GIS)
+
+إن نظام الـ DNS ليس مجرد أداة ترجمة أسماء؛ إنه الأساس الخفي الذي يمنح شبكة الإنترنت العالمية تماسكها ومرونتها المذهلة. عندما تبني موقعك على بنية تحتية سحابية متقدمة تعتمد شبكات Anycast وتشفير DNSSEC، فإنك لا تضمن فقط سرعة فائقة تسبق منافسيك، بل تضع حول موقعك سياجاً أمنياً منيعاً يصمد أمام أعنف التحديات الرقمية.
+
+في منصة **خدمات الإنترنت العالمية (GIS)**، نحرص دائماً على أن تكون كل حلقة في سلسلة الاتصال—من خوادم الجذر وحتى جهاز الزائر—محسوبة بالمللي ثانية ومحمية بأعلى المعايير العالمية.`,
+      en: `Every time you navigate to a web URL, dispatch an email, or query an API endpoint, a sub-millisecond masterwork of distributed computing awakens: the translation of human-legible hostnames (\`hanan.fun\`) into machine-routable IP addresses (\`76.76.21.21\`).
+
+This query journey completes in **under 15 to 30 milliseconds**, routed through a globally distributed hierarchy anchored by the apex of the digital world: **The 13 DNS Root Servers**.
+
+This engineering treatise dissects the architecture of **Global Internet Services (GIS)** DNS infrastructure: the 512-byte UDP packet constraint that capped the root system at 13 lettered authorities, the Anycast routing fabric that multiplies those 13 identities into over 1,700 physical instances across the globe, cryptographic DNSSEC chains of trust, and actionable TTL tuning for latency reduction.
+
+---
+
+### 1. The Myth & Reality of the 13 Root Servers
+
+* **The 512-Byte UDP Constraint:** Historically specified in RFC 1035, unfragmented UDP responses could not exceed 512 bytes, leaving exactly enough packet space for headers and IP addressing for **13 root server entities** (labeled A through M).
+* **The Anycast Expansion:** Today, those 13 IP addresses are shared across **over 1,700 physical server instances** operating at major Internet Exchange Points (IXPs) worldwide. A query destined for the K-Root resolves locally within single-digit milliseconds rather than transiting continental boundaries.
+* **Decentralized Governance:** Twelve distinct organizations manage the root system—including ICANN, Verisign, NASA, the University of Maryland, Cogent, and RIPE NCC—ensuring no single point of corporate or political failure exists.
+
+---
+
+### 2. The 4-Stage Recursive Resolution Pipeline
+
+1. **Root Nameservers (\`.\`):** Direct the resolver to the responsible Top-Level Domain (TLD) authority.
+2. **TLD Nameservers (\`.fun\`, \`.com\`):** Provide referrals to the authoritative nameservers delegated for the specific domain.
+3. **Authoritative Nameservers:** Maintain authoritative resource records (A, AAAA, CNAME, MX, TXT) and furnish conclusive IP mappings.
+4. **Recursive Resolvers:** Cache authenticated responses according to designated TTL directives to eliminate redundant upstream round-trips.
+
+---
+
+### 3. DNS Security Architecture: Defeating Poisoning with DNSSEC
+
+* **Kaminsky Cache Poisoning (2008):** Exploited predictable transaction IDs in recursive resolvers to inject rogue addresses into cache stores.
+* **DNSSEC Cryptographic Signing:** Creates a public-key chain of trust validated against the global Root KSK, preventing man-in-the-middle forging.
+* **DoH (DNS over HTTPS) & DoT (DNS over TLS):** Encrypts stub-to-resolver transit, protecting end-user privacy against ISP surveillance and local Wi-Fi eavesdropping.
+
+---
+
+### 4. Actionable 7-Step DNS Optimization Blueprint
+
+1. Delegate zone management to a global multi-continent Anycast DNS provider.
+2. Maintain standard production TTLs at 86,400 seconds (24h), reducing to 300 seconds (5m) 48 hours prior to server migrations.
+3. Enforce cryptographic DNSSEC validation with your domain registrar.
+4. Audit zones regularly to eliminate dangling CNAME records vulnerable to subdomain takeover.
+5. Provide redundant, geographically independent authoritative nameservers.
+6. Publish CAA records to restrict unauthorized SSL/TLS certificate issuance.
+7. Monitor worldwide DNS resolution latency to ensure resolution times under 20ms.`,
+      fr: `Une analyse technique détaillée de l'architecture du DNS mondial, des 13 serveurs racines, du routage Anycast et de la sécurisation cryptographique par DNSSEC.`,
+      es: `Manual técnico sobre el funcionamiento del DNS global y los 13 servidores raíz: escalabilidad Anycast, mitigación de ataques con DNSSEC y optimización de TTL.`,
+      de: `Eine fundierte technische Untersuchung des globalen DNS und der 13 Root-Server: Anycast-Netzwerke, DNSSEC-Verschlüsselung und Best Practices für Webmaster.`,
+      zh: `全球 DNS 与 13 组根服务器底层工程全景解析：历史 512 字节 UDP 限制、Anycast 节点扩展、DNSSEC 密码学防篡改与 TTL 调优实战。`,
+      ja: `グローバルDNS基盤と13のルートサーバー徹底解説：Anycastルーティング、DNSSEC暗号化検証、サブ15ms名前解決を実現するWebインフラ設計。`,
+      tr: `Küresel DNS altyapısı ve 13 kök sunucunun mimari analizi: Anycast yönlendirme, DNSSEC güvenliği ve web siteleri için DNS optimizasyon rehberi.`,
+    },
+    category: 'networking',
+    author: {
+      name: 'د. نبيل الشافعي',
+      role: {
+        ar: 'استشاري أول نظم الشبكات وهندسة بروتوكولات الإنترنت (DNS & Network Systems Architect)',
+        en: 'Principal Network Systems Architect & Internet Protocols Consultant',
+        fr: 'Architecte Principal des Systèmes Réseau et Consultant en Protocoles Internet',
+        es: 'Arquitecto Principal de Sistemas de Red y Consultor de Protocolos de Internet',
+        de: 'Leitender Netzwerksystemarchitekt und Berater für Internetprotokolle',
+        zh: '网络系统首席架构师兼互联网核心协议资深顾问',
+        ja: '主任ネットワークシステム設計士＆インターネットプロトコル顧問',
+        tr: 'Kıdemli Ağ Sistemleri Mimarı ve İnternet Protokolleri Danışmanı',
+      },
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=256&q=80',
+    },
+    publishDate: '2026-10-13',
+    readTimeMin: 16,
+    coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85',
+    tags: [
+      'Global Internet Services',
+      'DNS Root Servers',
+      'Anycast DNS',
+      'DNSSEC',
+      'Network Architecture',
+      'DoH and DoT',
+      'Web Performance',
+      'E-E-A-T'
+    ],
+    views: 11800,
+    likes: 840,
+    commentsCount: 17,
+  },
+  {
     id: 'global-cdn-edge-computing-playbook-cost-optimization-2026',
     slug: 'global-cdn-edge-computing-playbook-cost-optimization-2026',
     title: {
