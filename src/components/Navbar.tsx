@@ -82,6 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { page: 'cookies', label: t.nav_cookies, icon: '🍪' },
     { page: 'adsense-standards', label: t.nav_adsense_standards, icon: '📜' },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio', icon: '🎬', badge: currentLang === 'ar' ? 'جديد' : 'New' },
+    { page: 'sitemap-checker', label: currentLang === 'ar' ? 'فاحص حظر خريطة الموقع والربوتات' : 'Sitemap & Robots Checker', icon: '🤖', badge: currentLang === 'ar' ? 'SEO' : 'SEO' },
     { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة وDNS' : t.nav_diagnostics, icon: '⚡' },
   ];
 

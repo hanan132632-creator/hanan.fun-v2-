@@ -13,7 +13,8 @@ export type ActivePage =
   | 'cookies' 
   | 'adsense-standards'
   | 'diagnostics'
-  | 'audio-to-video';
+  | 'audio-to-video'
+  | 'sitemap-checker';
 
 export interface ServiceItem {
   id: string;

@@ -24,6 +24,7 @@ const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m
 const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(m => ({ default: m.CookiePolicyPage })));
 const AdSenseStandardsPage = lazy(() => import('./pages/AdSenseStandardsPage').then(m => ({ default: m.AdSenseStandardsPage })));
 const AudioToVideoPage = lazy(() => import('./pages/AudioToVideoPage').then(m => ({ default: m.AudioToVideoPage })));
+const SitemapCheckerPage = lazy(() => import('./pages/SitemapCheckerPage').then(m => ({ default: m.SitemapCheckerPage })));
 const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 
 // Code-split heavy interactive modals
@@ -119,6 +120,7 @@ export default function App() {
     if (path === '/adsense-standards' || path.endsWith('/adsense-standards')) return 'adsense-standards';
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
+    if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
     return 'home';
   };
 
@@ -368,6 +370,12 @@ export default function App() {
 
           {activePage === 'audio-to-video' && (
             <AudioToVideoPage
+              currentLang={currentLang}
+            />
+          )}
+
+          {activePage === 'sitemap-checker' && (
+            <SitemapCheckerPage
               currentLang={currentLang}
             />
           )}
