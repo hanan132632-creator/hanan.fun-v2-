@@ -44,7 +44,7 @@ async function startServer() {
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     res.setHeader("Pragma", "no-cache");
     res.setHeader("Expires", "0");
-    res.send("google.com, pub-3298241753177072, DIRECT, f08c47fec0942fa0\n");
+    res.send("google.com, pub-4559351287441685, DIRECT, f08c47fec0942fa0\n");
   });
 
   // Sitemap.xml endpoint

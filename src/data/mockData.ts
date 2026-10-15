@@ -2251,7 +2251,7 @@ Local AI is no longer a hobbyist compromise; it is an enterprise-grade imperativ
   - \`https://domain.com/ads.txt\`
   - \`https://domain.com/.well-known/ads.txt\`
 * **صيغة السطر القياسي:**
-  \`google.com, pub-3298241753177072, DIRECT, f08c47fec0942fa0\`
+  \`google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0\`
 * **معنى كلمة DIRECT:** تعني أنك أنت المالك المباشر للحساب وليس وسيطاً، وهذا يعطي موقعك أعلى أولوية وأعلى أرباح (CPM).
 
 ---
