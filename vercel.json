@@ -13,6 +13,10 @@
       "destination": "/ads.txt"
     },
     {
+      "source": "/.well-known/ads.txt",
+      "destination": "/ads.txt"
+    },
+    {
       "source": "/robots.txt",
       "destination": "/robots.txt"
     },
