@@ -70,15 +70,22 @@ Sitemap: https://hanan.fun/sitemap.xml
 Sitemap: https://hanan.fun/sitemap.txt`;
 
   const sitemapSampleUrls = [
-    { loc: 'https://hanan.fun/', lastmod: '2026-10-15', priority: '1.0', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/store', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/blog', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/audio-to-video', lastmod: '2026-10-15', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/blog/global-dns-root-servers-anycast-dnssec-architecture-2026', lastmod: '2026-10-13', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/blog/google-eeat-guidelines-handbook-seo-adsense-2026', lastmod: '2026-10-04', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/tools/password-generator', lastmod: '2026-09-02', priority: '0.85', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/about', lastmod: '2026-09-02', priority: '0.7', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/privacy', lastmod: '2026-09-02', priority: '0.6', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/', lastmod: '2026-09-29', priority: '1.0', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/about', lastmod: '2026-09-29', priority: '0.85', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/privacy', lastmod: '2026-09-29', priority: '0.85', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/terms', lastmod: '2026-09-29', priority: '0.80', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/contact', lastmod: '2026-09-29', priority: '0.85', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/canva-branding-smart-excel-ecommerce-eeat-2026', lastmod: '2026-10-13', priority: '1.0', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/royal-fragrance-layering-scent-architecture-eeat-2026', lastmod: '2026-10-11', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/family-gathering-interactive-games-neuroscience-eeat-2026', lastmod: '2026-10-08', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/mindful-financial-intelligence-wealth-preservation-2026', lastmod: '2026-09-29', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/mindful-time-architecture-female-productivity-2026', lastmod: '2026-09-29', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/personal-color-analysis-capsule-wardrobe-2026', lastmod: '2026-09-29', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/home-serenity-architecture-2026', lastmod: '2026-09-29', priority: '0.90', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/hanan-store-story-2026', lastmod: '2026-09-29', priority: '0.90', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/fragrance-chemistry-guide', lastmod: '2026-09-29', priority: '0.90', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/digital-planning-ipad-guide', lastmod: '2026-09-29', priority: '0.90', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/ramadan-eid-gift-guide-2026', lastmod: '2026-09-29', priority: '0.90', status: '200 OK (Allowed)' },
   ];
 
   const handleCopyRobots = () => {
