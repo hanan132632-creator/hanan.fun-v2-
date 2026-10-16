@@ -1,5 +1,8 @@
+# النطاق الرئيسي: https://www.hanan.fun/
+
 User-agent: *
 Allow: /
+Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
@@ -13,7 +16,9 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
+# خرائط الموقع (XML و TXT)
 Sitemap: https://www.hanan.fun/sitemap.xml
 Sitemap: https://www.hanan.fun/sitemap.txt
-Sitemap: https://hanan.fun/sitemap.xml
-Sitemap: https://hanan.fun/sitemap.txt
+
+# المضيف المفضل
+Host: https://www.hanan.fun
