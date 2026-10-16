@@ -27,7 +27,7 @@ export const SitemapCheckerPage: React.FC<SitemapCheckerPageProps> = ({ currentL
   const [copiedRobots, setCopiedRobots] = useState(false);
   const [copiedSitemapUrl, setCopiedSitemapUrl] = useState(false);
   const [selectedBot, setSelectedBot] = useState('Googlebot');
-  const [testUrl, setTestUrl] = useState('https://www.hanan.fun/');
+  const [testUrl, setTestUrl] = useState('https://hanan.fun/');
   const [isSimulating, setIsSimulating] = useState(false);
   const [simulationResult, setSimulationResult] = useState<{
     status: number;
@@ -40,7 +40,7 @@ export const SitemapCheckerPage: React.FC<SitemapCheckerPageProps> = ({ currentL
     status: 200,
     allowed: true,
     userAgent: 'Googlebot',
-    url: 'https://www.hanan.fun/',
+    url: 'https://hanan.fun/',
     latencyMs: 14,
     message: 'Allowed by robots.txt (Allow: /) - HTTP 200 OK'
   });
@@ -66,21 +66,19 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-Sitemap: https://www.hanan.fun/sitemap.xml
-Sitemap: https://www.hanan.fun/sitemap.txt
-Sitemap: https://www.hanan.fun/sitemap.xml
+Sitemap: https://hanan.fun/sitemap.xml
 Sitemap: https://hanan.fun/sitemap.txt`;
 
   const sitemapSampleUrls = [
-    { loc: 'https://www.hanan.fun/', lastmod: '2026-10-15', priority: '1.0', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/store', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/blog', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/audio-to-video', lastmod: '2026-10-15', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/blog/global-dns-root-servers-anycast-dnssec-architecture-2026', lastmod: '2026-10-13', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/blog/google-eeat-guidelines-handbook-seo-adsense-2026', lastmod: '2026-10-04', priority: '0.95', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/tools/password-generator', lastmod: '2026-09-02', priority: '0.85', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/about', lastmod: '2026-09-02', priority: '0.7', status: '200 OK (Allowed)' },
-    { loc: 'https://www.hanan.fun/privacy', lastmod: '2026-09-02', priority: '0.6', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/', lastmod: '2026-10-15', priority: '1.0', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/store', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog', lastmod: '2026-10-15', priority: '0.9', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/audio-to-video', lastmod: '2026-10-15', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/global-dns-root-servers-anycast-dnssec-architecture-2026', lastmod: '2026-10-13', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/google-eeat-guidelines-handbook-seo-adsense-2026', lastmod: '2026-10-04', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/tools/password-generator', lastmod: '2026-09-02', priority: '0.85', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/about', lastmod: '2026-09-02', priority: '0.7', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/privacy', lastmod: '2026-09-02', priority: '0.6', status: '200 OK (Allowed)' },
   ];
 
   const handleCopyRobots = () => {
@@ -90,7 +88,7 @@ Sitemap: https://hanan.fun/sitemap.txt`;
   };
 
   const handleCopySitemapUrl = () => {
-    navigator.clipboard.writeText('https://www.hanan.fun/sitemap.xml');
+    navigator.clipboard.writeText('https://hanan.fun/sitemap.xml');
     setCopiedSitemapUrl(true);
     setTimeout(() => setCopiedSitemapUrl(false), 2000);
   };
