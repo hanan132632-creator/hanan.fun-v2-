@@ -87,7 +87,7 @@ Host: https://hanan.fun`;
     { loc: 'https://hanan.fun/terms', lastmod: '2026-09-29', priority: '0.80', status: '200 OK (Allowed)' },
     { loc: 'https://hanan.fun/contact', lastmod: '2026-09-29', priority: '0.85', status: '200 OK (Allowed)' },
     { loc: 'https://hanan.fun/blog/canva-branding-smart-excel-ecommerce-eeat-2026', lastmod: '2026-10-16', priority: '1.0', status: '200 OK (Allowed)' },
-    { loc: 'https://hanan.fun/blog/royal-fragrance-layering-scent-architecture-eeat-2026', lastmod: '2026-10-11', priority: '0.95', status: '200 OK (Allowed)' },
+    { loc: 'https://hanan.fun/blog/royal-fragrance-layering-scent-architecture-eeat-2026', lastmod: '2026-10-19', priority: '0.98', status: '200 OK (Allowed)' },
     { loc: 'https://hanan.fun/blog/family-gathering-interactive-games-neuroscience-eeat-2026', lastmod: '2026-10-08', priority: '0.95', status: '200 OK (Allowed)' },
     { loc: 'https://hanan.fun/blog/mindful-financial-intelligence-wealth-preservation-2026', lastmod: '2026-09-29', priority: '0.95', status: '200 OK (Allowed)' },
     { loc: 'https://hanan.fun/blog/mindful-time-architecture-female-productivity-2026', lastmod: '2026-09-29', priority: '0.95', status: '200 OK (Allowed)' },

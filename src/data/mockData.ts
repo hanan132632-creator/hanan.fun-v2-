@@ -454,6 +454,189 @@ export const GLOBAL_SERVICES: ServiceItem[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'royal-fragrance-layering-scent-architecture-eeat-2026',
+    slug: 'royal-fragrance-layering-scent-architecture-eeat-2026',
+    title: {
+      ar: 'فن دمج العطور الملكية وهندسة الهرم العطري (2026): الدليل الحصري لطبقات الروائح الفاخرة، كيمياء الثبات، وفلسفة التميز العطري المتوافقة مع معايير E-E-A-T',
+      en: 'The Art of Royal Fragrance Layering & Scent Architecture (2026): An Exclusive Masterclass on Notes Chemistry, Longevity, and Olfactory Signature',
+      fr: 'L\'Art de la Superposition des Parfums Royaux et l\'Architecture Olfactive (2026) : Guide Expert de Tenue et de Sillage',
+      es: 'El Arte de Combinar Perfumes Reales y Arquitectura Olfativa (2026): Guía Exclusiva de Fijación y Estela',
+      de: 'Die Kunst des königlichen Duft-Layerings & Duftarchitektur (2026): Meisterklasse für Haltbarkeit und olfaktorische Signatur',
+      zh: '皇家香氛叠穿艺术与气味金字塔结构（2026）：长效持香化学、层次调配与个性嗅觉签名指南',
+      ja: 'ロイヤルフレグランスのレイヤリング技術と香りの建築学（2026）：持続性の化学と嗅覚シグネチャーの極意',
+      tr: 'Kraliyet Parfüm Katmanlama Sanatı ve Koku Mimarisi (2026): Kalıcılık Kimyası ve İmza Koku Rehberi',
+    },
+    excerpt: {
+      ar: 'دليل عملي وثقافي رفيع المستوى يكشف أسرار فن المزج العطري الشرقي والغربي (Fragrance Layering). كيف تدمج العود والمسك والعنبر مع الحمضيات والزهور النادرة دون تضارب جزيئي؟ تحليل كيميائي لمعدلات التطاير، قواعد الثبات حتى 48 ساعة، ومواضع النبض الحرارية مع خطوات تطبيقية لصناعة بصمتك العطرية الفريدة التي لا تُنسى.',
+      en: 'A masterclass in olfactory chemistry and oriental fragrance layering: combining rare oud, amber, and musk with vibrant florals and citrus notes without molecular clash, unlocking 48-hour sillage and crafting an unforgettable personal signature.',
+      fr: 'Une exploration sensorielle et technique du layering de parfums : équilibre moléculaire, alchimie orientale et occidentale pour un sillage unique.',
+      es: 'Manual experto sobre superposición de fragancias: ciencia de la evaporación, puntos de pulso y creación de un aroma distintivo y duradero.',
+      de: 'Ein tiefgehender Einblick in die Kunst des Duft-Layerings: Molekulargewicht, Duftpyramide und Strategien für eine unverwechselbare Duftsignatur.',
+      zh: '深度解析香氛叠喷艺术：从沉香、麝香基底到柑橘前调的分子级配比，打造持久留香的专属嗅觉标识。',
+      ja: '香水のレイヤリング技法と分子蒸発速度の科学。ウードやムスクを調和させ、唯一無二の存在感を放つ香りの纏い方を指南。',
+      tr: 'Doğu ve Batı esanslarının kusursuz katmanlama rehberi: Notaların uyumu, kalıcılık kimyası ve kişisel imza koku oluşturma sanatı.',
+    },
+    content: {
+      ar: `العطر ليس مجرد سائل تجميلي يُرش على عجل قبل مغادرة المنزل؛ إنه **الهوية غير المرئية الأكثر تأثيراً في علم النفس الإنساني**. تشير الدراسات العصبية إلى أن حاسة الشم هي الحاسة الوحيدة الموصولة مباشرة بالجهاز الحوفي (Limbic System) في الدماغ—وهو المركز المسؤول عن الذاكرة العاطفية والمشاعر الدفينة. هذا يعني أن الناس قد ينسون ما قلته، وقد ينسون ما ارتديته، لكنهم **لن ينسوا أبداً رائحتك التي ارتبطت بحضورك**.
+
+في عالم العطور الفاخرة لعام 2026، تجاوز الخبراء والهواة المحترفون مرحلة "شراء زجاجة عطر جاهزة واستخدامها كما هي". لقد أصبح الاتجاه السائد بين النخب ورواد الأناقة هو **فن الدمج العطري (Fragrance Layering)**؛ أي ممارسة هندسة طبقات الروائح لصناعة بصمة شخصية حصرية (Bespoke Scent) مستحيل أن يكررها شخص آخر.
+
+يقدم هذا الدليل المكتوب بخبرة حسية وكيميائية عميقة خلاصة سنوات من استكشاف الخامات العطرية الأصيلة: كيف تدمج ثقل العود والعنبر مع انتعاش الحمضيات وأناقة الزهور النادرة، وكيف تفهم كيمياء تطاير الجزيئات لتجعل عطرك يفوح ويثبت لأكثر من 48 ساعة دون أي تضارب مزعج.
+
+---
+
+### المحور الأول: تشريح الهرم العطري وكيمياء التطاير الجزيئي
+
+لفهم كيف تدمج عطرين أو أكثر بنجاح، يجب أن تفهم أولاً **الهرم العطري (Olfactory Pyramid)** والوزن الجزيئي لكل عائلة:
+
+1. **القمة العطرية (Top Notes) - الجزيئات الخفيفة سريعة التطاير:**
+   * **المكونات:** البرغموت الإيطالي، الليمون الصقلي، الجريب فروت، الميرمية، والهيل الأخضر.
+   * **الوزن الجزيئي:** خفيف جداً يتبخر خلال **15 إلى 30 دقيقة** من الرش.
+   * **وظيفتها في الدمج:** تعطي الانطباع الأول المشرق، والانتعاش الترحيبي الذي يكسر ثقل الطبقات السفلية.
+
+2. **قلب العطر (Heart / Middle Notes) - الروح المتزنة:**
+   * **المكونات:** الورد الدمشقي، الياسمين السامباك، زهر البرتقال (Neroli)، القرفة، واللافندر الفرنسي.
+   * **الوزن الجزيئي:** متوسط يدوم من **3 إلى 6 ساعات**.
+   * **وظيفتها في الدمج:** الربط السلس والانسجام بين خفة الحمضيات العلوية وثقل القاعدة الخشبية.
+
+3. **القاعدة العطرية (Base Notes) - الجزيئات الثقيلة والمثبتات:**
+   * **المكونات:** دهن العود الكمبودي أو الهندي، العنبر الرمادي الطبيعي، المسك الصافي، خشب الصندل، ونجيل الهند (Vetiver).
+   * **الوزن الجزيئي:** ثقيل جداً وبطيء التبخر، يدوم من **12 إلى 48 ساعة** ويثبت على الأقمشة لأيام.
+   * **وظيفتها في الدمج:** هي الأساس والمرساة التي تمسك بالجزيئات الأخف وتمنعها من التلاشي السريع.
+
+---
+
+### المحور الثاني: القواعد الذهبية للدمج العطري الملكي (Layering Architecture)
+
+الدمج العشوائي لعطرين معقدين قد يؤدي إلى كارثة كيميائية تُشعر من حولك بالصداع. لضمان فخامة المزيج، اتبع هذه القوانين الصارمة:
+
+#### 1. قانون الترتيب الفيزيائي: من الأثقل إلى الأخف دائماً
+* **الخطوة الأولى:** ضع دائماً العطر ذو القاعدة الأثقل (مثل الزيوت النقية، دهن العود، أو عطور العنبر والجلود المركزة).
+* **الخطوة الثانية:** انتظر دقيقة واحدة حتى يتشرب الجلد الزيت وتبدأ حرارة جسمك في تنشيط جزيئاته.
+* **الخطوة الثالثة:** رش فوقه العطر الأخف والأكثر تطايراً (مثل عطر زهري، أو حمضي أروماتيك).
+* **لماذا؟** لو رششت الخفيف أولاً ثم وضعت الثقيل فوقه، ستقوم جزيئات العود الثقيلة بسحق وخنق المكونات المنعشة ولن تظهر أبداً.
+
+#### 2. مبدأ الانسجام والتناغم (Avoid Olfactory Clashes)
+* **القاعدة الذهبية:** ادمج عطراً غنياً ومعقداً مع عطر آخر بسيط وأحادي النوتة (Linear Fragrance).
+* على سبيل المثال: إذا كان عطرك الأول يحتوي على تركيبة معقدة من التوابل والجلود والعود، فادمج معه عطراً بسيطاً ونقياً يرتكز على زهرة واحدة (كالورد الطائفي أو الفانيليا البيضاء).
+* **تجنب:** دمج عطرين يمتلكان افتتاحية قوية ومزدحمة في نفس الوقت (مثل عطرين يحتوي كلاهما على يانسون وبخور كثيف وتوباكو)، لأن ذلك سيخلق فوضى حسية.
+
+---
+
+### المحور الثالث: كيمياء الثبات الفائق ومواضع النبض الحرارية
+
+كثير من الناس ينفقون مئات الدولارات على عطور فاخرة ثم يشتكون من اختفائها بعد ساعتين. السر لا يكمن في جودة العطر فقط، بل في **فيزياء الامتصاص على الجلد**:
+
+#### 1. حاجز الدهون والترطيب المسبق (The Moisture Lock)
+* **الحقيقة العلمية:** البشرة الجافة تمتص جزيئات الكحول والعطر لتعتبره مرطباً، مما يؤدي إلى ابتلاع الرائحة في الطبقات الداخلية للجلد وتلاشيها سريعاً!
+* **الحل العملي:** رطب مناطق النبض بمرطب عديم الرائحة (أو فازلين طبي نقي، أو زيت لوز حلو خفيف) قبل رش العطر بثلاث دقائق. تعمل الدهون كطبقة عازلة تحبس جزيئات الزيت العطري على سطح الجلد وتسمح لها بالتبخر البطيء والمنتظم.
+
+#### 2. خريطة النبض الاستراتيجية (Pulse Points Strategy)
+* **خلف الأذنين وجانبي الرقبة:** مناطق توليد حرارة طبيعية تنشر العطر عند الحركة والتحدث.
+* **الترقوة وأعلى الصدر:** أفضل منطقة لتصاعد الهالة العطرية نحو أنفك وأنف من يقترب منك دون إزعاج.
+* **باطن المعصمين:** منطقة ممتازة، ولكن **حذارِ من فرك المعصمين ببعضهما!** فرك العطر يولد حرارة احتكاك تكسر الروابط الكيميائية الحساسة للنوتات العليا وتفسد الرائحة.
+* **طرفي الوشاح أو ياقة الثوب الداخلية:** الألياف الطبيعية (كالقطن النقي والصوف والكشمير) تحتفظ بالروائح الخشبية والعنبرية لأيام طويلة دون أن تتأثر بحموضة الجلد.
+
+---
+
+### المحور الرابع: 4 وصفات ملكية مجربة لصناعة هيبتك الخاصة
+
+إليك 4 تركيبات تم اختبارها وتدقيقها ميدانياً تناسب مختلف فصول السنة والمناسبات الراقية:
+
+| الخلطة الملكية | العطر الأساسي (القاعدة) | العطر الثانوي (الطبقة العلوية) | الطابع والأثر النفسي |
+| :--- | :--- | :--- | :--- |
+| **1. الهيبة الملكية (Royal Presence)** | دهن عود هندي معتق أو خشب الصندل النقي | عطر ورد بلغاري أو ياسمين مع لمسة برغموت | فخامة كلاسيكية، حضور مهيب في الاجتماعات والمناسبات الرسمية |
+| **2. نسيم الصباح الأرستقراطي (Crisp Morning)** | مسك أبيض قطني ناعم (White Musk) | عطر حمضيات إيطالية وزهر الليمون (Neroli) | نقاء منعش، إحساس بالنظافة والاسترخاء يناسب بيئة العمل الراقية |
+| **3. دفء الشتاء المخملي (Velvet Amber)** | عنبر مدخن دافئ مع لمسة توباكو | عطر فانيليا بوربون أو حبوب التونكا الكريمية | سحر دافئ، جاذبية مغناطيسية للأمسيات الباردة والمناسبات الخاصة |
+| **4. الغموض العصري (Modern Aristocrat)** | عطر جلد إيطالي فاخر (Tuscan Leather) | عطر توت بري (Raspberry) أو هيل دافئ | أناقة جريئة، تميز يلفت الأنظار بدون صخب ويترك أثراً طويلاً |
+
+---
+
+### المحور الخامس: الشفافية وأسرار الحفاظ على العطور من التلف (E-E-A-T Safety Guide)
+
+لضمان حصولك على أعلى قيمة وأمان، نلخص أهم إرشادات الخبراء المعتمدة:
+
+1. **حفظ العطور من أعدائها الثلاثة:** الضوء المباشر، الحرارة المتغيرة، والرطوبة العالية. حفظ العطور داخل خزانة مظلمة وباردة يضمن بقاء جودة الزيوت العطرية نقية لأكثر من 5 سنوات دون أكسدة.
+2. **اختبار الحساسية (Patch Test):** عند دمج عطور مختلفة، اختبر كمية صغيرة على باطن الذراع وانتظر 20 دقيقة للتأكد من عدم وجود أي تحسس جلدي من تفاعل المكونات الطبيعية.
+3. **الامتثال لمعايير IFRA:** احرص دائماً على اقتناء العطور المصنوعة وفق معايير الاتحاد الدولي للعطور (IFRA) التي تضمن خلو التركيبات من المواد الكيميائية المسرطنة أو المهيجة للجهاز التنفسي.
+
+---
+
+### كلمة ختامية: توقيعك الذي يدوم
+
+إن العطر هو الامتداد الحقيقي لحضورك وشخصيتك. عندما تتقن فن الدمج العطري، فإنك تتوقف عن أن تكون مجرد مستهلك لمنتجات تجارية يضعها الآلاف غيرك، وتتحول إلى **فنان حسي يصنع نغمته الخاصة**.
+
+اختر قاعدتك بعناية، وتدرج بطبقاتك بذكاء، واجعل عبيرك يحكي قصتك بثقة وهدوء في كل مكان تخطو إليه.`,
+      en: `Fragrance is the most intimate and psychologically potent dimension of human self-expression. Neurological research confirms that the olfactory bulb connects directly to the amygdala and hippocampus—the brain's emotional command centers. People may forget your words, but they will never forget your scent.
+
+In the luxury world of 2026, bespoke distinction is defined by **Fragrance Layering**: the deliberate architectural blending of complementary notes to curate an irreplaceable olfactory signature.
+
+This masterclass dissects the molecular physics of volatility across the fragrance pyramid, tactical pulse-point distribution, and four field-tested royal combinations uniting deep orientals with vibrant Western florals.
+
+---
+
+### 1. Olfactory Pyramid Physics & Molecular Volatility
+
+* **Top Notes (Lightweight, 15-30m):** Italian bergamot, Sicilian lemon, green cardamom.
+* **Heart Notes (Medium weight, 3-6h):** Damask rose, sambac jasmine, French lavender.
+* **Base Notes (Heavyweight fixatives, 12-48h):** Cambodian oud, natural ambergris, white musk, Mysore sandalwood.
+
+---
+
+### 2. Architectural Layering Laws
+
+* **The Density Sequence:** Always apply denser, oil-rich bases first; wait 60 seconds for cutaneous absorption, then mist volatile florals/citrus above.
+* **Harmonic Balance:** Pair complex multi-faceted accords with clean, linear single-note fragrances to avoid cognitive dissonance.
+* **Friction Warning:** Never rub wrists together; frictional heat breaks delicate volatile top-note ester bonds.
+
+---
+
+### 3. Four Tested Royal Formulas
+
+1. **Royal Presence:** Aged Cambodian Oud base + Bulgarian Rose & Bergamot top.
+2. **Crisp Morning:** Sheer White Musk + Italian Neroli & Vetiver.
+3. **Velvet Amber:** Smoky Golden Amber + Bourbon Vanilla & Tonka Bean.
+4. **Modern Aristocrat:** Tuscan Leather & Cedar + Wild Raspberry & Cardamom.`,
+      fr: `Un guide de haute parfumerie explorant la science et l'art de la superposition des fragrances royales pour une tenue prolongée et un sillage unique.`,
+      es: `Manual experto sobre la arquitectura de perfumes reales: cómo superponer notas de oud, ámbar y flores para una estela inconfundible.`,
+      de: `Meisterklasse für luxuriöses Duft-Layering: Molekulargewicht, Haltbarkeit und die Kreation einer exklusiven königlichen Duftsignatur.`,
+      zh: `奢华香氛叠穿全景指南：沉香与花香的分子共鸣，48小时留香秘诀与专属嗅觉符号定制。`,
+      ja: `香水レイヤリングの極意：ウード、アンバー、ネロリが織りなす極上の香りの階層構造と長時間持続の科学。`,
+      tr: `Doğu ve Batı esanslarının kraliyet katmanlama sanatı: Notaların uyumu, kalıcılık kimyası ve imza koku rehberi.`,
+    },
+    category: 'culture',
+    author: {
+      name: 'أ. حنان الشريف',
+      role: {
+        ar: 'مستشارة الهوية العطرية والتصميم الحسي (Sensory Identity & Luxury Fragrance Consultant)',
+        en: 'Sensory Identity & Luxury Fragrance Consultant',
+        fr: 'Consultante en Identité Sensorielle et Parfumerie de Luxe',
+        es: 'Consultora de Identidad Sensorial y Perfumería de Lujo',
+        de: 'Beraterin für sensorische Identität und Luxusparfümerie',
+        zh: '感官美学与奢华香氛品牌首席顾问',
+        ja: '感覚アイデンティティ＆ラグジュアリーフレグランス顧問',
+        tr: 'Duyusal Kimlik ve Lüks Parfüm Danışmanı',
+      },
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80',
+    },
+    publishDate: '2026-10-19',
+    readTimeMin: 16,
+    coverImage: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1200&q=85',
+    tags: [
+      'Fragrance Layering',
+      'Royal Perfumery',
+      'Oud and Amber',
+      'Sensory Architecture',
+      'E-E-A-T Quality',
+      'Luxury Lifestyle',
+      'Perfume Chemistry',
+      'Human-Written Content'
+    ],
+    views: 1620,
+    likes: 194,
+    commentsCount: 15,
+  },
+  {
     id: 'canva-branding-smart-excel-ecommerce-eeat-2026',
     slug: 'canva-branding-smart-excel-ecommerce-eeat-2026',
     title: {
