@@ -49,7 +49,7 @@ export const SitemapCheckerPage: React.FC<SitemapCheckerPageProps> = ({ currentL
   const [purgingCache, setPurgingCache] = useState(false);
   const [purgeSuccess, setPurgeSuccess] = useState(false);
 
-  const adsTxtContent = `google.com, pub-4559351287441685, DIRECT, f08c47fec0942fa0`;
+  const adsTxtContent = `google.com, pub-9366698048953944, DIRECT, f08c47fec0942fa0`;
 
   const robotsTxtContent = `# النطاق الرئيسي: https://hanan.fun/
 
@@ -300,7 +300,7 @@ Host: https://hanan.fun`;
             <div className="text-[11px] font-bold text-slate-400">{isAr ? 'معرف الناشر المعتمد' : 'Publisher ID Match'}</div>
             <div className="text-sm font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1">
               <CheckCircle2 className="w-4 h-4" />
-              <span>pub-4559351287441685</span>
+              <span>pub-9366698048953944</span>
             </div>
             <div className="text-[10px] text-slate-500">{isAr ? 'مطابق تماماً لكود الهيدر' : 'Matches header meta tag'}</div>
           </div>

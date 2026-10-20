@@ -76,7 +76,7 @@ export const AdSensePlacement: React.FC<AdSensePlacementProps> = ({
           ref={adRef}
           className="adsbygoogle"
           style={{ display: 'block', width: '100%', minWidth: '250px' }}
-          data-ad-client="ca-pub-4559351287441685"
+          data-ad-client=""
           {...(slot ? { 'data-ad-slot': slot } : {})}
           data-ad-format={format === 'in-article' ? 'fluid' : 'auto'}
           data-full-width-responsive="true"
