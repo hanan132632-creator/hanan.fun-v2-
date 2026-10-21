@@ -3,6 +3,7 @@ Allow: /
 Allow: /sitemap.xml
 Allow: /sitemap.txt
 Allow: /ads.txt
+Allow: /app-ads.txt
 Disallow: /api/
 
 User-agent: Googlebot
@@ -10,6 +11,7 @@ Allow: /
 Allow: /sitemap.xml
 Allow: /sitemap.txt
 Allow: /ads.txt
+Allow: /app-ads.txt
 
 # خرائط الموقع (XML و TXT)
 Sitemap: https://hanan.fun/sitemap.xml
