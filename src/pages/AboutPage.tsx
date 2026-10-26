@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { Language, ActivePage } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface AboutPageProps {
   currentLang: Language;
@@ -117,13 +117,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
           </div>
           <h3 className="font-bold text-lg text-slate-900 dark:text-white">معايير الجودة E-E-A-T</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            كافة مقالاتنا وخدماتنا تصاغ وتشرف عليها كوادر هندسية معتمدة لضمان الخبرة والمصداقية والشفافية التامة، بما يتوافق بالكامل مع متطلبات Google AdSense و Core Web Vitals.
+            كافة مقالاتنا وخدماتنا تصاغ وتشرف عليها كوادر هندسية معتمدة لضمان الخبرة والمصداقية والشفافية التامة، بما يتوافق بالكامل مع متطلبات النشر الرقمي وإعلانات Adsterra و Core Web Vitals.
           </p>
         </div>
       </div>
 
-      {/* AdSense Placement */}
-      <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+      {/* Adsterra Placement */}
+      <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
 
       {/* Leadership Team (E-E-A-T Requirement) */}
       <div className="space-y-8">

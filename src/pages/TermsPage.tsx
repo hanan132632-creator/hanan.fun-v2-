@@ -2,7 +2,7 @@ import React from 'react';
 import { FileText, ShieldCheck, CheckCircle2, AlertTriangle, Scale } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface TermsPageProps {
   currentLang: Language;
@@ -43,7 +43,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ currentLang }) => {
             <li>إرسال البريد المزعج (SPAM) أو الهجمات السيبرانية العكسية.</li>
             <li>استضافة أي برمجيات خبيثة أو مواقع تصيد احتيالي (Phishing).</li>
             <li>انتهاك حقوق الملكية الفكرية أو العلامات التجارية.</li>
-            <li>ممارسة أنشطة النقر الاحتيالي (Invalid Click Activity) المحظورة في شبكة Google AdSense.</li>
+            <li>ممارسة أنشطة النقر الاحتيالي (Invalid Click Activity) المحظورة في شبكة Adsterra والشبكات الإعلانية.</li>
           </ul>
         </section>
 
@@ -54,7 +54,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ currentLang }) => {
           </p>
         </section>
 
-        <AdSensePlacement currentLang={currentLang} format="in-article" />
+        <AdsterraPlacement currentLang={currentLang} format="in-article" />
 
         <section className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">4. الدفع واسترداد الأموال</h2>

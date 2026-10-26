@@ -19,7 +19,7 @@ import {
 import { Language, Currency, ServiceItem } from '../types';
 import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
 import { GLOBAL_SERVICES } from '../data/mockData';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface StorePageProps {
   currentLang: Language;
@@ -235,8 +235,8 @@ export const StorePage: React.FC<StorePageProps> = ({
         ))}
       </div>
 
-      {/* AdSense Unit in Store */}
-      <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+      {/* Adsterra Unit in Store */}
+      <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
 
       {/* Service Detail Modal */}
       {selectedServiceForModal && (

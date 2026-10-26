@@ -64,13 +64,15 @@
   50% { opacity: .5; }
 }
 
-/* Google AdSense policy: Collapse unfilled ad units completely to prevent unutilized empty spaces */
-ins.adsbygoogle[data-ad-status="unfilled"],
-ins.adsbygoogle[data-ad-status="unfilled"] ~ * {
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Adsterra Ad Unit & Responsive Container Styling */
+.adsterra-banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* Core Web Vitals Optimization: Skip rendering of off-screen footer until scrolled */

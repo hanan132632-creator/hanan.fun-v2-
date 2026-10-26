@@ -1,1 +1,3 @@
-google.com, pub-9366698048953944, DIRECT, f08c47fec0942fa0
+# Adsterra Advertising Network - ads.txt
+# Authorized Digital Sellers file for https://hanan.fun/
+# Paste any Adsterra direct partner SSP or exchange lines below:

@@ -37,14 +37,29 @@ async function startServer() {
     res.json({ status: "ok", service: "Global Internet Services API", timestamp: new Date().toISOString() });
   });
 
-  // Google AdSense ads.txt standard endpoint
+  // Advertising ads.txt and app-ads.txt endpoints
   app.get(["/ads.txt", "/.well-known/ads.txt", "/public_html/ads.txt", "/public/ads.txt"], (_req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
-    res.send("google.com, pub-9366698048953944, DIRECT, f08c47fec0942fa0\n");
+    const adsTxtPath = path.join(process.cwd(), "public", "ads.txt");
+    if (fs.existsSync(adsTxtPath)) {
+      res.sendFile(adsTxtPath);
+    } else {
+      res.send("# Adsterra Advertising Network - ads.txt ready\n");
+    }
+  });
+
+  app.get(["/app-ads.txt", "/.well-known/app-ads.txt", "/public/app-ads.txt"], (_req, res) => {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    const appAdsPath = path.join(process.cwd(), "public", "app-ads.txt");
+    if (fs.existsSync(appAdsPath)) {
+      res.sendFile(appAdsPath);
+    } else {
+      res.send("# Adsterra Advertising Network - app-ads.txt ready\n");
+    }
   });
 
   // Sitemap.xml endpoint
@@ -135,7 +150,7 @@ async function startServer() {
         ipv6Ready: true,
         ttfbMs: avgTtfb,
         overallScore,
-        adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS)",
+        adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS - Adsterra Ready)",
         nodes,
       });
     } catch (err: any) {

@@ -16,7 +16,7 @@ import {
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS } from '../data/mockData';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface BlogPageProps {
   currentLang: Language;
@@ -241,6 +241,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             />
           </div>
 
+          {/* In-Article 300x250 Adsterra Placement */}
+          <div className="flex justify-center my-4">
+            <AdsterraPlacement currentLang={currentLang} format="300x250" />
+          </div>
+
           {/* Article Main Text Content */}
           <div className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base space-y-4">
             <div className="whitespace-pre-wrap">
@@ -258,8 +263,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             ))}
           </div>
 
-          {/* Bottom AdSense Unit */}
-          <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+          {/* Bottom Adsterra Unit */}
+          <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
 
           {/* Dual Navigation Section: Previous Article & Next Article with Prominent Arrows */}
           <section className="pt-8 border-t-2 border-dashed border-slate-200 dark:border-slate-800 space-y-6">
@@ -402,6 +407,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               )}
             </div>
           </section>
+
+          {/* Adsterra Native Recommendations Widget */}
+          <AdsterraPlacement currentLang={currentLang} format="native" />
 
           {/* Comments Section */}
           <section className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
@@ -607,8 +615,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             ))}
           </div>
 
-          {/* AdSense Unit in Blog Index */}
-          <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+          {/* Adsterra Unit in Blog Index */}
+          <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
         </div>
       )}
 

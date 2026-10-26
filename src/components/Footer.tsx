@@ -10,10 +10,12 @@ import {
   ChevronRight,
   PhoneCall,
   Mail,
-  MapPin
+  MapPin,
+  Sliders
 } from 'lucide-react';
 import { Language, ActivePage } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
+import { AdsterraConfigModal } from './AdsterraConfigModal';
 
 interface FooterProps {
   currentLang: Language;
@@ -24,6 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
   const t = TRANSLATIONS[currentLang];
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [adsterraModalOpen, setAdsterraModalOpen] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,8 +77,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               <Award className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-white text-xs sm:text-sm">معايير AdSense & E-E-A-T</div>
-              <div className="text-[11px] text-slate-400">محتوى تحريري عالي الجودة</div>
+              <div className="font-bold text-white text-xs sm:text-sm">معايير Adsterra & E-E-A-T</div>
+              <div className="text-[11px] text-slate-400">محتوى تحريري عالي الجودة وشبكة إعلانات موثوقة</div>
             </div>
           </div>
         </div>
@@ -188,7 +191,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               <li>
                 <button onClick={() => onNavigate('adsense-standards')} className="hover:text-blue-400 transition-colors flex items-center gap-1.5 text-start cursor-pointer">
                   <ChevronRight className="w-3 h-3 text-slate-500 rtl:rotate-180" />
-                  <span>{t.nav_adsense_standards}</span>
+                  <span>معايير إعلانات Adsterra</span>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => setAdsterraModalOpen(true)} 
+                  className="text-orange-400 hover:text-orange-300 font-bold transition-colors flex items-center gap-1.5 text-start cursor-pointer"
+                >
+                  <Sliders className="w-3 h-3 text-orange-400" />
+                  <span>إعدادات أكواد Adsterra</span>
                 </button>
               </li>
               <li>
@@ -275,10 +287,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <span>•</span>
             <span>SOC2 Type II</span>
             <span>•</span>
-            <span>Google AdSense Compliant</span>
+            <span>Adsterra Ads Network Ready</span>
           </div>
         </div>
       </div>
+
+      <AdsterraConfigModal
+        isOpen={adsterraModalOpen}
+        onClose={() => setAdsterraModalOpen(false)}
+        currentLang={currentLang}
+      />
     </footer>
   );
 };

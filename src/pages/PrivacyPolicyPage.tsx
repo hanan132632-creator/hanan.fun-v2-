@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface PrivacyPolicyPageProps {
   currentLang: Language;
@@ -33,49 +33,49 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ currentLan
           {t.privacy_title}
         </h1>
         <p className="text-xs sm:text-sm text-slate-500">
-          تاريخ آخر تحديث ومراجعة امتثال: 25 أغسطس 2026 | الإصدار 4.2 المتوافق مع Google AdSense و GDPR و CCPA
+          تاريخ آخر تحديث ومراجعة امتثال: 25 أغسطس 2026 | الإصدار 4.2 المتوافق مع شبكة Adsterra و GDPR و CCPA
         </p>
       </div>
 
       {/* Overview Card */}
-      <div className="p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-2">
-        <h2 className="font-extrabold text-blue-900 dark:text-blue-300 text-base flex items-center gap-2">
-          <Lock className="w-4 h-4 text-blue-600" />
+      <div className="p-6 rounded-2xl bg-orange-50/60 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-2">
+        <h2 className="font-extrabold text-orange-900 dark:text-orange-300 text-base flex items-center gap-2">
+          <Lock className="w-4 h-4 text-orange-600" />
           <span>مقدمة والتزام بحماية خصوصيتك</span>
         </h2>
         <p className="leading-relaxed">
-          في منصة **خدمات الإنترنت العالمية (Global Internet Services - GIS)**، نعتبر خصوصية زوارنا وعملائنا ذات أهمية بالغة وخطاً أحمر لا تهاون فيه. توضح هذه الوثيقة الشاملة طبيعة البيانات الشخصية والتقنية التي نجمعها، وكيفية استخدامها وحمايتها، والتزامنا التام بسياسات برنامج **Google AdSense** الإعلاني ولوائح حماية البيانات العامة في الاتحاد الأوروبي (GDPR) وقانون خصوصية المستهلك في كاليفورنيا (CCPA).
+          في منصة **خدمات الإنترنت العالمية (Global Internet Services - GIS)**، نعتبر خصوصية زوارنا وعملائنا ذات أهمية بالغة وخطاً أحمر لا تهاون فيه. توضح هذه الوثيقة الشاملة طبيعة البيانات الشخصية والتقنية التي نجمعها، وكيفية استخدامها وحمايتها، والتزامنا التام بسياسات شبكة **Adsterra** الإعلانية ولوائح حماية البيانات العامة في الاتحاد الأوروبي (GDPR) وقانون خصوصية المستهلك في كاليفورنيا (CCPA).
         </p>
       </div>
 
-      {/* Section 1: Google AdSense and DoubleClick DART Cookies */}
+      {/* Section 1: Adsterra Advertising and Cookies */}
       <section className="space-y-4">
         <h2 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
           <Cookie className="w-5 h-5 text-amber-500" />
-          <span>1. ملفات تعريف الارتباط DART وإعلانات Google AdSense</span>
+          <span>1. ملفات تعريف الارتباط وإعلانات شبكة Adsterra (Advertising Partners & Cookies)</span>
         </h2>
         <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-3 leading-relaxed">
           <p>
-            تستخدم شركة **Google** بصفتها مورداً لطرف ثالث ملفات تعريف الارتباط (Cookies) لخدمة وعرض الإعلانات على موقعنا:
+            تستخدم شبكة **Adsterra** بصفتها شريكاً ومورداً إعلانياً لطرف ثالث ملفات تعريف الارتباط لعرض الإعلانات ذات الصلة على موقعنا:
           </p>
           <ul className="space-y-2 list-disc list-inside ps-2">
             <li>
-              استخدام Google لملف تعريف الارتباط **DART** يتيح لها عرض الإعلانات للمستخدمين استناداً إلى زيارتهم لموقعنا والمواقع الأخرى على شبكة الإنترنت.
+              تتيح ملفات تعريف الارتباط لشبكة Adsterra قياس فاعلية الحملات الإعلانية وعرض الإعلانات المناسبة للمستخدمين استناداً إلى اهتماماتهم وسياق التصفح.
             </li>
             <li>
-              يمكن للمستخدمين إلغاء الاشتراك في استخدام ملف تعريف الارتباط DART ومراجعة سياسة الخصوصية الخاصة بشبكة Google الإعلانية ومحتواها عبر زيارة:
+              يمكن للمستخدمين مراجعة سياسة الخصوصية الخاصة بشبكة Adsterra وإلغاء الاشتراك في التتبع عبر زيارة:
               <a 
-                href="https://policies.google.com/technologies/ads" 
+                href="https://adsterra.com/privacy-policy-partner/" 
                 target="_blank" 
                 rel="noreferrer"
-                className="text-blue-600 dark:text-blue-400 font-bold underline inline-flex items-center gap-1 mx-1"
+                className="text-orange-600 dark:text-orange-400 font-bold underline inline-flex items-center gap-1 mx-1"
               >
-                سياسة إعلانات Google
+                سياسة خصوصية Adsterra
                 <ExternalLink className="w-3 h-3" />
               </a>
             </li>
             <li>
-              قد يستخدم شركاؤنا الإعلانيون الآخرون (مثل AdMob، شبكات التبادل الإعلاني الآلي) ملفات تعريف ارتباط وشيفرات جافاسكريبت لقياس فعالية حملاتهم الإعلانية وتخصيص محتوى الإعلانات.
+              قد يستخدم شركاؤنا الإعلانيون ملفات تعريف ارتباط وشيفرات جافاسكريبت متوافقة مع معايير الأمان لحماية الزائر ومنع الاحتيال الإلكتروني.
             </li>
           </ul>
         </div>
@@ -92,8 +92,8 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ currentLan
         </p>
       </section>
 
-      {/* AdSense Placement */}
-      <AdSensePlacement currentLang={currentLang} format="in-article" />
+      {/* Adsterra Placement */}
+      <AdsterraPlacement currentLang={currentLang} format="in-article" />
 
       {/* Section 3: User Rights under GDPR */}
       <section className="space-y-4">

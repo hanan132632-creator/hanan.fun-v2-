@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Cookie, Shield, Check, Info, AlertCircle } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface CookiePolicyPageProps {
   currentLang: Language;
@@ -108,7 +108,7 @@ export const CookiePolicyPage: React.FC<CookiePolicyPageProps> = ({ currentLang 
           </div>
         </div>
 
-        <AdSensePlacement currentLang={currentLang} format="in-article" />
+        <AdsterraPlacement currentLang={currentLang} format="in-article" />
 
         <section className="space-y-2 pt-4">
           <h2 className="text-base font-bold text-slate-900 dark:text-white">كيف يمكنك مسح ملفات الكوكيز من متصفحك؟</h2>

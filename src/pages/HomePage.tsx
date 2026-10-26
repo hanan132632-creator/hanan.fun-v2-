@@ -26,7 +26,7 @@ import {
 import { Language, Currency, ActivePage, ServiceItem, CartItem } from '../types';
 import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
 import { GLOBAL_SERVICES, BLOG_POSTS, SERVER_NODES, TESTIMONIALS } from '../data/mockData';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 const SpeedTestWidget = React.lazy(() => import('../components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 const InteractiveGamesSection = React.lazy(() => import('../components/InteractiveGamesSection').then(m => ({ default: m.InteractiveGamesSection })));
@@ -221,9 +221,9 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 2. Google AdSense Leaderboard Placement */}
+      {/* 2. Adsterra Advertising Placement */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+        <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
       </div>
 
       {/* 3. The 5 Core Pillars: Comprehensive Services Showcase */}
@@ -753,6 +753,11 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Adsterra Native Recommendations Widget */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AdsterraPlacement currentLang={currentLang} format="native" />
       </section>
 
       {/* 9. Final High-Impact CTA Banner */}

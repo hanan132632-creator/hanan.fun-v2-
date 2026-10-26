@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdSensePlacement } from '../components/AdSensePlacement';
+import { AdsterraPlacement } from '../components/AdsterraPlacement';
 import { EGYPT_GOVERNORATES, EgyptGovernorate } from '../data/egyptGovernorates';
 
 interface ContactPageProps {
@@ -516,8 +516,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
         </div>
       </div>
 
-      {/* AdSense Placement */}
-      <AdSensePlacement currentLang={currentLang} format="leaderboard" />
+      {/* Adsterra Placement */}
+      <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
 
       {/* FAQ Section */}
       <div className="space-y-6 max-w-4xl mx-auto">

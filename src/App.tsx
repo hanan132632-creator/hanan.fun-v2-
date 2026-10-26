@@ -13,6 +13,7 @@ import { CookieBanner } from './components/CookieBanner';
 import { HomePage } from './pages/HomePage';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Sparkles, ArrowUp } from 'lucide-react';
+import { getAdsterraConfig, applyGlobalAdsterraScripts } from './utils/adsterraConfig';
 
 // Code-split all secondary pages to reduce initial JavaScript payload from 1.4MB to <300KB
 const StorePage = lazy(() => import('./pages/StorePage').then(m => ({ default: m.StorePage })));
@@ -178,6 +179,11 @@ export default function App() {
 
   // Scroll to top button visibility
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Initialize Adsterra global scripts (Social Bar / Popunder if configured)
+  useEffect(() => {
+    applyGlobalAdsterraScripts(getAdsterraConfig());
+  }, []);
 
   // Update HTML attributes and persistence on language change
   useEffect(() => {

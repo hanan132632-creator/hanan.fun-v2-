@@ -23,7 +23,7 @@ export default function handler(req, res) {
     ipv6Ready: true,
     ttfbMs: 35,
     overallScore: 97,
-    adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS)",
+    adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS - Adsterra Ready)",
     nodes,
   });
 }
