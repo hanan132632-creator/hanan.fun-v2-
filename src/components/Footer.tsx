@@ -191,16 +191,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               <li>
                 <button onClick={() => onNavigate('adsense-standards')} className="hover:text-blue-400 transition-colors flex items-center gap-1.5 text-start cursor-pointer">
                   <ChevronRight className="w-3 h-3 text-slate-500 rtl:rotate-180" />
-                  <span>معايير إعلانات Adsterra</span>
+                  <span>معايير النشر والمحتوى</span>
                 </button>
               </li>
               <li>
                 <button 
                   onClick={() => setAdsterraModalOpen(true)} 
-                  className="text-orange-400 hover:text-orange-300 font-bold transition-colors flex items-center gap-1.5 text-start cursor-pointer"
+                  className="text-slate-400 hover:text-slate-300 transition-colors flex items-center gap-1.5 text-start cursor-pointer"
                 >
-                  <Sliders className="w-3 h-3 text-orange-400" />
-                  <span>إعدادات أكواد Adsterra</span>
+                  <Sliders className="w-3 h-3 text-slate-400" />
+                  <span>إعدادات الإعلانات</span>
                 </button>
               </li>
               <li>
@@ -287,7 +287,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <span>•</span>
             <span>SOC2 Type II</span>
             <span>•</span>
-            <span>Adsterra Ads Network Ready</span>
+            <span>Fast & Ad-Free Experience</span>
           </div>
         </div>
       </div>

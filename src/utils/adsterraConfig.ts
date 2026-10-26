@@ -1,4 +1,4 @@
-// Adsterra Network Configuration and Integration Manager
+// Ad Network Configuration and Integration Manager
 
 export interface AdsterraConfig {
   enabled: boolean;
@@ -15,46 +15,47 @@ export interface AdsterraConfig {
   customScriptCode: string;
 }
 
-const STORAGE_KEY = 'adsterra_config_v2';
+const STORAGE_KEY = 'adsterra_config_v3';
 
+// All Adsterra codes deleted and disabled by default
 export const DEFAULT_ADSTERRA_CONFIG: AdsterraConfig = {
-  enabled: true,
-  // User's active 728x90 Leaderboard banner
-  banner728x90Key: '0b08b5dfb1ac0c289fe86d53b6afd7ae',
-  // User's active 300x250 Medium Rectangle banner
-  banner300x250Key: 'b562406eb2c26b3659aeff704c14eedb',
+  enabled: false,
+  banner728x90Key: '',
+  banner300x250Key: '',
   banner468x60Key: '',
   banner320x50Key: '',
   banner160x600Key: '',
-  // User's active Native Recommendation widget
-  nativeBannerContainerId: 'container-b97039801efb0b5f74f184e78b7b804b',
-  nativeBannerScriptUrl: 'https://bauval.org/21/b97039801efb0b5f74f184e78b7b804b',
+  nativeBannerContainerId: '',
+  nativeBannerScriptUrl: '',
   socialBarScriptUrl: '',
-  // User's active Popunder / Direct script
-  popunderScriptUrl: 'https://araplhn.org/4/d3989e991fb1c21847bb2d1b4081d92b',
-  directLinkUrl: 'https://araplhn.org/4/d3989e991fb1c21847bb2d1b4081d92b',
+  popunderScriptUrl: '',
+  directLinkUrl: '',
   customScriptCode: '',
 };
 
 export const getAdsterraConfig = (): AdsterraConfig => {
   if (typeof window === 'undefined') return DEFAULT_ADSTERRA_CONFIG;
   try {
+    // Purge older localStorage keys that may have had Adsterra codes stored
+    localStorage.removeItem('adsterra_config_v2');
+    localStorage.removeItem('adsterra_config');
+
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_ADSTERRA_CONFIG;
     const parsed = JSON.parse(raw);
     return {
-      enabled: parsed.enabled ?? DEFAULT_ADSTERRA_CONFIG.enabled,
-      banner728x90Key: parsed.banner728x90Key || DEFAULT_ADSTERRA_CONFIG.banner728x90Key,
-      banner300x250Key: parsed.banner300x250Key || DEFAULT_ADSTERRA_CONFIG.banner300x250Key,
-      banner468x60Key: parsed.banner468x60Key || DEFAULT_ADSTERRA_CONFIG.banner468x60Key,
-      banner320x50Key: parsed.banner320x50Key || DEFAULT_ADSTERRA_CONFIG.banner320x50Key,
-      banner160x600Key: parsed.banner160x600Key || DEFAULT_ADSTERRA_CONFIG.banner160x600Key,
-      nativeBannerContainerId: parsed.nativeBannerContainerId || DEFAULT_ADSTERRA_CONFIG.nativeBannerContainerId,
-      nativeBannerScriptUrl: parsed.nativeBannerScriptUrl || DEFAULT_ADSTERRA_CONFIG.nativeBannerScriptUrl,
-      socialBarScriptUrl: parsed.socialBarScriptUrl || DEFAULT_ADSTERRA_CONFIG.socialBarScriptUrl,
-      popunderScriptUrl: parsed.popunderScriptUrl || DEFAULT_ADSTERRA_CONFIG.popunderScriptUrl,
-      directLinkUrl: parsed.directLinkUrl || DEFAULT_ADSTERRA_CONFIG.directLinkUrl,
-      customScriptCode: parsed.customScriptCode || DEFAULT_ADSTERRA_CONFIG.customScriptCode,
+      enabled: Boolean(parsed.enabled),
+      banner728x90Key: parsed.banner728x90Key || '',
+      banner300x250Key: parsed.banner300x250Key || '',
+      banner468x60Key: parsed.banner468x60Key || '',
+      banner320x50Key: parsed.banner320x50Key || '',
+      banner160x600Key: parsed.banner160x600Key || '',
+      nativeBannerContainerId: parsed.nativeBannerContainerId || '',
+      nativeBannerScriptUrl: parsed.nativeBannerScriptUrl || '',
+      socialBarScriptUrl: parsed.socialBarScriptUrl || '',
+      popunderScriptUrl: parsed.popunderScriptUrl || '',
+      directLinkUrl: parsed.directLinkUrl || '',
+      customScriptCode: parsed.customScriptCode || '',
     };
   } catch {
     return DEFAULT_ADSTERRA_CONFIG;
@@ -75,13 +76,26 @@ export const saveAdsterraConfig = (config: Partial<AdsterraConfig>): AdsterraCon
   }
 };
 
-// Automatically apply Social Bar or Popunder scripts to DOM if configured
+export const clearAllAdsterraCodes = (): AdsterraConfig => {
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('adsterra_config_v2');
+      localStorage.removeItem('adsterra_config');
+    } catch {}
+    window.dispatchEvent(new CustomEvent('adsterra_config_updated', { detail: DEFAULT_ADSTERRA_CONFIG }));
+    applyGlobalAdsterraScripts(DEFAULT_ADSTERRA_CONFIG);
+  }
+  return DEFAULT_ADSTERRA_CONFIG;
+};
+
+// Automatically manage Social Bar or Popunder scripts in DOM
 export const applyGlobalAdsterraScripts = (config: AdsterraConfig) => {
   if (typeof window === 'undefined') return;
 
   // Social Bar script
   const existingSocialBar = document.getElementById('adsterra-socialbar-script');
-  if (config.socialBarScriptUrl && config.socialBarScriptUrl.trim()) {
+  if (config.enabled && config.socialBarScriptUrl && config.socialBarScriptUrl.trim()) {
     const url = config.socialBarScriptUrl.trim();
     if (!existingSocialBar) {
       const script = document.createElement('script');
@@ -99,7 +113,7 @@ export const applyGlobalAdsterraScripts = (config: AdsterraConfig) => {
 
   // Popunder script
   const existingPopunder = document.getElementById('adsterra-popunder-script');
-  if (config.popunderScriptUrl && config.popunderScriptUrl.trim()) {
+  if (config.enabled && config.popunderScriptUrl && config.popunderScriptUrl.trim()) {
     const url = config.popunderScriptUrl.trim();
     if (!existingPopunder) {
       const script = document.createElement('script');
@@ -126,7 +140,7 @@ export interface ParsedAdsterraSnippet {
   isPopunder?: boolean;
 }
 
-// Helper parser: Extracts Adsterra key/container/script from pasted raw snippet
+// Helper parser: Extracts key/container/script if user inputs custom snippets in the future
 export const parseAdsterraKeyFromSnippet = (snippet: string): ParsedAdsterraSnippet => {
   if (!snippet) return {};
   const cleaned = snippet.trim();
@@ -142,7 +156,7 @@ export const parseAdsterraKeyFromSnippet = (snippet: string): ParsedAdsterraSnip
     };
   }
 
-  // 2. Check for popunder / direct url: araplhn.org/... or similar Adsterra domain
+  // 2. Check for popunder / direct url: araplhn.org/... or similar domain
   if (/https?:\/\/(?:araplhn\.org|alwingulla\.com)\/\d+\/[a-f0-9]{32}/i.test(cleaned)) {
     const urlMatch = cleaned.match(/https?:\/\/[^\s"'<>]+/i);
     return {
@@ -151,7 +165,7 @@ export const parseAdsterraKeyFromSnippet = (snippet: string): ParsedAdsterraSnip
     };
   }
 
-  // 3. If it's just a 32-char hex string (Adsterra standard zone key)
+  // 3. If it's just a 32-char hex string (zone key)
   if (/^[a-f0-9]{32}$/i.test(cleaned)) {
     return { key: cleaned };
   }

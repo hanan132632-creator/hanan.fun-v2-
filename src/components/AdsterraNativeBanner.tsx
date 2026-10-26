@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Sparkles, Sliders } from 'lucide-react';
 import { Language } from '../types';
 import { getAdsterraConfig, AdsterraConfig } from '../utils/adsterraConfig';
 import { AdsterraConfigModal } from './AdsterraConfigModal';
@@ -13,7 +12,7 @@ export interface AdsterraNativeBannerProps {
 export const AdsterraNativeBanner: React.FC<AdsterraNativeBannerProps> = ({
   currentLang = 'ar',
   className = '',
-  showConfigTrigger = true,
+  showConfigTrigger = false,
 }) => {
   const [config, setConfig] = useState<AdsterraConfig>(getAdsterraConfig());
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,11 +32,11 @@ export const AdsterraNativeBanner: React.FC<AdsterraNativeBannerProps> = ({
     return () => window.removeEventListener('adsterra_config_updated', handleUpdate);
   }, []);
 
-  const containerId = config.nativeBannerContainerId || 'container-b97039801efb0b5f74f184e78b7b804b';
-  const scriptUrl = config.nativeBannerScriptUrl || 'https://bauval.org/21/b97039801efb0b5f74f184e78b7b804b';
+  const containerId = config.nativeBannerContainerId;
+  const scriptUrl = config.nativeBannerScriptUrl;
 
   useEffect(() => {
-    if (!iframeRef.current) return;
+    if (!config.enabled || !containerId || !scriptUrl || !iframeRef.current) return;
     const doc = iframeRef.current.contentDocument || iframeRef.current.contentWindow?.document;
     if (!doc) return;
 
@@ -73,37 +72,24 @@ export const AdsterraNativeBanner: React.FC<AdsterraNativeBannerProps> = ({
       </html>
     `);
     doc.close();
-  }, [containerId, scriptUrl, currentLang]);
+  }, [config.enabled, containerId, scriptUrl, currentLang]);
+
+  // If ads are disabled or no native banner code is set, render nothing
+  if (!config.enabled || !containerId || !scriptUrl) {
+    return null;
+  }
 
   return (
     <aside
-      aria-label="Adsterra Native Recommendation"
-      className={`my-8 w-full overflow-hidden transition-all duration-300 adsterra-native-container ${className}`}
+      aria-label="Sponsored Recommendation"
+      className={`my-8 w-full overflow-hidden transition-all duration-300 ${className}`}
     >
       <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
         <div className="w-full flex flex-col items-center justify-center p-3 sm:p-4 rounded-3xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 shadow-xs">
-          <div className="w-full flex items-center justify-between text-[11px] text-slate-400 font-semibold mb-2 px-2">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span>محتوى مقترح وإعلانات أديسترا (Adsterra Native Widget)</span>
-            </span>
-            {showConfigTrigger && (
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(true)}
-                className="text-slate-400 hover:text-orange-500 cursor-pointer transition flex items-center gap-1 text-[10px]"
-                title="تعديل أكواد Adsterra"
-              >
-                <Sliders className="w-3 h-3" />
-                <span>إعدادات الإعلانات</span>
-              </button>
-            )}
-          </div>
-          
           <div className="w-full flex justify-center overflow-hidden">
             <iframe
               ref={iframeRef}
-              title="Adsterra Native Recommendation Widget"
+              title="Native Recommendation Widget"
               className="w-full rounded-2xl"
               style={{
                 border: 'none',
@@ -117,11 +103,13 @@ export const AdsterraNativeBanner: React.FC<AdsterraNativeBannerProps> = ({
         </div>
       </div>
 
-      <AdsterraConfigModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        currentLang={currentLang}
-      />
+      {showConfigTrigger && (
+        <AdsterraConfigModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          currentLang={currentLang}
+        />
+      )}
     </aside>
   );
 };

@@ -39,8 +39,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     nav_diagnostics: 'فاحص السرعة وDNS',
     nav_privacy: 'سياسة الخصوصية',
     nav_terms: 'شروط الاستخدام',
-    nav_cookies: 'ملفات الكوكيز',
-    nav_adsense_standards: 'معايير النشر وإعلانات Adsterra',
+    nav_adsense_standards: 'معايير النشر والشفافية التحريرية',
     
     // Actions & Buttons
     btn_explore_store: 'تصفح المتجر والخدمات',
@@ -151,7 +150,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     privacy_title: 'سياسة الخصوصية وحماية البيانات (Privacy Policy)',
     terms_title: 'شروط الاستخدام واتفاقية الخدمة (Terms of Service)',
     cookies_title: 'سياسة ملفات تعريف الارتباط (Cookie Policy)',
-    adsense_standards_title: 'إخلاء المسؤولية ومعايير النشر الإعلاني (Adsterra Standards)',
+    adsense_standards_title: 'معايير النشر والشفافية التحريرية',
 
     // Diagnostics / Speed test
     diag_title: 'فاحص سرعة المواقع وصحة الـ DNS',
@@ -159,8 +158,8 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     diag_input_placeholder: 'أدخل نطاق موقعك (مثل: mywebsite.com)...',
     
     // Ad Placement Box
-    ad_sponsored: 'إعلان ممول / Sponsored Advertisement',
-    ad_placeholder_text: 'مساحة إعلانية معتمدة ومجهزة لاستقبال إعلانات شبكة Adsterra',
+    ad_sponsored: 'إعلان ممول / Sponsored',
+    ad_placeholder_text: 'مساحة إعلانية مجهزة للمنصة',
 
     // Footer
     footer_desc: 'منصة خدمات الإنترنت العالمية - مزود البنية التحتية الرقمية، الاستضافة، والأمان المعتمد عالمياً.',
@@ -186,7 +185,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     nav_privacy: 'Privacy Policy',
     nav_terms: 'Terms of Service',
     nav_cookies: 'Cookie Policy',
-    nav_adsense_standards: 'Adsterra & Publishing Standards',
+    nav_adsense_standards: 'Publishing & Editorial Standards',
     
     btn_explore_store: 'Explore Store & Services',
     btn_read_articles: 'Explore Articles',
@@ -288,18 +287,18 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     privacy_title: 'Privacy Policy & Data Protection',
     terms_title: 'Terms of Service & SLA Agreement',
     cookies_title: 'Cookie Policy & Consent Manager',
-    adsense_standards_title: 'Editorial Standards & Adsterra Disclaimer',
+    adsense_standards_title: 'Editorial Standards & Transparency',
 
     diag_title: 'Global Speed & DNS Diagnostics',
     diag_desc: 'Interactive tool to benchmark your website latency across global server nodes and verify Core Web Vitals.',
     diag_input_placeholder: 'Enter your domain (e.g., mydomain.com)...',
     
     ad_sponsored: 'Sponsored Advertisement',
-    ad_placeholder_text: 'Ad space certified and configured for Adsterra Advertising Network',
+    ad_placeholder_text: 'Ad space configured for verified partners',
 
     footer_desc: 'Global Internet Services (GIS) - Enterprise cloud infrastructure, cyber defense, and global web services.',
     footer_quick_links: 'Quick Navigation',
-    footer_legal_links: 'Legal & Adsterra Compliance',
+    footer_legal_links: 'Legal & Compliance',
     footer_newsletter_title: 'Global Tech Digest',
     footer_newsletter_desc: 'Subscribe for cutting-edge articles, cloud insights, and service discounts.',
     footer_newsletter_placeholder: 'Enter your email address...',
