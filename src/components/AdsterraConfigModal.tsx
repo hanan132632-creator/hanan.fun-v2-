@@ -136,34 +136,18 @@ export const AdsterraConfigModal: React.FC<AdsterraConfigModalProps> = ({
         </div>
 
         <div className="p-6 space-y-6 text-xs sm:text-sm">
-          {/* Status banner */}
-          {hasAnyKey && config.enabled ? (
-            <div className="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 text-amber-800 dark:text-amber-300">
-              <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 shrink-0 text-amber-600 dark:text-amber-400" />
-                <div>
-                  <div className="font-bold text-xs">أكواد إعلانية موجودة</div>
-                  <div className="text-[11px] opacity-90">يمكنك حذف جميع الأكواد بنقرة زر أدناه.</div>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={handleClearAll}
-                className="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center gap-1 transition shadow-xs cursor-pointer shrink-0"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>حذف الكل</span>
-              </button>
+          {/* Active Google AdSense Status Banner */}
+          <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/60 space-y-2">
+            <div className="flex items-center gap-2.5 text-blue-800 dark:text-blue-300 font-bold text-xs">
+              <ShieldCheck className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+              <span>إعلانات Google AdSense الرسمية مفعلة بنجاح</span>
             </div>
-          ) : (
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300">
-              <ShieldCheck className="w-5 h-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-              <div>
-                <div className="font-bold text-xs">تم حذف جميع أكواد Adsterra بنجاح</div>
-                <div className="text-[11px] opacity-90">الموقع نظيف وخالٍ تماماً من أي سكريبتات أو إعلانات طرف ثالث.</div>
-              </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 space-y-1 ps-7">
+              <div>• <strong>معرف الناشر:</strong> <code className="font-mono text-blue-600 dark:text-blue-400">ca-pub-8161307018337815</code></div>
+              <div>• <strong>كود التحقق في الهيدر:</strong> <code className="font-mono text-emerald-600 dark:text-emerald-400">&lt;meta name="google-adsense-account" content="ca-pub-8161307018337815"&gt;</code></div>
+              <div>• <strong>ملف ads.txt:</strong> <code className="font-mono text-slate-700 dark:text-slate-300">google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0</code></div>
             </div>
-          )}
+          </div>
 
           {/* Quick Clear All Button */}
           {hasAnyKey && (

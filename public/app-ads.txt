@@ -1,2 +1,1 @@
-# Adsterra Advertising Network - app-ads.txt
-# Authorized Digital Sellers for Apps - https://hanan.fun/
+google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0
