@@ -25,6 +25,7 @@ const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(m =>
 const AdSenseStandardsPage = lazy(() => import('./pages/AdSenseStandardsPage').then(m => ({ default: m.AdSenseStandardsPage })));
 const AudioToVideoPage = lazy(() => import('./pages/AudioToVideoPage').then(m => ({ default: m.AudioToVideoPage })));
 const SitemapCheckerPage = lazy(() => import('./pages/SitemapCheckerPage').then(m => ({ default: m.SitemapCheckerPage })));
+const AmericanStyleGamePage = lazy(() => import('./pages/AmericanStyleGamePage').then(m => ({ default: m.AmericanStyleGamePage })));
 const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 
 // Code-split heavy interactive modals
@@ -121,6 +122,7 @@ export default function App() {
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
     if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
+    if (path.includes('american-style') || path.includes('العاب-بنات') || path === '/american-style-game') return 'american-style-game';
     return 'home';
   };
 
@@ -333,6 +335,7 @@ export default function App() {
               currentLang={currentLang}
               selectedPostSlug={selectedBlogSlug}
               onSelectPost={handleSelectBlog}
+              onNavigate={handleNavigate}
             />
           )}
 
@@ -388,6 +391,13 @@ export default function App() {
           {activePage === 'sitemap-checker' && (
             <SitemapCheckerPage
               currentLang={currentLang}
+            />
+          )}
+
+          {activePage === 'american-style-game' && (
+            <AmericanStyleGamePage
+              currentLang={currentLang}
+              onNavigate={handleNavigate}
             />
           )}
         </Suspense>

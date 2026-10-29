@@ -22,12 +22,14 @@ interface BlogPageProps {
   currentLang: Language;
   selectedPostSlug?: string | null;
   onSelectPost: (slug: string | null) => void;
+  onNavigate?: (page: any) => void;
 }
 
 export const BlogPage: React.FC<BlogPageProps> = ({
   currentLang,
   selectedPostSlug,
   onSelectPost,
+  onNavigate,
 }) => {
   const t = TRANSLATIONS[currentLang];
   const isRtl = currentLang === 'ar';
@@ -240,6 +242,28 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               referrerPolicy="no-referrer"
             />
           </div>
+
+          {/* Interactive Playable Game CTA for Girls Games Articles */}
+          {(activeArticle.slug === 'american-style-girls-games-styling-guide-2026' || activeArticle.tags.some(t => t.includes('العاب') || t.includes('Girls'))) && onNavigate && (
+            <div className="my-4 p-5 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+              <div className="space-y-1 text-center sm:text-start">
+                <div className="font-black text-base flex items-center justify-center sm:justify-start gap-1.5">
+                  <span>👑 العبي واستمتعي بتجربة استوديو العاب تلبيس بنات استايل أمريكي 2026 الآن!</span>
+                </div>
+                <div className="text-xs text-pink-100 opacity-90">
+                  نسقي الملابس، اختاري التسريحة والإكسسوارات، واحفظي البطاقة بدقة عالية مجاناً وبدون إعلانات.
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => onNavigate('american-style-game')}
+                className="px-6 py-3 rounded-2xl bg-white text-purple-700 font-bold text-xs hover:bg-pink-50 transition shadow-lg flex items-center gap-2 shrink-0 cursor-pointer animate-bounce"
+              >
+                <span>🎮 التشغيل واللعب المباشر الآن</span>
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+              </button>
+            </div>
+          )}
 
           {/* In-Article 300x250 Adsterra Placement */}
           <div className="flex justify-center my-4">

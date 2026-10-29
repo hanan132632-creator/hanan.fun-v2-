@@ -64,8 +64,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { page: ActivePage; label: string; isHot?: boolean }[] = [
     { page: 'home', label: t.nav_home },
+    { page: 'american-style-game', label: currentLang === 'ar' ? 'العاب بنات 2026' : 'Girls Game', isHot: true },
     { page: 'store', label: currentLang === 'ar' ? 'متجر الخدمات والشراء' : t.nav_store },
-    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio', isHot: true },
+    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio' },
     { page: 'blog', label: currentLang === 'ar' ? 'المدونة التقنية' : t.nav_blog },
     { page: 'about', label: t.nav_about },
     { page: 'contact', label: t.nav_contact },
@@ -73,6 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const allSiteSections: { page: ActivePage; label: string; icon: string; badge?: string }[] = [
     { page: 'home', label: t.nav_home, icon: '🏠' },
+    { page: 'american-style-game', label: currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'American Girls Game', icon: '👑', badge: currentLang === 'ar' ? 'تفاعلي' : 'Play' },
     { page: 'store', label: currentLang === 'ar' ? 'متجر الخدمات والشراء' : t.nav_store, icon: '🛒', badge: currentLang === 'ar' ? 'سحابي' : 'Cloud' },
     { page: 'blog', label: currentLang === 'ar' ? 'المدونة التقنية' : t.nav_blog, icon: '📝', badge: `${BLOG_POSTS.length} مقال` },
     { page: 'about', label: t.nav_about, icon: '🏢' },

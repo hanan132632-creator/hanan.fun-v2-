@@ -14,7 +14,8 @@ export type ActivePage =
   | 'adsense-standards'
   | 'diagnostics'
   | 'audio-to-video'
-  | 'sitemap-checker';
+  | 'sitemap-checker'
+  | 'american-style-game';
 
 export interface ServiceItem {
   id: string;
