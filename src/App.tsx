@@ -89,6 +89,7 @@ export default function App() {
       normalizedPath === '/blog' || normalizedPath.endsWith('/blog') || 
       normalizedPath === '/مدونة' || normalizedPath.endsWith('/مدونة') ||
       normalizedPath.startsWith('/blog/') || normalizedPath.startsWith('/مدونة/') ||
+      normalizedPath === '/article-girls-game' || normalizedPath === '/girls-article' ||
       path.includes('مدونة') || path.includes('blog')
     ) return 'blog';
 
@@ -122,7 +123,16 @@ export default function App() {
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
     if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
-    if (path.includes('american-style') || path.includes('العاب-بنات') || path === '/american-style-game') return 'american-style-game';
+    if (
+      path.includes('american-style') || 
+      path.includes('العاب-بنات') || 
+      path === '/american-style-game' ||
+      path === '/game' ||
+      path === '/play' ||
+      path === '/girls-game' ||
+      path.endsWith('/game') ||
+      path.endsWith('/girls-game')
+    ) return 'american-style-game';
     return 'home';
   };
 
@@ -130,9 +140,16 @@ export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>(getInitialPage);
   const [selectedBlogSlug, setSelectedBlogSlug] = useState<string | null>(() => {
     if (typeof window === 'undefined') return null;
-    const path = window.location.pathname;
+    const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
     if (path.startsWith('/blog/')) {
-      return path.replace('/blog/', '').replace(/\/$/, '');
+      const slug = path.replace('/blog/', '');
+      if (slug === 'girls-game' || slug === 'girls-game-2026') {
+        return 'american-style-girls-games-styling-guide-2026';
+      }
+      return slug;
+    }
+    if (path === '/article-girls-game' || path === '/girls-article') {
+      return 'american-style-girls-games-styling-guide-2026';
     }
     return null;
   });

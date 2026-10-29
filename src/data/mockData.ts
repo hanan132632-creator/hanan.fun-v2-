@@ -3397,6 +3397,135 @@ Major search engines like **Google** and leading ad networks like **Google AdSen
     commentsCount: 14,
   },
   {
+    id: 'american-style-girls-games-styling-guide-2026',
+    slug: 'american-style-girls-games-styling-guide-2026',
+    title: {
+      ar: 'دليل العاب بنات استايل أمريكي 2026: أسرار تنسيق الأزياء العصرية، تنزيل الألعاب التفاعلية، وتحليل تجربة المستخدم الميدانية (E-E-A-T)',
+      en: 'American Style Girls Games 2026 Handbook: Digital Fashion Architecture, Interactive Styling, and E-E-A-T Tested Download Guide',
+      fr: 'Guide des Jeux de Filles Style Américain 2026 : Stylisme Virtuel, Gameplay Interactif et Téléchargement Sécurisé E-E-A-T',
+      es: 'Guía de Juegos de Chicas Estilo Americano 2026: Moda Digital, Gameplay Interactivo y Descarga Segura E-E-A-T',
+      de: 'Handbuch für Mädchenspiele im American Style 2026: Digitale Mode, Interaktives Styling und E-E-A-T Geprüfter Download-Guide',
+      zh: '2026 美式美妆穿搭换装手游与在线游戏全景指南：穿搭美学、3D渲染与安全下载实测（Google E-E-A-T 权威白皮书）',
+      ja: 'アメリカンスタイル着せ替えガールズゲーム2026完全攻略：ファッションスタイリング、インタラクティブ操作と安全ダウンロードガイド',
+      tr: 'Amerikan Tarzı Kız Oyunları 2026 Rehberi: Dijital Moda Mimarisi, İnteraktif Oynanış ve Güvenli İndirme',
+    },
+    excerpt: {
+      ar: 'دليل شامل ومكتوب بأسلوب تحريري بشري موثوق يراجع أحدث العاب بنات استايل أمريكي لعام 2026. ستكتشف أسرار تنسيق موضة الشارع الأمريكية (American Street Style)، وطريقة تشغيل وتنزيل الألعاب بأمان بدون إعلانات مزعجة، مع اختبار ميداني لأداء الجرافيكس وتجربة المستخدم التفاعلية.',
+      en: 'A comprehensive, human-written editorial review breaking down the 2026 American style fashion and dress-up games for girls. Discover urban streetwear styling secrets, safe app store download practices, and empirical UX performance benchmarks.',
+      fr: 'Une revue éditoriale approfondie des jeux de mode et d\'habillage de style américain 2026. Découvrez les secrets du streetwear américain, les téléchargements sécurisés et l\'expérience utilisateur.',
+      es: 'Un análisis editorial exhaustivo de los juegos de moda estilo americano 2026. Descubre secretos de estilo urbano, descargas seguras sin anuncios y pruebas de rendimiento gráfico.',
+      de: 'Ein praxisorientierter Testbericht zu den besten Mädchenspielen im American Style 2026. Erfahren Sie alles über Streetwear-Trends, sichere Download-Quellen und flüssiges Gameplay.',
+      zh: '基于真实体验深度拆解 2026 年最新美式街头风与时尚换装游戏。探讨高阶叠穿美学、游戏引擎流畅度优化与无广告安全下载指引。',
+      ja: '2026年最新のアメリカンスタイル着せ替えゲームを徹底解説。ストリートファッションのスタイリング術から、安全なダウンロード手順、快適な操作感の検証まで網羅。',
+      tr: '2026\'nın en popüler Amerikan tarzı giydirme ve moda oyunlarının detaylı inceleveleri. Sokak modası tüyoları, güvenli indirme rehberi ve performans analizi.',
+    },
+    content: {
+      ar: `تعتبر **العاب بنات استايل أمريكي (American Style Fashion Games)** في عام 2026 واحدة من أكثر فئات الألعاب التفاعلية إقبالاً بين عشاق الموضة والتنسيق الرقمي، حيث تجمع بين طابع الشارع العصري (Urban Streetwear)، وأزياء هوليوود، وستايلات الساحل الغربي (West Coast Casual)، مع تجربة مستخدم سلسة ورسومات فائقة الدقة.
+
+في هذا المقال المكتوب بأسلوب تحريري بشري مخصص ووفق معايير **Google E-E-A-T** (التجربة والخبرة والسلطة والموثوقية)، سنصحبك في رحلة ميدانية شاملة لتجربة هذه الألعاب، وكيفية تنسيق المظهر الأمريكي، مع خطوات التنزيل الآمن دون التعرض للإعلانات المزعجة أو البرمجيات الخبيثة.
+
+---
+
+### 1. التجربة الميدانية المباشرة (Experience)
+قمنا باختبار وتحليل أحدث إصدارات ألعاب البنات بالستايل الأمريكي لعام 2026 على أجهزة أندرويد (Android) وآيفون (iOS) بالإضافة إلى التشغيل المباشر عبر متصفح الويب (Web Browser).
+
+**أبرز ملاحظات الأداء الميداني:**
+* **معدل الإطارات (FPS):** تميزت الألعاب بتشغيل سلس للغاية بقدرة 60 إطاراً في الثانية دون تهنيج أو ارتفاع حرارة الجهاز.
+* **الرسومات والدقة:** الاعتماد على رسومات **Vector HD** عالية الجودة التي تتيح تكبير تفاصيل القماش والإكسسوارات ونقشات الدينيم (Denim) بوضوح تام.
+* **تنوع الخزانة:** تحتوي اللعبة على أكثر من **1500 قطعة ملابس وإكسسوار** تتنوع بين جاكيتات الجينز، الهوديز الوردية والهادئة (Pastel Hoodies)، النظارات الشمسية العصرية، وسنيكرز الشارع (Street Sneakers).
+
+---
+
+### 2. الخبرة التخصصية في تنسيق الاستايل الأمريكي (Expertise)
+الستايل الأمريكي في ألعاب البنات يرتكز على قواعد تنسيق محددة تعكس العصرية والحرية في المظهر:
+
+1. **تنسيق الطبقات (Layering Art):**
+   * دمج توب أبيض بسيط (Basic Crop Top) مع جاكيت جينز مزين بالشارات والنجوم (Patched Denim Jacket) وجيبة مربعات أو بنطال جينز ممزق (Ripped Jeans).
+2. **تناسق الألوان (Color Harmony):**
+   * الاعتماد على الألوان الهادئة مثل الزهري والبنفسجي الفاتح (Pastel Pink & Lavender) مدمجة مع ألوان الجينز الأزرق والرمادي العصري.
+3. **الإكسسوارات الجريئة (Statement Accessories):**
+   * إضافات قبعات البيسبول (NY/LA Caps)، حقائب الظهر الصغيرة، والنظارات الشمسية الكبيرة التي تضفي لمسة هوليوودية ساحرة.
+
+---
+
+### 3. السلطة المرجعية وأمان الاستخدام (Authoritativeness & Safety)
+عند البحث عن **"تنزيل لعبة العاب بنات استايل أمريكي 2026"**، يواجه المستخدمون أحياناً روابط زوّارة أو تطبيقات تحتوى على إعلانات منبثقة قسرية. لحماية أطفالك وجهازك، نوصي بالتالي:
+
+* **التنزيل من المتاجر الرسمية:** استخدم دائماً **Google Play Store** أو **Apple App Store** وابحث عن التطبيقات المعتمدة التي تحمل شارة التقييم العائلي (PEGI 3 / Everyone).
+* **التشغيل المباشر بدون تنزيل:** يمكنك الاستمتاع بصفحة الألعاب التفاعلية مباشرة عبر متصفحك دون الحاجة لتنزيل أي ملفات **APK** خارجية قد تهدد أمان جهازك.
+* **التحكم الأبوي (Parental Control):** تفعيل خيار منع المشتريات التلقائية داخل التطبيق لضمان تجربة لعب مجانية وآمنة 100%.
+
+---
+
+### 4. دليل التنزيل والتشغيل المباشر 2026 (Trustworthiness)
+
+#### الطريقة الأولى: التشغيل أونلاين على المتصفح (موصى بها)
+1. افحص سرعتك واستقرار اتصالك عبر أداة **فحص السرعة التشخيصية** على موقعنا.
+2. اضغط على أداة استوديو الألعاب التفاعلية للاستمتاع باللعبة فورياً بدون أي إعلانات منبثقة.
+
+#### الطريقة الثانية: التنزيل على الهاتف
+1. افتح متجر جوجل بلاي أو آب ستور على هاتفك.
+2. اكتب في خانة البحث: \`American Style Girls Fashion 2026\`.
+3. اضغط على **"تثبيت" (Install)** واطمأن لخلو اللعبة من أي برمجيات ضارة.
+
+---
+
+### الخلاصة
+تعد لعبة العاب بنات استايل أمريكي 2026 خياراً رائعاً لتنمية المهارات الحسية والفنية في اختيار الألوان وتنسيق الأزياء الحديثة. استمتع بتجربة لعب آمنة، سريعة، وممتعة بفضل البنية التحتية البرمجية النظيفة لمنصتنا!`,
+      en: `American Style Girls Fashion Games in 2026 represent a premier genre in digital styling, blending urban streetwear, Hollywood glamour, and West Coast aesthetics into an interactive 60 FPS gameplay experience.
+
+This comprehensive guide, authored under Google E-E-A-T editorial principles, analyzes styling architecture, graphical performance, and verified safe download frameworks.
+
+---
+
+### 1. Empirical Field Benchmarks
+We conducted hands-on testing across Android, iOS, and WebGL browser environments:
+* **Framerate & Latency:** Locked 60 FPS rendering with zero frame drops during outfit layer switching.
+* **Asset Density:** Over 1,500 individual clothing elements including patched denim jackets, pastel hoodies, oversized sunglasses, and NYC caps.
+* **UI Responsiveness:** Sub-10ms touch reaction time for seamless drag-and-drop layering.
+
+### 2. Styling Rules & Aesthetics
+Mastering American urban fashion requires understanding key design principles:
+1. **Contrast Layering:** Pair minimalist crop tops with oversized outerwear and distressed denim.
+2. **Pastel & Denim Balance:** Fuse soft lavender and rose hues with classic indigo wash fabrics.
+3. **Statement Accessories:** Elevate casual streetwear with baseball caps and structured mini backpacks.
+
+### 3. Safe Download & Security Protocols
+To protect devices from unauthorized APK files and intrusive popups:
+* Always utilize verified Google Play Store or Apple App Store links with PEGI 3 ratings.
+* Utilize WebGL instant play directly in the browser to avoid local storage overhead.
+* Enable parental controls to prevent accidental in-app purchases.`,
+      fr: `Découvrez le guide complet 2026 des jeux de filles style américain. Stylisme urbain, performances 60 FPS et conseils de téléchargement sécurisé.`,
+      es: `Guía completa 2026 de juegos de chicas estilo americano. Moda urbana, rendimiento fluido y descarga 100% segura.`,
+      de: `Vollständiger Leitfaden für Mädchenspiele im American Style 2026. Urbanes Styling, 60 FPS Performance und sicherer Download.`,
+      zh: '2026 美式时尚换装手游权威指南。深入探讨街头穿搭美学、60 帧极速渲染与官方正版安全下载指引。',
+      ja: '2026年最新アメリカンスタイル着せ替えゲーム完全攻略。ストリートファッションのスタイリング術と安全ダウンロードガイド。',
+      tr: '2026 Amerikan tarzı giydirme oyunları rehberi. Sokak modası tüyoları, 60 FPS performans ve güvenli indirme adımları.',
+    },
+    category: 'culture',
+    author: {
+      name: 'مهندسة التحرير والتصميم / حنان العلي',
+      role: {
+        ar: 'كبيرة محرري جودة تجربة المستخدم والألعاب التفاعلية',
+        en: 'Senior UX & Interactive Gaming Editor',
+        fr: 'Rédactrice en Chef UX & Jeux Interactifs',
+        es: 'Editora Principal de UX y Juegos Interactivos',
+        de: 'Chefredakteurin für UX & Interaktive Spiele',
+        zh: '交互式游戏与 UX 体验资深主编',
+        ja: 'UX＆インタラクティブゲームシニアエディター',
+        tr: 'Kıdemli UX ve İnteraktif Oyun Editörü',
+      },
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+    },
+    publishDate: '2026-10-29',
+    readTimeMin: 7,
+    coverImage: '/src/assets/images/american_girls_game_2026_1793269765982.jpg',
+    tags: ['العاب بنات', 'استايل امريكي', 'تنزيل العاب 2026', 'العاب موضة', 'E-E-A-T', 'Girls Games 2026', 'American Style'],
+    views: 8450,
+    likes: 720,
+    commentsCount: 19,
+  },
+  {
     id: 'seo-content-optimization-core-web-vitals-2026',
     slug: 'seo-content-optimization-core-web-vitals-2026',
     title: {
@@ -5300,135 +5429,6 @@ Ensure your \`robots.txt\` explicitly grants crawling permissions to legitimate 
     views: 19800,
     likes: 1620,
     commentsCount: 38,
-  },
-  {
-    id: 'american-style-girls-games-styling-guide-2026',
-    slug: 'american-style-girls-games-styling-guide-2026',
-    title: {
-      ar: 'دليل العاب بنات استايل أمريكي 2026: أسرار تنسيق الأزياء العصرية، تنزيل الألعاب التفاعلية، وتحليل تجربة المستخدم الميدانية (E-E-A-T)',
-      en: 'American Style Girls Games 2026 Handbook: Digital Fashion Architecture, Interactive Styling, and E-E-A-T Tested Download Guide',
-      fr: 'Guide des Jeux de Filles Style Américain 2026 : Stylisme Virtuel, Gameplay Interactif et Téléchargement Sécurisé E-E-A-T',
-      es: 'Guía de Juegos de Chicas Estilo Americano 2026: Moda Digital, Gameplay Interactivo y Descarga Segura E-E-A-T',
-      de: 'Handbuch für Mädchenspiele im American Style 2026: Digitale Mode, Interaktives Styling und E-E-A-T Geprüfter Download-Guide',
-      zh: '2026 美式美妆穿搭换装手游与在线游戏全景指南：穿搭美学、3D渲染与安全下载实测（Google E-E-A-T 权威白皮书）',
-      ja: 'アメリカンスタイル着せ替えガールズゲーム2026完全攻略：ファッションスタイリング、インタラクティブ操作と安全ダウンロードガイド',
-      tr: 'Amerikan Tarzı Kız Oyunları 2026 Rehberi: Dijital Moda Mimarisi, İnteraktif Oynanış ve Güvenli İndirme',
-    },
-    excerpt: {
-      ar: 'دليل شامل ومكتوب بأسلوب تحريري بشري موثوق يراجع أحدث العاب بنات استايل أمريكي لعام 2026. ستكتشف أسرار تنسيق موضة الشارع الأمريكية (American Street Style)، وطريقة تشغيل وتنزيل الألعاب بأمان بدون إعلانات مزعجة، مع اختبار ميداني لأداء الجرافيكس وتجربة المستخدم التفاعلية.',
-      en: 'A comprehensive, human-written editorial review breaking down the 2026 American style fashion and dress-up games for girls. Discover urban streetwear styling secrets, safe app store download practices, and empirical UX performance benchmarks.',
-      fr: 'Une revue éditoriale approfondie des jeux de mode et d\'habillage de style américain 2026. Découvrez les secrets du streetwear américain, les téléchargements sécurisés et l\'expérience utilisateur.',
-      es: 'Un análisis editorial exhaustivo de los juegos de moda estilo americano 2026. Descubre secretos de estilo urbano, descargas seguras sin anuncios y pruebas de rendimiento gráfico.',
-      de: 'Ein praxisorientierter Testbericht zu den besten Mädchenspielen im American Style 2026. Erfahren Sie alles über Streetwear-Trends, sichere Download-Quellen und flüssiges Gameplay.',
-      zh: '基于真实体验深度拆解 2026 年最新美式街头风与时尚换装游戏。探讨高阶叠穿美学、游戏引擎流畅度优化与无广告安全下载指引。',
-      ja: '2026年最新のアメリカンスタイル着せ替えゲームを徹底解説。ストリートファッションのスタイリング術から、安全なダウンロード手順、快適な操作感の検証まで網羅。',
-      tr: '2026\'nın en popüler Amerikan tarzı giydirme ve moda oyunlarının detaylı incelemesi. Sokak modası tüyoları, güvenli indirme rehberi ve performans analizi.',
-    },
-    content: {
-      ar: `تعتبر **العاب بنات استايل أمريكي (American Style Fashion Games)** في عام 2026 واحدة من أكثر فئات الألعاب التفاعلية إقبالاً بين عشاق الموضة والتنسيق الرقمي، حيث تجمع بين طابع الشارع العصري (Urban Streetwear)، وأزياء هوليوود، وستايلات الساحل الغربي (West Coast Casual)، مع تجربة مستخدم سلسة ورسومات فائقة الدقة.
-
-في هذا المقال المكتوب بأسلوب تحريري بشري مخصص ووفق معايير **Google E-E-A-T** (التجربة والخبرة والسلطة والموثوقية)، سنصحبك في رحلة ميدانية شاملة لتجربة هذه الألعاب، وكيفية تنسيق المظهر الأمريكي، مع خطوات التنزيل الآمن دون التعرض للإعلانات المزعجة أو البرمجيات الخبيثة.
-
----
-
-### 1. التجربة الميدانية المباشرة (Experience)
-قمنا باختبار وتحليل أحدث إصدارات ألعاب البنات بالستايل الأمريكي لعام 2026 على أجهزة أندرويد (Android) وآيفون (iOS) بالإضافة إلى التشغيل المباشر عبر متصفح الويب (Web Browser).
-
-**أبرز ملاحظات الأداء الميداني:**
-* **معدل الإطارات (FPS):** تميزت الألعاب بتشغيل سلس للغاية بقدرة 60 إطاراً في الثانية دون تهنيج أو ارتفاع حرارة الجهاز.
-* **الرسومات والدقة:** الاعتماد على رسومات **Vector HD** عالية الجودة التي تتيح تكبير تفاصيل القماش والإكسسوارات ونقشات الدينيم (Denim) بوضوح تام.
-* **تنوع الخزانة:** تحتوي اللعبة على أكثر من **1500 قطعة ملابس وإكسسوار** تتنوع بين جاكيتات الجينز، الهوديز الوردية والهادئة (Pastel Hoodies)، النظارات الشمسية العصرية، وسنيكرز الشارع (Street Sneakers).
-
----
-
-### 2. الخبرة التخصصية في تنسيق الاستايل الأمريكي (Expertise)
-الاستايل الأمريكي في ألعاب البنات يرتكز على قواعد تنسيق محددة تعكس العصرية والحرية في المظهر:
-
-1. **تنسيق الطبقات (Layering Art):**
-   * دمج توب أبيض بسيط (Basic Crop Top) مع جاكيت جينز مزين بالشارات والنجوم (Patched Denim Jacket) وجيبة مربعات أو بنطال جينز ممزق (Ripped Jeans).
-2. **تناسق الألوان (Color Harmony):**
-   * الاعتماد على الألوان الهادئة مثل الزهري والبنفسجي الفاتح (Pastel Pink & Lavender) مدمجة مع ألوان الجينز الأزرق والرمادي العصري.
-3. **الإكسسوارات الجريئة (Statement Accessories):**
-   * إضافات قبعات البيسبول (NY/LA Caps)، حقائب الظهر الصغيرة، والنظارات الشمسية الكبيرة التي تضفي لمسة هوليوودية ساحرة.
-
----
-
-### 3. السلطة المرجعية وأمان الاستخدام (Authoritativeness & Safety)
-عند البحث عن **"تنزيل لعبة العاب بنات استايل أمريكي 2026"**، يواجه المستخدمون أحياناً روابط زوّارة أو تطبيقات تحتوى على إعلانات منبثقة قسرية. لحماية أطفالك وجهازك، نوصي بالتالي:
-
-* **التنزيل من المتاجر الرسمية:** استخدم دائماً **Google Play Store** أو **Apple App Store** وابحث عن التطبيقات المعتمدة التي تحمل شارة التقييم العائلي (PEGI 3 / Everyone).
-* **التشغيل المباشر بدون تنزيل:** يمكنك الاستمتاع بصفحة الألعاب التفاعلية مباشرة عبر متصفحك دون الحاجة لتنزيل أي ملفات **APK** خارجية قد تهدد أمان جهازك.
-* **التحكم الأبوي (Parental Control):** تفعيل خيار منع المشتريات التلقائية داخل التطبيق لضمان تجربة لعب مجانية وآمنة 100%.
-
----
-
-### 4. دليل التنزيل والتشغيل المباشر 2026 (Trustworthiness)
-
-#### الطريقة الأولى: التشغيل أونلاين على المتصفح (موصى بها)
-1. افحص سرعتك واستقرار اتصالك عبر أداة **فحص السرعة التشخيصية** على موقعنا.
-2. اضغط على أداة استوديو الألعاب التفاعلية للاستمتاع باللعبة فورياً بدون أي إعلانات منبثقة.
-
-#### الطريقة الثانية: التنزيل على الهاتف
-1. افتح متجر جوجل بلاي أو آب ستور على هاتفك.
-2. اكتب في خانة البحث: \`American Style Girls Fashion 2026\`.
-3. اضغط على **"تثبيت" (Install)** واطمأن لخلو اللعبة من أي برمجيات ضارة.
-
----
-
-### الخلاصة
-تعد لعبة العاب بنات استايل أمريكي 2026 خياراً رائعاً لتنمية المهارات الحسية والفنية في اختيار الألوان وتنسيق الأزياء الحديثة. استمتع بتجربة لعب آمنة، سريعة، وممتعة بفضل البنية التحتية البرمجية النظيفة لمنصتنا!`,
-      en: `American Style Girls Fashion Games in 2026 represent a premier genre in digital styling, blending urban streetwear, Hollywood glamour, and West Coast aesthetics into an interactive 60 FPS gameplay experience.
-
-This comprehensive guide, authored under Google E-E-A-T editorial principles, analyzes styling architecture, graphical performance, and verified safe download frameworks.
-
----
-
-### 1. Empirical Field Benchmarks
-We conducted hands-on testing across Android, iOS, and WebGL browser environments:
-* **Framerate & Latency:** Locked 60 FPS rendering with zero frame drops during outfit layer switching.
-* **Asset Density:** Over 1,500 individual clothing elements including patched denim jackets, pastel hoodies, oversized sunglasses, and NYC caps.
-* **UI Responsiveness:** Sub-10ms touch reaction time for seamless drag-and-drop layering.
-
-### 2. Styling Rules & Aesthetics
-Mastering American urban fashion requires understanding key design principles:
-1. **Contrast Layering:** Pair minimalist crop tops with oversized outerwear and distressed denim.
-2. **Pastel & Denim Balance:** Fuse soft lavender and rose hues with classic indigo wash fabrics.
-3. **Statement Accessories:** Elevate casual streetwear with baseball caps and structured mini backpacks.
-
-### 3. Safe Download & Security Protocols
-To protect devices from unauthorized APK files and intrusive popups:
-* Always utilize verified Google Play Store or Apple App Store links with PEGI 3 ratings.
-* Utilize WebGL instant play directly in the browser to avoid local storage overhead.
-* Enable parental controls to prevent accidental in-app purchases.`,
-      fr: `Découvrez le guide complet 2026 des jeux de filles style américain. Stylisme urbain, performances 60 FPS et conseils de téléchargement sécurisé.`,
-      es: `Guía completa 2026 de juegos de chicas estilo americano. Moda urbana, rendimiento fluido y descarga 100% segura.`,
-      de: `Vollständiger Leitfaden für Mädchenspiele im American Style 2026. Urbanes Styling, 60 FPS Performance und sicherer Download.`,
-      zh: '2026 美式时尚换装手游权威指南。深入探讨街头穿搭美学、60 帧极速渲染与官方正版安全下载指引。',
-      ja: '2026年最新アメリカンスタイル着せ替えゲーム完全攻略。ストリートファッションのスタイリング術と安全ダウンロードガイド。',
-      tr: '2026 Amerikan tarzı giydirme oyunları rehberi. Sokak modası tüyoları, 60 FPS performans ve güvenli indirme adımları.',
-    },
-    category: 'culture',
-    author: {
-      name: 'مهندسة التحرير والتصميم / حنان العلي',
-      role: {
-        ar: 'كبيرة محرري جودة تجربة المستخدم والألعاب التفاعلية',
-        en: 'Senior UX & Interactive Gaming Editor',
-        fr: 'Rédactrice en Chef UX & Jeux Interactifs',
-        es: 'Editora Principal de UX y Juegos Interactivos',
-        de: 'Chefredakteurin für UX & Interaktive Spiele',
-        zh: '交互式游戏与 UX 体验资深主编',
-        ja: 'UX＆インタラクティブゲームシニアエディター',
-        tr: 'Kıdemli UX ve İnteraktif Oyun Editörü',
-      },
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
-    },
-    publishDate: '2026-10-29',
-    readTimeMin: 7,
-    coverImage: '/src/assets/images/american_girls_game_2026_1793269765982.jpg',
-    tags: ['العاب بنات', 'استايل امريكي', 'تنزيل العاب 2026', 'العاب موضة', 'E-E-A-T', 'Girls Games 2026', 'American Style'],
-    views: 8450,
-    likes: 720,
-    commentsCount: 19,
   },
 ];
 
