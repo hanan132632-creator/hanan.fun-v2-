@@ -23,30 +23,29 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
   const t = TRANSLATIONS[currentLang];
 
   const milestones = [
-    { year: '2021', title: 'تأسيس المنصة السحابية', desc: 'إطلاق أول 10 نقاط تواجد للشبكة (PoPs) في فرانكفورت والرياض ولندن.' },
-    { year: '2023', title: 'توسعة Anycast DNS و DDoS Mitigation', desc: 'رفع قدرة الاستيعاب الشبكي إلى 80 Tbps مع حماية مدمجة ضد هجمات الطبقة 3 و 4 و 7.' },
-    { year: '2025', title: 'اعتماد شراكة Google Certified Publishing Network', desc: 'تزويد أكثر من 150,000 موقع بالبنية التحتية المتوافقة بنسبة 100% مع Core Web Vitals.' },
-    { year: '2026', title: 'إطلاق الجيل القادم لخدمات الإنترنت العالمية', desc: 'توسعة البنية التحتية السحابية المتقدمة وربط أكثر من 240 مركز بيانات فائق السرعة والأمان حول العالم.' },
+    { year: '2024', title: 'انطلاقة المنصة التحريرية', desc: 'بدء نشر أولى المقالات والدراسات المعرفية في مجالات التقنية، تصميم الويب، وتنسيق المحتوى.' },
+    { year: '2025', title: 'تطوير أدوات الويب التفاعلية', desc: 'إطلاق استوديو تحويل الصوت إلى فيديو وفاحص السرعة ومولد كلمات المرور الآمنة لتسهيل مهام المستخدمين.' },
+    { year: '2026', title: 'إطلاق الألعاب التفاعلية الحديثة', desc: 'برمجة وإطلاق لعبة تلبيس وأزياء بنات استايل أمريكي 2026 بتجربة فورية ممتعة، وتوسعة مكتبة المقالات لتتجاوز 36 مقالاً ثرياً.' },
   ];
 
   const leadership = [
     {
-      name: 'د. طارق السعيد (Dr. Tarek Al-Saeed)',
-      role: 'Chief Infrastructure Officer & Co-Founder',
-      bio: 'خبير نظم سحابية معتمد من Google Cloud و AWS بخبرة تتجاوز 18 عاماً في بناء شبكات BGP Anycast فائقة الاعتمادية.',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-    },
-    {
-      name: 'م. ياسمين النجار (Eng. Yasmine Al-Najjar)',
-      role: 'Head of Cybersecurity & Compliance',
-      bio: 'متخصصة في تشفير البيانات وأمن Zero Trust، وقادت تطبيق معايير ISO 27001 و GDPR و SOC 2 Type II عبر كافة مراكزنا.',
+      name: 'حنان العلي (Hanan Al-Ali)',
+      role: 'مؤسسة الاستوديو ومصممة الواجهات التفاعلية',
+      bio: 'شغوفة بتصميم تجارب الويب الممتعة، وتطوير ألعاب وتطبيقات المتصفح الخفيفة التي تقدم قيمة ترفيهية وتعليمية راقية.',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     },
     {
-      name: 'Alexandre Dubois',
-      role: 'VP of Global Edge Architecture',
-      bio: 'مهندس اتصالات وبنية تحتية قاد مشاريع الكابلات البحرية ومراكز التبادل الرقمي (IXPs) في أوروبا وآسيا والشرق الأوسط.',
+      name: 'كريم المهدي (Kareem Al-Mahdi)',
+      role: 'مهندس تطوير الويب والألعاب التفاعلية',
+      bio: 'مطور برمجيات يركز على أداء الويب العالي، وضمان سلاسة تشغيل الألعاب وأدوات الفيديو مباشرة في المتصفح بدون أي بطء.',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      name: 'نور الشامي (Nour Al-Shami)',
+      role: 'محررة المحتوى الرقمي وأبحاث الموضة',
+      bio: 'كاتبة ومحررة متخصصة في متابعة أحدث اتجاهات الموضة العالمية، وتنسيق مقالات إرشادية مفيدة ومكتوبة بأسلوب بشري جذاب.',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
     },
   ];
 
@@ -54,38 +53,38 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 text-xs font-bold">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 text-xs font-bold">
           <Globe className="w-3.5 h-3.5" />
-          <span>من نحن - خدمات الإنترنت العالمية (GIS Global)</span>
+          <span>عن استوديو حنان الرقمي | Hanan Studio</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white">
-          {t.about_title}
+          مساحة إبداعية تصنع تجارب رقمية ممتعة، أدوات ويب ذكية، ومحتوى أصيل
         </h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-          {t.about_mission}
+          انطلقت منصتنا بهدف إثراء المحتوى العربي الراقي على شبكة الإنترنت، وتوفير ألعاب وتطبيقات تفاعلية خفيفة تعمل فوراً في المتصفح، مع مقالات تحريرية ثرية ومفيدة تفيد كل قارئ ومهتم بالأناقة والتقنية والابتكار.
         </p>
       </div>
 
-      {/* Stats Counter */}
+      {/* Genuine Stats Counter */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400">240+</div>
-          <div className="text-xs font-bold text-slate-500 mt-1">مراكز بيانات عالمية (Edge PoPs)</div>
+          <div className="text-3xl sm:text-4xl font-black text-rose-500">36+</div>
+          <div className="text-xs font-bold text-slate-500 mt-1">مقال ودراسة تحريرية أصلية</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-emerald-500">99.99%</div>
-          <div className="text-xs font-bold text-slate-500 mt-1">اتفاقية مستوى الخدمة (SLA Uptime)</div>
+          <div className="text-3xl sm:text-4xl font-black text-indigo-500">5+</div>
+          <div className="text-xs font-bold text-slate-500 mt-1">ألعاب وأدوات تفاعلية مجانية</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-purple-600 dark:text-purple-400">150,000+</div>
-          <div className="text-xs font-bold text-slate-500 mt-1">موقع وتطبيق سحابي فعال</div>
+          <div className="text-3xl sm:text-4xl font-black text-emerald-500">100%</div>
+          <div className="text-xs font-bold text-slate-500 mt-1">تجربة آمنة وممتعة للعائلة</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-amber-500">&lt; 20ms</div>
-          <div className="text-xs font-bold text-slate-500 mt-1">متوسط زمن الاستجابة العالمي</div>
+          <div className="text-3xl sm:text-4xl font-black text-amber-500">فوري</div>
+          <div className="text-xs font-bold text-slate-500 mt-1">تشغيل مباشر بدون تثبيت</div>
         </div>
       </div>
 
@@ -95,9 +94,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
           <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
             <Target className="w-6 h-6" />
           </div>
-          <h3 className="font-bold text-lg text-slate-900 dark:text-white">رؤيتنا الاستراتيجية</h3>
+          <h3 className="font-bold text-lg text-slate-900 dark:text-white">الإبداع والسهولة</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            تمكين رواد الأعمال والشركات والمطورين حول العالم من الوصول إلى بنية تحتية سحابية موثوقة وفائقة السرعة، تلبي أرقى معايير الأمان وتحقق أقصى ربحية ممكنة عبر الإعلانات الرقمية.
+            نؤمن بأن أفضل التجارب الرقمية هي تلك التي تجمع بين البساطة والجمال. صممنا كافة ألعابنا وأدواتنا لتعمل بنقرة واحدة دون تعقيدات تقنية.
           </p>
         </div>
 
@@ -105,9 +104,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
           <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
             <ShieldCheck className="w-6 h-6" />
           </div>
-          <h3 className="font-bold text-lg text-slate-900 dark:text-white">الأمان والموثوقية</h3>
+          <h3 className="font-bold text-lg text-slate-900 dark:text-white">الأمان والخصوصية</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            حماية بيانات العملاء وخصوصيتهم هي جوهر عملنا. نلتزم التزاماً صارماً بتشريعات GDPR واللائحة العامة لحماية البيانات، مع تطبيق عزل شبكي كامل وتشفير طرف إلى طرف.
+            حماية بيانات زوارنا وأمان أطفالنا وعائلاتنا أولوية مطلقة. نلتزم بأعلى معايير الخصوصية ونقدم تجربة تصفح نظيفة خالية من البرمجيات الضارة.
           </p>
         </div>
 
@@ -115,9 +114,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
           <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
             <Award className="w-6 h-6" />
           </div>
-          <h3 className="font-bold text-lg text-slate-900 dark:text-white">معايير الجودة E-E-A-T</h3>
+          <h3 className="font-bold text-lg text-slate-900 dark:text-white">الصدق والأمانة التحريرية</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            كافة مقالاتنا وخدماتنا تصاغ وتشرف عليها كوادر هندسية معتمدة لضمان الخبرة والمصداقية والشفافية التامة، بما يتوافق بالكامل مع متطلبات النشر الرقمي وإعلانات Adsterra و Core Web Vitals.
+            نكتب مقالاتنا بأيدينا وبخبرتنا الشخصية، ونراجع كل نص ومعلومة بعناية فائقة لنقدم لقرائنا قيمة مضافة حقيقية تدوم وتلهم.
           </p>
         </div>
       </div>

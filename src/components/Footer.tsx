@@ -77,8 +77,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               <Award className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-white text-xs sm:text-sm">معايير Adsterra & E-E-A-T</div>
-              <div className="text-[11px] text-slate-400">محتوى تحريري عالي الجودة وشبكة إعلانات موثوقة</div>
+              <div className="font-bold text-white text-xs sm:text-sm">معايير الجودة والأمانة التحريرية</div>
+              <div className="text-[11px] text-slate-400">محتوى أصيل وموثوق وتجربة تصفح آمنة</div>
             </div>
           </div>
         </div>
@@ -90,21 +90,21 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-blue-600 to-purple-600 flex items-center justify-center text-white">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
                 <span className="font-black text-lg text-white tracking-tight block">
                   {t.brand_title}
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono tracking-wider block">
-                  GLOBAL INTERNET SERVICES (GIS)
+                <span className="text-[10px] text-slate-400 tracking-wider block">
+                  HANAN DIGITAL STUDIO & WEB HUB
                 </span>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              المنصة المتكاملة لحلول الويب والإنترنت: تصميم المواقع والمتاجر الإلكترونية، استضافة سحابية فائقة السرعة، حجز النطاقات، تحسين محركات البحث، وتوفير أدوات رقمية مجانية وموثوقة.
+              استوديو رقمي ومساحة ويب عربية تجمع بين ألعاب تلبيس الأزياء التفاعلية، أدوات الويب الذكية، والمقالات المعرفية الثرية التي أعدها فريقنا بشغف واهتمام.
             </p>
 
             <div className="space-y-1.5 text-xs text-slate-400 pt-2 border-t border-slate-800">

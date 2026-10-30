@@ -74,18 +74,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const allSiteSections: { page: ActivePage; label: string; icon: string; badge?: string }[] = [
     { page: 'home', label: t.nav_home, icon: '🏠' },
-    { page: 'american-style-game', label: currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'American Girls Game', icon: '👑', badge: currentLang === 'ar' ? 'تفاعلي' : 'Play' },
-    { page: 'store', label: currentLang === 'ar' ? 'متجر الخدمات والشراء' : t.nav_store, icon: '🛒', badge: currentLang === 'ar' ? 'سحابي' : 'Cloud' },
-    { page: 'blog', label: currentLang === 'ar' ? 'المدونة التقنية' : t.nav_blog, icon: '📝', badge: `${BLOG_POSTS.length} مقال` },
-    { page: 'about', label: t.nav_about, icon: '🏢' },
-    { page: 'contact', label: t.nav_contact, icon: '📞' },
+    { page: 'american-style-game', label: currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'American Girls Game', icon: '👑', badge: currentLang === 'ar' ? 'مميز' : 'Featured' },
+    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو الرقمي' : 'Video Studio', icon: '🎬' },
+    { page: 'blog', label: currentLang === 'ar' ? 'المقالات والمدونة' : t.nav_blog, icon: '📝', badge: `${BLOG_POSTS.length} مقال` },
+    { page: 'store', label: currentLang === 'ar' ? 'الخدمات وتصميم المواقع' : t.nav_store, icon: '🛒' },
+    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة والشبكة' : t.nav_diagnostics, icon: '⚡' },
+    { page: 'sitemap-checker', label: currentLang === 'ar' ? 'فاحص خريطة الموقع' : 'Sitemap Checker', icon: '🔍' },
+    { page: 'about', label: t.nav_about, icon: '✨' },
+    { page: 'contact', label: t.nav_contact, icon: '✉️' },
     { page: 'privacy', label: t.nav_privacy, icon: '🛡️' },
     { page: 'terms', label: t.nav_terms, icon: '⚖️' },
-    { page: 'cookies', label: t.nav_cookies, icon: '🍪' },
     { page: 'adsense-standards', label: t.nav_adsense_standards, icon: '📜' },
-    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Studio', icon: '🎬', badge: currentLang === 'ar' ? 'جديد' : 'New' },
-    { page: 'sitemap-checker', label: currentLang === 'ar' ? 'فاحص حظر خريطة الموقع والربوتات' : 'Sitemap & Robots Checker', icon: '🤖', badge: currentLang === 'ar' ? 'SEO' : 'SEO' },
-    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة وDNS' : t.nav_diagnostics, icon: '⚡' },
   ];
 
   const quickTools = [
@@ -144,39 +143,40 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-200">
       {/* Top Luxury Micro Bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-1 px-4 border-b border-slate-800 hidden sm:block">
+      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800 hidden sm:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>SLA 99.99% Guaranteed</span>
+            <span className="flex items-center gap-1.5 text-blue-400 font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>{currentLang === 'ar' ? 'استوديو حنان الرقمي' : 'Hanan Digital Studio'}</span>
             </span>
             <span className="text-slate-600">|</span>
-            <span className="text-slate-400">
-              {currentLang === 'ar' ? 'بنية تحتية سحابية متقدمة في 240+ مركز بيانات حول العالم' : 'Enterprise Cloud Infrastructure across 240+ Global PoPs'}
+            <span className="text-slate-400 text-[11px]">
+              {currentLang === 'ar' ? 'ألعاب تفاعلية عصرية، أدوات ويب ذكية، ومقالات إبداعية متجددة' : 'Interactive Games, Creative Web Utilities & Inspiring Reads'}
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-xs">
-            <a 
-              href="tel:+20233456789" 
-              className="text-slate-300 hover:text-white transition-colors flex items-center gap-1 font-medium"
+            <button 
+              onClick={() => onNavigate('american-style-game')}
+              className="text-amber-300 hover:text-white transition-colors cursor-pointer font-medium flex items-center gap-1"
             >
-              <PhoneCall className="w-3 h-3 text-blue-400" />
-              <span dir="ltr">+20 2 3345-6789</span>
-            </a>
+              <span>👑</span>
+              <span>{currentLang === 'ar' ? 'لعبة أزياء وبنات 2026' : 'Girls Styling Game'}</span>
+            </button>
+            <span className="text-slate-600">|</span>
+            <button 
+              onClick={() => onNavigate('contact')}
+              className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+            >
+              {t.nav_contact}
+            </button>
             <span className="text-slate-600">|</span>
             <button 
               onClick={() => onNavigate('privacy')}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="hover:text-white transition-colors cursor-pointer text-slate-400"
             >
               {t.nav_privacy}
-            </button>
-            <button 
-              onClick={() => onNavigate('terms')}
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              {t.nav_terms}
             </button>
           </div>
         </div>
@@ -191,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 group text-start focus:outline-none shrink-0"
             aria-label="Home"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-indigo-600 via-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
               <Globe className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
@@ -199,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {t.brand_title}
               </div>
               <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
-                GLOBAL INTERNET SERVICES
+                HANAN STUDIO & WEB PORTAL
               </div>
             </div>
           </button>
@@ -436,8 +436,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="bg-slate-50/95 dark:bg-slate-900/95 border-t border-b border-slate-200/90 dark:border-slate-800/90 py-2 px-3 sm:px-6 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           {/* Label on large screens */}
-          <div className="hidden xl:flex items-center gap-1.5 text-xs font-black text-slate-500 dark:text-slate-400 shrink-0">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+          <div className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 shrink-0">
+            <LayoutGrid className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>{currentLang === 'ar' ? 'أقسام وشرائط الموقع:' : 'Site Sections:'}</span>
           </div>
 

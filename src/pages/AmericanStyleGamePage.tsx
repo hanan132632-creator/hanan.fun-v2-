@@ -825,11 +825,11 @@ export const AmericanStyleGamePage: React.FC<AmericanStyleGamePageProps> = ({
           <div className="p-5 rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
             <div className="space-y-1 text-center sm:text-start">
               <div className="font-black text-sm sm:text-base flex items-center justify-center sm:justify-start gap-1.5">
-                <Award className="w-4 h-4 text-amber-300" />
-                <span>اقرئي دليل المقال الشامل E-E-A-T لعام 2026</span>
+                <Sparkles className="w-4 h-4 text-amber-300" />
+                <span>اقرئي دليل تنسيق أزياء ستايل الشارع الأمريكي لعام 2026</span>
               </div>
               <div className="text-xs text-blue-100 opacity-90">
-                تعرفي على أسرار الموضة الأمريكية وتجارب التنزيل والتشغيل المباشر عبر مدونتنا التقنية.
+                تعرفي على أسرار دمج الألوان والقطع العصرية وروابط اللعب والتنزيل الآمن عبر مقالنا الحصري.
               </div>
             </div>
 

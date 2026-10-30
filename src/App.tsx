@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
 import { HomePage } from './pages/HomePage';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import { Sparkles, ArrowUp } from 'lucide-react';
+import { MessageSquare, ArrowUp } from 'lucide-react';
 
 // Code-split all secondary pages to reduce initial JavaScript payload from 1.4MB to <300KB
 const StorePage = lazy(() => import('./pages/StorePage').then(m => ({ default: m.StorePage })));
@@ -433,12 +433,12 @@ export default function App() {
         )}
 
         <button
-          onClick={() => setAiAssistantOpen(true)}
-          className="px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold text-xs shadow-xl shadow-indigo-500/30 flex items-center gap-2 hover:scale-105 transition-all"
-          title="Technical Consultant"
+          onClick={() => handleNavigate('contact')}
+          className="px-4 py-3 rounded-full bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold text-xs shadow-xl flex items-center gap-2 hover:scale-105 transition-all cursor-pointer border border-slate-700 dark:border-blue-500"
+          title={currentLang === 'ar' ? 'تواصل مع فريق العمل' : 'Contact Us'}
         >
-          <Sparkles className="w-4 h-4 animate-spin-slow" />
-          <span className="hidden sm:inline">استشارة الدعم الفني السحابي</span>
+          <MessageSquare className="w-4 h-4 text-amber-400" />
+          <span className="hidden sm:inline">{currentLang === 'ar' ? 'تواصل مع فريق العمل' : 'Contact Us'}</span>
         </button>
       </div>
 

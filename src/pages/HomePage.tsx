@@ -105,14 +105,14 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Hero Copy */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-start">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100/80 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300 text-xs font-bold">
-                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                 <span>{t.hero_badge}</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.2] font-sans" style={{ textWrap: 'balance' }}>
                 {t.hero_title_1}{' '}
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                   {t.hero_title_accent}
                 </span>{' '}
                 <br className="hidden sm:block" />
@@ -120,25 +120,20 @@ export const HomePage: React.FC<HomePageProps> = ({
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                منصة رقمية رائدة تقدم حلولاً هندسية شاملة: تصميم وتطوير المواقع والمتاجر، استضافة سحابية فائقة السرعة، حجز النطاقات العالمية، حملات التسويق الرقمي وتصدر محركات البحث، مع دعم فني هندسي 24/7.
+                {currentLang === 'ar' 
+                  ? 'مساحة رقمية عربية تفاعلية صُممت بعناية وشغف لتجمع بين ألعاب تلبيس وتنسيق الأزياء العصرية، أدوات الويب الرقمية الذكية، والمقالات المعرفية الغنية التي تلبي تطلعات القراء وعشاق الإبداع.'
+                  : 'An authentic digital hub crafted with passion, featuring interactive fashion styling games, smart web utilities, and rich human-authored guides.'
+                }
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                 <button
-                  onClick={() => onNavigate('store')}
-                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition-all hover:scale-[1.02] flex items-center gap-2 cursor-pointer"
+                  onClick={() => onNavigate('american-style-game')}
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-bold text-sm shadow-md transition-all hover:scale-[1.02] flex items-center gap-2 cursor-pointer"
                 >
-                  <span>{t.btn_explore_store}</span>
-                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                </button>
-
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <PhoneCall className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                  <span>{currentLang === 'ar' ? 'طلب استشارة مخصصة' : 'Book Tech Consultation'}</span>
+                  <span className="text-base">👑</span>
+                  <span>{currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'Play Girls Fashion Game'}</span>
                 </button>
 
                 <button
@@ -146,73 +141,126 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className="px-5 py-3.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 text-indigo-700 dark:text-indigo-300 font-bold text-sm border border-indigo-200 dark:border-indigo-800 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                  <span>{currentLang === 'ar' ? 'استوديو الفيديو 🎬' : 'Video Studio 🎬'}</span>
+                  <span>{currentLang === 'ar' ? 'استوديو الفيديو الرقمي' : 'Video Studio'}</span>
+                </button>
+
+                <button
+                  onClick={() => onNavigate('blog')}
+                  className="px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>{currentLang === 'ar' ? 'تصفح المقالات' : 'Read Articles'}</span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </button>
               </div>
 
-              {/* Trust Guarantees */}
+              {/* Genuine Guarantees */}
               <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800/80">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>ضمان تشغيل 99.99% SLA</span>
+                  <span>{currentLang === 'ar' ? 'تشغيل فوري في المتصفح' : 'Instant In-Browser Play'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>تفعيل سحابي فوري مؤتمت</span>
+                  <span>{currentLang === 'ar' ? 'محتوى آمن وممتع للعائلة' : 'Safe Family Content'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>دعم فني هندسي على مدار الساعة</span>
+                  <span>{currentLang === 'ar' ? 'أدوات مجانية بالكامل' : '100% Free Tools'}</span>
                 </div>
               </div>
             </div>
 
-            {/* Hero Live Infrastructure Card */}
+            {/* Hero Interactive Showcase Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md rounded-2xl bg-slate-900 p-6 text-white shadow-2xl border border-slate-800">
+              <div className="relative mx-auto max-w-md rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 p-6 text-white shadow-2xl border border-slate-800">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="font-bold text-xs tracking-wider uppercase text-slate-300">
-                      Global Anycast Mesh
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <span className="font-bold text-xs tracking-wider uppercase text-slate-200">
+                      {currentLang === 'ar' ? 'إبداعات الاستوديو التفاعلية' : 'Studio Highlights'}
                     </span>
                   </div>
-                  <span className="text-[11px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded font-mono">
-                    240+ Edge Nodes
+                  <span className="text-[11px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                    {currentLang === 'ar' ? 'مساحة نشطة' : 'Live Hub'}
                   </span>
                 </div>
 
-                {/* Node Status Grid */}
-                <div className="py-4 space-y-2.5">
-                  <div className="text-xs font-semibold text-slate-400">
-                    أقرب نقاط التوجيه السحابي (Live Edge PoPs):
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {SERVER_NODES.slice(0, 4).map(node => (
-                      <div key={node.id} className="p-2.5 rounded-xl bg-slate-800/70 border border-slate-700/60 flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-xs">
-                          <span className="text-base">{node.flag}</span>
-                          <span className="font-bold text-slate-200">{node.city}</span>
+                {/* Highlights List */}
+                <div className="py-4 space-y-3">
+                  <button
+                    onClick={() => onNavigate('american-style-game')}
+                    className="w-full p-3 rounded-2xl bg-gradient-to-r from-rose-950/40 to-slate-800/70 border border-rose-900/40 hover:border-rose-500/50 flex items-center justify-between text-start transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        👑
+                      </span>
+                      <div>
+                        <div className="font-bold text-xs text-white group-hover:text-rose-300 transition-colors">
+                          {currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'American Girls Style Game'}
                         </div>
-                        <span className="text-xs font-mono font-bold text-emerald-400">{node.pingMs}ms</span>
+                        <div className="text-[11px] text-slate-400">
+                          {currentLang === 'ar' ? 'أزياء، مكياج، وتنسيقات ملابس عصرية' : 'Fashion, styling & streetwear outfits'}
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                    <span className="text-xs text-rose-400 font-bold shrink-0">العب الآن ←</span>
+                  </button>
+
+                  <button
+                    onClick={() => onNavigate('audio-to-video')}
+                    className="w-full p-3 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-indigo-500/50 flex items-center justify-between text-start transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        🎬
+                      </span>
+                      <div>
+                        <div className="font-bold text-xs text-white group-hover:text-indigo-300 transition-colors">
+                          {currentLang === 'ar' ? 'استوديو الفيديو والأمواج الصوتية' : 'Audio Waveforms Video Studio'}
+                        </div>
+                        <div className="text-[11px] text-slate-400">
+                          {currentLang === 'ar' ? 'توليد فيديو رقمي بأمواج بصرية فوراً' : 'Convert audio to animated video for reels'}
+                        </div>
+                      </div>
+                    </div>
+                    <span className="text-xs text-indigo-400 font-bold shrink-0">جرّب ←</span>
+                  </button>
+
+                  <button
+                    onClick={() => onNavigate('blog')}
+                    className="w-full p-3 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-blue-500/50 flex items-center justify-between text-start transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        📝
+                      </span>
+                      <div>
+                        <div className="font-bold text-xs text-white group-hover:text-blue-300 transition-colors">
+                          {currentLang === 'ar' ? 'المكتبة التحريرية الشاملة' : 'Rich Editorial Articles'}
+                        </div>
+                        <div className="text-[11px] text-slate-400">
+                          {currentLang === 'ar' ? '36 مقالاً حصرياً في الموضة والتقنية والويب' : '36 curated in-depth guides'}
+                        </div>
+                      </div>
+                    </div>
+                    <span className="text-xs text-blue-400 font-bold shrink-0">اقرأ ←</span>
+                  </button>
                 </div>
 
                 {/* Metrics */}
-                <div className="pt-4 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
-                  <div className="p-2 rounded-lg bg-slate-800/40">
-                    <div className="text-base font-black text-blue-400">99.99%</div>
-                    <div className="text-[10px] text-slate-400">SLA Uptime</div>
+                <div className="pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
+                  <div className="p-2 rounded-xl bg-slate-800/40">
+                    <div className="text-base font-black text-rose-400">2026</div>
+                    <div className="text-[10px] text-slate-400">أحدث صيحات الموضة</div>
                   </div>
-                  <div className="p-2 rounded-lg bg-slate-800/40">
-                    <div className="text-base font-black text-emerald-400">&lt; 15ms</div>
-                    <div className="text-[10px] text-slate-400">Avg Latency</div>
+                  <div className="p-2 rounded-xl bg-slate-800/40">
+                    <div className="text-base font-black text-indigo-400">36+</div>
+                    <div className="text-[10px] text-slate-400">مقال حصري</div>
                   </div>
-                  <div className="p-2 rounded-lg bg-slate-800/40">
-                    <div className="text-base font-black text-purple-400">180 Tbps</div>
-                    <div className="text-[10px] text-slate-400">Backbone</div>
+                  <div className="p-2 rounded-xl bg-slate-800/40">
+                    <div className="text-base font-black text-emerald-400">100%</div>
+                    <div className="text-[10px] text-slate-400">مجاني ومتاح دائماً</div>
                   </div>
                 </div>
               </div>
@@ -567,7 +615,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 6. Why Choose GIS: Enterprise Architecture */}
+      {/* 6. Why Choose Us: Human Studio Values */}
       <section className="bg-slate-100/80 dark:bg-slate-900/60 py-16 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
@@ -575,56 +623,58 @@ export const HomePage: React.FC<HomePageProps> = ({
               {t.sec_why_us}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              بنية تحتية هندسية صلبة تضمن لك التفوق في سرعة التحميل وتصدر محركات البحث
+              {currentLang === 'ar' 
+                ? 'نحرص في منصتنا على تقديم تجربة رقمية إبداعية، آمنة، وممتعة لكل زائر'
+                : 'Committed to delivering an authentic, creative, and safe digital experience for everyone.'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 flex items-center justify-center">
-                <ShieldCheck className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl">
+                👑
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {t.feat_ddos_title}
+                {currentLang === 'ar' ? 'ألعاب تفاعلية مباشرة' : 'Instant In-Browser Games'}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {t.feat_ddos_desc}
+                {currentLang === 'ar' ? 'ألعاب تلبيس بنات استايل أمريكي وتحديات ذكاء تعمل فوراً في المتصفح بكل سلاسة بدون الحاجة لتثبيت برامج خارجية.' : 'Play dress-up fashion games and word puzzles instantly in your browser.'}
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                <Globe className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                🎬
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {t.feat_cdn_title}
+                {currentLang === 'ar' ? 'أدوات ويب رقمية ذكية' : 'Smart Web Utilities'}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {t.feat_cdn_desc}
+                {currentLang === 'ar' ? 'استوديو لتحويل المقاطع الصوتية إلى فيديوهات بأمواج مرئية، فاحص سرعة الشبكة، ومولد كلمات المرور الآمنة.' : 'Free audio-to-video studio, speed test and secure password generator.'}
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                <Clock className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                🛡️
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {t.feat_support_title}
+                {currentLang === 'ar' ? 'محتوى آمن وممتع للعائلة' : 'Safe Family Content'}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {t.feat_support_desc}
+                {currentLang === 'ar' ? 'بيئة تصفح نظيفة ومناسبة لكافة أفراد العائلة، مع التزام تام بالخصوصية وحماية بيانات الزوار.' : 'Clean browsing environment suitable for all ages with strict privacy protections.'}
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                <Zap className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                ✍️
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {t.feat_adsense_title}
+                {currentLang === 'ar' ? 'مقالات موثوقة ومفيدة' : 'Curated Human Guides'}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {t.feat_adsense_desc}
+                {currentLang === 'ar' ? 'دراسات ومقالات كتبها فريقنا المتخصص لنقل الخبرات العملية في الموضة، التقنية، والتجارة الإلكترونية.' : 'In-depth articles authored with genuine practical experience and clarity.'}
               </p>
             </div>
           </div>
@@ -636,13 +686,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1">
-              المعرفة التقنية والربح من الويب
+              {currentLang === 'ar' ? 'المعرفة والمحتوى الحصري' : 'Knowledge & Insights'}
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
               {t.sec_latest_blog}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-              مقالات ودراسات تحريرية موثقة وفق أعلى معايير E-E-A-T وجودة المحتوى.
+              {currentLang === 'ar' ? 'مقالات ودراسات حصرية أعدها فريقنا بشغف لتزويدكم بأفضل الأفكار والتجارب العملية.' : 'In-depth articles prepared by our team sharing genuine experiences and practical knowledge.'}
             </p>
           </div>
           <button
@@ -724,7 +774,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {t.sec_testimonials}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            ثقة أكثر من 150,000 موقع وتطبيق عالمي في 180 دولة
+            {currentLang === 'ar' ? 'مشاركات وآراء زوار ومتابعي منصتنا وألعابنا التفاعلية' : 'Community feedback and thoughts from our active visitors'}
           </p>
         </div>
 
