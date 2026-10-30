@@ -26,6 +26,7 @@ const AdSenseStandardsPage = lazy(() => import('./pages/AdSenseStandardsPage').t
 const AudioToVideoPage = lazy(() => import('./pages/AudioToVideoPage').then(m => ({ default: m.AudioToVideoPage })));
 const SitemapCheckerPage = lazy(() => import('./pages/SitemapCheckerPage').then(m => ({ default: m.SitemapCheckerPage })));
 const AmericanStyleGamePage = lazy(() => import('./pages/AmericanStyleGamePage').then(m => ({ default: m.AmericanStyleGamePage })));
+const VercelGuidePage = lazy(() => import('./pages/VercelGuidePage').then(m => ({ default: m.VercelGuidePage })));
 const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 
 // Code-split heavy interactive modals
@@ -123,6 +124,7 @@ export default function App() {
     if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
     if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
+    if (path === '/vercel' || path.endsWith('/vercel') || path.includes('vercel')) return 'vercel';
     if (
       path.includes('american-style') || 
       path.includes('العاب-بنات') || 
@@ -406,6 +408,13 @@ export default function App() {
           {activePage === 'sitemap-checker' && (
             <SitemapCheckerPage
               currentLang={currentLang}
+            />
+          )}
+
+          {activePage === 'vercel' && (
+            <VercelGuidePage
+              currentLang={currentLang}
+              onNavigate={handleNavigate}
             />
           )}
 

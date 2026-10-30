@@ -65,7 +65,7 @@
       "destination": "/404.html"
     },
     {
-      "source": "/((?!api/|assets/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|xml|txt|json|css|js|map)).*)",
+      "source": "/((?!api/|assets/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|avif|woff|woff2|ttf|eot|xml|txt|json|css|js|map|cjs)).*)",
       "destination": "/index.html"
     }
   ],
