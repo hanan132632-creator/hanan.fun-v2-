@@ -14,7 +14,9 @@ import {
   Info,
   Mail,
   ShieldCheck,
-  Zap
+  Zap,
+  FileText,
+  Lock
 } from 'lucide-react';
 import { Language, Currency, ActivePage } from '../types';
 import { LANGUAGES, TRANSLATIONS } from '../locales/translations';
@@ -50,12 +52,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { page: ActivePage; label: string; icon: any }[] = [
     { page: 'home', label: t.nav_home, icon: Globe },
-    { page: 'store', label: currentLang === 'ar' ? 'الخدمات والحلول السحابية' : 'Services & Cloud', icon: Server },
-    { page: 'blog', label: currentLang === 'ar' ? 'المدونة والمعرفة التقنية (36 مقال)' : 'Tech Blog (36 Articles)', icon: BookOpen },
-    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة والشبكة' : 'Speed & Ping Test', icon: Activity },
-    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو الرقمي' : 'Video Studio', icon: Video },
+    { page: 'store', label: currentLang === 'ar' ? 'الخدمات السحابية' : 'Cloud Services', icon: Server },
+    { page: 'blog', label: currentLang === 'ar' ? 'المكتبة التقنية (36)' : 'Tech Blog (36)', icon: BookOpen },
+    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة' : 'Speed Test', icon: Activity },
+    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Video Studio', icon: Video },
     { page: 'about', label: t.nav_about, icon: Info },
     { page: 'contact', label: t.nav_contact, icon: Mail },
+    { page: 'privacy', label: currentLang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy', icon: ShieldCheck },
+    { page: 'terms', label: currentLang === 'ar' ? 'شروط الاستخدام' : 'Terms of Use', icon: FileText },
   ];
 
   return (
@@ -218,11 +222,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>{currentLang === 'ar' ? 'من نحن' : 'About Us'}</span>
             </button>
             <button 
-              onClick={() => onNavigate('contact')} 
-              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 cursor-pointer"
+              onClick={() => onNavigate('privacy')} 
+              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/80 transition-colors shadow-2xs shrink-0 cursor-pointer font-bold"
             >
-              <Mail className="w-3.5 h-3.5 text-slate-500" />
-              <span>{currentLang === 'ar' ? 'اتصل بنا' : 'Contact Us'}</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span>{currentLang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</span>
+            </button>
+            <button 
+              onClick={() => onNavigate('terms')} 
+              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-200/80 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-300/80 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 cursor-pointer font-bold"
+            >
+              <FileText className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
+              <span>{currentLang === 'ar' ? 'شروط الاستخدام' : 'Terms of Use'}</span>
             </button>
           </div>
           <div className="hidden lg:flex items-center gap-2 text-[11px] text-slate-500 font-medium shrink-0">

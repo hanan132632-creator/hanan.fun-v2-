@@ -480,12 +480,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-xs">الموقع الإقليمي (مصر):</span>
+                  <span className="text-slate-400 block text-xs">المقر الإقليمي (مصر والعالم العربي):</span>
                   <span className="font-bold text-slate-900 dark:text-white block">
                     القاهرة، جمهورية مصر العربية 🇪🇬
                   </span>
                   <span className="text-slate-500 text-xs">
-                    استوديو حنان الرقمي - منصة إلكترونية رقمية بالكامل
+                    منظومة خدمات الإنترنت العالمية - Global Internet Services (GIS Network)
                   </span>
                 </div>
               </div>
@@ -495,22 +495,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-xs">ساعات العمل:</span>
+                  <span className="text-slate-400 block text-xs">ساعات العمل والدعم:</span>
                   <span className="font-bold text-slate-900 dark:text-white">
-                    24/7 (فريق استوديو حنان جاهز لمساعدتكم والتواصل معكم دائماً)
+                    24/7 (فريق المهندسين والمحررين جاهز لمساعدتكم والتواصل معهم على مدار الساعة)
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg space-y-3">
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg space-y-3">
             <h3 className="font-bold text-base flex items-center gap-2">
               <Zap className="w-5 h-5 text-amber-300" />
-              <span>استوديو حنان للألعاب والمحتوى التفاعلي</span>
+              <span>فريق دعم المعرفة التقنية و Google AdSense</span>
             </h3>
-            <p className="text-xs text-pink-100 leading-relaxed">
-              يسعدنا دائماً تلقي اقتراحاتكم وأفكاركم لتطوير ألعاب بنات جديدة ومقالات الموضة والأناقة وكافة الأدوات التفاعلية.
+            <p className="text-xs text-blue-100 leading-relaxed">
+              يسعدنا دائماً تلقي استفساراتكم واقتراحاتكم بشأن المقالات التقنية، تحسين مؤشرات السرعة Core Web Vitals، والاستشارات السحابية الهندسية.
             </p>
           </div>
         </div>
