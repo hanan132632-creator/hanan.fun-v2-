@@ -25,7 +25,6 @@ const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(m =>
 const AdSenseStandardsPage = lazy(() => import('./pages/AdSenseStandardsPage').then(m => ({ default: m.AdSenseStandardsPage })));
 const AudioToVideoPage = lazy(() => import('./pages/AudioToVideoPage').then(m => ({ default: m.AudioToVideoPage })));
 const SitemapCheckerPage = lazy(() => import('./pages/SitemapCheckerPage').then(m => ({ default: m.SitemapCheckerPage })));
-const AmericanStyleGamePage = lazy(() => import('./pages/AmericanStyleGamePage').then(m => ({ default: m.AmericanStyleGamePage })));
 const VercelGuidePage = lazy(() => import('./pages/VercelGuidePage').then(m => ({ default: m.VercelGuidePage })));
 const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 
@@ -82,15 +81,14 @@ export default function App() {
     if (
       normalizedPath === '/store' || normalizedPath.endsWith('/store') || 
       normalizedPath === '/متجر' || normalizedPath.endsWith('/متجر') || 
-      normalizedPath === '/محل' || normalizedPath.endsWith('/محل') ||
-      path.includes('محل') || path.includes('متجر') || path.includes('store') || path.includes('shop')
-    ) return 'american-style-game';
+      normalizedPath === '/خدمات' || normalizedPath.endsWith('/خدمات') ||
+      path.includes('متجر') || path.includes('store') || path.includes('services') || path.includes('خدمات')
+    ) return 'store';
 
     if (
       normalizedPath === '/blog' || normalizedPath.endsWith('/blog') || 
       normalizedPath === '/مدونة' || normalizedPath.endsWith('/مدونة') ||
       normalizedPath.startsWith('/blog/') || normalizedPath.startsWith('/مدونة/') ||
-      normalizedPath === '/article-girls-game' || normalizedPath === '/girls-article' ||
       path.includes('مدونة') || path.includes('blog')
     ) return 'blog';
 
@@ -125,16 +123,7 @@ export default function App() {
     if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
     if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
     if (path === '/vercel' || path.endsWith('/vercel') || path.includes('vercel')) return 'vercel';
-    if (
-      path.includes('american-style') || 
-      path.includes('العاب-بنات') || 
-      path === '/american-style-game' ||
-      path === '/game' ||
-      path === '/play' ||
-      path === '/girls-game' ||
-      path.endsWith('/game') ||
-      path.endsWith('/girls-game')
-    ) return 'american-style-game';
+    return 'home';
     return 'home';
   };
 
@@ -144,14 +133,7 @@ export default function App() {
     if (typeof window === 'undefined') return null;
     const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
     if (path.startsWith('/blog/')) {
-      const slug = path.replace('/blog/', '');
-      if (slug === 'girls-game' || slug === 'girls-game-2026') {
-        return 'american-style-girls-games-styling-guide-2026';
-      }
-      return slug;
-    }
-    if (path === '/article-girls-game' || path === '/girls-article') {
-      return 'american-style-girls-games-styling-guide-2026';
+      return path.replace('/blog/', '');
     }
     return null;
   });
@@ -273,7 +255,7 @@ export default function App() {
   const handleNavigate = (page: ActivePage) => {
     setActivePage(page);
     if (typeof window !== 'undefined') {
-      const targetPath = page === 'home' ? '/' : (page === 'american-style-game' ? '/game' : `/${page}`);
+      const targetPath = page === 'home' ? '/' : `/${page}`;
       if (window.location.pathname !== targetPath) {
         try {
           window.history.pushState({ page }, '', targetPath);
@@ -341,9 +323,10 @@ export default function App() {
 
         <Suspense fallback={<PageLoadingSkeleton />}>
           {activePage === 'store' && (
-            <AmericanStyleGamePage
+            <StorePage
               currentLang={currentLang}
-              onNavigate={handleNavigate}
+              currentCurrency={currentCurrency}
+              onAddToCart={handleAddToCart}
             />
           )}
 
@@ -413,13 +396,6 @@ export default function App() {
 
           {activePage === 'vercel' && (
             <VercelGuidePage
-              currentLang={currentLang}
-              onNavigate={handleNavigate}
-            />
-          )}
-
-          {activePage === 'american-style-game' && (
-            <AmericanStyleGamePage
               currentLang={currentLang}
               onNavigate={handleNavigate}
             />

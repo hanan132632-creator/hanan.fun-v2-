@@ -15,8 +15,7 @@ export type ActivePage =
   | 'diagnostics'
   | 'audio-to-video'
   | 'sitemap-checker'
-  | 'vercel'
-  | 'american-style-game';
+  | 'vercel';
 
 export interface ServiceItem {
   id: string;

@@ -13,13 +13,15 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Play
+  Play,
+  Server,
+  Globe,
+  Zap
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS } from '../data/mockData';
 import { AdsterraPlacement } from '../components/AdsterraPlacement';
-import modestGameBannerImg from '../assets/images/modest_game_banner_1793393334387.jpg';
 
 interface BlogPageProps {
   currentLang: Language;
@@ -63,13 +65,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [newCommentText, setNewCommentText] = useState('');
 
   const categories = [
-    { id: 'all', label: isRtl ? 'جميع المقالات (All)' : 'All Articles' },
-    { id: 'streetwear', label: isRtl ? 'ستريت وير نيويورك (Streetwear)' : 'NYC Streetwear' },
-    { id: 'makeup', label: isRtl ? 'مكياج هوليوود (Makeup)' : 'Hollywood Glam Makeup' },
-    { id: 'events', label: isRtl ? 'أزياء البروم والتخرج (Prom & Events)' : 'Prom & Events' },
-    { id: 'athleisure', label: isRtl ? 'ستايل Athleisure الرياضي' : 'Chic Athleisure' },
-    { id: 'hair', label: isRtl ? 'ألوان الشعر العصري (Hair Styling)' : 'Modern Hair Colors' },
-    { id: 'tips', label: isRtl ? 'نصائح وتنسيق أزياء (Fashion Tips)' : 'Fashion Tips & Rules' },
+    { id: 'all', label: isRtl ? 'جميع المقالات (36 مقال)' : 'All 36 Articles' },
+    { id: 'infrastructure', label: isRtl ? 'شبكات وبنية تحتية (Infrastructure)' : 'Networks & Infrastructure' },
+    { id: 'cloud', label: isRtl ? 'حوسبة سحابية وسيرفرات (Cloud & VPS)' : 'Cloud & VPS Hosting' },
+    { id: 'security', label: isRtl ? 'أمن سيبراني وتشفير (Cybersecurity)' : 'Cybersecurity & WAF' },
+    { id: 'seo', label: isRtl ? 'سيو وجوجل أدسنس (SEO & AdSense)' : 'SEO & Google AdSense' },
+    { id: 'engineering', label: isRtl ? 'هندسة وبرمجة الويب (Web Engineering)' : 'Web Engineering' },
+    { id: 'fintech', label: isRtl ? 'تجارة رقمية وحلول مالية (FinTech)' : 'FinTech & E-Commerce' },
   ];
 
   const activeArticle = BLOG_POSTS.find(p => p.slug === selectedPostSlug);
@@ -290,47 +292,54 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             ))}
           </div>
 
-          {/* Prominent Game Card & Play Now CTA at the Bottom of Article */}
-          <div className="my-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-pink-600 via-rose-600 to-amber-500 text-white shadow-2xl overflow-hidden relative">
-            <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
-              {/* Game Preview Image */}
-              <div className="w-full md:w-56 h-48 sm:h-52 rounded-2xl overflow-hidden shrink-0 shadow-lg border-2 border-white/30 bg-slate-900 group">
-                <img
-                  src={modestGameBannerImg}
-                  alt="لعبة ألعاب بنات ستايل أمريكي 2026"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+          {/* Enterprise Cloud Infrastructure Consultation CTA */}
+          <div className="my-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950 text-white shadow-2xl border border-blue-500/20 overflow-hidden relative">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+              <div className="space-y-3 text-center md:text-start max-w-xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-xs font-bold uppercase tracking-wider text-cyan-300">
+                  <Server className="w-3.5 h-3.5" />
+                  <span>{isRtl ? 'استشارات البنية التحتية والشبكات السحابية' : 'Enterprise Cloud & Infrastructure Advisory'}</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+                  {isRtl ? 'هل تحتاج إلى تسريع موقعك أو حماية خوادمك السحابية؟' : 'Need to accelerate your website or harden your cloud security?'}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {isRtl
+                    ? 'يقدم فريق مهندسي خدمات الإنترنت العالمية استشارات متخصصة في تحسين Core Web Vitals، نشر شبكات Anycast CDN، وضمان أمان WAF ضد هجمات حجب الخدمة.'
+                    : 'Our certified network and systems architects provide hands-on audits for Core Web Vitals, Anycast CDN deployments, and automated WAF defenses.'}
+                </p>
               </div>
 
-              {/* Game Info & Large CTA Button */}
-              <div className="space-y-4 text-center md:text-start flex-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-black uppercase tracking-wider text-pink-100">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                  <span>ألعاب بنات ستايل أمريكي 2026 - حصرياً</span>
-                </div>
-                <h3 className="text-xl sm:text-3xl font-black text-white leading-tight">
-                  العب الآن: لعبة تلبيس وتنسيق بنات ستايل أمريكي 2026 👑
-                </h3>
-                <p className="text-xs sm:text-sm text-pink-100 leading-relaxed max-w-xl">
-                  استمتعي بأحدث صيحات أزياء الشارع النيويوركي، هوليوود جلامور، والستايل الجامعي الأمريكي. اختاري الملابس والشعر والإكسسوارات وانزلي بطاقتك فوراً ومجاناً 100%!
-                </p>
+              <div className="shrink-0 flex flex-col sm:flex-row gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onNavigate) {
+                      onNavigate('contact');
+                    } else if (typeof window !== 'undefined') {
+                      window.location.href = '/contact';
+                    }
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-blue-900/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <Zap className="w-4 h-4 text-amber-300" />
+                  <span>{isRtl ? 'طلب استشارة هندسية' : 'Request Architecture Audit'}</span>
+                </button>
 
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (onNavigate) {
-                        onNavigate('american-style-game');
-                      } else if (typeof window !== 'undefined') {
-                        window.location.href = '/game';
-                      }
-                    }}
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-base sm:text-lg shadow-2xl shadow-rose-950/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                  >
-                    <Play className="w-5 h-5 fill-rose-600" />
-                    <span>العب الآن</span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onNavigate) {
+                      onNavigate('diagnostics');
+                    } else if (typeof window !== 'undefined') {
+                      window.location.href = '/diagnostics';
+                    }
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all cursor-pointer"
+                >
+                  <Globe className="w-4 h-4 text-cyan-400" />
+                  <span>{isRtl ? 'فاحص السرعة المباشر' : 'Run Diagnostics'}</span>
+                </button>
               </div>
             </div>
           </div>

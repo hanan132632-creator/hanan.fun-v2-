@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { 
-  Sparkles, 
+  Globe, 
   Menu, 
   X, 
   Moon, 
   Sun, 
   ChevronDown, 
   Check,
+  Server,
   BookOpen,
+  Activity,
   Video,
   Info,
   Mail,
   ShieldCheck,
-  FileText
+  Zap
 } from 'lucide-react';
 import { Language, Currency, ActivePage } from '../types';
 import { LANGUAGES, TRANSLATIONS } from '../locales/translations';
@@ -46,13 +48,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   const t = TRANSLATIONS[currentLang];
   const currentLangObj = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
 
-  const navLinks: { page: ActivePage; label: string; isHot?: boolean; icon?: string }[] = [
-    { page: 'home', label: t.nav_home, icon: '🏠' },
-    { page: 'american-style-game', label: currentLang === 'ar' ? 'ألعاب بنات 2026' : 'Girls Game', isHot: true, icon: '👑' },
-    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Video Studio', icon: '🎬' },
-    { page: 'blog', label: currentLang === 'ar' ? 'المقالات والمدونة' : t.nav_blog, icon: '📝' },
-    { page: 'about', label: t.nav_about, icon: '✨' },
-    { page: 'contact', label: t.nav_contact, icon: '✉️' },
+  const navLinks: { page: ActivePage; label: string; icon: any }[] = [
+    { page: 'home', label: t.nav_home, icon: Globe },
+    { page: 'store', label: currentLang === 'ar' ? 'الخدمات والحلول السحابية' : 'Services & Cloud', icon: Server },
+    { page: 'blog', label: currentLang === 'ar' ? 'المدونة والمعرفة التقنية (36 مقال)' : 'Tech Blog (36 Articles)', icon: BookOpen },
+    { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة والشبكة' : 'Speed & Ping Test', icon: Activity },
+    { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو الرقمي' : 'Video Studio', icon: Video },
+    { page: 'about', label: t.nav_about, icon: Info },
+    { page: 'contact', label: t.nav_contact, icon: Mail },
   ];
 
   return (
@@ -60,21 +63,21 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           
-          {/* Logo / Branding */}
+          {/* Logo / GIS Branding */}
           <button 
             onClick={() => onNavigate('home')}
-            className="flex items-center gap-3 group text-start focus:outline-none shrink-0"
-            aria-label="استوديو حنان الرقمي - الرئيسية"
+            className="flex items-center gap-3 group text-start focus:outline-none shrink-0 cursor-pointer"
+            aria-label="منظومة خدمات الإنترنت العالمية - الرئيسية"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-400 flex items-center justify-center text-white shadow-md shadow-pink-500/25 group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
+              <Server className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
               <div className="font-black text-base sm:text-xl tracking-tight text-slate-900 dark:text-white leading-tight font-sans">
-                استوديو حنان الرقمي
+                {currentLang === 'ar' ? 'خدمات الإنترنت العالمية' : 'Global Internet Services'}
               </div>
-              <div className="text-[10px] sm:text-[11px] font-bold text-pink-600 dark:text-pink-400 tracking-wider">
-                Hanan Studio & Web Portal
+              <div className="text-[10px] sm:text-[11px] font-bold text-blue-600 dark:text-cyan-400 tracking-wider">
+                GIS Network • Cloud & Infrastructure
               </div>
             </div>
           </button>
@@ -83,49 +86,43 @@ export const Navbar: React.FC<NavbarProps> = ({
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map(link => {
               const isActive = activePage === link.page;
+              const Icon = link.icon;
               return (
                 <button
                   key={link.page}
                   onClick={() => onNavigate(link.page)}
-                  className={`px-3.5 py-2 rounded-xl text-sm font-bold transition-all whitespace-nowrap relative flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-3 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all whitespace-nowrap relative flex items-center gap-1.5 cursor-pointer ${
                     isActive 
-                      ? 'text-pink-600 dark:text-pink-400 bg-pink-50/80 dark:bg-pink-950/40 shadow-xs' 
-                      : 'text-slate-700 dark:text-slate-200 hover:text-pink-600 dark:hover:text-pink-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                      ? 'text-blue-600 dark:text-cyan-400 bg-blue-50/80 dark:bg-blue-950/40 shadow-xs' 
+                      : 'text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-cyan-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                   }`}
                 >
-                  {link.icon && <span className="text-sm">{link.icon}</span>}
+                  <Icon className="w-4 h-4 opacity-75" />
                   <span>{link.label}</span>
-                  {link.isHot && (
-                    <span className="ms-1 px-1.5 py-0.2 rounded text-[10px] font-black bg-rose-500 text-white shadow-xs">
-                      جديد
-                    </span>
-                  )}
                   {isActive && (
-                    <span className="absolute bottom-0 inset-x-3 h-0.5 bg-pink-600 dark:bg-pink-400 rounded-full" />
+                    <span className="absolute bottom-0 inset-x-3 h-0.5 bg-blue-600 dark:bg-cyan-400 rounded-full" />
                   )}
                 </button>
               );
             })}
           </nav>
 
-          {/* Actions: "ألعاب بنات" Button + Theme Toggle + Lang Dropdown (NO CART ICON) */}
+          {/* Actions: Contact Button + Theme Toggle + Lang Dropdown */}
           <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Prominent Primary "ألعاب بنات" Button */}
             <button
-              onClick={() => onNavigate('american-style-game')}
-              className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 hover:from-pink-600 hover:to-rose-600 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-pink-500/25 hover:shadow-lg hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap animate-pulse"
-              title="لعبة تلبيس وأزياء بنات ستايل أمريكي 2026"
+              onClick={() => onNavigate('contact')}
+              className="hidden sm:flex px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-blue-500/20 hover:scale-105 transition-all items-center gap-1.5 cursor-pointer"
             >
-              <span className="text-sm sm:text-base">👑</span>
-              <span>ألعاب بنات</span>
+              <Zap className="w-3.5 h-3.5 text-amber-300" />
+              <span>{currentLang === 'ar' ? 'طلب استشارة' : 'Consulting'}</span>
             </button>
 
             {/* Language Selector */}
             <div className="relative hidden sm:block">
               <button
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
                 aria-label="Language Selector"
               >
                 <span>{currentLangObj.flag}</span>
@@ -143,14 +140,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setLangDropdownOpen(false);
                       }}
                       className={`w-full flex items-center justify-between px-3.5 py-2 text-xs text-start hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
-                        currentLang === lang.code ? 'font-bold text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/40' : 'text-slate-700 dark:text-slate-200'
+                        currentLang === lang.code ? 'font-bold text-blue-600 dark:text-cyan-400 bg-blue-50 dark:bg-blue-950/40' : 'text-slate-700 dark:text-slate-200'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <span>{lang.flag}</span>
                         <span>{lang.nativeName}</span>
                       </div>
-                      {currentLang === lang.code && <Check className="w-3.5 h-3.5 text-pink-600" />}
+                      {currentLang === lang.code && <Check className="w-3.5 h-3.5 text-blue-600" />}
                     </button>
                   ))}
                 </div>
@@ -181,28 +178,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-8 space-y-3 max-h-[85vh] overflow-y-auto animate-in fade-in slide-in-from-top-4">
-          
-          {/* Girls Game Prominent Banner in Mobile Drawer */}
-          <button
-            onClick={() => {
-              onNavigate('american-style-game');
-              setMobileMenuOpen(false);
-            }}
-            className="w-full p-3 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 text-white font-black text-sm shadow-md flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="text-xl">👑</span>
-              <div className="text-start">
-                <div className="font-black">العاب بنات استايل أمريكي 2026</div>
-                <div className="text-[11px] text-pink-100 font-normal">تشغيل وتلبيس وتنسيق مباشر في المتصفح</div>
-              </div>
-            </div>
-            <span className="text-xs bg-white text-rose-600 font-bold px-2 py-1 rounded-lg">العب</span>
-          </button>
-
           <div className="space-y-1">
             {navLinks.map(link => {
               const isActive = activePage === link.page;
+              const Icon = link.icon;
               return (
                 <button
                   key={link.page}
@@ -212,92 +191,35 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }}
                   className={`w-full text-start px-3.5 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between transition-colors ${
                     isActive 
-                      ? 'bg-pink-50 dark:bg-pink-950/70 text-pink-600 dark:text-pink-400' 
+                      ? 'bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-cyan-400' 
                       : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
                   <div className="flex items-center gap-2">
-                    <span>{link.icon}</span>
+                    <Icon className="w-4 h-4 opacity-75" />
                     <span>{link.label}</span>
                   </div>
-                  {link.isHot && (
-                    <span className="px-2 py-0.5 rounded text-[10px] font-black bg-pink-500 text-white">
-                      مميز
-                    </span>
-                  )}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-cyan-400" />}
                 </button>
               );
             })}
           </div>
 
-          {/* Legal / Policy Quick Links */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-1.5 text-xs">
-            <button
-              onClick={() => {
-                onNavigate('privacy');
-                setMobileMenuOpen(false);
-              }}
-              className="p-2 rounded-lg text-start text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5"
-            >
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{t.nav_privacy}</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onNavigate('terms');
-                setMobileMenuOpen(false);
-              }}
-              className="p-2 rounded-lg text-start text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5"
-            >
-              <FileText className="w-3.5 h-3.5 text-indigo-500" />
-              <span>{t.nav_terms}</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onNavigate('cookies');
-                setMobileMenuOpen(false);
-              }}
-              className="p-2 rounded-lg text-start text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5"
-            >
-              <span>🍪</span>
-              <span>{t.nav_cookies}</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onNavigate('contact');
-                setMobileMenuOpen(false);
-              }}
-              className="p-2 rounded-lg text-start text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5"
-            >
-              <Mail className="w-3.5 h-3.5 text-blue-500" />
-              <span>{t.nav_contact}</span>
-            </button>
-          </div>
-
-          {/* Languages Selector */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
-            <div className="text-xs font-bold text-slate-400 px-1">
-              اللغات (Language):
-            </div>
-            <div className="grid grid-cols-2 gap-1.5">
-              {LANGUAGES.map(lang => (
+          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <span className="text-xs font-semibold text-slate-500">اللغة / Language</span>
+            <div className="flex flex-wrap gap-1">
+              {LANGUAGES.slice(0, 4).map(l => (
                 <button
-                  key={lang.code}
+                  key={l.code}
                   onClick={() => {
-                    onLanguageChange(lang.code);
+                    onLanguageChange(l.code);
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs border transition-colors ${
-                    currentLang === lang.code 
-                      ? 'border-pink-600 bg-pink-50 dark:bg-pink-950 text-pink-600 font-bold' 
-                      : 'border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200'
+                  className={`px-2 py-1 rounded text-xs font-bold ${
+                    currentLang === l.code ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600'
                   }`}
                 >
-                  <span>{lang.flag}</span>
-                  <span className="truncate">{lang.nativeName}</span>
+                  {l.flag} {l.name}
                 </button>
               ))}
             </div>
@@ -307,3 +229,5 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+
+export default Navbar;
