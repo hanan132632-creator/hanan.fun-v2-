@@ -25,7 +25,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
   const milestones = [
     { year: '2024', title: 'انطلاقة المنصة التحريرية', desc: 'بدء نشر أولى المقالات والدراسات المعرفية في مجالات التقنية، تصميم الويب، وتنسيق المحتوى.' },
     { year: '2025', title: 'تطوير أدوات الويب التفاعلية', desc: 'إطلاق استوديو تحويل الصوت إلى فيديو وفاحص السرعة ومولد كلمات المرور الآمنة لتسهيل مهام المستخدمين.' },
-    { year: '2026', title: 'إطلاق الألعاب التفاعلية الحديثة', desc: 'برمجة وإطلاق لعبة تلبيس وأزياء بنات استايل أمريكي 2026 بتجربة فورية ممتعة، وتوسعة مكتبة المقالات لتتجاوز 36 مقالاً ثرياً.' },
+    { year: '2026', title: 'إطلاق الألعاب التفاعلية الحديثة', desc: 'برمجة وإطلاق لعبة تلبيس وأزياء بنات استايل أمريكي 2026 بتجربة فورية ممتعة، وتدشين مقالات نوعية حصرية في الموضة والأناقة.' },
   ];
 
   const leadership = [
@@ -68,8 +68,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
       {/* Genuine Stats Counter */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-rose-500">36+</div>
-          <div className="text-xs font-bold text-slate-500 mt-1">مقال ودراسة تحريرية أصلية</div>
+          <div className="text-3xl sm:text-4xl font-black text-rose-500">حصرية</div>
+          <div className="text-xs font-bold text-slate-500 mt-1">مقالات وأدلة تحريرية موثوقة</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">

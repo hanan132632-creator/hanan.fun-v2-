@@ -76,7 +76,7 @@ export const AdSenseStandardsPage: React.FC<AdSenseStandardsPageProps> = ({ curr
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">3. قنوات التواصل والدعم الفني</h2>
           <p>
             إذا كان لديك أي استفسار أو ملاحظة حول المحتوى وجودة التصفح، يُرجى التواصل معنا عبر:
-            <span className="font-bold text-blue-600 dark:text-blue-400 mx-1">support@gisnetwork.global</span>
+            <span className="font-bold text-pink-600 dark:text-pink-400 mx-1">support@hanan.fun</span>
             وسيقوم فريق التحرير والدعم الفني بمراجعة طلبك والرد خلال أقل من 24 ساعة.
           </p>
         </section>

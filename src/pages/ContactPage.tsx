@@ -46,8 +46,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
       a: 'نعم، تمتلك شبكتنا عقد سحابية رئيسية (Edge Nodes) في القاهرة والإسكندرية مع ربط مباشر بمركز تبادل الإنترنت المصري (EG-IX) وكافة مزودي الإنترنت (WE، فودافون، أورنج، اتصالات)، لتوفير زمن استجابة (Ping) فائق السرعة يبدأ من 12ms لجميع المحافظات الـ 27 من الإسكندرية إلى أسوان وسيناء.'
     },
     {
-      q: 'كم يستغرق تجهيز وتفعيل خطط السيرفرات السحابية (Cloud VPS)؟',
-      a: 'التفعيل فوري ومؤتمت بنسبة 100%. بمجرد اكتمال عملية الدفع، يتم تزويدك ببيانات الدخول ولوحة التحكم في أقل من 60 ثانية عبر بريدك الإلكتروني.'
+      q: 'كم يستغرق الرد على استفسارات الزوار والدعم الفني للاستوديو؟',
+      a: 'الدعم الفني متاح للجميع، ويتم الرد على كافة الاستفسارات عبر البريد الإلكتروني support@hanan.fun خلال ساعات وجيزة.'
     },
     {
       q: 'هل توفر منصتكم الدعم الفني لحل مشاكل Google AdSense وتحسين سرعة الموقع؟',
@@ -455,10 +455,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                 </div>
                 <div>
                   <span className="text-slate-400 block text-xs">البريد الإلكتروني الرسمي:</span>
-                  <a href="mailto:support@gisnetwork.global" className="font-bold text-slate-900 dark:text-white hover:text-blue-600">
-                    support@gisnetwork.global
+                  <a href="mailto:support@hanan.fun" className="font-bold text-slate-900 dark:text-white hover:text-pink-600">
+                    support@hanan.fun
                   </a>
-                  <div className="text-[11px] text-slate-500">مكتب مصر وشمال إفريقيا: egypt-desk@gisnetwork.global</div>
+                  <div className="text-[11px] text-slate-500">الدعم الفني والتحريري متاح على مدار الساعة</div>
                 </div>
               </div>
 
@@ -468,10 +468,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                 </div>
                 <div>
                   <span className="text-slate-400 block text-xs">الهاتف والدعم المباشر:</span>
-                  <a href="tel:+20233456789" className="font-bold text-slate-900 dark:text-white hover:text-blue-600">
+                  <a href="tel:+20233456789" className="font-bold text-slate-900 dark:text-white hover:text-pink-600">
                     +20 (2) 3345-6789 (Cairo & Egypt Desk 🇪🇬)
                   </a>
-                  <div className="text-[11px] text-slate-500">+1 (800) 555-0199 (USA & Global HQ)</div>
+                  <div className="text-[11px] text-slate-500">+1 (800) 555-0199 (Global Desk)</div>
                 </div>
               </div>
 
@@ -480,12 +480,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-xs">مركز العمليات الإقليمي (مصر):</span>
+                  <span className="text-slate-400 block text-xs">الموقع الإقليمي (مصر):</span>
                   <span className="font-bold text-slate-900 dark:text-white block">
-                    القرية الذكية (Smart Village) - الجيزة / القاهرة 🇪🇬
+                    القاهرة، جمهورية مصر العربية 🇪🇬
                   </span>
                   <span className="text-slate-500 text-xs">
-                    مبنى الابتكار الرقمي، طريق مصر الإسكندرية الصحراوي
+                    استوديو حنان الرقمي - منصة إلكترونية رقمية بالكامل
                   </span>
                 </div>
               </div>
@@ -495,22 +495,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-xs">ساعات العمليات:</span>
+                  <span className="text-slate-400 block text-xs">ساعات العمل:</span>
                   <span className="font-bold text-slate-900 dark:text-white">
-                    24/7/365 (مركز مراقبة الشبكة NOC يعمل باستمرار)
+                    24/7 (فريق استوديو حنان جاهز لمساعدتكم والتواصل معكم دائماً)
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-lg space-y-3">
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg space-y-3">
             <h3 className="font-bold text-base flex items-center gap-2">
               <Zap className="w-5 h-5 text-amber-300" />
-              <span>فاحص سرعة السيرفرات في محافظتك</span>
+              <span>استوديو حنان للألعاب والمحتوى التفاعلي</span>
             </h3>
-            <p className="text-xs text-blue-100 leading-relaxed">
-              يمكنك قياس سرعة الاتصال وزمن الاستجابة (Latency / Ping) من شبكتنا إلى أي محافظة مصرية من خلال أداة الفاحص والـ DNS المباشرة.
+            <p className="text-xs text-pink-100 leading-relaxed">
+              يسعدنا دائماً تلقي اقتراحاتكم وأفكاركم لتطوير ألعاب بنات جديدة ومقالات الموضة والأناقة وكافة الأدوات التفاعلية.
             </p>
           </div>
         </div>

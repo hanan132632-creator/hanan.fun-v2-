@@ -1,32 +1,20 @@
 import React, { useState } from 'react';
 import { 
-  Globe, 
-  Zap, 
-  ShieldCheck, 
-  Server, 
+  Sparkles, 
   ArrowRight, 
   CheckCircle2, 
   Star, 
-  Clock, 
-  Cpu, 
-  Sparkles,
+  Video, 
   ChevronRight,
-  TrendingUp,
-  Layout,
-  Compass,
-  Video,
-  Search,
-  Check,
-  PhoneCall,
-  Activity,
-  Layers,
-  Lock,
-  Headphones
+  ShieldCheck,
+  Heart,
+  Palette,
+  Play
 } from 'lucide-react';
-import { Language, Currency, ActivePage, ServiceItem, CartItem } from '../types';
-import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
-import { GLOBAL_SERVICES, BLOG_POSTS, SERVER_NODES, TESTIMONIALS } from '../data/mockData';
-import { AdsterraPlacement } from '../components/AdsterraPlacement';
+import { Language, Currency, ActivePage } from '../types';
+import { TRANSLATIONS } from '../locales/translations';
+import { BLOG_POSTS, TESTIMONIALS } from '../data/mockData';
+import { AdSensePlacement } from '../components/AdSensePlacement';
 
 const SpeedTestWidget = React.lazy(() => import('../components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 const InteractiveGamesSection = React.lazy(() => import('../components/InteractiveGamesSection').then(m => ({ default: m.InteractiveGamesSection })));
@@ -34,154 +22,105 @@ const PasswordGeneratorWidget = React.lazy(() => import('../components/PasswordG
 
 interface HomePageProps {
   currentLang: Language;
-  currentCurrency: Currency;
+  currentCurrency?: Currency;
   onNavigate: (page: ActivePage) => void;
-  onAddToCart: (service: ServiceItem) => void;
+  onAddToCart?: (service: any) => void;
   onSelectBlog: (slug: string) => void;
-  onOpenAiAssistant: () => void;
+  onOpenAiAssistant?: () => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   currentLang,
-  currentCurrency,
   onNavigate,
-  onAddToCart,
   onSelectBlog,
-  onOpenAiAssistant,
 }) => {
   const t = TRANSLATIONS[currentLang];
-  const currentCurrObj = CURRENCIES.find(c => c.code === currentCurrency) || CURRENCIES[0];
-
-  const [activeServiceTab, setActiveServiceTab] = useState<string>('all');
   const [activeToolTab, setActiveToolTab] = useState<'video' | 'password' | 'speed' | 'wordle'>('video');
 
-  // Domain Search state
-  const [domainQuery, setDomainQuery] = useState('');
-  const [domainExtension, setDomainExtension] = useState('.com');
-  const [domainChecked, setDomainChecked] = useState(false);
-  const [domainAvailable, setDomainAvailable] = useState(true);
-
-  const formatPrice = (usd: number) => {
-    const converted = usd * currentCurrObj.rate;
-    return `${currentCurrObj.symbol} ${converted.toFixed(2)}`;
-  };
-
-  const handleDomainCheck = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!domainQuery.trim()) return;
-    const cleanDomain = domainQuery.trim().toLowerCase().replace(/^(https?:\/\/)?(www\.)?/, '').split('.')[0];
-    setDomainChecked(true);
-    // Deterministic simulation
-    setDomainAvailable(cleanDomain.length > 3 && !['google', 'apple', 'meta', 'amazon', 'egypt', 'cairo'].includes(cleanDomain));
-  };
-
-  const domainPricing = [
-    { tld: '.com', priceUSD: 12.99, tag: 'الأكثر شعبية' },
-    { tld: '.net', priceUSD: 14.99, tag: 'للشبكات والتقنية' },
-    { tld: '.org', priceUSD: 13.99, tag: 'للمنظمات والمنصات' },
-    { tld: '.ai', priceUSD: 69.99, tag: 'للذكاء الاصطناعي' },
-    { tld: '.sa', priceUSD: 39.99, tag: 'المملكة العربية السعودية' },
-    { tld: '.eg', priceUSD: 24.99, tag: 'جمهورية مصر العربية' },
-  ];
-
-  const serviceCategories = [
-    { id: 'all', label: currentLang === 'ar' ? 'جميع الخدمات' : 'All Services' },
-    { id: 'web-design', label: currentLang === 'ar' ? 'تصميم المواقع والمتاجر' : 'Web & Store Design' },
-    { id: 'cloud', label: currentLang === 'ar' ? 'الاستضافة والسيرفرات السحابية' : 'Cloud Hosting & VPS' },
-    { id: 'domains', label: currentLang === 'ar' ? 'حجز وإدارة النطاقات' : 'Domain Management' },
-    { id: 'marketing', label: currentLang === 'ar' ? 'التسويق الرقمي والسيو' : 'SEO & Digital Marketing' },
-    { id: 'security', label: currentLang === 'ar' ? 'الأمن السيبراني والدعم' : 'Security & Support' },
-  ];
-
-  const filteredServices = activeServiceTab === 'all'
-    ? GLOBAL_SERVICES
-    : GLOBAL_SERVICES.filter(s => s.category === activeServiceTab);
-
   return (
-    <div className="space-y-16 sm:space-y-24 pb-16 overflow-x-hidden">
-      {/* 1. Hero Section */}
-      <section className="relative overflow-hidden pt-8 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-blue-50/60 via-slate-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div className="space-y-8 sm:space-y-12 pb-16 overflow-x-hidden bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      
+      {/* 1. Hero Section - Sleek & zero empty bottom padding */}
+      <section className="relative overflow-hidden pt-6 pb-8 md:pt-12 md:pb-10 bg-gradient-to-b from-pink-50/50 via-white to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-pink-100/60 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Hero Copy */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Hero Text */}
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-start">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100/80 dark:bg-pink-950/80 border border-pink-200 dark:border-pink-800 text-pink-700 dark:text-pink-300 text-xs font-bold shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                <span>{t.hero_badge}</span>
+                <span>استوديو حنان الرقمي 2026</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.2] font-sans" style={{ textWrap: 'balance' }}>
-                {t.hero_title_1}{' '}
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  {t.hero_title_accent}
+                استوديو حنان الرقمي{' '}
+                <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 bg-clip-text text-transparent">
+                  ألعاب بنات ستايل أمريكي 2026
                 </span>{' '}
                 <br className="hidden sm:block" />
-                {t.hero_title_2}
+                وأدوات تفاعلية ومقالات
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                {currentLang === 'ar' 
-                  ? 'مساحة رقمية عربية تفاعلية صُممت بعناية وشغف لتجمع بين ألعاب تلبيس وتنسيق الأزياء العصرية، أدوات الويب الرقمية الذكية، والمقالات المعرفية الغنية التي تلبي تطلعات القراء وعشاق الإبداع.'
-                  : 'An authentic digital hub crafted with passion, featuring interactive fashion styling games, smart web utilities, and rich human-authored guides.'
-                }
+                منصة ترفيهية ومعرفية عربية متكاملة تجمع بين لعبة تلبيس وتنسيق أزياء بنات ستايل أمريكي الحديثة، استوديو تحويل الصوت إلى فيديو، حزمة أدوات الويب الذكية، ومكتبة غنية بمقالات الموضة والأزياء الحصرية.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                 <button
                   onClick={() => onNavigate('american-style-game')}
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-bold text-sm shadow-md transition-all hover:scale-[1.02] flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 hover:from-pink-600 hover:to-rose-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-pink-500/25 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer"
                 >
-                  <span className="text-base">👑</span>
-                  <span>{currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'Play Girls Fashion Game'}</span>
+                  <span className="text-xl">👑</span>
+                  <span>العب لعبة بنات ستايل أمريكي 2026</span>
                 </button>
 
                 <button
                   onClick={() => onNavigate('audio-to-video')}
-                  className="px-5 py-3.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 text-indigo-700 dark:text-indigo-300 font-bold text-sm border border-indigo-200 dark:border-indigo-800 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 text-indigo-700 dark:text-indigo-300 font-bold text-sm border border-indigo-200 dark:border-indigo-800 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Video className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                  <span>{currentLang === 'ar' ? 'استوديو الفيديو الرقمي' : 'Video Studio'}</span>
+                  <span>استوديو الفيديو الرقمي</span>
                 </button>
 
                 <button
                   onClick={() => onNavigate('blog')}
-                  className="px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>{currentLang === 'ar' ? 'تصفح المقالات' : 'Read Articles'}</span>
+                  <span>تصفح المقالات</span>
                   <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </button>
               </div>
 
-              {/* Genuine Guarantees */}
-              <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800/80">
-                <div className="flex items-center gap-2">
+              {/* Trust Badges */}
+              <div className="pt-3 grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800/80">
+                <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>{currentLang === 'ar' ? 'تشغيل فوري في المتصفح' : 'Instant In-Browser Play'}</span>
+                  <span>لعب فوري مجاناً 100%</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>{currentLang === 'ar' ? 'محتوى آمن وممتع للعائلة' : 'Safe Family Content'}</span>
+                  <span>متوافق تماماً مع الجوال</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>{currentLang === 'ar' ? 'أدوات مجانية بالكامل' : '100% Free Tools'}</span>
+                  <span>بيئة آمنة ومعتمدة للعائلة</span>
                 </div>
               </div>
             </div>
 
-            {/* Hero Interactive Showcase Card */}
+            {/* Hero Black Showcase Box */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 p-6 text-white shadow-2xl border border-slate-800">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <Sparkles className="w-4 h-4 text-pink-400" />
                     <span className="font-bold text-xs tracking-wider uppercase text-slate-200">
-                      {currentLang === 'ar' ? 'إبداعات الاستوديو التفاعلية' : 'Studio Highlights'}
+                      إبداعات استوديو حنان
                     </span>
                   </div>
-                  <span className="text-[11px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2.5 py-0.5 rounded-full font-bold">
-                    {currentLang === 'ar' ? 'مساحة نشطة' : 'Live Hub'}
+                  <span className="text-[11px] bg-pink-500/20 text-pink-300 border border-pink-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                    مساحة نشطة ومباشرة
                   </span>
                 </div>
 
@@ -189,27 +128,29 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="py-4 space-y-3">
                   <button
                     onClick={() => onNavigate('american-style-game')}
-                    className="w-full p-3 rounded-2xl bg-gradient-to-r from-rose-950/40 to-slate-800/70 border border-rose-900/40 hover:border-rose-500/50 flex items-center justify-between text-start transition-all group"
+                    className="w-full p-3.5 rounded-2xl bg-gradient-to-r from-pink-950/60 to-rose-900/40 border border-pink-800/50 hover:border-pink-500/80 flex items-center justify-between text-start transition-all group cursor-pointer shadow-inner"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                      <span className="w-10 h-10 rounded-xl bg-pink-500/30 text-pink-200 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                         👑
                       </span>
                       <div>
-                        <div className="font-bold text-xs text-white group-hover:text-rose-300 transition-colors">
-                          {currentLang === 'ar' ? 'العاب بنات استايل أمريكي 2026' : 'American Girls Style Game'}
+                        <div className="font-bold text-xs text-white group-hover:text-pink-300 transition-colors">
+                          العاب بنات استايل أمريكي 2026
                         </div>
                         <div className="text-[11px] text-slate-400">
-                          {currentLang === 'ar' ? 'أزياء، مكياج، وتنسيقات ملابس عصرية' : 'Fashion, styling & streetwear outfits'}
+                          أزياء، مكياج، وتنسيقات ملابس عصرية
                         </div>
                       </div>
                     </div>
-                    <span className="text-xs text-rose-400 font-bold shrink-0">العب الآن ←</span>
+                    <span className="text-xs text-pink-400 font-bold shrink-0 flex items-center gap-1">
+                      العب الآن <Play className="w-3 h-3 fill-pink-400" />
+                    </span>
                   </button>
 
                   <button
                     onClick={() => onNavigate('audio-to-video')}
-                    className="w-full p-3 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-indigo-500/50 flex items-center justify-between text-start transition-all group"
+                    className="w-full p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-indigo-500/50 flex items-center justify-between text-start transition-all group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
                       <span className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
@@ -217,10 +158,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </span>
                       <div>
                         <div className="font-bold text-xs text-white group-hover:text-indigo-300 transition-colors">
-                          {currentLang === 'ar' ? 'استوديو الفيديو والأمواج الصوتية' : 'Audio Waveforms Video Studio'}
+                          استوديو الفيديو والأمواج الصوتية
                         </div>
                         <div className="text-[11px] text-slate-400">
-                          {currentLang === 'ar' ? 'توليد فيديو رقمي بأمواج بصرية فوراً' : 'Convert audio to animated video for reels'}
+                          توليد فيديو رقمي بأمواج بصرية فوراً
                         </div>
                       </div>
                     </div>
@@ -229,298 +170,125 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <button
                     onClick={() => onNavigate('blog')}
-                    className="w-full p-3 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-blue-500/50 flex items-center justify-between text-start transition-all group"
+                    className="w-full p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 hover:border-pink-500/50 flex items-center justify-between text-start transition-all group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                      <span className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-300 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                         📝
                       </span>
                       <div>
-                        <div className="font-bold text-xs text-white group-hover:text-blue-300 transition-colors">
-                          {currentLang === 'ar' ? 'المكتبة التحريرية الشاملة' : 'Rich Editorial Articles'}
+                        <div className="font-bold text-xs text-white group-hover:text-pink-300 transition-colors">
+                          المكتبة التحريرية الشاملة
                         </div>
                         <div className="text-[11px] text-slate-400">
-                          {currentLang === 'ar' ? '36 مقالاً حصرياً في الموضة والتقنية والويب' : '36 curated in-depth guides'}
+                          مقالات حصرية في الموضة والأناقة وستايل البنات
                         </div>
                       </div>
                     </div>
-                    <span className="text-xs text-blue-400 font-bold shrink-0">اقرأ ←</span>
+                    <span className="text-xs text-pink-400 font-bold shrink-0">اقرأ ←</span>
                   </button>
                 </div>
 
                 {/* Metrics */}
                 <div className="pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
                   <div className="p-2 rounded-xl bg-slate-800/40">
-                    <div className="text-base font-black text-rose-400">2026</div>
+                    <div className="text-base font-black text-pink-400">2026</div>
                     <div className="text-[10px] text-slate-400">أحدث صيحات الموضة</div>
                   </div>
                   <div className="p-2 rounded-xl bg-slate-800/40">
-                    <div className="text-base font-black text-indigo-400">36+</div>
-                    <div className="text-[10px] text-slate-400">مقال حصري</div>
+                    <div className="text-base font-black text-indigo-400">حصرية</div>
+                    <div className="text-[10px] text-slate-400">مقالات الموضة</div>
                   </div>
                   <div className="p-2 rounded-xl bg-slate-800/40">
                     <div className="text-base font-black text-emerald-400">100%</div>
-                    <div className="text-[10px] text-slate-400">مجاني ومتاح دائماً</div>
+                    <div className="text-[10px] text-slate-400">مجاني دائماً</div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* 2. Adsterra Advertising Placement */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
-      </div>
-
-      {/* 3. The 5 Core Pillars: Comprehensive Services Showcase */}
+      {/* 2. Direct Spotlight: American Style Girls Game 2026 (Connects directly under hero, NO GAP) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
-            الحلول والخدمات الشاملة المتكاملة
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white font-sans">
-            ركائز منظومة خدمات الإنترنت العالمية
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-            نوفر لشركتك وموقعك الإلكتروني بنية تقنية وتسويقية متكاملة تضمن لك الأداء الأسرع والأمان المطلق.
-          </p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="flex items-center justify-start sm:justify-center gap-1.5 p-1.5 bg-slate-100 dark:bg-slate-800/80 rounded-2xl overflow-x-auto max-w-4xl mx-auto mb-8">
-          {serviceCategories.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveServiceTab(cat.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activeServiceTab === cat.id
-                  ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredServices.map(service => (
-            <div
-              key={service.id}
-              className={`rounded-2xl p-6 bg-white dark:bg-slate-900 border transition-all hover:shadow-lg flex flex-col justify-between relative ${
-                service.popular 
-                  ? 'border-blue-500/80 dark:border-blue-500/80 ring-2 ring-blue-500/20' 
-                  : 'border-slate-200 dark:border-slate-800'
-              }`}
-            >
-              {service.badge && (
-                <span className="absolute -top-3 right-6 rtl:right-auto rtl:left-6 bg-blue-600 text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-sm">
-                  {service.badge}
+        <div className="rounded-3xl bg-gradient-to-br from-pink-600 via-rose-600 to-amber-500 p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-4 max-w-2xl text-center lg:text-start">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span>حصرياً على استوديو حنان 2026</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-black leading-tight">
+                ألعاب تلبيس وتنسيق بنات ستايل أمريكي 2026
+              </h2>
+              <p className="text-xs sm:text-sm text-pink-100 leading-relaxed font-normal">
+                عالم متكامل من أحدث صيحات الموضة الأمريكية العصرية: ستايل الستريت وير النيويوركي، أزياء حفلات التخرج والبروم، الإطلالات الرياضية الأنيقة (Athleisure)، ومكياج هوليوود المتألق. العبي مباشرة في متصفحك وشاركي تصاميمك المميزة!
+              </p>
+              
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs">
+                <span className="flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-lg">
+                  <Palette className="w-3.5 h-3.5 text-amber-300" />
+                  <span>تنسيقات ملابس لا حصر لها</span>
                 </span>
-              )}
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                    {service.category === 'web-design' && <Layout className="w-6 h-6" />}
-                    {service.category === 'marketing' && <TrendingUp className="w-6 h-6" />}
-                    {service.category === 'cloud' && <Server className="w-6 h-6" />}
-                    {service.category === 'domains' && <Compass className="w-6 h-6" />}
-                    {service.category === 'security' && <ShieldCheck className="w-6 h-6" />}
-                    {service.category === 'ai' && <Sparkles className="w-6 h-6" />}
-                    {service.category === 'enterprise' && <Server className="w-6 h-6" />}
-                  </div>
-                  <div className="flex items-center gap-1 text-xs font-bold text-amber-500">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <span>{service.rating} ({service.reviewsCount})</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white leading-snug">
-                    {service.name[currentLang] || service.name.en}
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
-                    {service.shortDesc[currentLang] || service.shortDesc.en}
-                  </p>
-                </div>
-
-                {/* Specs Box */}
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
-                  {service.specs.slice(0, 4).map((spec, i) => (
-                    <div key={i} className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 text-xs">
-                      <span className="text-slate-400 block text-[10px]">
-                        {spec.label[currentLang] || spec.label.en}
-                      </span>
-                      <span className="font-bold text-slate-800 dark:text-slate-200">
-                        {spec.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Key Features */}
-                <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 pt-2">
-                  {(service.features[currentLang] || service.features.en).slice(0, 3).map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      <span className="truncate">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Price & Action */}
-              <div className="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
-                <div>
-                  <span className="text-[11px] text-slate-400 block">السعر:</span>
-                  <div className="text-lg font-black text-slate-900 dark:text-white">
-                    {formatPrice(service.basePriceUSD)}
-                    <span className="text-xs font-normal text-slate-400">
-                      /{service.period === 'month' ? t.billing_monthly : (service.period === 'year' ? 'سنة' : 'مرة واحدة')}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => onAddToCart(service)}
-                    className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition-all cursor-pointer whitespace-nowrap"
-                  >
-                    <span>{t.btn_add_to_cart}</span>
-                  </button>
-                </div>
+                <span className="flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-lg">
+                  <Heart className="w-3.5 h-3.5 text-pink-300" />
+                  <span>ألوان وقصات شعر عصرية</span>
+                </span>
+                <span className="flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-lg">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                  <span>بدون تنزيل أو إعلانات مزعجة</span>
+                </span>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* 4. Interactive Domain Name Search Bar */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 p-6 sm:p-10 text-white border border-slate-800 shadow-xl space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/30">
-              <Compass className="w-3.5 h-3.5" />
-              <span>فحص وتفعيل النطاقات العالمية فوري ومباشر 🌐</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-black">
-              ابحث عن اسم نطاقك التجاري وسجله في ثوانٍ
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300">
-              حماية خصوصية WHOIS مجانية مدى الحياة، إدارة سجلات DNS فائقة السرعة، وربط تلقائي بالاستضافة السحابية.
-            </p>
-          </div>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full sm:w-auto">
+              <button
+                onClick={() => onNavigate('american-style-game')}
+                className="px-8 py-4 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-sm sm:text-base shadow-xl transition-all hover:scale-105 cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                <span className="text-xl">👑</span>
+                <span>ابدأ اللعب الآن مجاناً</span>
+              </button>
 
-          {/* Search Form */}
-          <form onSubmit={handleDomainCheck} className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-2">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                value={domainQuery}
-                onChange={e => {
-                  setDomainQuery(e.target.value);
-                  setDomainChecked(false);
+              <button
+                onClick={() => {
+                  onSelectBlog('american-style-girls-game-2026-fashion-guide');
+                  onNavigate('blog');
                 }}
-                placeholder="اكتب اسم الموقع المطلوب (مثلاً: mycompany)"
-                className="w-full px-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 text-sm font-medium"
-              />
+                className="px-6 py-3 rounded-2xl bg-black/20 hover:bg-black/30 text-white font-bold text-xs sm:text-sm border border-white/30 transition-all flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+              >
+                <span>قراءة دليل تنسيق الأزياء</span>
+                <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+              </button>
             </div>
-            <select
-              value={domainExtension}
-              onChange={e => {
-                setDomainExtension(e.target.value);
-                setDomainChecked(false);
-              }}
-              className="px-3 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-blue-500"
-            >
-              <option value=".com">.com (شائع)</option>
-              <option value=".net">.net</option>
-              <option value=".org">.org</option>
-              <option value=".ai">.ai (ذكاء اصطناعي)</option>
-              <option value=".sa">.sa (السعودية)</option>
-              <option value=".eg">.eg (مصر)</option>
-            </select>
-            <button
-              type="submit"
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
-            >
-              <Search className="w-4 h-4" />
-              <span>فحص التوفر</span>
-            </button>
-          </form>
-
-          {/* Domain Check Result */}
-          {domainChecked && domainQuery.trim() && (
-            <div className="max-w-2xl mx-auto p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3 animate-in fade-in">
-              <div className="flex items-center gap-2">
-                {domainAvailable ? (
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                ) : (
-                  <span className="text-amber-400 font-bold">⚠️</span>
-                )}
-                <div>
-                  <span className="font-mono font-bold text-white text-sm">
-                    {domainQuery.trim().toLowerCase().split('.')[0]}{domainExtension}
-                  </span>
-                  <span className="text-xs text-slate-300 block">
-                    {domainAvailable ? 'متاح للتسجيل الفوري الآن!' : 'هذا النطاق محجوز مسبقاً، يمكنك اختيار لاحقة أخرى'}
-                  </span>
-                </div>
-              </div>
-
-              {domainAvailable && (
-                <button
-                  onClick={() => {
-                    const domainService = GLOBAL_SERVICES.find(s => s.id === 'premium-dns-domain-hub');
-                    if (domainService) onAddToCart(domainService);
-                  }}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer"
-                >
-                  حجز النطاق فوراً
-                </button>
-              )}
-            </div>
-          )}
-
-          {/* TLDs Pricing Pills */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 pt-2 border-t border-slate-800">
-            {domainPricing.map(item => (
-              <div key={item.tld} className="p-2.5 rounded-xl bg-slate-800/50 border border-slate-700/60 text-center">
-                <div className="font-mono font-black text-sm text-blue-400">{item.tld}</div>
-                <div className="text-xs font-bold text-white mt-0.5">{formatPrice(item.priceUSD)}/سنة</div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate">{item.tag}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Dedicated Interactive Tools Hub (Tabbed & Seamless) */}
+      {/* 3. Dedicated Interactive Tools Hub */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
-          <div className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-1.5">
+          <div className="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest">
             حزمة الأدوات التفاعلية الحصرية
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
             مركز الأدوات السحابية والتطبيقات المجانية
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            أدوات تقنية وتفاعلية تعمل مباشرة وسحابياً في متصفحك لخدمة أصحاب المواقع وصناع المحتوى.
+            أدوات تفاعلية وتقنية تعمل مباشرة وسحابياً في متصفحك لخدمة المتابعين وصناع المحتوى.
           </p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
           <button
             onClick={() => setActiveToolTab('video')}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
               activeToolTab === 'video'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-blue-500'
+                ? 'bg-pink-600 text-white shadow-md'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-pink-500'
             }`}
           >
             <span>🎬</span>
@@ -531,8 +299,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => setActiveToolTab('password')}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
               activeToolTab === 'password'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-blue-500'
+                ? 'bg-pink-600 text-white shadow-md'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-pink-500'
             }`}
           >
             <span>🔐</span>
@@ -543,8 +311,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => setActiveToolTab('speed')}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
               activeToolTab === 'speed'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-blue-500'
+                ? 'bg-pink-600 text-white shadow-md'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-pink-500'
             }`}
           >
             <span>⚡</span>
@@ -555,8 +323,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => setActiveToolTab('wordle')}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all cursor-pointer ${
               activeToolTab === 'wordle'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-blue-500'
+                ? 'bg-pink-600 text-white shadow-md'
+                : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-pink-500'
             }`}
           >
             <span>🟩</span>
@@ -567,16 +335,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         {/* Tab Content */}
         <div>
           {activeToolTab === 'video' && (
-            <div className="rounded-3xl bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="rounded-3xl bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="space-y-4 max-w-2xl text-center lg:text-start">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-black tracking-wider uppercase">
                   <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                  <span>أداة مجانية 100% بدون اشتراك</span>
+                  <span>أداة مجانية 100% بدون تسجيل</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black leading-snug">
                   استوديو تحويل الصوتيات والتسجيلات إلى فيديو رقمي احترافي 🎬
                 </h3>
-                <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                <p className="text-indigo-100 text-xs sm:text-sm leading-relaxed">
                   اصنع فيديوهات رقمية لمنصات التواصل (يوتيوب، تيك توك، بودكاست) مع موجات صوتية ملونة متحركة وصور غلاف مخصصة مباشرة من المتصفح بدون أي تعقيد.
                 </p>
               </div>
@@ -592,7 +360,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           )}
 
           {activeToolTab === 'password' && (
-            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+            <React.Suspense fallback={<div className="h-48 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
               <div id="password-generator-tool">
                 <PasswordGeneratorWidget currentLang={currentLang} />
               </div>
@@ -600,13 +368,13 @@ export const HomePage: React.FC<HomePageProps> = ({
           )}
 
           {activeToolTab === 'speed' && (
-            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+            <React.Suspense fallback={<div className="h-48 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
               <SpeedTestWidget currentLang={currentLang} />
             </React.Suspense>
           )}
 
           {activeToolTab === 'wordle' && (
-            <React.Suspense fallback={<div className="h-64 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
+            <React.Suspense fallback={<div className="h-48 animate-pulse bg-slate-100 dark:bg-slate-800 rounded-3xl" />}>
               <div id="arabic-games-hub">
                 <InteractiveGamesSection currentLang={currentLang} />
               </div>
@@ -615,89 +383,28 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 6. Why Choose Us: Human Studio Values */}
-      <section className="bg-slate-100/80 dark:bg-slate-900/60 py-16 border-y border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
-              {t.sec_why_us}
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              {currentLang === 'ar' 
-                ? 'نحرص في منصتنا على تقديم تجربة رقمية إبداعية، آمنة، وممتعة لكل زائر'
-                : 'Committed to delivering an authentic, creative, and safe digital experience for everyone.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl">
-                👑
-              </div>
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {currentLang === 'ar' ? 'ألعاب تفاعلية مباشرة' : 'Instant In-Browser Games'}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {currentLang === 'ar' ? 'ألعاب تلبيس بنات استايل أمريكي وتحديات ذكاء تعمل فوراً في المتصفح بكل سلاسة بدون الحاجة لتثبيت برامج خارجية.' : 'Play dress-up fashion games and word puzzles instantly in your browser.'}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
-                🎬
-              </div>
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {currentLang === 'ar' ? 'أدوات ويب رقمية ذكية' : 'Smart Web Utilities'}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {currentLang === 'ar' ? 'استوديو لتحويل المقاطع الصوتية إلى فيديوهات بأمواج مرئية، فاحص سرعة الشبكة، ومولد كلمات المرور الآمنة.' : 'Free audio-to-video studio, speed test and secure password generator.'}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
-                🛡️
-              </div>
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {currentLang === 'ar' ? 'محتوى آمن وممتع للعائلة' : 'Safe Family Content'}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {currentLang === 'ar' ? 'بيئة تصفح نظيفة ومناسبة لكافة أفراد العائلة، مع التزام تام بالخصوصية وحماية بيانات الزوار.' : 'Clean browsing environment suitable for all ages with strict privacy protections.'}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
-                ✍️
-              </div>
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                {currentLang === 'ar' ? 'مقالات موثوقة ومفيدة' : 'Curated Human Guides'}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                {currentLang === 'ar' ? 'دراسات ومقالات كتبها فريقنا المتخصص لنقل الخبرات العملية في الموضة، التقنية، والتجارة الإلكترونية.' : 'In-depth articles authored with genuine practical experience and clarity.'}
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* 4. Google AdSense Compliant Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AdSensePlacement currentLang={currentLang} format="auto" />
       </section>
 
-      {/* 7. Curated Blog & Editorial Articles */}
+      {/* 5. Curated Blog & Editorial Articles */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-1">
-              {currentLang === 'ar' ? 'المعرفة والمحتوى الحصري' : 'Knowledge & Insights'}
+            <div className="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-1">
+              المعرفة والمحتوى الحصري
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
-              {t.sec_latest_blog}
+              أحدث المقالات والأدلة التحريرية
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-              {currentLang === 'ar' ? 'مقالات ودراسات حصرية أعدها فريقنا بشغف لتزويدكم بأفضل الأفكار والتجارب العملية.' : 'In-depth articles prepared by our team sharing genuine experiences and practical knowledge.'}
+              مقالات ودراسات حصرية أعدها فريقنا بشغف لتزويدكم بأفضل الأفكار في عالم الموضة وتنسيق الأزياء والويب الرقمي.
             </p>
           </div>
           <button
             onClick={() => onNavigate('blog')}
-            className="self-start md:self-auto px-4 py-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
+            className="self-start md:self-auto px-4 py-2 text-xs font-bold text-pink-600 dark:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-950/50 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
           >
             <span>{t.btn_read_articles}</span>
             <ChevronRight className="w-4 h-4 rtl:rotate-180" />
@@ -712,7 +419,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 onSelectBlog(post.slug);
                 onNavigate('blog');
               }}
-              className="group cursor-pointer rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+              className="group cursor-pointer rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -732,10 +439,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
 
                 <div className="p-5 space-y-2">
-                  <div className="text-[11px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                  <div className="text-[11px] font-bold text-pink-600 dark:text-pink-400 uppercase tracking-wider">
                     {post.category}
                   </div>
-                  <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors line-clamp-2">
                     {post.title[currentLang] || post.title.en}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
@@ -767,14 +474,78 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 8. Testimonials */}
+      {/* 6. Why Choose Hanan Studio */}
+      <section className="bg-slate-50/80 dark:bg-slate-900/60 py-12 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
+              لماذا استوديو حنان الرقمي؟
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              نحرص في منصتنا على تقديم تجربة رقمية إبداعية، آمنة، وممتعة لكافة الزوار والمبدعين.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 flex items-center justify-center text-xl">
+                👑
+              </div>
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                ألعاب تفاعلية فورية
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                ألعاب تلبيس بنات ستايل أمريكي 2026 وتحديات ذكاء تعمل فوراً في المتصفح بكل سلاسة بدون الحاجة لتثبيت أي برامج خارجية.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                🎬
+              </div>
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                استوديو فيديو ذكي
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                استوديو لتحويل المقاطع الصوتية إلى فيديوهات بأمواج مرئية، فاحص سرعة الشبكة، ومولد كلمات المرور الآمنة.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                🛡️
+              </div>
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                أمان وخصوصية للعائلة
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                بيئة تصفح نظيفة ومناسبة لكافة أفراد العائلة، مع التزام تام بالخصوصية وامتثال كامل لمعايير GDPR و Google AdSense.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                ✍️
+              </div>
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                مقالات موثوقة ومفيدة
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                مكتبة مقالات ثرية أعدها فريقنا المتخصص لنقل أحدث صيحات الموضة والستايل والجمال وألعاب البنات.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Testimonials */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-sans">
-            {t.sec_testimonials}
+            آراء زوار استوديو حنان
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            {currentLang === 'ar' ? 'مشاركات وآراء زوار ومتابعي منصتنا وألعابنا التفاعلية' : 'Community feedback and thoughts from our active visitors'}
+            مشاركات وانطباعات زوار ومتابعي منصتنا وألعابنا التفاعلية
           </p>
         </div>
 
@@ -782,7 +553,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {TESTIMONIALS.map((item, i) => (
             <div
               key={i}
-              className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4"
+              className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center gap-1 text-amber-400">
@@ -798,43 +569,40 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
                 <div className="font-bold text-sm text-slate-900 dark:text-white">{item.name}</div>
                 <div className="text-xs text-slate-500">{item.role[currentLang] || item.role.en}</div>
-                <div className="text-[11px] text-blue-600 dark:text-blue-400 mt-0.5">{item.country}</div>
+                <div className="text-[11px] text-pink-600 dark:text-pink-400 mt-0.5">{item.country}</div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Adsterra Native Recommendations Widget */}
+      {/* 8. Final High-Impact CTA Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdsterraPlacement currentLang={currentLang} format="native" />
-      </section>
-
-      {/* 9. Final High-Impact CTA Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 p-8 sm:p-12 text-white shadow-xl text-center space-y-4">
+        <div className="rounded-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-purple-700 p-8 sm:p-12 text-white shadow-xl text-center space-y-4">
           <h2 className="text-2xl sm:text-4xl font-black">
-            جاهز لإطلاق موقعك وتطوير أعمالك الرقمية؟
+            استمتع بأحدث ألعاب وتطبيقات استوديو حنان الرقمي
           </h2>
-          <p className="text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
-            فريقنا الهندسي مستعد لتصميم موقعك، حجز الدومين، تجهيز الاستضافة السحابية، وتقديم خطة تسويقية شاملة.
+          <p className="text-xs sm:text-sm text-pink-100 max-w-xl mx-auto leading-relaxed">
+            العب لعبة أزياء بنات ستايل أمريكي 2026، أنتج فيديوهات بأمواج صوتية عبر استوديو الفيديو، وتصفح مقالاتنا الحصرية مجاناً.
           </p>
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={() => onNavigate('contact')}
-              className="px-6 py-3.5 rounded-xl bg-white text-blue-900 hover:bg-slate-100 font-bold text-sm shadow-md transition-all cursor-pointer"
+              onClick={() => onNavigate('american-style-game')}
+              className="px-8 py-3.5 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-sm sm:text-base shadow-md transition-all hover:scale-105 cursor-pointer flex items-center gap-2"
             >
-              تواصل مع مهندسنا المختص الآن
+              <span>👑</span>
+              <span>العب الآن مجاناً</span>
             </button>
             <button
-              onClick={() => onNavigate('store')}
-              className="px-6 py-3.5 rounded-xl bg-blue-700/80 hover:bg-blue-700 text-white font-bold text-sm border border-blue-400/40 transition-all cursor-pointer"
+              onClick={() => onNavigate('blog')}
+              className="px-6 py-3.5 rounded-2xl bg-white/20 hover:bg-white/30 text-white font-bold text-sm border border-white/30 transition-all cursor-pointer"
             >
-              استعراض كافة باقات الخدمات
+              تصفح المقالات التحريرية
             </button>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

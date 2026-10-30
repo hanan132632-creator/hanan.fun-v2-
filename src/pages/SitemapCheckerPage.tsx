@@ -207,7 +207,7 @@ Host: https://hanan.fun`;
             <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
             <span>
               {isAr 
-                ? 'تم إرسال أمر تحديث وتفريغ الكاش لجميع عقد Vercel Edge في 240+ مدينة بنجاح! يتم الآن جلب أحدث ملفات robots.txt و sitemap.xml مباشرة.'
+                ? 'تم إرسال أمر تحديث وتفريغ الكاش لجميع عقد Vercel Edge السحابية بنجاح! يتم الآن جلب أحدث ملفات robots.txt و sitemap.xml مباشرة.'
                 : 'Cache purge command successfully broadcasted to all Vercel Edge nodes. Latest sitemap and robots.txt are now live.'}
             </span>
           </div>

@@ -38,8 +38,8 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
       id: 'welcome',
       sender: 'ai',
       text: currentLang === 'ar' 
-        ? 'مرحباً بك! أنا مستشارك الذكي في منصة خدمات الإنترنت العالمية. كيف يمكنني مساعدتك اليوم بخصوص الاستضافة السحابية، تحسين سرعة موقعك، معايير Google AdSense، أو الأمان السيبراني؟'
-        : 'Welcome! I am your AI Technical Advisor at Global Internet Services. How can I assist you with cloud hosting, speed optimization, Google AdSense compliance, or cybersecurity today?',
+        ? 'مرحباً بك! أنا مستشارك الذكي في استوديو حنان الرقمي. كيف يمكنني مساعدتك اليوم بخصوص ألعاب البنات ستايل أمريكي، استوديو الفيديو الرقمي، أو مقالاتنا المعرفية؟'
+        : 'Welcome! I am your assistant at Hanan Studio. How can I help you today with American style games, our digital video studio, or editorial articles?',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -49,15 +49,15 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
   if (!isOpen) return null;
 
   const quickPrompts = currentLang === 'ar' ? [
-    'ما هي أفضل استضافة لتحقيق أعلى أرباح في Google AdSense؟',
-    'كيف تساهم شبكة Anycast CDN في تحسين سرعة الموقع؟',
-    'ما الفرق بين Cloud VPS والسيرفرات المشتركة؟',
-    'كيف أحمي موقعي من هجمات DDoS المعقدة؟',
+    'كيف أنسق إطلالة عصرية في لعبة ألعاب بنات ستايل أمريكي 2026؟',
+    'كيف يعمل استوديو تحويل الصوت إلى فيديو رقمي؟',
+    'ما هي معايير Google AdSense وتجربة المستخدم المعتمدة؟',
+    'كيف أحفظ بطاقة الأزياء بدقة عالية على هاتفي؟',
   ] : [
-    'What hosting is best for Google AdSense monetization?',
-    'How does Anycast CDN eliminate latency globally?',
-    'What is the difference between Cloud VPS and shared hosting?',
-    'How to protect my web application from DDoS attacks?',
+    'How do I style modern outfits in American Style Girls Game 2026?',
+    'How does the audio-to-video studio generator work?',
+    'What are the Google AdSense and user privacy standards?',
+    'How do I export high-res fashion cards to my phone?',
   ];
 
   const handleSendMessage = async (textToSend?: string) => {

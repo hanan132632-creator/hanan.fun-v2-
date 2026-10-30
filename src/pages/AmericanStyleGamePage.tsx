@@ -251,7 +251,7 @@ export const AmericanStyleGamePage: React.FC<AmericanStyleGamePageProps> = ({
     ctx.fillText(isAr ? '✨ إطلالة فاشون استايل أمريكي 2026' : '✨ American Style Fashion Outfit 2026', 540, 125);
     ctx.font = '24px system-ui, sans-serif';
     ctx.fillStyle = selectedBg.isDark ? '#cbd5e1' : '#475569';
-    ctx.fillText('Global Internet Services - hanan.fun/american-style-game', 540, 165);
+    ctx.fillText('استوديو حنان الرقمي - hanan.fun/game', 540, 165);
 
     // Avatar Drawing Simulation
     const cx = 540;

@@ -83,7 +83,7 @@ export default function App() {
       normalizedPath === '/متجر' || normalizedPath.endsWith('/متجر') || 
       normalizedPath === '/محل' || normalizedPath.endsWith('/محل') ||
       path.includes('محل') || path.includes('متجر') || path.includes('store') || path.includes('shop')
-    ) return 'store';
+    ) return 'american-style-game';
 
     if (
       normalizedPath === '/blog' || normalizedPath.endsWith('/blog') || 
@@ -271,7 +271,7 @@ export default function App() {
   const handleNavigate = (page: ActivePage) => {
     setActivePage(page);
     if (typeof window !== 'undefined') {
-      const targetPath = page === 'home' ? '/' : `/${page}`;
+      const targetPath = page === 'home' ? '/' : (page === 'american-style-game' ? '/game' : `/${page}`);
       if (window.location.pathname !== targetPath) {
         try {
           window.history.pushState({ page }, '', targetPath);
@@ -305,7 +305,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-pink-600 selection:text-white">
       {/* Top Navigation */}
       <Navbar
         currentLang={currentLang}
@@ -317,7 +317,7 @@ export default function App() {
         isDarkMode={isDarkMode}
         onToggleTheme={() => setIsDarkMode(!isDarkMode)}
         cartItems={cartItems}
-        onOpenCart={() => setCartDrawerOpen(true)}
+        onOpenCart={() => {}}
         onOpenAiAssistant={() => setAiAssistantOpen(true)}
         onOpenMobileOptimizer={() => setMobileOptimizerOpen(true)}
       />
@@ -329,7 +329,6 @@ export default function App() {
             currentLang={currentLang}
             currentCurrency={currentCurrency}
             onNavigate={handleNavigate}
-            onAddToCart={handleAddToCart}
             onSelectBlog={(slug) => {
               setSelectedBlogSlug(slug);
               handleNavigate('blog');
@@ -340,10 +339,9 @@ export default function App() {
 
         <Suspense fallback={<PageLoadingSkeleton />}>
           {activePage === 'store' && (
-            <StorePage
+            <AmericanStyleGamePage
               currentLang={currentLang}
-              currentCurrency={currentCurrency}
-              onAddToCart={handleAddToCart}
+              onNavigate={handleNavigate}
             />
           )}
 

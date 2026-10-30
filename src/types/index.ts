@@ -43,7 +43,7 @@ export interface BlogPost {
   title: Record<Language, string>;
   excerpt: Record<Language, string>;
   content: Record<Language, string>;
-  category: 'cloud' | 'security' | 'performance' | 'ai' | 'monetization' | 'networking' | 'culture' | 'education' | 'science' | 'spirituality';
+  category: 'streetwear' | 'makeup' | 'events' | 'athleisure' | 'hair' | 'tips' | 'fashion' | string;
   author: {
     name: string;
     role: Record<Language, string>;

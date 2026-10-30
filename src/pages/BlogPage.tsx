@@ -11,12 +11,15 @@ import {
   Send, 
   CheckCircle2,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Sparkles,
+  Play
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS } from '../data/mockData';
 import { AdsterraPlacement } from '../components/AdsterraPlacement';
+import modestGameBannerImg from '../assets/images/modest_game_banner_1793393334387.jpg';
 
 interface BlogPageProps {
   currentLang: Language;
@@ -47,9 +50,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       if (saved) return JSON.parse(saved);
     } catch {}
     return {
-      'google-adsense-monetization-2026': [
-        { id: '1', name: 'م. أحمد خالد', text: 'مقال قيم جداً! تطبيق معايير Core Web Vitals ضاعف نسبة النقر إلى الظهور (CTR) في موقعي الإخباري.', date: 'منذ يومين' },
-        { id: '2', name: 'Sara Miller', text: 'Excellent breakdown of DART cookies and GDPR transparency for AdSense publishers.', date: '3 days ago' },
+      'new-york-streetwear-girls-2026': [
+        { id: '1', name: 'سارة العتيبي', text: 'دليل رائع جداً! جربت تنسيق الجاكيت الأوفرسايز مع السنيكرز ريترو وكان اللوك مبهراً ومريحاً جداً.', date: 'منذ يومين' },
+        { id: '2', name: 'Emily Rose', text: 'Loving the streetwear breakdown! The proportional balancing tips are spot on.', date: '3 days ago' },
+      ],
+      'hollywood-glam-makeup-guide-2026': [
+        { id: '1', name: 'نور الهدى', text: 'خطوات المكياج سهلة وشرحها بشري ومفهوم بدون تعقيد، خصوصاً طريقة الهايلايتر ورسمة الشفاه الأومبري.', date: 'منذ 4 أيام' },
       ],
     };
   });
@@ -57,16 +63,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [newCommentText, setNewCommentText] = useState('');
 
   const categories = [
-    { id: 'all', label: 'جميع المقالات (All Articles)' },
-    { id: 'science', label: 'العلوم الطبيعية والكم (Science & Quantum Physics)' },
-    { id: 'spirituality', label: 'السكينة والطب النبوي (Mindfulness & Dhikr)' },
-    { id: 'security', label: 'الأمان وشهادات SSL (Security & SSL)' },
-    { id: 'performance', label: 'السيو وسرعة المواقع (SEO & Performance)' },
-    { id: 'ai', label: 'البرمجيات المتقدمة وهندسة النظم (Advanced Software & Systems)' },
-    { id: 'culture', label: 'الألعاب الذهنية والمعرفة (Brain & Culture)' },
-    { id: 'networking', label: 'الشبكات وسرعة النت (Networking & Wi-Fi)' },
-    { id: 'monetization', label: 'الربح من جوجل أدسنس (AdSense)' },
-    { id: 'cloud', label: 'البنية السحابية (Cloud)' },
+    { id: 'all', label: isRtl ? 'جميع المقالات (All)' : 'All Articles' },
+    { id: 'streetwear', label: isRtl ? 'ستريت وير نيويورك (Streetwear)' : 'NYC Streetwear' },
+    { id: 'makeup', label: isRtl ? 'مكياج هوليوود (Makeup)' : 'Hollywood Glam Makeup' },
+    { id: 'events', label: isRtl ? 'أزياء البروم والتخرج (Prom & Events)' : 'Prom & Events' },
+    { id: 'athleisure', label: isRtl ? 'ستايل Athleisure الرياضي' : 'Chic Athleisure' },
+    { id: 'hair', label: isRtl ? 'ألوان الشعر العصري (Hair Styling)' : 'Modern Hair Colors' },
+    { id: 'tips', label: isRtl ? 'نصائح وتنسيق أزياء (Fashion Tips)' : 'Fashion Tips & Rules' },
   ];
 
   const activeArticle = BLOG_POSTS.find(p => p.slug === selectedPostSlug);
@@ -243,8 +246,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             />
           </div>
 
-          {/* Interactive Playable Game CTA for Girls Games Articles */}
-          {(activeArticle.slug === 'american-style-girls-games-styling-guide-2026' || activeArticle.tags.some(t => t.includes('العاب') || t.includes('Girls'))) && onNavigate && (
+          {/* Interactive Playable Game CTA */}
+          {onNavigate && (
             <div className="my-4 p-5 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
               <div className="space-y-1 text-center sm:text-start">
                 <div className="font-black text-base flex items-center justify-center sm:justify-start gap-1.5">
@@ -285,6 +288,51 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 #{tag}
               </span>
             ))}
+          </div>
+
+          {/* Prominent Game Card & Play Now CTA at the Bottom of Article */}
+          <div className="my-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-pink-600 via-rose-600 to-amber-500 text-white shadow-2xl overflow-hidden relative">
+            <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+              {/* Game Preview Image */}
+              <div className="w-full md:w-56 h-48 sm:h-52 rounded-2xl overflow-hidden shrink-0 shadow-lg border-2 border-white/30 bg-slate-900 group">
+                <img
+                  src={modestGameBannerImg}
+                  alt="لعبة ألعاب بنات ستايل أمريكي 2026"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              {/* Game Info & Large CTA Button */}
+              <div className="space-y-4 text-center md:text-start flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-black uppercase tracking-wider text-pink-100">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  <span>ألعاب بنات ستايل أمريكي 2026 - حصرياً</span>
+                </div>
+                <h3 className="text-xl sm:text-3xl font-black text-white leading-tight">
+                  العب الآن: لعبة تلبيس وتنسيق بنات ستايل أمريكي 2026 👑
+                </h3>
+                <p className="text-xs sm:text-sm text-pink-100 leading-relaxed max-w-xl">
+                  استمتعي بأحدث صيحات أزياء الشارع النيويوركي، هوليوود جلامور، والستايل الجامعي الأمريكي. اختاري الملابس والشعر والإكسسوارات وانزلي بطاقتك فوراً ومجاناً 100%!
+                </p>
+
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onNavigate) {
+                        onNavigate('american-style-game');
+                      } else if (typeof window !== 'undefined') {
+                        window.location.href = '/game';
+                      }
+                    }}
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-base sm:text-lg shadow-2xl shadow-rose-950/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  >
+                    <Play className="w-5 h-5 fill-rose-600" />
+                    <span>العب الآن</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Bottom Adsterra Unit */}
@@ -550,6 +598,43 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
               {t.blog_desc}
             </p>
+          </div>
+
+          {/* Game Spotlight Banner on Blog Index */}
+          <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border-2 border-white/40 shadow-md">
+                <img
+                  src={modestGameBannerImg}
+                  alt="لعبة ألعاب بنات ستايل أمريكي 2026"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-1 text-center sm:text-start">
+                <div className="font-black text-sm sm:text-base flex items-center justify-center sm:justify-start gap-1.5">
+                  <Sparkles className="w-4 h-4 text-amber-300" />
+                  <span>ألعاب بنات ستايل أمريكي 2026 - تجربة التلبيس الحصرية</span>
+                </div>
+                <div className="text-xs text-pink-100 opacity-90">
+                  صممي أروع أزياء الشارع النيويوركي واختبري ذوقك في التنسيق فوراً وبشكل مجاني بالكامل!
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                if (onNavigate) {
+                  onNavigate('american-style-game');
+                } else if (typeof window !== 'undefined') {
+                  window.location.href = '/game';
+                }
+              }}
+              className="px-6 py-3.5 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-sm shadow-xl flex items-center gap-2 shrink-0 cursor-pointer hover:scale-105 transition-all"
+            >
+              <Play className="w-4 h-4 fill-rose-600" />
+              <span>العب الآن</span>
+            </button>
           </div>
 
           {/* Search & Category Filter */}
