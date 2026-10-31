@@ -50,13 +50,17 @@ if (fs.existsSync(path.join(publicHtmlDir, 'ads.txt'))) {
 }
 
 // 3. Create static HTML entry points for every route to prevent 404
-const routes = [
-  'game',
-  'play',
-  'girls-game',
-  'american-style-game',
+const blogPostsFile = path.join(__dirname, 'src', 'data', 'blogPosts.ts');
+let blogRoutes = [];
+if (fs.existsSync(blogPostsFile)) {
+  const blogContent = fs.readFileSync(blogPostsFile, 'utf8');
+  const slugMatches = [...blogContent.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map(m => 'blog/' + m[1]);
+  blogRoutes = slugMatches;
+}
+
+const staticCoreRoutes = [
   'store',
-  'shop',
+  'services',
   'about',
   'terms',
   'terms-of-service',
@@ -70,26 +74,47 @@ const routes = [
   'sitemap-checker',
   'vercel',
   'diagnostics',
-  'blog/new-york-streetwear-girls-2026',
-  'blog/hollywood-glam-makeup-guide-2026',
-  'blog/prom-and-graduation-outfits-2026',
-  'blog/athleisure-chic-style-girls-2026',
-  'blog/modern-hair-colors-matching-outfits-2026',
-  'blog/common-fashion-mistakes-girls-avoid-2026',
-  'blog/american-style-girls-games-styling-guide-2026'
+  'audio-to-video',
+  // Arabic aliases
+  'عن',
+  'من-نحن',
+  'خدمات',
+  'متجر',
+  'مدونة',
+  'اتصل-بنا',
+  'تواصل',
+  'شروط',
+  'شروط-الاستخدام',
+  'خصوصية',
+  'سياسة-الخصوصية',
+  'كوكيز',
+  'ملفات-تعريف-الارتباط'
 ];
+
+const routes = Array.from(new Set([...staticCoreRoutes, ...blogRoutes]));
 
 const indexHtmlPath = path.join(distDir, 'index.html');
 if (fs.existsSync(indexHtmlPath)) {
   const indexHtmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
   for (const route of routes) {
-    const routeDir = path.join(distDir, route);
-    if (!fs.existsSync(routeDir)) {
-      fs.mkdirSync(routeDir, { recursive: true });
+    try {
+      const routeDir = path.join(distDir, route);
+      if (!fs.existsSync(routeDir)) {
+        fs.mkdirSync(routeDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(routeDir, 'index.html'), indexHtmlContent);
+      // Also write encoded version if contains non-ASCII characters
+      if (/[\u0600-\u06FF]/.test(route)) {
+        const encodedRoute = encodeURIComponent(route);
+        const encodedDir = path.join(distDir, encodedRoute);
+        if (!fs.existsSync(encodedDir)) {
+          fs.mkdirSync(encodedDir, { recursive: true });
+        }
+        fs.writeFileSync(path.join(encodedDir, 'index.html'), indexHtmlContent);
+      }
+    } catch (e) {
+      console.warn(`Could not generate static entry for ${route}:`, e.message);
     }
-    fs.writeFileSync(path.join(routeDir, 'index.html'), indexHtmlContent);
-    // Also write route.html at dist root
-    fs.writeFileSync(path.join(distDir, `${route}.html`), indexHtmlContent);
   }
   console.log(`Successfully generated static entry points for ${routes.length} routes.`);
 }

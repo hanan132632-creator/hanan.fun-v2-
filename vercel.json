@@ -57,15 +57,55 @@
       "destination": "/apple-touch-icon.png"
     },
     {
-      "source": "/404.html",
-      "destination": "/404.html"
+      "source": "/عن",
+      "destination": "/index.html"
     },
     {
-      "source": "/404",
-      "destination": "/404.html"
+      "source": "/من-نحن",
+      "destination": "/index.html"
     },
     {
-      "source": "/((?!api/|assets/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|avif|woff|woff2|ttf|eot|xml|txt|json|css|js|map|cjs)).*)",
+      "source": "/خدمات",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/مدونة",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/مدونة/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/اتصل-بنا",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/خصوصية",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/شروط",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/واجهة-برمجة-التطبيقات/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/واجهة برمجة التطبيقات/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/api",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/((?!api/|assets/|_vercel/|.*\\.(?:ico|png|svg|jpg|jpeg|gif|webp|avif|woff|woff2|ttf|eot|xml|txt|json|css|js|map|cjs)).*)",
       "destination": "/index.html"
     }
   ],

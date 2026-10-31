@@ -609,23 +609,19 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </p>
           </div>
 
-          {/* Game Spotlight Banner on Blog Index */}
-          <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-5">
+          {/* GIS Network Knowledge & Infrastructure Spotlight */}
+          <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-xl border border-blue-800/40 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shrink-0 border-2 border-white/40 shadow-md">
-                <img
-                  src={modestGameBannerImg}
-                  alt="لعبة ألعاب بنات ستايل أمريكي 2026"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600/30 border border-blue-400/40 flex items-center justify-center shrink-0 shadow-md text-cyan-400">
+                <Server className="w-7 h-7 sm:w-8 sm:h-8" />
               </div>
               <div className="space-y-1 text-center sm:text-start">
-                <div className="font-black text-sm sm:text-base flex items-center justify-center sm:justify-start gap-1.5">
-                  <Sparkles className="w-4 h-4 text-amber-300" />
-                  <span>ألعاب بنات ستايل أمريكي 2026 - تجربة التلبيس الحصرية</span>
+                <div className="font-black text-sm sm:text-base flex items-center justify-center sm:justify-start gap-1.5 text-white">
+                  <Zap className="w-4 h-4 text-amber-300" />
+                  <span>منظومة خدمات الإنترنت العالمية (GIS Network) • البنية السحابية 2026</span>
                 </div>
-                <div className="text-xs text-pink-100 opacity-90">
-                  صممي أروع أزياء الشارع النيويوركي واختبري ذوقك في التنسيق فوراً وبشكل مجاني بالكامل!
+                <div className="text-xs text-slate-300 leading-relaxed">
+                  استكشف أحدث دراسات واستشارات الشبكات الدولية والسيرفرات السحابية الموثقة بأعلى معايير E-E-A-T و Google AdSense.
                 </div>
               </div>
             </div>
@@ -634,15 +630,15 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               type="button"
               onClick={() => {
                 if (onNavigate) {
-                  onNavigate('american-style-game');
+                  onNavigate('store');
                 } else if (typeof window !== 'undefined') {
-                  window.location.href = '/game';
+                  window.location.href = '/store';
                 }
               }}
-              className="px-6 py-3.5 rounded-2xl bg-white text-rose-600 hover:bg-pink-50 font-black text-sm shadow-xl flex items-center gap-2 shrink-0 cursor-pointer hover:scale-105 transition-all"
+              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-sm shadow-xl flex items-center gap-2 shrink-0 cursor-pointer hover:scale-105 transition-all"
             >
-              <Play className="w-4 h-4 fill-rose-600" />
-              <span>العب الآن</span>
+              <Globe className="w-4 h-4 text-cyan-300" />
+              <span>استكشف السيرفرات السحابية</span>
             </button>
           </div>
 

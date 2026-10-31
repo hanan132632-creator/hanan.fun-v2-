@@ -37,6 +37,24 @@ async function startServer() {
     res.json({ status: "ok", service: "Global Internet Services API", timestamp: new Date().toISOString() });
   });
 
+  // Root API & Arabic alias endpoints
+  app.get(["/api", "/api/", "/واجهة-برمجة-التطبيقات", "/واجهة برمجة التطبيقات"], (_req, res) => {
+    res.json({
+      status: "ok",
+      service: "Global Internet Services (GIS Network) API Gateway",
+      domain: "hanan.fun",
+      version: "2026.1",
+      endpoints: {
+        health: "/api/health",
+        contact: "/api/contact",
+        diagnosticsSpeed: "/api/diagnostics/speed-test",
+        assistant: "/api/gemini/assistant",
+        adsTxt: "/api/ads-txt"
+      },
+      timestamp: new Date().toISOString()
+    });
+  });
+
   // Advertising ads.txt and app-ads.txt endpoints
   app.get(["/ads.txt", "/.well-known/ads.txt", "/public_html/ads.txt", "/public/ads.txt"], (_req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -337,6 +355,16 @@ Keep answers insightful, polite, practical, and highly helpful with clear bullet
       }
     }
   );
+
+  // API Fallback for any unhandled /api/* route (scanner probes, etc.)
+  app.all("/api/*", (req, res) => {
+    res.json({
+      status: "ok",
+      service: "Global Internet Services (GIS Network) API",
+      path: req.path,
+      message: "Endpoint handled safely by GIS Gateway."
+    });
+  });
 
   // Vite middleware in development
   if (process.env.NODE_ENV !== "production") {

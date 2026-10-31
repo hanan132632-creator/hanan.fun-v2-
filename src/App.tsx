@@ -118,12 +118,19 @@ export default function App() {
       normalizedPath === '/كوكيز' || normalizedPath === '/ملفات-تعريف-الارتباط' ||
       path.includes('كوكيز') || path.includes('cookie')
     ) return 'cookies';
+    if (
+      normalizedPath === '/diagnostics' || normalizedPath.endsWith('/diagnostics') ||
+      path.includes('diagnostics') || path.includes('speed') || path.includes('سرعة') || path.includes('فحص')
+    ) return 'diagnostics';
+
+    if (
+      normalizedPath === '/audio-to-video' || normalizedPath.endsWith('/audio-to-video') ||
+      path.includes('video') || path.includes('صوت') || path.includes('فيديو')
+    ) return 'audio-to-video';
+
     if (path === '/adsense-standards' || path.endsWith('/adsense-standards')) return 'adsense-standards';
-    if (path === '/audio-to-video' || path.endsWith('/audio-to-video')) return 'audio-to-video';
-    if (path === '/diagnostics' || path.endsWith('/diagnostics')) return 'diagnostics';
     if (path === '/sitemap-checker' || path.endsWith('/sitemap-checker') || path.includes('sitemap') || path.includes('robots')) return 'sitemap-checker';
     if (path === '/vercel' || path.endsWith('/vercel') || path.includes('vercel')) return 'vercel';
-    return 'home';
     return 'home';
   };
 

@@ -40,13 +40,13 @@ export interface ServiceItem {
 export interface BlogPost {
   id: string;
   slug: string;
-  title: Record<Language, string>;
-  excerpt: Record<Language, string>;
-  content: Record<Language, string>;
-  category: 'streetwear' | 'makeup' | 'events' | 'athleisure' | 'hair' | 'tips' | 'fashion' | string;
+  title: Partial<Record<Language, string>> & { ar: string; en: string };
+  excerpt: Partial<Record<Language, string>> & { ar: string; en: string };
+  content: Partial<Record<Language, string>> & { ar: string; en: string };
+  category: string;
   author: {
     name: string;
-    role: Record<Language, string>;
+    role: Partial<Record<Language, string>> & { ar: string; en: string };
     avatar: string;
   };
   publishDate: string;
