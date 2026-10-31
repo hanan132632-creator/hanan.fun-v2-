@@ -65,7 +65,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   const [newCommentText, setNewCommentText] = useState('');
 
   const categories = [
-    { id: 'all', label: isRtl ? 'جميع المقالات (36 مقال)' : 'All 36 Articles' },
+    { id: 'all', label: isRtl ? `جميع المقالات (${BLOG_POSTS.length} مقالاً)` : `All ${BLOG_POSTS.length} Articles` },
     { id: 'infrastructure', label: isRtl ? 'شبكات وبنية تحتية (Infrastructure)' : 'Networks & Infrastructure' },
     { id: 'cloud', label: isRtl ? 'حوسبة سحابية وسيرفرات (Cloud & VPS)' : 'Cloud & VPS Hosting' },
     { id: 'security', label: isRtl ? 'أمن سيبراني وتشفير (Cybersecurity)' : 'Cybersecurity & WAF' },
