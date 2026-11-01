@@ -5,6 +5,7 @@ export type Currency = 'USD' | 'SAR' | 'EUR' | 'AED' | 'GBP' | 'JPY' | 'TRY' | '
 export type ActivePage = 
   | 'home' 
   | 'about' 
+  | 'author'
   | 'store' 
   | 'blog' 
   | 'contact' 
@@ -37,6 +38,38 @@ export interface ServiceItem {
   popular?: boolean;
 }
 
+export interface ArticleCitation {
+  id: number;
+  title: string;
+  source: string;
+  url?: string;
+  year?: string;
+}
+
+export interface AuthorProfile {
+  id: string;
+  name: string;
+  nameEn: string;
+  role: Partial<Record<Language, string>> & { ar: string; en: string };
+  avatar: string;
+  bio: Partial<Record<Language, string>> & { ar: string; en: string };
+  credentials: string[];
+  education: {
+    degree: string;
+    institution: string;
+    year: string;
+  }[];
+  certifications: {
+    title: string;
+    issuer: string;
+    credentialId?: string;
+    year: string;
+  }[];
+  expertise: string[];
+  email: string;
+  verifiedBadge: boolean;
+}
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -48,6 +81,8 @@ export interface BlogPost {
     name: string;
     role: Partial<Record<Language, string>> & { ar: string; en: string };
     avatar: string;
+    authorId?: string;
+    verified?: boolean;
   };
   publishDate: string;
   readTimeMin: number;
@@ -56,6 +91,8 @@ export interface BlogPost {
   views: number;
   likes: number;
   commentsCount: number;
+  references?: ArticleCitation[];
+  humanTakeaway?: Partial<Record<Language, string>> & { ar: string; en: string };
 }
 
 export interface CartItem {

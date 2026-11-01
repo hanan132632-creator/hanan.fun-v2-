@@ -75,6 +75,11 @@ export const Footer: React.FC<FooterProps> = ({ currentLang = 'ar', onNavigate }
                 </button>
               </li>
               <li>
+                <button onClick={() => onNavigate('author')} className="hover:text-cyan-400 transition-colors cursor-pointer font-bold text-cyan-300">
+                  {isAr ? 'ملف الكاتب وهيئة التحرير (E-E-A-T)' : 'Author Profiles & Credentials'}
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('diagnostics')} className="hover:text-cyan-400 transition-colors cursor-pointer">
                   {isAr ? 'فاحص سرعة المواقع والشبكة' : 'Network & Ping Tester'}
                 </button>
@@ -116,6 +121,11 @@ export const Footer: React.FC<FooterProps> = ({ currentLang = 'ar', onNavigate }
               <li>
                 <button onClick={() => onNavigate('adsense-standards')} className="hover:text-cyan-400 transition-colors cursor-pointer">
                   {isAr ? 'معايير النشر وجودة AdSense' : 'Editorial & AdSense Standards'}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('author')} className="hover:text-cyan-400 transition-colors cursor-pointer text-emerald-400">
+                  {isAr ? 'ميثاق التوثيق البشري والمصادر الدولية' : 'Verified Human Citations Charter'}
                 </button>
               </li>
             </ul>

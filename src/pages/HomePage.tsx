@@ -103,7 +103,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className="px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <BookOpen className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
-                  <span>{isAr ? 'المدونة والمعرفة التقنية (36 مقال)' : 'Read Articles (36 Posts)'}</span>
+                  <span>{isAr ? `المدونة والمعرفة التقنية (${BLOG_POSTS.length} مقال)` : `Read Articles (${BLOG_POSTS.length} Posts)`}</span>
                 </button>
 
                 <button
@@ -131,7 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>36 مقال تقني أصيل</span>
+                  <span>{isAr ? `${BLOG_POSTS.length} مقال تقني أصيل` : `${BLOG_POSTS.length} Original Tech Guides`}</span>
                 </div>
               </div>
             </div>
@@ -371,9 +371,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 text-xs text-slate-500">
-                <span>{post.publishDate}</span>
+                <span className="flex items-center gap-1 font-semibold text-slate-700 dark:text-slate-300">
+                  <span className="text-emerald-500 font-bold">✓</span>
+                  <span>{post.author.name}</span>
+                </span>
                 <span className="font-bold text-blue-600 dark:text-cyan-400 flex items-center gap-1 group-hover:underline">
-                  <span>{isAr ? 'قراءة المقال' : 'Read Article'}</span>
+                  <span>{isAr ? 'قراءة ومصادر المقال' : 'Read Article'}</span>
                   <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </span>
               </div>

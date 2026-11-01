@@ -57,6 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة' : 'Speed Test', icon: Activity },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Video Studio', icon: Video },
     { page: 'about', label: t.nav_about, icon: Info },
+    { page: 'author', label: currentLang === 'ar' ? 'ملف الكاتب (E-E-A-T)' : 'Author Profile', icon: ShieldCheck },
     { page: 'contact', label: t.nav_contact, icon: Mail },
     { page: 'privacy', label: currentLang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy', icon: ShieldCheck },
     { page: 'terms', label: currentLang === 'ar' ? 'شروط الاستخدام' : 'Terms of Use', icon: FileText },

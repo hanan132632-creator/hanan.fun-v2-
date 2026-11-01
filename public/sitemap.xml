@@ -32,7 +32,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://hanan.fun/author</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
   <!-- 3. Editorial Knowledge Articles (E-E-A-T) -->
+  <url>
+    <loc>https://hanan.fun/blog/human-eeat-author-verification-adsense-quality-2026</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://hanan.fun/blog/leo-satellite-internet-optical-laser-mesh-infrastructure-2026</loc>
     <lastmod>2026-10-24</lastmod>

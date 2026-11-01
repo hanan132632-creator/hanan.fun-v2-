@@ -18,6 +18,7 @@ import { MessageSquare, ArrowUp } from 'lucide-react';
 const StorePage = lazy(() => import('./pages/StorePage').then(m => ({ default: m.StorePage })));
 const BlogPage = lazy(() => import('./pages/BlogPage').then(m => ({ default: m.BlogPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const AuthorPage = lazy(() => import('./pages/AuthorPage').then(m => ({ default: m.AuthorPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
@@ -77,6 +78,13 @@ export default function App() {
       normalizedPath === '/عن' || normalizedPath.endsWith('/عن') || 
       normalizedPath === '/من-نحن' || normalizedPath.endsWith('/من-نحن')
     ) return 'about';
+
+    if (
+      normalizedPath === '/author' || normalizedPath.endsWith('/author') || 
+      normalizedPath === '/الكاتب' || normalizedPath.endsWith('/الكاتب') || 
+      normalizedPath === '/هيئة-التحرير' || normalizedPath.endsWith('/هيئة-التحرير') ||
+      path.includes('author') || path.includes('الكاتب') || path.includes('المؤلف')
+    ) return 'author';
 
     if (
       normalizedPath === '/store' || normalizedPath.endsWith('/store') || 
@@ -356,6 +364,14 @@ export default function App() {
             <AboutPage
               currentLang={currentLang}
               onNavigate={handleNavigate}
+            />
+          )}
+
+          {activePage === 'author' && (
+            <AuthorPage
+              currentLang={currentLang}
+              onNavigate={handleNavigate}
+              onSelectPost={handleSelectBlog}
             />
           )}
 

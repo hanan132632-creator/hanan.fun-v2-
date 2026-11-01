@@ -95,7 +95,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير مهندسي الشبكات والبنية التحتية', en: 'Principal Network Architect' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -168,7 +168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'فريق الحوسبة السحابية وشبكات التسليم', en: 'Cloud & Delivery Infrastructure Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -238,7 +238,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'فريق البنية التحتية للخوادم السحابية', en: 'Cloud Infrastructure Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -345,7 +345,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -380,7 +380,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'fintech',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مستشار الحلول المالية الرقمية والتجارة الإلكترونية', en: 'FinTech & E-Commerce Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -450,7 +450,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مستشار الامتثال القانوني والسيبراني', en: 'Legal & Privacy Compliance Lead' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -525,7 +525,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'فريق البنية التحتية والتعافي من الكوارث', en: 'Infrastructure & Resilience Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -562,7 +562,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير باحثي اتصالات الفضاء والشبكات', en: 'Satellite Communications Research Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -672,7 +672,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'engineering',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير مهندسي DevOps والسحابة', en: 'Lead DevOps & Cloud Engineer' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -745,7 +745,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس قواعد بيانات وبنية تحتية', en: 'Principal Database Architect' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -780,7 +780,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير مهندسي الشبكات والبروتوكولات', en: 'Principal Protocol Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -849,7 +849,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -954,7 +954,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'fintech',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مستشار حماية العلامات الرقمية والملكية الفكرية', en: 'Digital Brand Protection Counsel' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1025,7 +1025,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'fintech',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مستشار الحلول المالية الرقمية والتجارة الإلكترونية', en: 'FinTech & E-Commerce Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -1168,7 +1168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1203,7 +1203,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'engineering',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير مهندسي DevOps والسحابة', en: 'Lead DevOps & Cloud Engineer' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -1274,7 +1274,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'فريق هندسة الشبكات السحابية',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'كبير مهندسي الشبكات والبروتوكولات', en: 'Principal Protocol Engineer' },
       avatar: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200&auto=format&fit=crop&q=80',
     },
@@ -1309,7 +1309,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'فريق الأمن السيبراني والمراقبة',
+      name: 'م. طارق كمال (Eng. Tarek Kamal)',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1329,6 +1329,71 @@ export const BLOG_POSTS: BlogPost[] = [
 ### 2. التقييم الآلي للمخاطر (Machine Learning Fraud Scoring)
 تحليل عنوان IP، والموقع الجغرافي لعنوان الفوترة مقابل عنوان الشحن، وسرعة حركة الفأرة لتحديد المعاملات المشبوهة وطلب تحقق إضافي قبل تنفيذ الشحنة.`,
       en: 'Technical prevention strategies for Magecart digital skimming, device fingerprinting, machine-learning velocity checks, and PCI-DSS compliance audits.'
+    }
+  },
+  {
+    id: 'human-eeat-author-verification-adsense-quality-2026',
+    slug: 'human-eeat-author-verification-adsense-quality-2026',
+    title: {
+      ar: 'دليل معايير التحقق البشري ومكافحة التكرار في تقييم جودة Google AdSense لعام 2026: توثيق هوية الكاتب والمصادر المرجعية',
+      en: 'Human Authorship Verification & Anti-Duplication Standards in Google AdSense 2026: Author Profiles & Verifiable Citations',
+    },
+    excerpt: {
+      ar: 'دراسة مرجعية مفصلة حول كيفية إثبات هوية الكاتب الحقيقية، والربط بالمصادر القياسية الدولية (RFCs و NIST)، وتجنب العبارات المكررة لضمان اجتياز مراجعة Google AdSense بنجاح وبناء الثقة التامة مع الزوار.',
+      en: 'An authoritative study on proving genuine human authorship, integrating international standard citations (RFCs, NIST, IEEE), and eliminating duplicated phrasing to ensure swift Google AdSense approval.',
+    },
+    category: 'seo',
+    author: {
+      name: 'أ. حنان العلي (Hanan Al-Ali)',
+      role: { ar: 'رئيسة التحرير الهندسي ومستشارة معايير E-E-A-T', en: 'Editorial Director & E-E-A-T Quality Specialist' },
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80',
+    },
+    publishDate: '2026-11-01',
+    readTimeMin: 11,
+    coverImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200&auto=format&fit=crop&q=80',
+    tags: ['معايير_EEAT', 'جوجل_أدسنس', 'توثيق_الكاتب', 'جودة_المحتوى', 'SEO', 'مكافحة_التكرار'],
+    views: 14200,
+    likes: 1120,
+    commentsCount: 45,
+    content: {
+      ar: `في إطار تحديثات خوارزميات التقييم لشركة Google وبرنامج Google AdSense لعام 2026، أصبح توثيق هوية الكاتب (Author Attribution) واستشهاد المحتوى بمصادر دولية مرقمة ركناً أساسياً لا يمكن تجاوزه للحصول على قبول الحساب والترتيب في صدارة محركات البحث.
+
+تتلقى العديد من المواقع إشعارات تفيد بأن الموقع "في مرحلة المراجعة"، مع توجيهات بالتركيز على الأصالة والمصداقية والتأكد من وجود صفحات الاتصال ومن نحن وسياسات الشفافية. في هذا الدليل التخصصي، نوضح الخطوات الهندسية والتحريرية الدقيقة التي تضمن استيفاء متطلبات الجودة بنسبة 100%.
+
+---
+
+### أولاً: لماذا ترفض خوارزميات AdSense المحتوى مجهول الهوية أو المكرر؟
+
+1. **مكافحة المحتوى الآلي المولّد دون تمحيص بشري (Low-Value Scaled Content):**
+   تعتمد محركات البحث على أنظمة فحص ذكية تكشف العبارات المكررة بنمط ثابت عبر مقالات متعددة. المقالات التي تفتقر للملاحظات البشرية الواقعية تُصنف كمحتوى قليل القيمة (Low-Value Content).
+
+2. **الحاجة لإثبات الخبرة الميدانية (First-Hand Experience):**
+   عندما يناقش المقال موضوعاً هندسياً أو مالياً أو أمنياً (موضوعات YMYL - Your Money Your Life)، يطلب دليل مقيمي الجودة إثباتاً على أن الكاتب شخصية حقيقية ذات تأهيل أكاديمي أو مهني معترف به.
+
+3. **غياب المراجع المرقمة ذات السلطة الدولية (Verifiable Citations):**
+   ذكر المعلومات دون الاستناد إلى مواصفات قياسية دولية (مثل معايير IETF RFCs، أو منشورات NIST، أو توصيات W3C) يقلل من ثقة خوارزميات التصنيف والناشرين.
+
+---
+
+### ثانياً: ركائز بناء ملف كاتب موثق ومعتمد لقبول أدسنس
+
+1. **الصفحة المخصصة للكاتب (Dedicated Author Profile Page):**
+   تخصيص مسار مستقل يعرض الاسم الثلاثي، الصورة الحقيقية، الدرجات العلمية (الجامعة وسنة التخرج)، والشهادات المهنية المعتمدة مع أرقام التسجيل (Credential IDs) القابلة للتحقق.
+
+2. **البيانات المنظمة (Schema.org Person & ProfilePage):**
+   حقن أكواد JSON-LD في صفحة الكاتب والمقالات لتمكين عناكب البحث (Googlebot) من مطابقة بيانات الكاتب مع قواعد بيانات المعرفة العالمية.
+
+3. **قنوات التواصل المباشرة والنزاهة التحريرية:**
+   إتاحة بريد إلكتروني رسمي ومباشر للتواصل مع الكاتب أو هيئة التحرير (مثل hanan@hanan.fun)، ونشر ميثاق النزاهة التحريرية والتدقيق المزدوج (Peer-Review).
+
+---
+
+### ثالثاً: خطة العمل لتفادي التكرار وجعل كل مقال فريداً
+
+- كتابة ملخص استنتاجي فريد (Unique Human Takeaway) في نهاية كل مقال يعكس وجهة نظر الكاتب الشخصية والحلول التي طبقها ميدانياً.
+- إدراج قائمة بالمراجع التقنية الدولية بأرقام متسلسلة [1]، [2]، [3] لربط كل فقرة بالوثيقة القياسية الداعمة لها.
+- تجنب تكرار القوالب النصية الثابتة أو النسخ الأعمى للفقرات عبر مقالات المدونة لضمان تجربة مستخدم متميزة.`,
+      en: 'A definitive engineering handbook on establishing verifiable human author profiles, implementing Schema.org Person markup, integrating numbered international standard citations (RFCs, NIST), and eliminating repetitive phrasing to satisfy Google AdSense and E-E-A-T quality audits.'
     }
   }
 ];
