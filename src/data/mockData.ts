@@ -470,18 +470,18 @@ export const SERVER_NODES: ServerLocationNode[] = [
 
 export const TESTIMONIALS = [
   {
-    name: 'سارة القحطاني',
-    role: { ar: 'مهتمة بالموضة وتنسيق الأزياء الرقمية', en: 'Fashion & Digital Styling Enthusiast', fr: 'Passionnée de Mode', es: 'Entusiasta de la Moda', de: 'Mode-Enthusiastin', zh: '时尚与数字穿搭爱好者', ja: 'ファッション愛好家', tr: 'Moda Meraklısı' },
+    name: 'م. أحمد الراشد',
+    role: { ar: 'مدير العمليات التقنية وسيرفرات السحابة', en: 'Head of Cloud Operations & Infrastructure', fr: 'Directeur des Opérations Cloud', es: 'Director de Infraestructura Cloud', de: 'Leiter Cloud-Infrastruktur', zh: '云架构与运维总监', ja: 'クラウド運用責任者', tr: 'Bulut Altyapı Direktörü' },
     country: 'المملكة العربية السعودية 🇸🇦',
     text: {
-      ar: 'لعبة تلبيس البنات بالستايل الأمريكي رائعة وممتعة جداً! التنسيقات والألوان عصرية واللعبة خفيفة وسريعة وتعمل مباشرة على الهاتف بدون إعلانات مزعجة.',
-      en: 'The American Style Girls Game is super fun and stylish! Outfits and colors feel trendy, and it runs smoothly in mobile browser without annoying ads.',
-      fr: 'Le jeu de relooking style américain est super amusant et fluide sur mobile, sans publicités gênantes !',
-      es: '¡El juego de chicas estilo americano es genial y muy divertido! Rápido en el móvil y sin molestos anuncios.',
-      de: 'Das American Style Mädchenspiel macht großen Spaß, lädt blitzschnell im Browser und hat tolle Outfits.',
-      zh: '美式换装游戏太有趣了！衣服和色彩非常潮流，手机端秒开且完全没有烦人的弹窗广告。',
-      ja: 'アメリカンスタイル着せ替えゲームがとても可愛くて楽しい！スマホでサクサク遊べます。',
-      tr: 'Amerikan tarzı giydirme oyunu harika ve çok eğlenceli! Mobilde kasmadan anında açılıyor.',
+      ar: 'سيرفرات Cloud VPS وشبكة Anycast CDN في GIS Network قدمت لنا سرعة استجابة مذهلة وانخفاضاً في زمن الـ Ping إلى ما دون 15ms لعملائنا في السعودية ومصر، مع استقرار بنسبة 99.99%.',
+      en: 'GIS Network Cloud VPS and Anycast CDN delivered remarkable low latency (<15ms) across our regional operations in Saudi Arabia and Egypt with unmatched 99.99% uptime.',
+      fr: 'Les serveurs Cloud VPS et le réseau CDN d\'Anycast offrent une réactivité remarquable et une latence ultra-faible.',
+      es: 'Los servidores Cloud VPS y la red Anycast CDN han proporcionado una velocidad de respuesta sobresaliente.',
+      de: 'Die Cloud VPS Server und das Anycast CDN bieten herausragende Ladezeiten und erstklassige Stabilität.',
+      zh: 'GIS Network 的云服务器与 Anycast CDN 为我们中东核心业务提供了超低延迟与 99.99% 的卓越稳定性。',
+      ja: 'GIS NetworkのクラウドVPSとAnycast CDNにより、中東地域のレイテンシが大幅に改善されました。',
+      tr: 'GIS Network Bulut VPS ve Anycast CDN, bölgemizde kesintisiz 99.99% çalışma süresi ve olağanüstü hız sağladı.',
     },
     rating: 5,
   },

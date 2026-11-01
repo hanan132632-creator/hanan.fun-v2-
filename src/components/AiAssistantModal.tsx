@@ -38,8 +38,8 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
       id: 'welcome',
       sender: 'ai',
       text: currentLang === 'ar' 
-        ? 'مرحباً بك! أنا مستشارك الذكي في استوديو حنان الرقمي. كيف يمكنني مساعدتك اليوم بخصوص ألعاب البنات ستايل أمريكي، استوديو الفيديو الرقمي، أو مقالاتنا المعرفية؟'
-        : 'Welcome! I am your assistant at Hanan Studio. How can I help you today with American style games, our digital video studio, or editorial articles?',
+        ? 'مرحباً بك! أنا المستشار التقني الذكي لمنظومة خدمات الإنترنت العالمية (GIS Network). كيف يمكنني مساعدتك اليوم بخصوص السيرفرات السحابية Cloud VPS، شبكات Anycast CDN، فحص سرعة واستقرار الشبكة، أو المقالات التقنية المتخصصة؟'
+        : 'Welcome! I am your Technical Advisor at Global Internet Services (GIS Network). How can I assist you today with Cloud VPS, Anycast CDN, network speed diagnostics, or technical articles?',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -49,15 +49,15 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
   if (!isOpen) return null;
 
   const quickPrompts = currentLang === 'ar' ? [
-    'كيف أنسق إطلالة عصرية في لعبة ألعاب بنات ستايل أمريكي 2026؟',
-    'كيف يعمل استوديو تحويل الصوت إلى فيديو رقمي؟',
-    'ما هي معايير Google AdSense وتجربة المستخدم المعتمدة؟',
-    'كيف أحفظ بطاقة الأزياء بدقة عالية على هاتفي؟',
+    'ما هي مواصفات سيرفرات Cloud VPS الموصى بها لمشروعي؟',
+    'كيف أختبر سرعة استجابة الشبكة وزمن Ping لموقعي؟',
+    'ما هي معايير تحسين مؤشرات Core Web Vitals وقبول Google AdSense؟',
+    'كيف أحمي موقعي من هجمات DDoS عبر الجدار الناري WAF؟',
   ] : [
-    'How do I style modern outfits in American Style Girls Game 2026?',
-    'How does the audio-to-video studio generator work?',
-    'What are the Google AdSense and user privacy standards?',
-    'How do I export high-res fashion cards to my phone?',
+    'What are the recommended Cloud VPS specifications for my project?',
+    'How do I test edge latency and ping with GIS Diagnostics?',
+    'What are the Core Web Vitals optimization and AdSense standards?',
+    'How does GIS WAF mitigate DDoS and layer-7 threats?',
   ];
 
   const handleSendMessage = async (textToSend?: string) => {

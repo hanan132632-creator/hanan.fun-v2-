@@ -248,23 +248,26 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             />
           </div>
 
-          {/* Interactive Playable Game CTA */}
+          {/* GIS Network Enterprise CTA */}
           {onNavigate && (
-            <div className="my-4 p-5 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <div className="my-4 p-5 rounded-3xl bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl border border-blue-600/30">
               <div className="space-y-1 text-center sm:text-start">
                 <div className="font-black text-base flex items-center justify-center sm:justify-start gap-1.5">
-                  <span>👑 العبي واستمتعي بتجربة استوديو العاب تلبيس بنات استايل أمريكي 2026 الآن!</span>
+                  <Server className="w-4 h-4 text-cyan-300" />
+                  <span>{isRtl ? 'استشارات البنية التحتية السحابية وحلول المؤسسات 2026' : 'Cloud Infrastructure & Enterprise Advisory 2026'}</span>
                 </div>
-                <div className="text-xs text-pink-100 opacity-90">
-                  نسقي الملابس، اختاري التسريحة والإكسسوارات، واحفظي البطاقة بدقة عالية مجاناً وبدون إعلانات.
+                <div className="text-xs text-blue-100 opacity-90">
+                  {isRtl
+                    ? 'فريق المهندسين في GIS Network مستعد لتوفير خطط السيرفرات السحابية والشبكات المخصصة لمشروعك.'
+                    : 'Our engineering specialists provide tailored cloud VPS and resilient network architectures.'}
                 </div>
               </div>
               <button
                 type="button"
-                onClick={() => onNavigate('american-style-game')}
-                className="px-6 py-3 rounded-2xl bg-white text-purple-700 font-bold text-xs hover:bg-pink-50 transition shadow-lg flex items-center gap-2 shrink-0 cursor-pointer animate-bounce"
+                onClick={() => onNavigate('store')}
+                className="px-6 py-3 rounded-2xl bg-white text-blue-700 font-bold text-xs hover:bg-blue-50 transition shadow-lg flex items-center gap-2 shrink-0 cursor-pointer"
               >
-                <span>🎮 التشغيل واللعب المباشر الآن</span>
+                <span>{isRtl ? 'استكشف السيرفرات السحابية' : 'Explore Cloud Solutions'}</span>
                 <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </button>
             </div>

@@ -48,7 +48,7 @@ export const AdSensePlacement: React.FC<AdSensePlacementProps> = ({
   return (
     <aside
       aria-label="Google Advertisement"
-      className={`my-6 w-full flex flex-col items-center justify-center overflow-hidden ${className}`}
+      className={`w-full flex flex-col items-center justify-center overflow-hidden ${className}`}
     >
       <div className="w-full flex justify-center text-center">
         <ins
@@ -57,7 +57,6 @@ export const AdSensePlacement: React.FC<AdSensePlacementProps> = ({
           style={{
             display: 'block',
             textAlign: isArticle ? 'center' : undefined,
-            minHeight: isLeaderboard ? '90px' : isRectangle ? '250px' : '60px',
             width: '100%',
           }}
           data-ad-client={client}

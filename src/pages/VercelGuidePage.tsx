@@ -60,8 +60,9 @@ export const VercelGuidePage: React.FC<VercelGuidePageProps> = ({ currentLang = 
 
   const healthCheckEndpoints = [
     { title: isAr ? 'الصفحة الرئيسية' : 'Home Page', path: '/', status: '200 OK' },
-    { title: isAr ? 'لعبة ألعاب بنات 2026' : 'Girls Dress-Up Game', path: '/game', status: '200 OK' },
-    { title: isAr ? 'دليل مقالات الموضة' : 'Fashion Blog', path: '/blog', status: '200 OK' },
+    { title: isAr ? 'السيرفرات والخدمات السحابية' : 'Cloud Services & Store', path: '/store', status: '200 OK' },
+    { title: isAr ? 'المكتبة التقنية (37 مقالاً)' : 'Tech Blog (37 Articles)', path: '/blog', status: '200 OK' },
+    { title: isAr ? 'فاحص سرعة الشبكة و Ping' : 'Diagnostics & Speed Test', path: '/diagnostics', status: '200 OK' },
     { title: isAr ? 'ملف جوجل أدسنس' : 'AdSense ads.txt', path: '/ads.txt', status: '200 OK' },
     { title: isAr ? 'خريطة الموقع السحابية' : 'XML Sitemap', path: '/sitemap.xml', status: '200 OK' },
     { title: isAr ? 'ملف بروتوكول الروبوتات' : 'Robots.txt', path: '/robots.txt', status: '200 OK' },
@@ -71,33 +72,33 @@ export const VercelGuidePage: React.FC<VercelGuidePageProps> = ({ currentLang = 
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-10">
       {/* Header Banner */}
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20 backdrop-blur-sm">
-              <Server className="w-3.5 h-3.5 text-pink-400" />
-              <span>Vercel Production Deployment Center</span>
+              <Server className="w-3.5 h-3.5 text-cyan-400" />
+              <span>GIS Network Production Deployment</span>
             </div>
             <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
               {isAr ? 'صفحة إعدادات ونشر Vercel' : 'Vercel Deployment & Configuration Hub'}
             </h1>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               {isAr
-                ? 'دليلكِ الشامل والنهائي لنشر وضبط موقع استوديو حنان (hanan.fun) على منصة Vercel السحابية مع حل أي مشكلة كاش أو توجيه صفحات 404.'
-                : 'Complete configuration and operational guidelines for publishing Hanan Studio (hanan.fun) on Vercel Edge Network.'}
+                ? 'دليلك الشامل لضبط ونشر منصة خدمات الإنترنت العالمية (hanan.fun) على شبكة Vercel Edge العالمية مع حل مشاكل التخزين المؤقت وتوجيه الصفحات.'
+                : 'Complete configuration and operational guidelines for publishing Global Internet Services (hanan.fun) on Vercel Edge Network.'}
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row md:flex-col gap-3">
             {onNavigate && (
               <button
-                onClick={() => onNavigate('american-style-game')}
-                className="px-5 py-3 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-bold text-sm shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
+                onClick={() => onNavigate('store')}
+                className="px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
               >
-                <Flame className="w-4 h-4" />
-                <span>{isAr ? 'فتح لعبة ألعاب بنات' : 'Launch Girls Game'}</span>
+                <Server className="w-4 h-4 text-cyan-300" />
+                <span>{isAr ? 'استعراض الخدمات السحابية' : 'Explore Cloud Services'}</span>
               </button>
             )}
             <a
@@ -221,7 +222,7 @@ export const VercelGuidePage: React.FC<VercelGuidePageProps> = ({ currentLang = 
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 {isAr
-                  ? 'سجلي الدخول في vercel.com واضغطي على "Add New" ثم "Project"، واختاري مستودع GitHub الخاص بموقع استوديو حنان.'
+                  ? 'سجلي الدخول في vercel.com واضغطي على "Add New" ثم "Project"، واختاري مستودع GitHub الخاص بمنظومة GIS Network (hanan.fun).'
                   : 'Log in to Vercel, click "Add New" > "Project", and select your GitHub repository.'}
               </p>
             </div>

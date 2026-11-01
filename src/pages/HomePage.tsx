@@ -23,7 +23,6 @@ import {
 import { Language, Currency, ActivePage } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS, GLOBAL_SERVICES, SERVER_NODES, TESTIMONIALS } from '../data/mockData';
-import { AdSensePlacement } from '../components/AdSensePlacement';
 
 const SpeedTestWidget = React.lazy(() => import('../components/SpeedTestWidget').then(m => ({ default: m.SpeedTestWidget })));
 const PasswordGeneratorWidget = React.lazy(() => import('../components/PasswordGeneratorWidget').then(m => ({ default: m.PasswordGeneratorWidget })));
@@ -49,7 +48,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   const featuredArticles = BLOG_POSTS.slice(0, 6);
 
   return (
-    <div className="space-y-12 sm:space-y-16 pb-16 overflow-x-hidden bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <div className="space-y-12 sm:space-y-16 pb-6 overflow-x-hidden bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       
       {/* 1. Hero Section - Enterprise Cloud & Infrastructure */}
       <section className="relative overflow-hidden pt-8 pb-12 md:pt-16 md:pb-16 bg-gradient-to-b from-slate-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800/80">
@@ -401,11 +400,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             ))}
           </div>
         </div>
-      </section>
-
-      {/* AdSense Placement Box */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdSensePlacement slot="7890123456" format="auto" />
       </section>
 
     </div>
