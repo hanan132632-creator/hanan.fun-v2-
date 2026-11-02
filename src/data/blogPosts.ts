@@ -22,8 +22,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 12,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['معايير_EEAT', 'خدمات_الإنترنت_العالمية', 'البنية_التحتية', 'جوجل_أدسنس', 'الأمن_السيبراني', 'Core_Web_Vitals'],
-    views: 18920,
-    likes: 1420,
     commentsCount: 64,
     content: {
       ar: `تعتبر معايير E-E-A-T (الخبرة الميدانية Experience، الكفاءة العلمية Expertise، السلطة والاعتماد Authoritativeness، والموثوقية Trustworthiness) الحجر الزاوية الذي تبني عليه خوارزميات محركات البحث الحديثة تقييمها لجودة ومصداقية المنصات الرقمية. وفي عصر البنية التحتية السحابية لعام 2026، لم يعد التقييم يقتصر على الكلمات المكتوبة فحسب، بل يمتد ليشمل الاستقرار التقني، وسرعة الاستجابة الزمانية (Latency)، وسلامة حماية بيانات المستخدمين وفق أحدث معايير الـ GDPR.
@@ -103,8 +101,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80',
     tags: ['كابلات_بحرية', 'بروتوكول_BGP', 'بنية_تحتية', 'شبكات_عالمية', 'ألياف_ضوئية'],
-    views: 12450,
-    likes: 890,
     commentsCount: 38,
     content: {
       ar: `يمثل العمود الفقري للإنترنت العالمي (Internet Backbone) أعظم إنجاز هندسي في تاريخ البشرية؛ حيث يربط بين القارات عبر شبكة هائلة من كابلات الألياف الضوئية الممتدة في قاع المحيطات على أعماق تتجاوز 8000 متر. في هذا المقال، نستعرض أحدث تطورات الكابلات البحرية لعام 2026، وبروتوكول BGP، وكيف تعمل نقاط الإنزال البحرية في مصر والبحر الأحمر على تأمين الاتصال بين الشرق والغرب.
@@ -141,8 +137,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['DNS', 'Anycast', 'DNSSEC', 'أمان_الشبكات', 'خوادم_جذرية'],
-    views: 9820,
-    likes: 670,
     commentsCount: 24,
     content: {
       ar: `نظام أسماء النطاقات (DNS) هو دفتر الهاتف الرقمي للإنترنت. خلف الواجهة البسيطة لتحويل اسم الموقع إلى عنوان IP يقف نظام هرمي فائق التعقيد يضمن استجابة فورية لملايين الاستعلامات في الثانية الواحدة حول العالم.
@@ -176,8 +170,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['CDN', 'الحوسبة_الطرفية', 'تسريع_المواقع', 'Edge_Computing', 'أداء_الويب'],
-    views: 8940,
-    likes: 540,
     commentsCount: 19,
     content: {
       ar: `في عالم الويب الحديث، يعني كل تأخير بمقدار 100 مللي ثانية خسارة في معدل التحويل ونقصاً في رضاء الزائر. هنا تأتي قوة شبكات توزيع المحتوى (Content Delivery Networks) والحوسبة على الحافة (Edge Computing) لتقريب معالجة البيانات من الزائر أينما كان.
@@ -211,8 +203,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 10,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['سيو', 'EEAT', 'جوجل_أدسنس', 'صناعة_المحتوى', 'أرشفة_جوجل'],
-    views: 15300,
-    likes: 1240,
     commentsCount: 52,
     content: {
       ar: `تعتبر معايير E-E-A-T (الخبرة، التجربة، الموثوقية، والسلطة التحريرية) حجر الأساس الذي تعتمد عليه خوارزميات تقييم الجودة في محرك بحث جوجل وبرنامج Google AdSense لعام 2026. المواقع التي تُظهر بوضوح هويتها التحريرية وتعتمد على مصادر حقيقية تحظى بالأولوية القصوى والأرباح المستدامة.
@@ -246,8 +236,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
     tags: ['أمن_سيبراني', 'WAF', 'DDoS', 'حماية_الخوادم', 'أمن_المواقع'],
-    views: 7420,
-    likes: 510,
     commentsCount: 16,
     content: {
       ar: `مع تطور شبكات البوت نت (Botnets) الموزعة المدعومة بالذكاء الاصطناعي، باتت الهجمات السيبرانية أكثر تعقيداً وضخامة. لم يعد كافياً الاعتماد على جدران الحماية التقليدية، بل أصبح ضرورياً بناء أنظمة تنظيف الحركة السحابية (Scrubbing Centers) وجدران حماية تطبيقات الويب الذكية.
@@ -281,8 +269,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['Cloud_VPS', 'استضافة_سحابية', 'سيرفرات', 'NVMe', 'أداء_الخوادم'],
-    views: 6510,
-    likes: 420,
     commentsCount: 15,
     content: {
       ar: `عند إطلاق مشروع رقمي طموح، يواجه المطورون وأصحاب الأعمال القرار الحاسم باختيار بيئة الاستضافة. الاستضافة المشتركة قد تبدو اقتصادية في البداية، لكنها تعاني من قيود الجوار السيئ (Noisy Neighbors) وضعف الأمان.
@@ -316,8 +302,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['Core_Web_Vitals', 'تسريع_المواقع', 'LCP', 'INP', 'سيو_تقني'],
-    views: 8120,
-    likes: 630,
     commentsCount: 22,
     content: {
       ar: `أصبحت مؤشرات أداء الويب الأساسية (Core Web Vitals) عاملاً رسمياً ومباشراً في تصنيف نتائج البحث في جوجل وفي تسعير النقرات الإعلانية في أدسنس. الموقع السريع يجني أرباحاً أعلى ويحتفظ بزواره لفترات أطول.
@@ -353,8 +337,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 6,
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
     tags: ['تشفير_TLS', 'شهادات_SSL', 'أمن_المعلومات', 'بروتوكولات_الويب', 'الخصوصية'],
-    views: 5930,
-    likes: 380,
     commentsCount: 11,
     content: {
       ar: `يعد بروتوكول أمان طبقة النقل (TLS 1.3) قفزة نوعية مقارنة بالإصدارات السابقة؛ حيث ألغى خوارزميات التشفير القديمة الضعيفة واختصر وقت إنشاء الاتصال الآمن إلى النصف.
@@ -388,8 +370,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80',
     tags: ['بوابات_دفع', 'انستاباي', 'فوري', 'PCI_DSS', 'تجارة_إلكترونية'],
-    views: 9410,
-    likes: 710,
     commentsCount: 28,
     content: {
       ar: `تشهد منظومة التجارة الإلكترونية في الشرق الأوسط ومصر ثورة حقيقية مع انتشار بوابات الدفع الفوري كشبكة المدفوعات اللحظية InstaPay والمحافظ الإلكترونية وخدمات البطاقات البنكية الدولية.
@@ -423,8 +403,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80',
     tags: ['ذكاء_اصطناعي', 'تطوير_الويب', 'Gemini_API', 'أتمتة_البرمجة', 'إنتاجية'],
-    views: 11200,
-    likes: 890,
     commentsCount: 34,
     content: {
       ar: `لم يعد الذكاء الاصطناعي مجرد أداة تجريبية، بل أصبح ركيزة أساسية في دورة حياة تطوير البرمجيات الحديثة (SDLC). الفرق الهندسية المتقدمة تستخدمه لتسريع كتابة الاختبارات، وتحسين قواعد الأمان، وتحليل سجلات الخوادم في الوقت الفعلي.
@@ -458,8 +436,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['GDPR', 'حماية_البيانات', 'سياسة_الخصوصية', 'كوكيز', 'امتثال_قانوني'],
-    views: 6780,
-    likes: 410,
     commentsCount: 14,
     content: {
       ar: `أصبحت خصوصية المستخدمين حقاً أساسياً لا يمكن التهاون فيه. الشركات والمواقع التي تلتزم بالشفافية وتوفر أدوات واضحة للمستخدم للتحكم في بياناته تحظى بثقة أعلى ومعدلات ارتداد أقل.
@@ -495,8 +471,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['أدسنس', 'ربح_من_الإنترنت', 'قبول_أدسنس', 'سيو', 'تجربة_المستخدم'],
-    views: 18450,
-    likes: 1560,
     commentsCount: 63,
     content: {
       ar: `يظل برنامج Google AdSense الشريك الإعلاني الأكبر والأكثر موثوقية لملايين الناشرين حول العالم. لكن معايير مراجعة المواقع أصبحت أكثر صرامة للتأكد من أن الموقع يقدم فائدة استثنائية لزواره.
@@ -533,8 +507,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['نسخ_احتياطي', 'سحابة_متعددة', 'Disaster_Recovery', 'أمان_البيانات', 'استمرارية_الأعمال'],
-    views: 6120,
-    likes: 390,
     commentsCount: 12,
     content: {
       ar: `النسخ الاحتياطي ليس مجرد إجراء روتيني؛ بل هو بوليصة التأمين الوحيدة التي تضمن استمرار عمل مؤسستك عند وقوع أسوأ السيناريوهات من حرائق مراكز البيانات أو هجمات الفدية التخريبية.
@@ -570,8 +542,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['إنترنت_فضائي', 'أقمار_صناعية', 'ليزر_ضوئي', 'LEO_Satellites', 'اتصالات_مستقبلية'],
-    views: 13900,
-    likes: 1120,
     commentsCount: 41,
     content: {
       ar: `تغير شبكات الأقمار الصناعية في المدار الأرضي المنخفض (على ارتفاع 550 كم تقريباً) قواعد اللعبة في الاتصالات الدولية؛ حيث توفر أزمنة استجابة تضاهي بل وتتفوق على الألياف الضوئية الأرضية في المسافات الطويلة جداً.
@@ -605,8 +575,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['سيو_محلي', 'خرائط_جوجل', 'تسويق_إلكتروني', 'نشاطي_التجاري', 'جذب_العملاء'],
-    views: 8750,
-    likes: 670,
     commentsCount: 26,
     content: {
       ar: `يبحث أكثر من 80% من مستخدمي الهواتف الذكية عن أنشطة تجارية محلية قريبة منهم، وينتهي أكثر من نصف هذه العمليات بزيارة فعلية أو اتصال مباشر خلال 24 ساعة.
@@ -642,8 +610,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['بريد_إلكتروني', 'DMARC', 'SPF', 'DKIM', 'أمن_النطاقات'],
-    views: 6420,
-    likes: 450,
     commentsCount: 15,
     content: {
       ar: `مع فرض مزودي البريد العالميين (مثل Google Workspace و Microsoft Outlook) سياسات تحقق صارمة، لم يعد بإمكان أي نشاط إرسال بريد رسمي بدون تكوين سليم لسجلات التوثيق الثلاثية.
@@ -680,8 +646,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80',
     tags: ['Docker', 'Kubernetes', 'DevOps', 'سحابة_هجينة', 'حاويات_برمجية'],
-    views: 8930,
-    likes: 710,
     commentsCount: 23,
     content: {
       ar: `أحدثت الحاويات (Containers) ثورة في عالم البرمجيات؛ حيث حلت نهائياً معضلة "البرنامج يعمل على حاسوبي لكنه لا يعمل على الخادم" عبر تجميع الكود وكافة مكتباته في بيئة موحدة متطابقة.
@@ -716,8 +680,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['React', 'Nextjs', 'Vue', 'برمجة_الويب', 'تطوير_الواجهات'],
-    views: 10420,
-    likes: 830,
     commentsCount: 31,
     content: {
       ar: `يعتمد نجاح المتجر الإلكتروني على الجمع الصعب بين تجربة المستخدم التفاعلية السلسة والقدرة على أرشفة آلاف المنتجات فورياً في محركات البحث.
@@ -753,18 +715,34 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['PostgreSQL', 'قواعد_بيانات', 'Cloud_SQL', 'فهارس', 'تحسين_الأداء'],
-    views: 7120,
-    likes: 540,
     commentsCount: 18,
     content: {
-      ar: `قاعدة البيانات هي قلب أي تطبيق رقمي. عندما ينمو حجم البيانات إلى ملايين السجلات، تصبح الاستعلامات غير المفهرسة سبباً رئيسياً في بطء الموقع وتوقف الخوادم.
+      ar: `قاعدة البيانات هي قلب أي تطبيق رقمي. عندما ينمو حجم البيانات إلى ملايين السجلات، تصبح الاستعلامات غير المفهرسة سبباً رئيسياً في بطء الموقع وتوقف الخوادم تحت الضغط.
 
 ### 1. تحليل خطط الاستعلام (EXPLAIN ANALYZE)
-فهم كيفية معالجة محرك PostgreSQL للبيانات وتحديد نقاط الاختناق مثل المسح الكامل للجدول (Sequential Scan) وتحويله إلى مسح مفهرس سريع (Index Scan).
+فهم كيفية معالجة محرك PostgreSQL للبيانات وتحديد نقاط الاختناق مثل المسح الكامل للجدول (Sequential Scan) وتحويله إلى مسح مفهرس سريع (Index Scan) عبر إضافة الفهارس الجزئية (Partial Indexes) على الأعمدة الأكثر استعلاماً.
 
 ### 2. إدارة تجمع الاتصالات (Connection Pooling)
-توفير استهلاك الذاكرة عبر أدوات تجمع الاتصالات مثل PgBouncer لإدارة آلاف الاتصالات المتزامنة دون استنزاف موارد المعالج.`,
-      en: 'Deep technical exploration of vacuuming strategies, auto-tuning shared_buffers, read-replica routing, and connection scalability on managed Cloud SQL.'
+توفير استهلاك الذاكرة عبر أدوات تجمع الاتصالات مثل PgBouncer لإدارة آلاف الاتصالات المتزامنة دون استنزاف موارد المعالج وتفادي خطأ "Too many connections".
+
+### 3. ضبط معلمات الذاكرة والمخازن المؤقتة (shared_buffers & work_mem)
+تهيئة تخصيص الذاكرة وفقاً لسعة الرام الإجمالية للخادم، وتخصيص 25% من الذاكرة لـ shared_buffers مع رفع work_mem لتسريع عمليات الفرز والدمج (Sort & Hash Joins) في الذاكرة دون الكتابة على القرص.
+
+### 4. توزيع أعباء القراءة عبر الخوادم التابعة (Read Replicas)
+توجيه استعلامات التقارير والبحث الثقيلة إلى خوادم تابعة متزامنة في الوقت الفعلي، وتخصيص الخادم الرئيسي (Master Node) حصرياً لعمليات الكتابة والمعاملات المالية.`,
+      en: `The relational database represents the core data foundation of enterprise software. As data scales into multi-gigabyte domains, unoptimized queries degrade application latency and drain CPU cycles.
+
+### 1. Query Plan Diagnostics via EXPLAIN ANALYZE
+Isolate sequential disk scans and nested loop bottlenecks. Replace inefficient scans with targeted composite and partial B-Tree indices tailored to high-frequency query predicates.
+
+### 2. High-Density Connection Pooling with PgBouncer
+Mitigate PostgreSQL's process-per-connection memory footprint by multiplexing thousands of ephemeral client sessions over a persistent pool of server connections.
+
+### 3. Memory Tuning: shared_buffers & work_mem
+Allocate dedicated RAM to PostgreSQL's shared cache buffer (typically 25% of system memory) and calibrate work_mem to ensure in-memory sort and hash joins without spilling temporary files to disk.
+
+### 4. Read-Replica Load Distribution & Streaming Replication
+Offload heavy analytical aggregations and search workloads onto read-only replica nodes, safeguarding the primary database for transactional write throughput.`
     }
   },
   {
@@ -788,8 +766,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80',
     tags: ['HTTP3', 'QUIC', 'بروتوكولات_الإنترنت', 'سرعة_التصفح', 'شبكات_المحمول'],
-    views: 8430,
-    likes: 670,
     commentsCount: 20,
     content: {
       ar: `لأكثر من 30 عاماً، اعتمدت شبكة الويب العالمية على بروتوكول TCP لنقل البيانات. لكن مع زيادة استخدام الهواتف المحمولة وتعدد مصادر فقدان الحزم، جاء بروتوكول HTTP/3 ليعيد كتابة قواعد السرعة من الصفر.
@@ -823,17 +799,34 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80',
     tags: ['تحول_رقمي', 'شركات_ناشئة', 'سحابة_أعمال', 'ريادة_أعمال', 'أتمتة'],
-    views: 9230,
-    likes: 740,
     commentsCount: 25,
     content: {
-      ar: `لم يعد التحول الرقمي ترفاً بل شرطاً أساسياً للبقاء في سوق سريع التغير. الشركات التي استبدلت النماذج الورقية والبرامج المنفصلة بمنصات سحابية متكاملة حققت نمواً يتجاوز 3 أضعاف منافسيها.
+      ar: `لم يعد التحول الرقمي ترفاً بل شرطاً أساسياً للبقاء في سوق سريع التغير. الشركات التي استبدلت النماذج الورقية والأنظمة المعزولة بمنصات سحابية متكاملة حققت نمواً يتجاوز 3 أضعاف منافسيها.
 
-### 1. الركائز الثلاث للتحول الناجح
-- **البنية التحتية السحابية المرنة:** الاعتماد على الخوادم المدارة وتفادي تكاليف الصيانة المحلية.
-- **تكامل القنوات الرقمية (Omnichannel):** توحيد تجربة العميل عبر الموقع، التطبيق، ووسائل التواصل الاجتماعي.
-- **القرارات المعتمدة على البيانات (Data-Driven Decisions):** لوحات تحكم حية تقيس العائد على الاستثمار ومعدلات رضا العملاء في الوقت الفعلي.`,
-      en: 'Strategic guide on calculating cloud TCO, decoupling monolithic systems, integrating automated CRM pipelines, and managing organizational change.'
+### 1. الركائز الأساسية للتحول الرقمي السحابي
+الاعتماد على البنية التحتية السحابية المرنة القائمة على السيرفرات المدارة وتفادي تكاليف الصيانة المحلية، مما يسمح بتوسيع الموارد فورياً بالتزامن مع نمو حركة الزوار.
+
+### 2. تكامل القنوات الرقمية الموحدة (Omnichannel Integration)
+توحيد تجربة العميل وبياناته عبر الموقع الإلكتروني، وتطبيق الهاتف، وبوابات الدفع، وخدمة العملاء في قاعدة بيانات واحدة توفر رؤية شاملة لسلوك المستهلك.
+
+### 3. القرارات المؤتمتة المعتمدة على البيانات الحية
+بناء لوحات تحكم تحليلية تقيس مؤشرات الأداء الرئيسية (KPIs)، والعائد على الاستثمار الإعلاني، ومعدل الاحتفاظ بالعملاء في الوقت الفعلي لاتخاذ قرارات تسويقية وتشغيلية صائبة.
+
+### 4. أمن المعلومات وحماية استمرارية الأعمال
+تطبيق استراتيجيات النسخ الاحتياطي متعدد السحب وسياسات التشفير لضمان عدم توقف العمليات التجارية في حال حدوث أي طارئ أو هجوم سيبراني.`,
+      en: `Digital transformation has shifted from a corporate buzzword into an operational survival imperative. Organizations embracing automated cloud infrastructure consistently outperform legacy incumbents.
+
+### 1. Elastic Cloud-Native Foundations
+Transition from inflexible on-premise hardware to scalable managed cloud environments that dynamically expand computing power during traffic spikes without capital expenditure waste.
+
+### 2. Unified Omnichannel Customer Architecture
+Harmonize user experiences and transaction records across web stores, native mobile applications, payment gateways, and CRM touchpoints.
+
+### 3. Real-Time Telemetry & Data-Driven Velocity
+Deploy unified metric dashboards tracking lifetime customer value (LTV), acquisition costs, and churn signals to direct operational capital effectively.
+
+### 4. Continuity Engineering & Disaster Recovery
+Incorporate multi-cloud geographic backups and automated failover policies to guarantee 99.99% uptime for core commerce transactions.`
     }
   },
   {
@@ -857,8 +850,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
     tags: ['Passkeys', 'Zero_Trust', 'أمن_الهوية', 'FIDO2', 'WebAuthn'],
-    views: 7190,
-    likes: 560,
     commentsCount: 19,
     content: {
       ar: `تشير الإحصاءات الأمنية إلى أن أكثر من 80% من حوادث الاختراق تسريب البيانات سببها كلمات المرور الضعيفة أو المعاد استخدامها أو الوقوع في فخاخ التصيد الاحتيالي (Phishing).
@@ -892,8 +883,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['تسويق_المحتوى', 'سيو', 'باك_لينك', 'Domain_Authority', 'زيارات_موقع'],
-    views: 11450,
-    likes: 920,
     commentsCount: 37,
     content: {
       ar: `المحتوى هو الأداة الأقوى لبناء الثقة والمبيعات طويلة الأجل. المواقع التي تنتج محتوى معمقاً يُجيب بصدق واحترافية على تساؤلات الزوار هي التي تتصدر نتائج البحث وتكسب ولاء العملاء.
@@ -927,8 +916,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80',
     tags: ['SPA_SEO', 'React', 'أرشفة_جافاسكريبت', 'سيو_تقني', 'Nextjs'],
-    views: 7890,
-    likes: 610,
     commentsCount: 21,
     content: {
       ar: `تمنح تطبيقات الصفحة الواحدة (SPA) الزوار تجربة تصفح سريعة وخالية من إعادة تحميل الصفحة. لكن التحدي الأكبر يكمن في ضمان قراءة عناكب محركات البحث للمحتوى التفاعلي بشكل صحيح.
@@ -962,8 +949,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['علامة_تجارية', 'ملكية_فكرية', 'حماية_النطاقات', 'DMCA', 'حقوق_النشر'],
-    views: 6240,
-    likes: 470,
     commentsCount: 13,
     content: {
       ar: `قيمة شركتك تكمن في سمعة علامتها التجارية وثقة عملائها. مع سهولة نسخ المواقع، يجب على كل رائد أعمال حماية أصوله الرقمية بإجراءات قانونية وتقنية وقائية.
@@ -997,8 +982,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80',
     tags: ['تحليلات_الويب', 'تجربة_المستخدم', 'معدل_التحويل', 'UX', 'GA4'],
-    views: 8910,
-    likes: 720,
     commentsCount: 27,
     content: {
       ar: `الحصول على الزيارات هو نصف المعركة فقط؛ النصف الأهم هو تحويل هذا الزائر إلى قارئ دائم أو عميل يشتري خدماتك. التحليلات الدقيقة تكشف لك بالضبط أين يفقد موقعك زواره.
@@ -1033,8 +1016,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80',
     tags: ['تجارة_إلكترونية', 'الشرق_الأوسط', 'مصر', 'السعودية', 'لوجستيات_الشحن'],
-    views: 10890,
-    likes: 850,
     commentsCount: 32,
     content: {
       ar: `يعد الشرق الأوسط وشمال أفريقيا أسرع أسواق التجارة الإلكترونية نمواً في العالم بفضل التوسع الهائل في انتشار الهواتف الذكية ودعم الحكومات للاقتصاد الرقمي والمدفوعات الإلكترونية.
@@ -1068,8 +1049,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['ضغط_الصور', 'AVIF', 'WebP', 'Brotli', 'تسريع_المواقع'],
-    views: 7320,
-    likes: 580,
     commentsCount: 17,
     content: {
       ar: `تشكل الصور وملفات التنسيق والبرمجة أكثر من 75% من إجمالي حجم صفحات الويب. تحسين ضغط هذه الأصول هو أسرع وأرخص وسيلة لمضاعفة سرعة الموقع وتحسين تجربة الزائر.
@@ -1103,8 +1082,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 7,
     coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80',
     tags: ['سهولة_الوصول', 'WCAG', 'ARIA', 'تصميم_شامل', 'تجربة_المستخدم'],
-    views: 6150,
-    likes: 490,
     commentsCount: 16,
     content: {
       ar: `الإنترنت للجميع؛ وتصميم موقع يراعي سهولة الوصول (Accessibility) ليس واجباً إنسانياً فحسب، بل يرفع ترتيب الموقع في جوجل ويحميه من الدعاوى القانونية ويوسع قاعدة عملائه.
@@ -1139,8 +1116,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 6,
     coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     tags: ['نطاقات_عالمية', 'حجز_دومين', 'DNSSEC', 'إدارة_النطاقات', 'براندينج'],
-    views: 7450,
-    likes: 530,
     commentsCount: 19,
     content: {
       ar: `اسم النطاق هو عنوانك العقاري الدائم على شبكة الإنترنت واللبنة الأولى في بناء الثقة مع عملائك. خسارة الدومين أو اختطافه قد يدمر عملاً استمر لسنوات في دقائق.
@@ -1176,8 +1151,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
     tags: ['عمل_عن_بعد', 'Zero_Trust', 'أمن_سيبراني', 'SASE', 'حماية_الشركات'],
-    views: 8210,
-    likes: 640,
     commentsCount: 22,
     content: {
       ar: `مع تحول معظم الشركات إلى نماذج العمل المرن عن بعد، أصبحت شبكات VPN التقليدية نقطة ضعف أمنية خطيرة لأنها تمنح من يدخلها حق الوصول لكامل موارد الشبكة الداخلية.
@@ -1211,8 +1184,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80',
     tags: ['Microservices', 'واجهات_API', 'GraphQL', 'REST', 'هندسة_البرمجيات'],
-    views: 9140,
-    likes: 720,
     commentsCount: 26,
     content: {
       ar: `تبدأ معظم المشاريع الناجحة كمعمارية أحادية (Modular Monolith) بسيطة، ثم تنتقل تدريجياً إلى الخدمات المصغرة (Microservices) عندما تنمو فرق التطوير وتتعدد الوظائف الحيوية.
@@ -1247,18 +1218,34 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80',
     tags: ['أتمتة_الشركات', 'ذكاء_توليدي', 'خدمة_العملاء', 'إنتاجية_العمل', 'تقنية_المعلومات'],
-    views: 10320,
-    likes: 810,
     commentsCount: 30,
     content: {
-      ar: `تجاوز الذكاء الاصطناعي مرحلة المحادثة الترفيهية ليصبح القوة الدافعة لأتمتة مهام الأعمال الشاقة وتوفير مئات ساعات العمل للموظفين شهرياً.
+      ar: `تجاوز الذكاء الاصطناعي مرحلة المحادثة الترفيهية ليصبح القوة الدافعة لأتمتة مهام الأعمال الشاقة وتوفير مئات ساعات العمل للموظفين شهرياً في مختلف قطاعات التجارة والصناعة.
 
 ### 1. خدمة العملاء الذكية متعددة الوسائط (Multimodal Support)
-روبوتات دعم تفهم النصوص والصور والملفات الصوتية باللهجة المحلية، وتجيب فورياً على استفسارات الطلبات وتتبع الشحنات بالربط المباشر مع قاعدة البيانات.
+روبوتات دعم تفهم النصوص والصور والملفات الصوتية باللهجة المحلية، وتجيب فورياً على استفسارات الطلبات وتتبع الشحنات بالربط المباشر مع واجهات البرمجة وقواعد البيانات، مما يخفض وقت انتظار العميل من دقائق إلى أجزاء من الثانية.
 
-### 2. التدقيق الآلي للوثائق والفواتير
-استخراج البيانات تلقائياً من ملفات PDF الممسوحة ضوئياً ومطابقتها مع أوامر الشراء دون أي خطأ بشري وبسرعة لا تتجاوز ثوانٍ معدودة.`,
-      en: 'Integration playbook for Retrieval-Augmented Generation (RAG), vectorized knowledge indexing, hallucination mitigation guards, and SLA-compliant automation.'
+### 2. التدقيق الآلي للوثائق والفواتير وسلاسل الإمداد
+استخراج البيانات تلقائياً من ملفات PDF الممسوحة ضوئياً ومطابقتها مع أوامر الشراء دون أي خطأ بشري وبسرعة متناهية، مع إشعار المحاسبين فور رصد أي تباين في الأسعار أو الضرائب.
+
+### 3. توليد التقارير المالية والتحليل التنبؤي
+ربط نماذج التوليد المتقدمة بأنظمة تخطيط الموارد (ERP) لتوليد ملخصات الأداء الفصلي والتوقعات النقدية بلغة بشرية مفهومة ودقيقة تعتمد على أرقام السجلات الموثقة.
+
+### 4. حوكمة البيانات وأمن نماذج الذكاء التوليدي
+تطبيق أطر العزل المحلي (On-Premise / Private VPC) لمنع تسريب بيانات العملاء والشركاء أثناء تدريب وتوليد الاستفسارات، بما يحقق الامتثال للوائح الحماية الإقليمية.`,
+      en: `Generative artificial intelligence has evolved beyond interactive conversational demos into a mission-critical automation engine powering enterprise productivity and slashing manual operational overhead.
+
+### 1. Multimodal Autonomous Customer Support
+Enterprise agents process unstructured natural language, invoice attachments, and audio prompts in native regional dialects, integrating via transactional webhooks to resolve logistics inquiries with sub-second turnaround times.
+
+### 2. Automated Financial Reconciliation & Invoicing
+Zero-shot document parsing models extract structured tabular fields from scanned PDFs and receipts, executing bidirectional reconciliation against ERP purchase orders to catch billing discrepancies.
+
+### 3. Predictive Business Analytics & Executive Synthesis
+Retrieval-augmented models synthesize multi-departmental data streams into actionable operational briefings and cashflow projections with complete audit trails.
+
+### 4. Enterprise Security Guardrails & Data Sovereign Hosting
+Private VPC fine-tuning and strict context filtering prevent training-data leakage, maintaining alignment with ISO 27001 data protection covenants.`
     }
   },
   {
@@ -1282,18 +1269,34 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 9,
     coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
     tags: ['الجيل_السادس', 'إنترنت_الأشياء', 'IoT', 'مدن_ذكية', 'اتصالات_مستقبلية'],
-    views: 12150,
-    likes: 980,
     commentsCount: 39,
     content: {
       ar: `بينما تستمر شبكات 5G في الانتشار، انطلق السباق العالمي لتطوير معايير الجيل السادس (6G) لتقديم سرعات تتجاوز 1 تيرابت في الثانية مع زمن استجابة لا يتعدى 100 ميكروثانية.
 
-### 1. نطاقات التيراهيرتز (THz) والاستشعار الشبكي المدمج
-لن تقتصر أبراج 6G على نقل البيانات، بل ستعمل كأجهزة رادار عالية الدقة قادرة على استشعار البيئة المحيطة ثلاثية الأبعاد لتوجيه المركبات ذاتية القيادة والطائرات المسيرة.
+### 1. نطاقات التيراهيرتز (THz) والاستشعار الشبكي المدمج (ISAC)
+لن تقتصر أبراج 6G على نقل البيانات، بل ستعمل كأجهزة رادار ومسح بيئي دقيقة قادرة على استشعار البيئة المحيطة ثلاثية الأبعاد لتوجيه المركبات ذاتية القيادة والطائرات المسيرة بدقة السنتيمتر.
 
-### 2. الربط المليوني لأجهزة إنترنت الأشياء
-دعم ما يصل إلى 10 ملايين جهاز ذكي لكل كيلومتر مربع، مما يمكن المدن الذكية من إدارة شبكات الطاقة والمياه والمواصلات بكفاءة بيئية غير مسبوقة.`,
-      en: 'Technical overview of intelligent reflecting surfaces (IRS), integrated sensing and communications (ISAC), and ultra-reliable low-latency protocols.'
+### 2. الربط المليوني الكثيف لأجهزة إنترنت الأشياء
+دعم ما يصل إلى 10 ملايين جهاز ذكي لكل كيلومتر مربع، مما يمكن المدن الذكية من إدارة شبكات الطاقة والمياه والمواصلات بكفاءة بيئية غير مسبوقة دون حدوث اختناقات ترددية.
+
+### 3. أسطح الانعكاس الذكية (Intelligent Reflecting Surfaces - RIS)
+نشر رقائق كهرومغناطيسية ذكية على جدران المباني لإعادة توجيه حزم التيراهيرتز حول الحواجز الحضرية وتفادي الامتصاص الجوي لإشارات التردد العالي.
+
+### 4. التشفير الكمي وشبكات الذكاء المستقلة (Zero-Touch Networks)
+بناء طبقات أمنية قائمة على توزيع المفاتيح الكمومية (QKD) وخوارزميات تعلم آلي ذاتية الإصلاح تعيد تهيئة المسارات تلقائياً عند أي خلل فني أو انقطاع.`,
+      en: `As 5G deployments mature worldwide, global standards bodies are architecting 6G wireless specifications targeting sub-terahertz throughput in excess of 1 Tbps and end-to-end latencies below 100 microseconds.
+
+### 1. Sub-Terahertz Spectra & Integrated Sensing (ISAC)
+6G transceivers double as hyper-resolution environmental radars, providing 3D spatial mapping and centimeter-accurate geolocation for autonomous ground vehicles and urban aerial mobility fleets.
+
+### 2. Ultra-Dense Massive Machine-Type Communications
+Capable of interconnecting up to 10 million endpoints per square kilometer, enabling real-time monitoring of municipal smart grids, water networks, and autonomous transit corridors.
+
+### 3. Intelligent Reflecting Surfaces (IRS)
+Metamaterial reconfigurable surfaces mounted on structural facades dynamically refract terahertz waves around concrete obstacles, mitigating atmospheric attenuation.
+
+### 4. Quantum-Resilient Cryptography & Zero-Touch Management
+Autonomous network controllers utilize quantum key distribution (QKD) to safeguard telemetry and automatically heal degraded optical links without human intervention.`
     }
   },
   {
@@ -1317,18 +1320,34 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 8,
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
     tags: ['احتيال_مالي', 'أمن_المتاجر', 'حماية_البطاقات', 'Chargeback', 'تجارة_إلكترونية'],
-    views: 8940,
-    likes: 710,
     commentsCount: 24,
     content: {
-      ar: `يخسر قطاع التجارة الإلكترونية مليارات الدولارات سنوياً بسبب عمليات الاحتيال المالي وطلبات استرداد المبالغ الكيدية (Friendly Fraud). حماية متجرك تتطلب منظومة دفاعية متعددة الطبقات.
+      ar: `يخسر قطاع التجارة الإلكترونية مليارات الدولارات سنوياً بسبب عمليات الاحتيال المالي وهجمات الاسترداد الكيدية (Friendly Fraud). حماية متجرك تتطلب منظومة دفاعية استباقية متعددة الحواجز.
 
 ### 1. التصدي لروبوتات فحص البطاقات (Card Testing Attacks)
-يقوم القراصنة بتجربة آلاف البطاقات المسروقة على متجرك عبر شراء سلع رمزية. استخدام قواعد Rate Limiting وفحص البصمة السلوكية يحظر هذه الهجمات في مهدها.
+يقوم القراصنة بتجربة آلاف أرقام البطاقات المسروقة عبر تنفيذ طلبات شراء لسلع رمزية. حظر هذه الهجمات يتم عبر وضع قيود التكرار (Rate Limiting) وتقييد محاولات الدفع الفاشلة لكل عنوان IP وبصمة متصفح.
 
 ### 2. التقييم الآلي للمخاطر (Machine Learning Fraud Scoring)
-تحليل عنوان IP، والموقع الجغرافي لعنوان الفوترة مقابل عنوان الشحن، وسرعة حركة الفأرة لتحديد المعاملات المشبوهة وطلب تحقق إضافي قبل تنفيذ الشحنة.`,
-      en: 'Technical prevention strategies for Magecart digital skimming, device fingerprinting, machine-learning velocity checks, and PCI-DSS compliance audits.'
+تحليل عنوان IP، ومطابقة الدولة الجغرافية لعنوان الفوترة مقابل عنوان الشحن، وسرعة حركة الفأرة لتحديد المعاملات المشبوهة وطلب تحقق 3D Secure 2.0 إضافي قبل تنفيذ الشحنة.
+
+### 3. مكافحة الاستيلاء على الحسابات (Account Takeover Defense)
+إلزام العملاء باستخدام المصادقة متعددة العوامل (MFA) أو Passkeys، وفحص محاولات تسجيل الدخول المتزامنة من دول متباعدة جغرافياً في فترات زمنية مستحيلة فيزيائياً.
+
+### 4. حماية واجهات الدفع من حقن السكربتات (Magecart Mitigation)
+عزل حقول إدخال بطاقات الدفع في بيئات iframes آمنة ومشفرة من جانب مزود البوابة، مع تطبيق سياسات أمان المحتوى (CSP) الصارمة لمنع أي سكربت خبيث من قراءة بيانات البطاقات.`,
+      en: `Global digital commerce loses tens of billions annually to payment card fraud, synthetic identities, and chargeback abuse. Mitigating these risks requires deep layered defenses.
+
+### 1. Card Testing Bot Mitigation
+Malicious automated actors validate leaked card dumps by executing micro-transactions. Mitigation requires velocity rules, honeypot fields, and behavioral fingerprinting on checkout endpoints.
+
+### 2. Real-Time ML Risk Scoring & 3DS 2.0
+Modern payment pipelines analyze IP geolocation, device entropy, and shipping-versus-billing anomalies, triggering frictionless 3D Secure 2.0 cryptographic challenges on high-risk orders.
+
+### 3. Account Takeover (ATO) Prevention
+Enforce passkeys, WebAuthn, and credential-stuffing defense to protect stored customer loyalty points and payment tokens.
+
+### 4. Client-Side Skimming Defense (Anti-Magecart)
+Deploy rigorous Content Security Policies (CSP) and subresource integrity (SRI) to prevent rogue JavaScript injections on checkout pages.`
     }
   },
   {
@@ -1352,8 +1371,6 @@ export const BLOG_POSTS: BlogPost[] = [
     readTimeMin: 11,
     coverImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200&auto=format&fit=crop&q=80',
     tags: ['معايير_EEAT', 'جوجل_أدسنس', 'توثيق_الكاتب', 'جودة_المحتوى', 'SEO', 'مكافحة_التكرار'],
-    views: 14200,
-    likes: 1120,
     commentsCount: 45,
     content: {
       ar: `في إطار تحديثات خوارزميات التقييم لشركة Google وبرنامج Google AdSense لعام 2026، أصبح توثيق هوية الكاتب (Author Attribution) واستشهاد المحتوى بمصادر دولية مرقمة ركناً أساسياً لا يمكن تجاوزه للحصول على قبول الحساب والترتيب في صدارة محركات البحث.

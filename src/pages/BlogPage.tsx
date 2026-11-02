@@ -59,12 +59,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       if (saved) return JSON.parse(saved);
     } catch {}
     return {
-      'new-york-streetwear-girls-2026': [
-        { id: '1', name: 'سارة العتيبي', text: 'دليل رائع جداً! جربت تنسيق الجاكيت الأوفرسايز مع السنيكرز ريترو وكان اللوك مبهراً ومريحاً جداً.', date: 'منذ يومين' },
-        { id: '2', name: 'Emily Rose', text: 'Loving the streetwear breakdown! The proportional balancing tips are spot on.', date: '3 days ago' },
+      'global-internet-services-eeat-infrastructure-guide-2026': [
+        { id: '1', name: 'م. أحمد الشمري', text: 'توثيق هندسي رفيع المستوى، خاصة شرح تكامل مسارات Anycast والتوافق مع متطلبات E-E-A-T لشبكة المحتوى.', date: 'منذ يومين' },
+        { id: '2', name: 'Dr. David Vance', text: 'Outstanding breakdown of authoritative telemetry routing and infrastructure transparency. Very helpful for production deployments.', date: '3 days ago' },
       ],
-      'hollywood-glam-makeup-guide-2026': [
-        { id: '1', name: 'نور الهدى', text: 'خطوات المكياج سهلة وشرحها بشري ومفهوم بدون تعقيد، خصوصاً طريقة الهايلايتر ورسمة الشفاه الأومبري.', date: 'منذ 4 أيام' },
+      'cybersecurity-waf-ddos-mitigation-architecture-2026': [
+        { id: '1', name: 'سلطان القحطاني', text: 'شرح معايير WAF وتقنيات فلترة هجمات L7 بدون إعاقة مستخدمي الويب الحقيقيين كان مفيداً للغاية في مشروعنا.', date: 'منذ 4 أيام' },
       ],
     };
   });

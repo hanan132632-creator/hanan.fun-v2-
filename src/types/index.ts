@@ -88,8 +88,6 @@ export interface BlogPost {
   readTimeMin: number;
   coverImage: string;
   tags: string[];
-  views: number;
-  likes: number;
   commentsCount: number;
   references?: ArticleCitation[];
   humanTakeaway?: Partial<Record<Language, string>> & { ar: string; en: string };

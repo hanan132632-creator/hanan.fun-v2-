@@ -45,7 +45,7 @@ export const AudioToVideoPage: React.FC<AudioToVideoPageProps> = ({ currentLang 
 
   // Settings
   const [aspectRatio, setAspectRatio] = useState<'16:9' | '9:16' | '1:1'>('16:9');
-  const [videoTitle, setVideoTitle] = useState<string>('Hanan Fun Audio');
+  const [videoTitle, setVideoTitle] = useState<string>('GIS Network Media 2026');
   const [showWaveform, setShowWaveform] = useState<boolean>(true);
   const [waveColor, setWaveColor] = useState<string>('#3b82f6');
   const [showLogoWatermark, setShowLogoWatermark] = useState<boolean>(true);
