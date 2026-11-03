@@ -361,12 +361,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
 
-              <div className="px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 text-xs text-slate-500">
-                <span className="flex items-center gap-1 font-semibold text-slate-700 dark:text-slate-300">
-                  <span className="text-emerald-500 font-bold">✓</span>
-                  <span>{post.author.name}</span>
+              <div className="px-5 sm:px-6 pb-5 pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 dark:border-slate-800/80 text-xs text-slate-500">
+                <span className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 min-w-0">
+                  <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                  <span className="truncate">{post.author.name}</span>
                 </span>
-                <span className="font-bold text-blue-600 dark:text-cyan-400 flex items-center gap-1 group-hover:underline">
+                <span className="font-bold text-blue-600 dark:text-cyan-400 flex items-center gap-1 group-hover:underline shrink-0">
                   <span>{isAr ? 'قراءة ومصادر المقال' : 'Read Article'}</span>
                   <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </span>

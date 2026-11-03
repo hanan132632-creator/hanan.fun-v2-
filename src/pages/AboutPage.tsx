@@ -43,13 +43,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
 
   const leadership = [
     {
-      name: isAr ? 'م. كريم المهدي (Kareem Al-Mahdi)' : 'Kareem Al-Mahdi',
+      name: isAr ? 'م. كريم المهدي' : 'Kareem Al-Mahdi',
       role: isAr ? 'كبير مهندسي الشبكات والسيرفرات السحابية' : 'Chief Cloud Architect',
       bio: isAr ? 'خبير في شبكات Anycast وتأمين بروتوكول BGP وحوسبة الحافة (Edge Computing) مع أكثر من 12 عاماً في هندسة مراكز البيانات.' : 'Specialist in Anycast routing, BGP traffic engineering, and resilient Edge data center architectures.',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
     },
     {
-      name: isAr ? 'أ. حنان العلي (Hanan Al-Ali)' : 'Hanan Al-Ali',
+      name: isAr ? 'أ. حنان العلي' : 'Hanan Al-Ali',
       role: isAr ? 'رئيسة التحرير الهندسي ومستشارة معايير E-E-A-T' : 'Editorial Director & SEO Lead',
       bio: isAr ? 'باحثة في جودة المحتوى الرقمي ومعايير أداء الويب Core Web Vitals وسياسات الشفافية والامتثال في محركات البحث.' : 'Digital knowledge director focusing on Core Web Vitals optimization and Google E-E-A-T quality compliance.',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',

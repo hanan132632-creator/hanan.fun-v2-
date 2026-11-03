@@ -14,7 +14,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'أ. حنان العلي (Hanan Al-Ali)',
+      name: 'أ. حنان العلي',
       role: { ar: 'رئيسة التحرير الهندسي ومستشارة معايير E-E-A-T', en: 'Editorial Director & E-E-A-T Specialist' },
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
     },
@@ -93,7 +93,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير مهندسي الشبكات والبنية التحتية', en: 'Principal Network Architect' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -162,7 +162,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'فريق الحوسبة السحابية وشبكات التسليم', en: 'Cloud & Delivery Infrastructure Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -228,7 +228,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -261,7 +261,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'فريق البنية التحتية للخوادم السحابية', en: 'Cloud Infrastructure Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -329,7 +329,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -362,7 +362,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'fintech',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مستشار الحلول المالية الرقمية والتجارة الإلكترونية', en: 'FinTech & E-Commerce Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -428,7 +428,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مستشار الامتثال القانوني والسيبراني', en: 'Legal & Privacy Compliance Lead' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -499,7 +499,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'فريق البنية التحتية والتعافي من الكوارث', en: 'Infrastructure & Resilience Team' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -534,7 +534,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'infrastructure',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير باحثي اتصالات الفضاء والشبكات', en: 'Satellite Communications Research Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -638,7 +638,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'engineering',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير مهندسي DevOps والسحابة', en: 'Lead DevOps & Cloud Engineer' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -707,7 +707,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     category: 'cloud',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس قواعد بيانات وبنية تحتية', en: 'Principal Database Architect' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -758,7 +758,7 @@ Offload heavy analytical aggregations and search workloads onto read-only replic
     },
     category: 'infrastructure',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير مهندسي الشبكات والبروتوكولات', en: 'Principal Protocol Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -842,7 +842,7 @@ Incorporate multi-cloud geographic backups and automated failover policies to gu
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -941,7 +941,7 @@ Incorporate multi-cloud geographic backups and automated failover policies to gu
     },
     category: 'fintech',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مستشار حماية العلامات الرقمية والملكية الفكرية', en: 'Digital Brand Protection Counsel' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1008,7 +1008,7 @@ Incorporate multi-cloud geographic backups and automated failover policies to gu
     },
     category: 'fintech',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مستشار الحلول المالية الرقمية والتجارة الإلكترونية', en: 'FinTech & E-Commerce Lead' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -1143,7 +1143,7 @@ Incorporate multi-cloud geographic backups and automated failover policies to gu
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1176,7 +1176,7 @@ Incorporate multi-cloud geographic backups and automated failover policies to gu
     },
     category: 'engineering',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير مهندسي DevOps والسحابة', en: 'Lead DevOps & Cloud Engineer' },
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
     },
@@ -1261,7 +1261,7 @@ Private VPC fine-tuning and strict context filtering prevent training-data leaka
     },
     category: 'infrastructure',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'كبير مهندسي الشبكات والبروتوكولات', en: 'Principal Protocol Engineer' },
       avatar: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200&auto=format&fit=crop&q=80',
     },
@@ -1312,7 +1312,7 @@ Autonomous network controllers utilize quantum key distribution (QKD) to safegua
     },
     category: 'security',
     author: {
-      name: 'م. طارق كمال (Eng. Tarek Kamal)',
+      name: 'م. طارق كمال',
       role: { ar: 'مهندس أمن سيبراني واختراق أخلاقي', en: 'Lead Information Security Engineer' },
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
     },
@@ -1363,7 +1363,7 @@ Deploy rigorous Content Security Policies (CSP) and subresource integrity (SRI) 
     },
     category: 'seo',
     author: {
-      name: 'أ. حنان العلي (Hanan Al-Ali)',
+      name: 'أ. حنان العلي',
       role: { ar: 'رئيسة التحرير الهندسي ومستشارة معايير E-E-A-T', en: 'Editorial Director & E-E-A-T Quality Specialist' },
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80',
     },

@@ -422,9 +422,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                   <h4 className="text-xl font-black text-slate-900 dark:text-white">
                     {authorProfile.name}
                   </h4>
-                  <span className="text-xs font-bold text-slate-400">
-                    ({authorProfile.nameEn})
-                  </span>
+                  {!isRtl && (
+                    <span className="text-xs font-bold text-slate-400">
+                      ({authorProfile.nameEn})
+                    </span>
+                  )}
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
                     {isRtl ? 'كاتب تقني معتمد وموثق' : 'Verified Technical Author'}
                   </span>
