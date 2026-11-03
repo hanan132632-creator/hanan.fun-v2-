@@ -233,21 +233,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </ul>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold block">
-                    {isAr ? 'حالة الاعتماد' : 'Deployment Tier'}
-                  </span>
-                  <span className="text-sm font-black text-slate-900 dark:text-white">
-                    {isAr ? 'معتمد للمؤسسات' : 'Enterprise SLA'}
-                  </span>
-                </div>
-
+              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end">
                 <button
                   onClick={() => onNavigate('store')}
-                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-blue-600 dark:bg-slate-800 dark:hover:bg-blue-600 text-slate-700 hover:text-white dark:text-slate-200 font-bold text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 dark:bg-slate-800 dark:hover:bg-blue-600 text-slate-700 hover:text-white dark:text-slate-200 font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <span>{isAr ? 'التفاصيل' : 'Details'}</span>
+                  <span>{isAr ? 'التفاصيل والاشتراك' : 'View Details & Order'}</span>
                   <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </button>
               </div>
