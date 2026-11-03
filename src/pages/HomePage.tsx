@@ -236,7 +236,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <div>
                   <span className="text-[10px] text-slate-500 uppercase font-semibold block">
-                    {isAr ? 'الترخيص والاعتماد' : 'Deployment Tier'}
+                    {isAr ? 'حالة الاعتماد' : 'Deployment Tier'}
                   </span>
                   <span className="text-sm font-black text-slate-900 dark:text-white">
                     {isAr ? 'معتمد للمؤسسات' : 'Enterprise SLA'}

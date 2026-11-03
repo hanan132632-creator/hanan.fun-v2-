@@ -91,3 +91,28 @@ ins.adsbygoogle:empty {
   padding: 0 !important;
 }
 
+/* Explicit separation of Desktop and Mobile elements */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Badge Utility Styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
