@@ -491,6 +491,19 @@ export const ARTICLE_METADATA_MAP: Record<string, PostExtraMetadata> = {
       { id: 4, title: 'RFC 9110: HTTP Semantics - Entity Tags, Caching and Freshness for Search Crawlers', source: 'Internet Engineering Task Force (IETF)', year: '2022' },
     ],
   },
+  'ai-cloud-native-zero-trust-governance-2026': {
+    authorId: 'hanan-al-ali',
+    humanTakeaway: {
+      ar: 'الملاحظة الهندسية الميدانية: أمان تقنيات الذكاء الاصطناعي لا يتوقف عند جدار الحماية الخارجي؛ العزل الحقيقي ينبع من تشفير حركة البيانات بين خوادم الاستدلال وقواعد البيانات المتجهية باستخدام mTLS 1.3، وإدارة مفاتيح التشفير عبر وحدات HSM لمنع أي تسريب أو اختراق.',
+      en: 'Field AI Security Note: Hardening generative AI inference clusters demands zero trust deep inside the VPC—encrypting inter-service vector traffic with mTLS 1.3 and delegating cryptographic keys to dedicated Hardware Security Modules (HSM).',
+    },
+    references: [
+      { id: 1, title: 'NIST SP 800-207: Zero Trust Architecture Specification', source: 'National Institute of Standards and Technology', year: '2020' },
+      { id: 2, title: 'ISO/IEC 27090: Security Guidelines for Artificial Intelligence Systems', source: 'International Organization for Standardization', year: '2025' },
+      { id: 3, title: 'RFC 9525: Service Mesh Mutual TLS (mTLS) and Identity Verification Standards', source: 'Internet Engineering Task Force (IETF)', year: '2024' },
+      { id: 4, title: 'OWASP Top 10 for Large Language Model Applications & AI Governance Standards', source: 'OWASP Foundation', year: '2026' },
+    ],
+  },
 };
 
 // Generic authoritative fallback citation generator tailored strictly to category

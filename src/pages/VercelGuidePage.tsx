@@ -61,7 +61,7 @@ export const VercelGuidePage: React.FC<VercelGuidePageProps> = ({ currentLang = 
   const healthCheckEndpoints = [
     { title: isAr ? 'الصفحة الرئيسية' : 'Home Page', path: '/', status: '200 OK' },
     { title: isAr ? 'السيرفرات والخدمات السحابية' : 'Cloud Services & Store', path: '/store', status: '200 OK' },
-    { title: isAr ? 'المكتبة التقنية (37 مقالاً)' : 'Tech Blog (37 Articles)', path: '/blog', status: '200 OK' },
+    { title: isAr ? 'المكتبة التقنية (38 مقالاً)' : 'Tech Blog (38 Articles)', path: '/blog', status: '200 OK' },
     { title: isAr ? 'فاحص سرعة الشبكة و Ping' : 'Diagnostics & Speed Test', path: '/diagnostics', status: '200 OK' },
     { title: isAr ? 'ملف جوجل أدسنس' : 'AdSense ads.txt', path: '/ads.txt', status: '200 OK' },
     { title: isAr ? 'خريطة الموقع السحابية' : 'XML Sitemap', path: '/sitemap.xml', status: '200 OK' },

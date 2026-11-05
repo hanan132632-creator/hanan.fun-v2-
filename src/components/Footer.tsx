@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang = 'ar', onNavigate }
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li>
                 <button onClick={() => onNavigate('blog')} className="hover:text-cyan-400 transition-colors cursor-pointer">
-                  {isAr ? 'المدونة التقنية (37 مقالاً متخصصاً)' : 'Technical Blog (37 Articles)'}
+                  {isAr ? 'المدونة التقنية (38 مقالاً متخصصاً)' : 'Technical Blog (38 Articles)'}
                 </button>
               </li>
               <li>

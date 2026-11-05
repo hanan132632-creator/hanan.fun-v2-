@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks: { page: ActivePage; label: string; icon: any }[] = [
     { page: 'home', label: t.nav_home, icon: Globe },
     { page: 'store', label: currentLang === 'ar' ? 'الخدمات السحابية' : 'Cloud Services', icon: Server },
-    { page: 'blog', label: currentLang === 'ar' ? 'المكتبة التقنية (37)' : 'Tech Blog (37)', icon: BookOpen },
+    { page: 'blog', label: currentLang === 'ar' ? 'المكتبة التقنية (38)' : 'Tech Blog (38)', icon: BookOpen },
     { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة' : 'Speed Test', icon: Activity },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Video Studio', icon: Video },
     { page: 'about', label: t.nav_about, icon: Info },
@@ -199,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-slate-800 text-indigo-700 dark:text-indigo-400 border border-slate-200 dark:border-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors shadow-2xs shrink-0 cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span>{currentLang === 'ar' ? 'المكتبة التقنية (37 مقالاً)' : 'Tech Blog (37)'}</span>
+              <span>{currentLang === 'ar' ? 'المكتبة التقنية (38 مقالاً)' : 'Tech Blog (38)'}</span>
             </button>
             <button 
               onClick={() => onNavigate('diagnostics')} 

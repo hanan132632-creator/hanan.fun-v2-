@@ -36,8 +36,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
     },
     { 
       year: '2026', 
-      title: isAr ? 'إطلاق درع WAF ومكتبة الـ 37 مقالاً الهندسية' : 'Enterprise WAF & 37 Tech Pillars', 
-      desc: isAr ? 'تدشين جدار حماية تطبيقات الويب المتطور وسعة صد هجمات تفوق 15 تيرابت، مع مكتبة توثيقية تضم 37 دراسة معمارية أصيلة.' : 'Deployment of AI-driven Layer-7 WAF scrubbing and comprehensive 37-article engineering encyclopedia.' 
+      title: isAr ? 'إطلاق درع WAF ومكتبة الـ 38 مقالاً الهندسية' : 'Enterprise WAF & 38 Tech Pillars', 
+      desc: isAr ? 'تدشين جدار حماية تطبيقات الويب المتطور وسعة صد هجمات تفوق 15 تيرابت، مع مكتبة توثيقية تضم 38 دراسة معمارية أصيلة.' : 'Deployment of AI-driven Layer-7 WAF scrubbing and comprehensive 38-article engineering encyclopedia.' 
     },
   ];
 
@@ -75,7 +75,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
         </h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
           {isAr
-            ? 'تأسست منظومة خدمات الإنترنت العالمية (GIS Network) لتوفير بنية سحابية فائقة الأداء تعتمد على تقنيات Anycast ومعالجات AMD EPYC وشبكات الألياف الضوئية العابرة للقارات، مدعومة بمكتبة توثيقية تضم 37 مقالاً هندسياً أصيلاً لخدمة مجتمع المطورين ورواد الأعمال.'
+            ? 'تأسست منظومة خدمات الإنترنت العالمية (GIS Network) لتوفير بنية سحابية فائقة الأداء تعتمد على تقنيات Anycast ومعالجات AMD EPYC وشبكات الألياف الضوئية العابرة للقارات، مدعومة بمكتبة توثيقية تضم 38 مقالاً هندسياً أصيلاً لخدمة مجتمع المطورين ورواد الأعمال.'
             : 'We empower enterprises, startups, and developers worldwide with resilient cloud virtualization, sub-millisecond edge content delivery, and robust cyber defenses.'}
         </p>
       </div>
@@ -93,7 +93,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-emerald-500">37</div>
+          <div className="text-3xl sm:text-4xl font-black text-emerald-500">38</div>
           <div className="text-xs font-bold text-slate-500 mt-1">{isAr ? 'مقال ودراسة معمارية أصيلة' : 'Original Tech Studies'}</div>
         </div>
 

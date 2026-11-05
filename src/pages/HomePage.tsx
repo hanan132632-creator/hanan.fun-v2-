@@ -84,7 +84,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
               <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
                 {isAr
-                  ? 'منصة هندسية عالمية تقدم خدمات السيرفرات السحابية Cloud VPS، شبكات توزيع المحتوى Anycast CDN، جدران الحماية السيبرانية WAF، مع مكتبة معرفية تضم 37 مقالاً ودراسة تقنية متخصصة.'
+                  ? `منصة هندسية عالمية تقدم خدمات السيرفرات السحابية Cloud VPS، شبكات توزيع المحتوى Anycast CDN، جدران الحماية السيبرانية WAF، مع مكتبة معرفية تضم ${BLOG_POSTS.length} مقالاً ودراسة تقنية متخصصة.`
                   : 'Engineered for peak performance, sub-millisecond Anycast routing, automated cyber defenses, and high-concurrency cloud computing across 240+ global Edge points of presence.'}
               </p>
 
@@ -312,7 +312,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-2">
               <BookOpen className="w-3.5 h-3.5" />
-              <span>{isAr ? 'مكتبة المعرفة والتقنية (37 مقالاً متخصصاً)' : 'Technical Knowledge Library (37 Posts)'}</span>
+              <span>{isAr ? `مكتبة المعرفة والتقنية (${BLOG_POSTS.length} مقالاً متخصصاً)` : `Technical Knowledge Library (${BLOG_POSTS.length} Posts)`}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white">
               {isAr ? 'أحدث المقالات والدراسات الهندسية' : 'Latest Architectural Articles & Guides'}
@@ -323,7 +323,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => onNavigate('blog')}
             className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer self-start md:self-auto"
           >
-            <span>{isAr ? 'عرض كافة الـ 37 مقالاً' : 'Browse All 37 Articles'}</span>
+            <span>{isAr ? `عرض كافة الـ ${BLOG_POSTS.length} مقالاً` : `Browse All ${BLOG_POSTS.length} Articles`}</span>
             <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </button>
         </div>
