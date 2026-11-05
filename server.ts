@@ -32,6 +32,69 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Smart URL Normalizer & Fast Asset/ads.txt/404 Handler
+  app.use((req, res, next) => {
+    let decodedPath = req.path;
+    try {
+      decodedPath = decodeURIComponent(req.path);
+    } catch {}
+    const cleanPath = decodedPath.replace(/\s+/g, "").toLowerCase();
+
+    // Direct ads.txt & app-ads.txt auto-handling (captures spaces, query params, variations)
+    if (cleanPath.includes("ads.txt") && !cleanPath.includes("app-ads.txt")) {
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      const adsTxtPath = path.join(process.cwd(), "public", "ads.txt");
+      if (fs.existsSync(adsTxtPath)) {
+        return res.sendFile(adsTxtPath);
+      }
+      return res.send("google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0\n");
+    }
+
+    if (cleanPath.includes("app-ads.txt")) {
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      const appAdsPath = path.join(process.cwd(), "public", "app-ads.txt");
+      if (fs.existsSync(appAdsPath)) {
+        return res.sendFile(appAdsPath);
+      }
+      return res.send("google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0\n");
+    }
+
+    // Explicit 404.html page requests
+    if (cleanPath.includes("404.html") || cleanPath === "/404") {
+      const page404Path = path.join(process.cwd(), "public", "404.html");
+      if (fs.existsSync(page404Path)) {
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        return res.sendFile(page404Path);
+      }
+    }
+
+    next();
+  });
+
+  // Self-healing asset fallback for older build JS/CSS chunk filenames
+  app.use("/assets", (req, res, next) => {
+    const filename = path.basename(req.path);
+    const prodAssetPath = path.join(process.cwd(), "dist", "assets", filename);
+
+    if (!fs.existsSync(prodAssetPath)) {
+      if (filename.endsWith(".js")) {
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        return res.send(
+          `/* GIS Auto-Recovery Asset Handler */ if (typeof window !== 'undefined') { console.warn('Asset chunk refreshed, auto-reloading page...'); setTimeout(function(){ window.location.reload(); }, 200); }`
+        );
+      } else if (filename.endsWith(".css")) {
+        res.setHeader("Content-Type", "text/css; charset=utf-8");
+        return res.send(`/* CSS Chunk Updated */`);
+      }
+    }
+    next();
+  });
+
   // Health check
   app.get("/api/health", (_req, res) => {
     res.json({ status: "ok", service: "Global Internet Services API", timestamp: new Date().toISOString() });
@@ -375,8 +438,19 @@ Keep answers insightful, polite, practical, and highly helpful with clear bullet
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    app.use(
+      express.static(distPath, {
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            res.setHeader("Pragma", "no-cache");
+            res.setHeader("Expires", "0");
+          }
+        },
+      })
+    );
     app.get("*", (_req, res) => {
+      res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
