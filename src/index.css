@@ -64,8 +64,8 @@
   50% { opacity: .5; }
 }
 
-/* Adsterra Ad Unit & Responsive Container Styling */
-.adsterra-banner-container {
+/* Ad Unit & Responsive Container Styling */
+.ad-banner-container {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -127,7 +127,7 @@ async function startServer() {
     if (fs.existsSync(adsTxtPath)) {
       res.sendFile(adsTxtPath);
     } else {
-      res.send("# Adsterra Advertising Network - ads.txt ready\n");
+      res.send("google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0\n");
     }
   });
 
@@ -139,7 +139,7 @@ async function startServer() {
     if (fs.existsSync(appAdsPath)) {
       res.sendFile(appAdsPath);
     } else {
-      res.send("# Adsterra Advertising Network - app-ads.txt ready\n");
+      res.send("google.com, pub-8161307018337815, DIRECT, f08c47fec0942fa0\n");
     }
   });
 
@@ -231,7 +231,7 @@ async function startServer() {
         ipv6Ready: true,
         ttfbMs: avgTtfb,
         overallScore,
-        adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS - Adsterra Ready)",
+        adSenseCompatibility: "100% Compatible (Compliant HTML structure, Fast LCP, Clean CLS - Google AdSense Ready)",
         nodes,
       });
     } catch (err: any) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Award, ShieldCheck, FileCheck } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdsterraPlacement } from '../components/AdsterraPlacement';
+import { AdSensePlacement } from '../components/AdSensePlacement';
 
 interface AdSenseStandardsPageProps {
   currentLang: Language;
@@ -63,7 +63,7 @@ export const AdSenseStandardsPage: React.FC<AdSenseStandardsPageProps> = ({ curr
           </ul>
         </section>
 
-        <AdsterraPlacement currentLang={currentLang} format="in-article" />
+        <AdSensePlacement currentLang={currentLang} format="in-article" />
 
         <section className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">2. معايير الخبرة والمصداقية (E-E-A-T)</h2>

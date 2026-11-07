@@ -26,7 +26,7 @@ import {
 import { Language } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
 import { BLOG_POSTS } from '../data/mockData';
-import { AdsterraPlacement } from '../components/AdsterraPlacement';
+import { AdSensePlacement } from '../components/AdSensePlacement';
 import { ARTICLE_METADATA_MAP, getFallbackCitations, getFallbackHumanTakeaway } from '../data/articleCitations';
 import { EDITORIAL_AUTHORS } from '../data/authorData';
 
@@ -314,9 +314,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </div>
           )}
 
-          {/* In-Article 300x250 Adsterra Placement */}
+          {/* In-Article 300x250 AdSense Placement */}
           <div className="flex justify-center my-4">
-            <AdsterraPlacement currentLang={currentLang} format="300x250" />
+            <AdSensePlacement currentLang={currentLang} format="300x250" />
           </div>
 
           {/* Article Main Text Content */}
@@ -525,8 +525,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </div>
           </div>
 
-          {/* Bottom Adsterra Unit */}
-          <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
+          {/* Bottom AdSense Unit */}
+          <AdSensePlacement currentLang={currentLang} format="leaderboard" />
 
           {/* Dual Navigation Section: Previous Article & Next Article with Prominent Arrows */}
           <section className="pt-8 border-t-2 border-dashed border-slate-200 dark:border-slate-800 space-y-6">
@@ -670,8 +670,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </div>
           </section>
 
-          {/* Adsterra Native Recommendations Widget */}
-          <AdsterraPlacement currentLang={currentLang} format="native" />
+          {/* AdSense Native Recommendations Widget */}
+          <AdSensePlacement currentLang={currentLang} format="native" />
 
           {/* Comments Section */}
           <section className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
@@ -910,8 +910,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             ))}
           </div>
 
-          {/* Adsterra Unit in Blog Index */}
-          <AdsterraPlacement currentLang={currentLang} format="leaderboard" />
+          {/* AdSense Unit in Blog Index */}
+          <AdSensePlacement currentLang={currentLang} format="leaderboard" />
         </div>
       )}
 

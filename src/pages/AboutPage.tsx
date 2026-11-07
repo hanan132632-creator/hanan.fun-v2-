@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { Language, ActivePage } from '../types';
 import { TRANSLATIONS } from '../locales/translations';
-import { AdsterraPlacement } from '../components/AdsterraPlacement';
 
 interface AboutPageProps {
   currentLang: Language;
