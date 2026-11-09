@@ -504,6 +504,19 @@ export const ARTICLE_METADATA_MAP: Record<string, PostExtraMetadata> = {
       { id: 4, title: 'OWASP Top 10 for Large Language Model Applications & AI Governance Standards', source: 'OWASP Foundation', year: '2026' },
     ],
   },
+  'global-internet-infrastructure-subsea-cables-anycast-2026': {
+    authorId: 'tarek-kamal',
+    humanTakeaway: {
+      ar: 'الملاحظة الهندسية الميدانية: سرعة واستقرار خدمات الإنترنت العالمية لا تعتمد فقط على قوة المعالجات السحابية، بل على كفاءة المسارات الفيزيائية للألياف الضوئية وتكامل عقد Anycast مع مراكز تبادل الإنترنت الإقليمية (IXPs) لضمان توجيه حركة المرور عبر أقصر قفزة شبكية دون اختناق.',
+      en: 'Field Infrastructure Note: Global internet service resilience is governed by physical fiber route diversity and localized IXP peering rather than raw server compute alone.',
+    },
+    references: [
+      { id: 1, title: 'ITU-T G.977: Characteristics of Optically Amplified Submarine Cable Systems Standards', source: 'International Telecommunication Union', year: '2023' },
+      { id: 2, title: 'RFC 7938: Use of BGP for Routing in Large-Scale Data Centers and Anycast Fabrics', source: 'Internet Engineering Task Force (IETF)', year: '2016' },
+      { id: 3, title: 'IEEE 802.3ck: 100 Gb/s, 200 Gb/s, and 400 Gb/s Electrical Interfaces for Next-Gen Ethernet', source: 'IEEE Standards Association', year: '2022' },
+      { id: 4, title: 'ISO/IEC 22237: Data Centre Facilities and Infrastructure Availability & Reliability Standards', source: 'ISO/IEC International Standard', year: '2024' },
+    ],
+  },
 };
 
 // Generic authoritative fallback citation generator tailored strictly to category

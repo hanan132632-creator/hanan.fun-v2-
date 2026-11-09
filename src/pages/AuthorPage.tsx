@@ -435,7 +435,7 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
               onClick={() => onNavigate('blog')}
               className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-2 cursor-pointer shadow-sm"
             >
-              <span>{isRtl ? 'استعراض كافة المقالات (38)' : 'View All 38 Articles'}</span>
+              <span>{isRtl ? 'استعراض كافة المقالات (39)' : 'View All 39 Articles'}</span>
               <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
             </button>
           </div>

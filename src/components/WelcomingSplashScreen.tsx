@@ -106,7 +106,7 @@ export const WelcomingSplashScreen: React.FC<WelcomingSplashScreenProps> = ({ cu
           <div className="p-2.5 rounded-2xl bg-slate-900/80 border border-slate-800/80 text-center flex flex-col items-center justify-center gap-1 shadow-xs">
             <CheckCircle2 className="w-4 h-4 text-cyan-400" />
             <span className="text-[10px] sm:text-[11px] font-bold text-slate-300">
-              {isAr ? '38 دراسة أصيلة' : '38 Studies'}
+              {isAr ? '39 دراسة أصيلة' : '39 Studies'}
             </span>
           </div>
         </div>

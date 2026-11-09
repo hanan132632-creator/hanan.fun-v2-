@@ -62,14 +62,14 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     hero_title_1: 'استكشف منظومة',
     hero_title_accent: 'السيرفرات والشبكات السحابية',
     hero_title_2: 'بأعلى مستويات الاستقرار والسرعة العالمية',
-    hero_desc: 'منصة هندسية عالمية تقدم خدمات السيرفرات السحابية Cloud VPS، شبكات توزيع المحتوى Anycast CDN، جدران الحماية السيبرانية WAF، مع مكتبة معرفية تضم 38 مقالاً ودراسة تقنية متخصصة.',
+    hero_desc: 'منصة هندسية عالمية تقدم خدمات السيرفرات السحابية Cloud VPS، شبكات توزيع المحتوى Anycast CDN، جدران الحماية السيبرانية WAF، مع مكتبة معرفية تضم 39 مقالاً ودراسة تقنية متخصصة.',
     hero_stat_uptime: '99.99%',
     hero_stat_uptime_label: 'ضمان استقرار التشغيل SLA',
     hero_stat_speed: '< 10ms',
     hero_stat_speed_label: 'زمن استجابة فائق السرعة',
     hero_stat_servers: '240+',
     hero_stat_servers_label: 'عقدة حضور Anycast PoP',
-    hero_stat_clients: '38',
+    hero_stat_clients: '39',
     hero_stat_clients_label: 'دراسة ومقال تخصصي',
 
     // Sections
@@ -212,7 +212,7 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     hero_stat_speed_label: 'Ultra-low Edge Latency',
     hero_stat_servers: '240+',
     hero_stat_servers_label: 'Global Edge PoPs',
-    hero_stat_clients: '38',
+    hero_stat_clients: '39',
     hero_stat_clients_label: 'Architectural Studies',
 
     sec_featured_services: 'Featured Cloud & Web Solutions',
