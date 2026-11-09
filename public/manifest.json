@@ -1,0 +1,32 @@
+{
+  "name": "منظومة خدمات الإنترنت العالمية | Global Internet Services (GIS Network)",
+  "short_name": "GIS Network",
+  "description": "منصة عالمية متكاملة لخدمات البنية التحتية، السيرفرات السحابية، شبكات CDN، الأمن السيبراني، ومكتبة المعرفة والتقنية 2026.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/app-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}

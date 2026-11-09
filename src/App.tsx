@@ -33,15 +33,24 @@ const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m
 const CartDrawer = lazy(() => import('./components/CartDrawer').then(m => ({ default: m.CartDrawer })));
 const AiAssistantModal = lazy(() => import('./components/AiAssistantModal').then(m => ({ default: m.AiAssistantModal })));
 const MobileOptimizerModal = lazy(() => import('./components/MobileOptimizerModal').then(m => ({ default: m.MobileOptimizerModal })));
+import { WelcomingSplashScreen } from './components/WelcomingSplashScreen';
 
-const PageLoadingSkeleton = () => (
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse space-y-6">
-    <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-xl w-48"></div>
-    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded-lg w-96"></div>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
-      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
-      <div className="h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl"></div>
+const PageLoadingSkeleton: React.FC<{ isAr?: boolean }> = ({ isAr = true }) => (
+  <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 space-y-4">
+    <div className="relative">
+      <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 p-0.5 shadow-lg shadow-blue-500/25 animate-pulse">
+        <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[14px] flex items-center justify-center">
+          <div className="w-5 h-5 border-2 border-blue-600 dark:border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        </div>
+      </div>
+    </div>
+    <div className="text-center space-y-1">
+      <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
+        {isAr ? 'جاري تجهيز الموارد السحابية...' : 'Loading GIS Cloud Resources...'}
+      </div>
+      <div className="text-[11px] text-slate-400 font-mono">
+        GIS Network • Active Edge Nodes
+      </div>
     </div>
   </div>
 );
@@ -58,6 +67,20 @@ export default function App() {
     const saved = typeof window !== 'undefined' ? localStorage.getItem('gis_curr') as Currency : null;
     return saved || 'USD';
   });
+
+  // Welcoming Splash Screen State (active on fresh app open/refresh)
+  const [showSplash, setShowSplash] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const alreadyWelcomed = sessionStorage.getItem('gis_welcomed');
+    return !alreadyWelcomed;
+  });
+
+  const handleSplashFinish = () => {
+    setShowSplash(false);
+    try {
+      sessionStorage.setItem('gis_welcomed', 'true');
+    } catch {}
+  };
 
   // URL Path to ActivePage resolver
   const getInitialPage = (): ActivePage => {
@@ -305,6 +328,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-pink-600 selection:text-white">
+      {/* Welcoming Splash Screen to eliminate white page flash */}
+      {showSplash && (
+        <WelcomingSplashScreen
+          currentLang={currentLang}
+          onFinish={handleSplashFinish}
+        />
+      )}
+
       {/* Top Navigation */}
       <Navbar
         currentLang={currentLang}
@@ -336,7 +367,7 @@ export default function App() {
           />
         )}
 
-        <Suspense fallback={<PageLoadingSkeleton />}>
+        <Suspense fallback={<PageLoadingSkeleton isAr={currentLang === 'ar'} />}>
           {activePage === 'store' && (
             <StorePage
               currentLang={currentLang}

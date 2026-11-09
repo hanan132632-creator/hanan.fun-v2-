@@ -143,6 +143,19 @@ async function startServer() {
     }
   });
 
+  // Web App Manifest endpoint for PWA & Android app launcher
+  app.get(["/manifest.json", "/site.webmanifest"], (_req, res) => {
+    res.setHeader("Content-Type", "application/manifest+json; charset=utf-8");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    const manifestPath = path.join(process.cwd(), "public", "manifest.json");
+    if (fs.existsSync(manifestPath)) {
+      res.sendFile(manifestPath);
+    } else {
+      res.status(404).end();
+    }
+  });
+
   // Sitemap.xml endpoint
   app.get(["/sitemap.xml", "/sitemap_index.xml", "/sitemap"], (_req, res) => {
     res.setHeader("Content-Type", "application/xml; charset=utf-8");
