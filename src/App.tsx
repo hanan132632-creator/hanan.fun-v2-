@@ -33,7 +33,6 @@ const SpeedTestWidget = lazy(() => import('./components/SpeedTestWidget').then(m
 const CartDrawer = lazy(() => import('./components/CartDrawer').then(m => ({ default: m.CartDrawer })));
 const AiAssistantModal = lazy(() => import('./components/AiAssistantModal').then(m => ({ default: m.AiAssistantModal })));
 const MobileOptimizerModal = lazy(() => import('./components/MobileOptimizerModal').then(m => ({ default: m.MobileOptimizerModal })));
-import { WelcomingSplashScreen } from './components/WelcomingSplashScreen';
 
 const PageLoadingSkeleton: React.FC<{ isAr?: boolean }> = ({ isAr = true }) => (
   <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 space-y-4">
@@ -67,20 +66,6 @@ export default function App() {
     const saved = typeof window !== 'undefined' ? localStorage.getItem('gis_curr') as Currency : null;
     return saved || 'USD';
   });
-
-  // Welcoming Splash Screen State (active on fresh app open/refresh)
-  const [showSplash, setShowSplash] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    const alreadyWelcomed = sessionStorage.getItem('gis_welcomed');
-    return !alreadyWelcomed;
-  });
-
-  const handleSplashFinish = () => {
-    setShowSplash(false);
-    try {
-      sessionStorage.setItem('gis_welcomed', 'true');
-    } catch {}
-  };
 
   // URL Path to ActivePage resolver
   const getInitialPage = (): ActivePage => {
@@ -328,14 +313,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-pink-600 selection:text-white">
-      {/* Welcoming Splash Screen to eliminate white page flash */}
-      {showSplash && (
-        <WelcomingSplashScreen
-          currentLang={currentLang}
-          onFinish={handleSplashFinish}
-        />
-      )}
-
       {/* Top Navigation */}
       <Navbar
         currentLang={currentLang}
