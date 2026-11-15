@@ -17,6 +17,14 @@
       "destination": "/ads.txt"
     },
     {
+      "source": "/app-ads.txt",
+      "destination": "/app-ads.txt"
+    },
+    {
+      "source": "/.well-known/app-ads.txt",
+      "destination": "/app-ads.txt"
+    },
+    {
       "source": "/robots.txt",
       "destination": "/robots.txt"
     },
@@ -240,6 +248,23 @@
     },
     {
       "source": "/ads.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=UTF-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/app-ads.txt",
       "headers": [
         {
           "key": "Content-Type",
