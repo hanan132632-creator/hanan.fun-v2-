@@ -51,8 +51,10 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
 
   // Filter articles associated with this author or all articles
   const authorArticles = BLOG_POSTS.filter(post => {
-    if (author.id === 'hanan-al-ali') {
-      return post.author.name.includes('حنان') || post.category === 'seo' || post.category === 'infrastructure';
+    if (author.id === 'nadia-mansour') {
+      return post.author.authorId === 'nadia-mansour' || post.author.name.includes('نادية');
+    } else if (author.id === 'hanan-al-ali') {
+      return post.author.name.includes('حنان') || post.category === 'seo' || (post.category === 'infrastructure' && !post.author.name.includes('نادية'));
     } else if (author.id === 'tarek-kamal') {
       return post.author.name.includes('طارق') || post.author.name.includes('فريق') || post.category === 'cloud' || post.category === 'security';
     } else {
@@ -182,7 +184,7 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {EDITORIAL_AUTHORS.map((item) => {
             const isSelected = item.id === activeAuthorId;
             return (
@@ -435,7 +437,7 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
               onClick={() => onNavigate('blog')}
               className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-2 cursor-pointer shadow-sm"
             >
-              <span>{isRtl ? 'استعراض كافة المقالات (39)' : 'View All 39 Articles'}</span>
+              <span>{isRtl ? 'استعراض كافة المقالات (40)' : 'View All 40 Articles'}</span>
               <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
             </button>
           </div>

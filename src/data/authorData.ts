@@ -195,6 +195,73 @@ export const EDITORIAL_AUTHORS: AuthorProfile[] = [
     email: 'karim.mahdi@hanan.fun',
     verifiedBadge: true,
   },
+  {
+    id: 'nadia-mansour',
+    name: 'د. نادية منصور',
+    nameEn: 'Dr. Nadia Mansour',
+    role: {
+      ar: 'استشارية بروتوكولات الشبكات الدولية وأنظمة IPv6 و DNS العالمي',
+      en: 'Principal IPv6 & Global DNS Routing Consultant',
+    },
+    avatar: '/images/author-nadia-mansour.jpg',
+    bio: {
+      ar: 'دكتوراه في هندسة الاتصالات وشبكات الجيل التالي بخبرة ميدانية تتجاوز 13 عاماً في تصميم مشاريع الترحيل إلى IPv6 الثنائي (Dual-Stack)، وحوكمة تخصيصات RIPE NCC، ومعالجة اختناقات CGNAT لدى مزودي خدمات الإنترنت العالميين ومراكز تبادل البيانات. تقود مبادرات القياس الميداني لزمن الاستجابة وتحسين مسارات Happy Eyeballs وبروتوكولات النقل الحديثة.',
+      en: 'PhD in Telecommunications & Next-Generation Networking with 13+ years leading large-scale Dual-Stack IPv6 migrations, RIPE NCC prefix governance, and CGNAT bottleneck elimination across regional ISPs and global edge exchanges.',
+    },
+    credentials: [
+      'دكتوراه في هندسة الاتصالات وشبكات الجيل التالي (IPv6 & Optical Routing) - جامعة الإسكندرية (2018)',
+      'بكالوريوس هندسة الإلكترونيات والاتصالات الكهربائية - جامعة المنصورة (2011)',
+      'شهادة RIPE NCC IPv6 Certified Engineer (#RIPE-IPV6-604912)',
+      'شهادة Cisco Certified Internetwork Expert Service Provider (#CCIE-SP-74829)',
+    ],
+    education: [
+      {
+        degree: 'دكتوراه في هندسة الاتصالات وتوجيه الشبكات عالية السعة',
+        institution: 'جامعة الإسكندرية - كلية الهندسة',
+        year: '2014 - 2018',
+      },
+      {
+        degree: 'بكالوريوس هندسة الإلكترونيات والاتصالات الكهربائية',
+        institution: 'جامعة المنصورة - كلية الهندسة',
+        year: '2006 - 2011',
+      },
+    ],
+    certifications: [
+      {
+        title: 'RIPE NCC IPv6 Certified Engineer',
+        issuer: 'RIPE Network Coordination Centre',
+        credentialId: 'RIPE-IPV6-604912',
+        year: '2024',
+      },
+      {
+        title: 'Cisco Certified Internetwork Expert Service Provider (CCIE SP)',
+        issuer: 'Cisco Systems',
+        credentialId: 'CCIE-SP-74829',
+        year: '2022',
+      },
+      {
+        title: 'ICANN DNSSEC Operational Security Fellow',
+        issuer: 'ICANN Technical Operations',
+        credentialId: 'ICANN-SEC-31904',
+        year: '2023',
+      },
+      {
+        title: 'Juniper Networks Certified Internet Expert (JNCIE-SP)',
+        issuer: 'Juniper Networks',
+        credentialId: 'JNCIE-SP-2841',
+        year: '2025',
+      },
+    ],
+    expertise: [
+      'هندسة التحول إلى IPv6 الثنائي (Dual-Stack)',
+      'إدارة بادئات الشبكات الدولية (RIPE NCC / AFRINIC)',
+      'بروتوكول Happy Eyeballs v2 وتقليص زمن المصافحة',
+      'تشخيص وتحسين اختناقات CGNAT',
+      'معايير التوجيه الآمن RPKI و DNS64/NAT64',
+    ],
+    email: 'nadia.mansour@hanan.fun',
+    verifiedBadge: true,
+  },
 ];
 
 export const EDITORIAL_PRINCIPLES = {

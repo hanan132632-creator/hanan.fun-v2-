@@ -35,8 +35,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
     },
     { 
       year: '2026', 
-      title: isAr ? 'إطلاق درع WAF ومكتبة الـ 39 مقالاً الهندسية' : 'Enterprise WAF & 39 Tech Pillars', 
-      desc: isAr ? 'تدشين جدار حماية تطبيقات الويب المتطور وسعة صد هجمات تفوق 15 تيرابت، مع مكتبة توثيقية تضم 39 دراسة معمارية أصيلة.' : 'Deployment of AI-driven Layer-7 WAF scrubbing and comprehensive 39-article engineering encyclopedia.' 
+      title: isAr ? 'إطلاق درع WAF ومكتبة الـ 40 مقالاً الهندسية' : 'Enterprise WAF & 40 Tech Pillars', 
+      desc: isAr ? 'تدشين جدار حماية تطبيقات الويب المتطور وسعة صد هجمات تفوق 15 تيرابت، مع مكتبة توثيقية تضم 40 دراسة معمارية أصيلة.' : 'Deployment of AI-driven Layer-7 WAF scrubbing and comprehensive 40-article engineering encyclopedia.' 
     },
   ];
 
@@ -59,6 +59,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
       bio: isAr ? 'فريق متخصص في صد هجمات حجب الخدمة الموزعة DDoS، واختبار الاختراق الأخلاقي وتأمين سجلات DNSSEC وتشفير TLS 1.3.' : 'Dedicated cybersecurity specialists managing real-time threat telemetry and L7 WAF firewall policies.',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
     },
+    {
+      name: isAr ? 'د. نادية منصور' : 'Dr. Nadia Mansour',
+      role: isAr ? 'استشارية بروتوكولات الشبكات الدولية و IPv6' : 'Principal IPv6 & Global DNS Routing Consultant',
+      bio: isAr ? 'دكتوراه في هندسة الاتصالات وخبيرة معتمدة من RIPE NCC و Cisco CCIE SP في ترحيل الشبكات العالمية إلى IPv6 الثنائي وإزالة اختناقات CGNAT.' : 'PhD in Telecommunications and RIPE NCC / Cisco CCIE SP certified consultant specializing in Dual-Stack IPv6 migrations.',
+      avatar: '/images/author-nadia-mansour.jpg',
+    },
   ];
 
   return (
@@ -74,7 +80,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
         </h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
           {isAr
-            ? 'تأسست منظومة خدمات الإنترنت العالمية (GIS Network) لتوفير بنية سحابية فائقة الأداء تعتمد على تقنيات Anycast ومعالجات AMD EPYC وشبكات الألياف الضوئية العابرة للقارات، مدعومة بمكتبة توثيقية تضم 39 مقالاً هندسياً أصيلاً لخدمة مجتمع المطورين ورواد الأعمال.'
+            ? 'تأسست منظومة خدمات الإنترنت العالمية (GIS Network) لتوفير بنية سحابية فائقة الأداء تعتمد على تقنيات Anycast ومعالجات AMD EPYC وشبكات الألياف الضوئية العابرة للقارات، مدعومة بمكتبة توثيقية تضم 40 مقالاً هندسياً أصيلاً لخدمة مجتمع المطورين ورواد الأعمال.'
             : 'We empower enterprises, startups, and developers worldwide with resilient cloud virtualization, sub-millisecond edge content delivery, and robust cyber defenses.'}
         </p>
       </div>
@@ -92,7 +98,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
         </div>
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="text-3xl sm:text-4xl font-black text-emerald-500">39</div>
+          <div className="text-3xl sm:text-4xl font-black text-emerald-500">40</div>
           <div className="text-xs font-bold text-slate-500 mt-1">{isAr ? 'مقال ودراسة معمارية أصيلة' : 'Original Tech Studies'}</div>
         </div>
 
@@ -158,7 +164,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, onNavigate })
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {leadership.map((member, i) => (
             <div key={i} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 text-center">
               <div className="w-20 h-20 rounded-full mx-auto overflow-hidden border-2 border-blue-500/30 shadow-md">

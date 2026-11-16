@@ -92,7 +92,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   
   const authorProfile = EDITORIAL_AUTHORS.find(a => {
     if (postMeta?.authorId) return a.id === postMeta.authorId;
+    if (activeArticle?.author.authorId) return a.id === activeArticle.author.authorId;
     if (activeArticle?.author.name.includes('حنان')) return a.id === 'hanan-al-ali';
+    if (activeArticle?.author.name.includes('نادية')) return a.id === 'nadia-mansour';
     if (activeArticle?.author.name.includes('كريم')) return a.id === 'karim-al-mahdi';
     return a.id === 'tarek-kamal';
   }) || EDITORIAL_AUTHORS[0];
