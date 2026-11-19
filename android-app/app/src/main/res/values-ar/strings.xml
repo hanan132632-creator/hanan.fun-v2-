@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">خدمات الإنترنت العالمية</string>
+    <string name="offline_title">لا يوجد اتصال بالإنترنت</string>
+    <string name="offline_subtitle">يرجى التأكد من اتصالك بالإنترنت ثم المحاولة مرة أخرى.</string>
+    <string name="retry_button">إعادة المحاولة</string>
+</resources>
