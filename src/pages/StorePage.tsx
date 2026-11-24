@@ -23,6 +23,7 @@ import {
   FREE_PRELAUNCH_CHECKLIST_EN,
 } from '../data/digitalProducts';
 import { AdSensePlacement } from '../components/AdSensePlacement';
+import { isInsideAndroidApp } from '../utils/appEnvironment';
 
 interface StorePageProps {
   currentLang: Language;
@@ -48,6 +49,7 @@ export const StorePage: React.FC<StorePageProps> = ({
   const [selectedProductForModal, setSelectedProductForModal] = useState<DigitalProduct | null>(null);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const [downloadedChecklist, setDownloadedChecklist] = useState(false);
+  const isAndroidApp = isInsideAndroidApp();
 
   const currentCurrObj = CURRENCIES.find(c => c.code === currentCurrency) || CURRENCIES[0];
 
@@ -133,13 +135,23 @@ export const StorePage: React.FC<StorePageProps> = ({
               {isAr ? 'أدلة وقوالب رقمية جاهزة' : 'Digital Playbooks & Ready Kits'}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              {isAr
+              {isAndroidApp
+                ? isAr
+                  ? 'فهرس استعراضي للأدلة الهندسية ومحتوياتها وموارد التحضير المجانية.'
+                  : 'Reference overview of our technical playbooks and free compliance checklist.'
+                : isAr
                 ? 'دفع آمن مباشرة عبر PayPal وتُسلم الملفات رقمياً إلى بريدك الإلكتروني.'
                 : 'Secure one-time PayPal checkout with direct digital delivery to your email.'}
             </p>
           </div>
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">
-            {isAr ? 'دفع آمن عبر PayPal' : 'PayPal Verified Checkout'}
+            {isAndroidApp
+              ? isAr
+                ? 'نسخة استعراض المحتوى'
+                : 'Reference Preview'
+              : isAr
+              ? 'دفع آمن عبر PayPal'
+              : 'PayPal Verified Checkout'}
           </span>
         </div>
 
@@ -147,7 +159,8 @@ export const StorePage: React.FC<StorePageProps> = ({
           {DIGITAL_PRODUCTS.map(product => (
             <article
               key={product.id}
-              className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              id={product.id}
+              className="scroll-mt-24 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div>
                 {/* 4:3 Product Cover */}
@@ -208,7 +221,15 @@ export const StorePage: React.FC<StorePageProps> = ({
                   </button>
                 </div>
 
-                {product.externalCheckoutUrl ? (
+                {isAndroidApp ? (
+                  <button
+                    onClick={() => setSelectedProductForModal(product)}
+                    className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    <span>{isAr ? 'استعراض محتويات الدليل' : 'Preview Guide Contents'}</span>
+                  </button>
+                ) : product.externalCheckoutUrl ? (
                   <div className="space-y-2">
                     <a
                       href={product.externalCheckoutUrl}
@@ -246,7 +267,10 @@ export const StorePage: React.FC<StorePageProps> = ({
         </div>
 
         {/* Free Working Downloadable Resource */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div
+          id="free-checklist"
+          className="scroll-mt-24 p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6"
+        >
           <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
               <FileText className="w-4 h-4" />
@@ -536,32 +560,40 @@ export const StorePage: React.FC<StorePageProps> = ({
                   {formatPrice(selectedProductForModal.basePriceUSD, 'one-time')}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => {
-                    onAddToCart(selectedProductForModal, 'monthly');
-                    setSelectedProductForModal(null);
-                  }}
-                  className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs rounded-xl transition-colors"
-                >
-                  {isAr ? 'أضف للسلة' : 'Add to Cart'}
-                </button>
-                {selectedProductForModal.externalCheckoutUrl && (
-                  <a
-                    href={selectedProductForModal.externalCheckoutUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold text-xs rounded-xl transition-colors inline-flex items-center gap-1.5"
+              {isAndroidApp ? (
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  {isAr
+                    ? 'عرض معلوماتي فقط داخل تطبيق أندرويد.'
+                    : 'Informational preview inside Android app.'}
+                </span>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      onAddToCart(selectedProductForModal, 'monthly');
+                      setSelectedProductForModal(null);
+                    }}
+                    className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs rounded-xl transition-colors"
                   >
-                    <span>
-                      {isAr
-                        ? `شراء عبر PayPal ($${selectedProductForModal.basePriceUSD})`
-                        : `PayPal ($${selectedProductForModal.basePriceUSD})`}
-                    </span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </div>
+                    {isAr ? 'أضف للسلة' : 'Add to Cart'}
+                  </button>
+                  {selectedProductForModal.externalCheckoutUrl && (
+                    <a
+                      href={selectedProductForModal.externalCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold text-xs rounded-xl transition-colors inline-flex items-center gap-1.5"
+                    >
+                      <span>
+                        {isAr
+                          ? `شراء عبر PayPal ($${selectedProductForModal.basePriceUSD})`
+                          : `PayPal ($${selectedProductForModal.basePriceUSD})`}
+                      </span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ import confetti from 'canvas-confetti';
 import { Language, Currency, CartItem } from '../types';
 import { TRANSLATIONS, CURRENCIES } from '../locales/translations';
 import { buildPayPalCheckoutUrl } from '../data/digitalProducts';
+import { isInsideAndroidApp } from '../utils/appEnvironment';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -50,6 +51,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [orderTicket, setOrderTicket] = useState('');
   const [submittedSummary, setSubmittedSummary] = useState('');
+  const isAndroidApp = isInsideAndroidApp();
 
   if (!isOpen) return null;
 
@@ -160,7 +162,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     cartItems.length === 1
       ? `${cartItems[0].service.name.en} (${orderTicket || 'GIS'})`
       : `GIS Store Order (${cartItems.length} items) - ${orderTicket || 'GIS'}`;
-  const paypalCheckoutHref = totalUSD > 0 ? buildPayPalCheckoutUrl(paypalOrderTitle, totalUSD) : '';
+  const paypalCheckoutHref =
+    !isAndroidApp && totalUSD > 0 ? buildPayPalCheckoutUrl(paypalOrderTitle, totalUSD) : '';
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
@@ -269,7 +272,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <div className="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-xs text-blue-900 dark:text-blue-200 flex items-start gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    {isAr
+                    {isAndroidApp
+                      ? isAr
+                        ? 'هذا النموذج لتسجيل طلبات الخدمات والاستشارات والتواصل المباشر مع الفريق الفني عبر support@hanan.fun.'
+                        : 'Submit service inquiries here for direct coordination with our engineering team via support@hanan.fun.'
+                      : isAr
                       ? 'لا نطلب إدخال بيانات بطاقات بنكية داخل الموقع. بعد تأكيد بياناتك، يظهر لك زر الدفع الآمن عبر PayPal مباشرة وإرسال تأكيد الطلب إلى support@hanan.fun.'
                       : 'We never collect raw card numbers on-site. After confirming your details, you can pay securely via PayPal and send your confirmation to support@hanan.fun.'}
                   </p>
@@ -345,7 +352,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       }`}
                     >
                       <div className="font-bold">
-                        {isAr ? 'الدفع الإلكتروني عبر PayPal (فوري وآمن)' : 'Online Payment via PayPal (Instant & Secure)'}
+                        {isAndroidApp
+                          ? isAr
+                            ? 'استلام تفاصيل الخدمة والعرض عبر البريد الإلكتروني'
+                            : 'Receive Service Proposal & Details via Email'
+                          : isAr
+                          ? 'الدفع الإلكتروني عبر PayPal (فوري وآمن)'
+                          : 'Online Payment via PayPal (Instant & Secure)'}
                       </div>
                     </button>
                     <button
