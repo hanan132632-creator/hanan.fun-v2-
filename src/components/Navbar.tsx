@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { page: ActivePage; label: string; icon: any }[] = [
     { page: 'home', label: t.nav_home, icon: Globe },
-    { page: 'store', label: currentLang === 'ar' ? 'الخدمات السحابية' : 'Cloud Services', icon: Server },
+    { page: 'store', label: currentLang === 'ar' ? 'المنتجات والخدمات' : 'Digital Store', icon: Server },
     { page: 'blog', label: currentLang === 'ar' ? 'المكتبة التقنية (40)' : 'Tech Blog (40)', icon: BookOpen },
     { page: 'diagnostics', label: currentLang === 'ar' ? 'فاحص السرعة' : 'Speed Test', icon: Activity },
     { page: 'audio-to-video', label: currentLang === 'ar' ? 'استوديو الفيديو' : 'Video Studio', icon: Video },

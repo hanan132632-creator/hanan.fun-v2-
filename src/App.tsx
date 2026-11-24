@@ -324,7 +324,7 @@ export default function App() {
         isDarkMode={isDarkMode}
         onToggleTheme={() => setIsDarkMode(!isDarkMode)}
         cartItems={cartItems}
-        onOpenCart={() => {}}
+        onOpenCart={() => setCartDrawerOpen(true)}
         onOpenAiAssistant={() => setAiAssistantOpen(true)}
         onOpenMobileOptimizer={() => setMobileOptimizerOpen(true)}
       />
@@ -350,6 +350,8 @@ export default function App() {
               currentLang={currentLang}
               currentCurrency={currentCurrency}
               onAddToCart={handleAddToCart}
+              cartCount={cartItems.length}
+              onOpenCart={() => setCartDrawerOpen(true)}
             />
           )}
 
